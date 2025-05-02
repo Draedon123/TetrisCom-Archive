@@ -1,0 +1,10 @@
+{
+  "name": "tetris",
+  "version": "0.0.0",
+  "scripts": {
+    "format": "prettier . -w"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}
