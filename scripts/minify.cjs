@@ -10,14 +10,13 @@ const TERSER_OPTIONS = {
     ecma: 2020,
     expression: true,
     keep_fargs: false,
-    module: true,
-    toplevel: true,
     passes: 3,
-    unsafe: true,
+    unused: false,
   },
   mangle: {
     module: true,
     toplevel: true,
+    keep_fnames: /gameLoadingSceneIsReady|onGameAreaAdComplete/,
   },
   format: {
     comments: false,

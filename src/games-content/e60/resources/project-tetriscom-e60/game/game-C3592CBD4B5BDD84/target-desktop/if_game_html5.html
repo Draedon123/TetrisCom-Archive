@@ -122,225 +122,221 @@
     </script>
 
     <script type="text/javascript">
-      var t = 1746175250;
+      // var isIFrame =
+      //   window.frameElement && window.frameElement.nodeName == "IFRAME";
+      // if ("true" == "1" && !isIFrame) {
+      //   // window.location.replace(
+      //   //   window.location.protocol + "//" + window.location.hostname
+      //   // );
+      // } else {
+      //----------------------------------------------------------------
 
-      var isIFrame =
-        window.frameElement && window.frameElement.nodeName == "IFRAME";
-      if ("true" == "1" && !isIFrame) {
-        // window.location.replace(
-        //   window.location.protocol + "//" + window.location.hostname
-        // );
-      } else {
-        //----------------------------------------------------------------
+      // var pageStartTimeMSEC = Date.now();
+      // var cbidg = "CF0C634B7D81C50C";
+      // var isDesktop = "1" == "1";
+      // var isMobile = "" == "1";
 
-        var pageStartTimeMSEC = Date.now();
-        var cbidg = "CF0C634B7D81C50C";
-        var isDesktop = "1" == "1";
-        var isMobile = "" == "1";
+      // var gameDiv = document.getElementById("GameDiv");
+      // var gameCanvas = document.getElementById("GameCanvas");
 
-        var gameDiv = document.getElementById("GameDiv");
-        var gameCanvas = document.getElementById("GameCanvas");
+      //----------------------------------------------------------------
+      //----------------------------------------------------------------
 
-        //----------------------------------------------------------------
-        //----------------------------------------------------------------
-
-        // function openURL(pURL, pTargetNewWindow) {
-        //   try {
-        //     window.parent.open(pURL, pTargetNewWindow ? "_blank" : "_self");
-        //   } catch (e) {}
-        // }
-        function getPageElapsedTimeMSEC() {
-          return isIFrame
-            ? window.parent.getPageElapsedTimeMSEC()
-            : Date.now() - pageStartTimeMSEC;
-        }
-        function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
-          return isIFrame
-            ? window.parent.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK()
-            : 0;
-        }
-        function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT() {
-          return isIFrame
-            ? window.parent.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT()
-            : 0;
-        }
-        function getCBID() {
-          return cbidg;
-        }
-        function getGameDiv() {
-          return gameDiv;
-        }
-        function getGameCanvas() {
-          return gameCanvas;
-        }
-        function getCurrentYear() {
-          return new Date().getFullYear();
-        }
-        function gameLoadingSceneIsReady() {
-          try {
-            removeLoadingDisplay();
-          } catch (e) {}
-          onGameAreaAdComplete();
-          document.getElementById("GameDiv").style.visibility = "visible";
-        }
-        function removeLoadingDisplay() {
-          //window.parent.console.log( "removeLoadingDisplay: getPageElapsedTimeMSEC=" + getPageElapsedTimeMSEC( ) );
-          //window.parent.trackGUAPageEvent( "Game Load Duration MS", "", getPageElapsedTimeMSEC( ), true );
+      // function openURL(pURL, pTargetNewWindow) {
+      //   try {
+      //     window.parent.open(pURL, pTargetNewWindow ? "_blank" : "_self");
+      //   } catch (e) {}
+      // }
+      // function getPageElapsedTimeMSEC() {
+      //   return isIFrame
+      //     ? window.parent.getPageElapsedTimeMSEC()
+      //     : Date.now() - pageStartTimeMSEC;
+      // }
+      // function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
+      //   return isIFrame ? window.parent.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() : 0;
+      // }
+      // function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT() {
+      //   return isIFrame
+      //     ? window.parent.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT()
+      //     : 0;
+      // }
+      // function getCBID() {
+      //   return cbidg;
+      // }
+      // function getGameDiv() {
+      //   return gameDiv;
+      // }
+      // function getGameCanvas() {
+      //   return gameCanvas;
+      // }
+      // function getCurrentYear() {
+      //   return new Date().getFullYear();
+      // }
+      function gameLoadingSceneIsReady() {
+        try {
+          removeLoadingDisplay();
+        } catch (e) {}
+        onGameAreaAdComplete();
+        document.getElementById("GameDiv").style.visibility = "visible";
+      }
+      function removeLoadingDisplay() {
+        //window.parent.console.log( "removeLoadingDisplay: getPageElapsedTimeMSEC=" + getPageElapsedTimeMSEC( ) );
+        //window.parent.trackGUAPageEvent( "Game Load Duration MS", "", getPageElapsedTimeMSEC( ), true );
+        {
+          var loadingText = document.getElementById("loadingText");
+          if (loadingText) {
+            loadingText.parentNode.removeChild(loadingText);
+          }
           {
-            var loadingText = document.getElementById("loadingText");
-            if (loadingText) {
-              loadingText.parentNode.removeChild(loadingText);
-            }
-            {
-              var loadingDisplay = document.getElementById("loadingDisplay");
-              if (loadingDisplay) {
-                loadingDisplay.parentNode.removeChild(loadingDisplay);
-              }
+            var loadingDisplay = document.getElementById("loadingDisplay");
+            if (loadingDisplay) {
+              loadingDisplay.parentNode.removeChild(loadingDisplay);
             }
           }
         }
-        // function trackGUAEvent(
-        //   category,
-        //   action,
-        //   opt_label,
-        //   opt_value,
-        //   opt_noninteraction
-        // ) {
-        //   if (isIFrame) {
-        //     try {
-        //       window.parent.trackGUAEvent(
-        //         category,
-        //         action,
-        //         opt_label,
-        //         opt_value,
-        //         opt_noninteraction
-        //       );
-        //     } catch (e) {}
-        //   }
-        // }
-        // function trackGA4PageEvent(pEventName, pParameters) {
-        //   if (isIFrame) {
-        //     try {
-        //       window.parent.trackGA4PageEvent(pEventName, pParameters);
-        //     } catch (e) {}
-        //   }
-        // }
-        // function trackGA4GameEvent(pEventName, pParameters) {
-        //   if (isIFrame) {
-        //     try {
-        //       window.parent.trackGA4GameEvent(pEventName, pParameters);
-        //     } catch (e) {}
-        //   }
-        // }
-        // function refreshAds() {
-        //   if (isIFrame) {
-        //     window.parent.refreshAds();
-        //   }
-        // }
-        // function isGameAreaAdEnabled() {
-        //   return isIFrame ? window.parent.canShowAds : false;
-        // }
-        // function isGameAreaAdActive() {
-        //   return isIFrame ? window.parent.isGameAreaAdActive : false;
-        // }
-        // function showGameAreaAd(pType = "next") {
-        //   onGameAreaAdComplete();
-        //   // if ( isIFrame ) { window.parent.showGameAreaAd( ); }
-        // }
-
-        function onGameAreaAdComplete() {
-          var onGameAreaAdCompleteInterval = setInterval(function () {
-            try {
-              if (window.mBPSApp) {
-                clearInterval(onGameAreaAdCompleteInterval);
-                window.parent.document.activeElement.blur();
-                window.parent.document.getElementById("gameIFrame").focus();
-                document.activeElement.blur();
-                document.getElementById("GameCanvas").focus();
-                window.mBPSApp.dispatchAppMessage(979287055);
-              }
-            } catch (e) {}
-          }, 100);
-        }
-
-        //----------------------------------------------------------------
-        //-- GAFGHTML5:
-
-        // function axGAFGHTML5_beforeAx() {
-        //   //window.console.log("axGAFGHTML5_beforeAx");
-        // }
-
-        // function axGAFGHTML5_afterAx() {
-        //   //window.console.log("axGAFGHTML5_afterAx");
-        // }
-
-        // function axGAFGHTML5_axBreakDone(pPlacementInfo) {
-        //   //window.console.log("axGAFGHTML5_axBreakDone");
-        //   //window.console.log(pPlacementInfo);
-        //   switch (pPlacementInfo.breakStatus) {
-        //     case "timeout":
-        //       trackGUAEvent(
-        //         "Game Page",
-        //         "ads_google_h5",
-        //         "system_timeout",
-        //         0,
-        //         true
-        //       );
-        //       trackGA4PageEvent("ads_google_h5__system_timeout", {});
-        //       break;
-
-        //     case "dismissed":
-        //       trackGUAEvent(
-        //         "Game Page",
-        //         "ads_google_h5",
-        //         "ad_skipped",
-        //         0,
-        //         true
-        //       );
-        //       trackGA4PageEvent("ads_google_h5__ad_skipped", {});
-        //       break;
-
-        //     case "viewed":
-        //       trackGUAEvent(
-        //         "Game Page",
-        //         "ads_google_h5",
-        //         "ad_complete",
-        //         0,
-        //         true
-        //       );
-        //       trackGA4PageEvent("ads_google_h5__ad_complete", {});
-        //       break;
-
-        //     default:
-        //       trackGUAEvent(
-        //         "Game Page",
-        //         "ads_google_h5",
-        //         "no_ad_delivered",
-        //         0,
-        //         true
-        //       );
-        //       trackGA4PageEvent("ads_google_h5__no_ad_delivered", {});
-        //       break;
-        //   }
-        //   window.parent.onGameAreaAdComplete();
-        // }
-
-        // function axGAFGHTML5_onReadyTimeout() {
-        //   //window.console.log("axGAFGHTML5_onReadyTimeout");
-        //   trackGUAEvent(
-        //     "Game Page",
-        //     "ads_google_h5",
-        //     "system_timeout",
-        //     0,
-        //     true
-        //   );
-        //   trackGA4PageEvent("ads_google_h5__system_timeout", {});
-        //   axGAFGHTML_didOnReadyTimeout = true;
-        //   window.parent.onGameAreaAdFailed();
-        // }
-
-        //----------------------------------------------------------------
       }
+      // function trackGUAEvent(
+      //   category,
+      //   action,
+      //   opt_label,
+      //   opt_value,
+      //   opt_noninteraction
+      // ) {
+      //   if (isIFrame) {
+      //     try {
+      //       window.parent.trackGUAEvent(
+      //         category,
+      //         action,
+      //         opt_label,
+      //         opt_value,
+      //         opt_noninteraction
+      //       );
+      //     } catch (e) {}
+      //   }
+      // }
+      // function trackGA4PageEvent(pEventName, pParameters) {
+      //   if (isIFrame) {
+      //     try {
+      //       window.parent.trackGA4PageEvent(pEventName, pParameters);
+      //     } catch (e) {}
+      //   }
+      // }
+      // function trackGA4GameEvent(pEventName, pParameters) {
+      //   if (isIFrame) {
+      //     try {
+      //       window.parent.trackGA4GameEvent(pEventName, pParameters);
+      //     } catch (e) {}
+      //   }
+      // }
+      // function refreshAds() {
+      //   if (isIFrame) {
+      //     window.parent.refreshAds();
+      //   }
+      // }
+      // function isGameAreaAdEnabled() {
+      //   return isIFrame ? window.parent.canShowAds : false;
+      // }
+      // function isGameAreaAdActive() {
+      //   return isIFrame ? window.parent.isGameAreaAdActive : false;
+      // }
+      // function showGameAreaAd(pType = "next") {
+      //   onGameAreaAdComplete();
+      //   // if ( isIFrame ) { window.parent.showGameAreaAd( ); }
+      // }
+
+      function onGameAreaAdComplete() {
+        // var onGameAreaAdCompleteInterval = setInterval(function () {
+        //   try {
+        //     if (window.mBPSApp) {
+        // clearInterval(onGameAreaAdCompleteInterval);
+        window.parent.document.activeElement.blur();
+        window.parent.document.getElementById("gameIFrame").focus();
+        document.activeElement.blur();
+        document.getElementById("GameCanvas").focus();
+        window.mBPSApp.dispatchAppMessage(979287055);
+        //     }
+        //   } catch (e) {}
+        // }, 100);
+      }
+
+      //----------------------------------------------------------------
+      //-- GAFGHTML5:
+
+      // function axGAFGHTML5_beforeAx() {
+      //   //window.console.log("axGAFGHTML5_beforeAx");
+      // }
+
+      // function axGAFGHTML5_afterAx() {
+      //   //window.console.log("axGAFGHTML5_afterAx");
+      // }
+
+      // function axGAFGHTML5_axBreakDone(pPlacementInfo) {
+      //   //window.console.log("axGAFGHTML5_axBreakDone");
+      //   //window.console.log(pPlacementInfo);
+      //   switch (pPlacementInfo.breakStatus) {
+      //     case "timeout":
+      //       trackGUAEvent(
+      //         "Game Page",
+      //         "ads_google_h5",
+      //         "system_timeout",
+      //         0,
+      //         true
+      //       );
+      //       trackGA4PageEvent("ads_google_h5__system_timeout", {});
+      //       break;
+
+      //     case "dismissed":
+      //       trackGUAEvent(
+      //         "Game Page",
+      //         "ads_google_h5",
+      //         "ad_skipped",
+      //         0,
+      //         true
+      //       );
+      //       trackGA4PageEvent("ads_google_h5__ad_skipped", {});
+      //       break;
+
+      //     case "viewed":
+      //       trackGUAEvent(
+      //         "Game Page",
+      //         "ads_google_h5",
+      //         "ad_complete",
+      //         0,
+      //         true
+      //       );
+      //       trackGA4PageEvent("ads_google_h5__ad_complete", {});
+      //       break;
+
+      //     default:
+      //       trackGUAEvent(
+      //         "Game Page",
+      //         "ads_google_h5",
+      //         "no_ad_delivered",
+      //         0,
+      //         true
+      //       );
+      //       trackGA4PageEvent("ads_google_h5__no_ad_delivered", {});
+      //       break;
+      //   }
+      //   window.parent.onGameAreaAdComplete();
+      // }
+
+      // function axGAFGHTML5_onReadyTimeout() {
+      //   //window.console.log("axGAFGHTML5_onReadyTimeout");
+      //   trackGUAEvent(
+      //     "Game Page",
+      //     "ads_google_h5",
+      //     "system_timeout",
+      //     0,
+      //     true
+      //   );
+      //   trackGA4PageEvent("ads_google_h5__system_timeout", {});
+      //   axGAFGHTML_didOnReadyTimeout = true;
+      //   window.parent.onGameAreaAdFailed();
+      // }
+
+      //----------------------------------------------------------------
+      // }
     </script>
   </body>
 </html>
