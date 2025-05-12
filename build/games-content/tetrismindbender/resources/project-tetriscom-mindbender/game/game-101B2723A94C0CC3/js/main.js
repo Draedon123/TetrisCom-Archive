@@ -1,0 +1,1 @@
+window.frameElement&&"IFRAME"==window.frameElement.nodeName&&(Date.now(),document.getElementById("GameDiv"),document.getElementById("GameCanvas"));

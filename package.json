@@ -3,9 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "format": "prettier . -w",
-    "deploy": "git subtree push --prefix src origin gh-pages"
+    "prebuild": "npm run format",
+    "build": "node scripts/build.cjs",
+    "deploy": "git subtree push --prefix build origin gh-pages"
   },
   "devDependencies": {
-    "prettier": "^3.5.3"
+    "html-minifier-terser": "^7.2.0",
+    "prettier": "^3.5.3",
+    "terser": "^5.39.0"
   }
 }

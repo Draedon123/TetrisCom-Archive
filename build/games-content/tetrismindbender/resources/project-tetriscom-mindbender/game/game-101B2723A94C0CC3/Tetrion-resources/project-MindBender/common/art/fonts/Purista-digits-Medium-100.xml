@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+   <font>
+       <info aa='1' size='100' smooth='1' stretchH='100' bold='0' padding='0,0,0,0' spacing='0,0' charset='' italic='0' unicode='0' face='Purista'/>
+       <common scaleW='256' packed='0' pages='1' lineHeight='121' scaleH='256' base='95'/>
+       <pages>
+            <page id='0' file='Purista-digits-Medium-100.png'/>
+       </pages>
+        <chars count='11'>
+            <char xadvance='30' x='56' chnl='0' yoffset='95' y='78' xoffset='0' id='32' page='0' height='0' width='0'/>
+            <char xadvance='63' x='2' chnl='0' yoffset='23' y='154' xoffset='7' id='48' page='0' height='74' width='52'/>
+            <char xadvance='35' x='218' chnl='0' yoffset='23' y='2' xoffset='4' id='49' page='0' height='74' width='26'/>
+            <char xadvance='61' x='114' chnl='0' yoffset='23' y='78' xoffset='7' id='50' page='0' height='74' width='50'/>
+            <char xadvance='61' x='62' chnl='0' yoffset='23' y='154' xoffset='7' id='51' page='0' height='74' width='50'/>
+            <char xadvance='59' x='2' chnl='0' yoffset='23' y='2' xoffset='2' id='52' page='0' height='74' width='58'/>
+            <char xadvance='61' x='62' chnl='0' yoffset='23' y='78' xoffset='7' id='53' page='0' height='74' width='50'/>
+            <char xadvance='61' x='166' chnl='0' yoffset='23' y='2' xoffset='7' id='54' page='0' height='74' width='50'/>
+            <char xadvance='55' x='114' chnl='0' yoffset='23' y='2' xoffset='4' id='55' page='0' height='74' width='50'/>
+            <char xadvance='63' x='2' chnl='0' yoffset='23' y='78' xoffset='7' id='56' page='0' height='74' width='52'/>
+            <char xadvance='61' x='62' chnl='0' yoffset='23' y='2' xoffset='7' id='57' page='0' height='74' width='50'/>
+       </chars>
+       <kernings count="0">
+       </kernings>
+   </font>
