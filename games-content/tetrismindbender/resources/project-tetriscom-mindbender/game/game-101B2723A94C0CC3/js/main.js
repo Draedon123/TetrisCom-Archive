@@ -1,1 +1,1 @@
-window.frameElement&&"IFRAME"==window.frameElement.nodeName&&(Date.now(),document.getElementById("GameDiv"),document.getElementById("GameCanvas"));
+function gameLoadingSceneIsReady(){try{e()}catch(e){}}function e(){var e=document.getElementById("loadingText");e&&e.parentNode.removeChild(e);var n=document.getElementById("loadingDisplay");n&&n.parentNode.removeChild(n)}
