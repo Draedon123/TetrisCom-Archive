@@ -1,0 +1,1 @@
+System.register(["./application.js"],(function(){var t,n;return{setters:[function(n){t=n.Application}],execute:function(){n=new t,System.import("cc").then((function(t){return n.init(t)})).then((function(){return n.start()})).catch((function(t){console.error(t)}))}}}));
