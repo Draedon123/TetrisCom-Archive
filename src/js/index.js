@@ -7,11 +7,11 @@ import { parseSaveString, SCORE_KEYS } from "./parseSaveString.js";
 const isMobile = isMobileOrTablet();
 
 const mainGameScores = parseSaveString(
-  localStorage.getItem(SCORE_KEYS[isMobile ? "MAIN" : "MAIN_MOBILE"]) ?? ""
+  localStorage.getItem(SCORE_KEYS[isMobile ? "MAIN_MOBILE" : "MAIN"]) ?? ""
 );
 const mindBenderScores = parseSaveString(
   localStorage.getItem(
-    SCORE_KEYS[isMobile ? "MIND_BENDER" : "MIND_BENDER_MOBILE"]
+    SCORE_KEYS[isMobile ? "MIND_BENDER_MOBILE" : "MIND_BENDER"]
   ) ?? ""
 );
 
