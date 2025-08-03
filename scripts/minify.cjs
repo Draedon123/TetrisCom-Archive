@@ -6,7 +6,7 @@ const { readFileSync, writeFileSync } = require("fs");
 /** @type { import("terser").MinifyOptions } */
 const TERSER_OPTIONS = {
   compress: {
-    booleans_as_integers: true,
+    booleans_as_integers: false,
     ecma: 2020,
     expression: true,
     keep_fargs: false,
