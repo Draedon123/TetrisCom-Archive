@@ -1,197 +1,359 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-		<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"/>
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<meta name="format-detection" content="telephone=no">
-		<meta name="renderer" content="webkit"/>
-		<meta name="force-rendering" content="webkit"/>
-		<meta name="msapplication-tap-highlight" content="no">
-		<meta name="full-screen" content="yes"/>
-		<meta name="x5-fullscreen" content="true"/>
-		<meta name="360-fullscreen" content="true"/>
-		<meta name="screen-orientation" content=""/>
-		<meta name="x5-orientation" content="">
-		<meta name="x5-page-mode" content="app">
-		<style>
-			html{-ms-touch-action:none;}
-			body,canvas,div{display:block;outline:none;-moz-outline-style:none;-moz-outline-style:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;-khtml-user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);}
-			body{position:absolute;top:0;left:0;width:100%;height:100%;margin:0px;padding:0px;border:0px;overflow:hidden;cursor:default;color:#000;background-color:#000;text-align:center;display:flex;flex-direction:column;}
-			canvas{background-color:rgba(0,0,0,0);}
-			#Cocos2dGameContainer{position:absolute;margin:0;overflow:hidden;left:0px;top:0px;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:center;-webkit-box-pack:center;}
-			#loadingText{position:absolute;top:50%;left:50%;width:100px;height:100px;margin-top:-50px;margin-left:-50px;border:8px solid #000000;color:#eeeeee;font-family:Verdana;font-size:16px;text-align:center;vertical-align:middle;line-height:100px;}
-			#loadingDisplay{position:absolute;top:50%;left:50%;width:200px;height:200px;margin-top:-100px;margin-left:-100px;border:8px solid #eeeeee;border-top:8px solid #666666;border-radius:50%;animation:spin 1.5s linear infinite;}
-			@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-		</style>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="full-screen" content="yes" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta name="screen-orientation" content="" />
+    <meta name="x5-orientation" content="" />
+    <meta name="x5-page-mode" content="app" />
+    <style>
+      html {
+        -ms-touch-action: none;
+      }
+      body,
+      canvas,
+      div {
+        display: block;
+        outline: none;
+        -moz-outline-style: none;
+        -moz-outline-style: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        -khtml-user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+      body {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        border: 0px;
+        overflow: hidden;
+        cursor: default;
+        color: #000;
+        background-color: #000;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+      }
+      canvas {
+        background-color: rgba(0, 0, 0, 0);
+      }
+      #Cocos2dGameContainer {
+        position: absolute;
+        margin: 0;
+        overflow: hidden;
+        left: 0px;
+        top: 0px;
+        display: -webkit-box;
+        -webkit-box-orient: horizontal;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+      }
+      #loadingText {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        margin-top: -50px;
+        margin-left: -50px;
+        border: 8px solid #000000;
+        color: #eeeeee;
+        font-family: Verdana;
+        font-size: 16px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 100px;
+      }
+      #loadingDisplay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        margin-top: -100px;
+        margin-left: -100px;
+        border: 8px solid #eeeeee;
+        border-top: 8px solid #666666;
+        border-radius: 50%;
+        animation: spin 1.5s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
 
-		<script>
-			//console.log( "adConfig" );
-			window.axGAFGHTML_didOnReadyTimeout = false;
-			onReadyElapsedTimeSEC = 0;
-			var onReadyTimeoutInterval = setInterval( function ( ) {
-				//console.log( "adConfig timeout? " + onReadyElapsedTimeSEC );
-				onReadyElapsedTimeSEC++;
-				var onReadyTimeoutLimitSEC = 5;
-				if ((onReadyElapsedTimeSEC > onReadyTimeoutLimitSEC) && window.mBPSApp)
-				{
-					//console.log( "adConfig timeout!" );
-					clearInterval( onReadyTimeoutInterval );
-					axGAFGHTML5_onReadyTimeout();
-				}
-			}, 1000 );
-			
-			window.adsbygoogle = window.adsbygoogle || [];
-			var adBreak = adConfig = function(o) {adsbygoogle.push(o);} 
-			adConfig( { 
-				preloadAdBreaks: 'on',  
-				onReady: () => {
-					//console.log( "adConfig.onReady 1" );
-					clearInterval( onReadyTimeoutInterval );
-					if (!window.axGAFGHTML_didOnReadyTimeout) 
-					{
-						//console.log( "adConfig.onReady 2" );
-						showGameAreaAd('preroll');
-						//console.log( "adConfig.onReady 3" );
-					}
-				}
-			} );
-		</script>	
-							 
-	</head>
-	<body>
-		<canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
-		<div id="loadingDisplay"></div>
-		<div id="loadingText">LOADING</div>
-							 
-		<script type="text/javascript">
-			var t = 1755179442;
+    <script>
+      //console.log( "adConfig" );
+      window.axGAFGHTML_didOnReadyTimeout = false;
+      onReadyElapsedTimeSEC = 0;
+      var onReadyTimeoutInterval = setInterval(function () {
+        //console.log( "adConfig timeout? " + onReadyElapsedTimeSEC );
+        onReadyElapsedTimeSEC++;
+        var onReadyTimeoutLimitSEC = 5;
+        if (onReadyElapsedTimeSEC > onReadyTimeoutLimitSEC && window.mBPSApp) {
+          //console.log( "adConfig timeout!" );
+          clearInterval(onReadyTimeoutInterval);
+          axGAFGHTML5_onReadyTimeout();
+        }
+      }, 1000);
 
-			var isIFrame = window.frameElement && ( window.frameElement.nodeName == "IFRAME" );
-			if ( ( 'true' == '1' ) && !isIFrame ) { window.location.replace( window.location.protocol + "//" + window.location.hostname ); }
-			else
-			{
-				//----------------------------------------------------------------
-				
-				var pageStartTimeMSEC = Date.now( );
-				var cbidg = 'CDFD98B9FCE1712B';
-				var isDesktop = '' == '1';
-				var isMobile = '1' == '1';
-				window.gameContentBasePath = '';
-				window.platformSrcDir = 'src-mobile/';
-				
-				var gameDiv = document.getElementById( "GameDiv" );
-				var gameCanvas = document.getElementById( "GameCanvas" );				
-				
-									var settingsJS = document.createElement( 'script' ); settingsJS.async = false; settingsJS.src = window.platformSrcDir + "settings.js?cbidg=" + getCBID( ); document.body.appendChild( settingsJS );
-					var mainJS = document.createElement( 'script' ); mainJS.async = false; mainJS.src = window.gameContentBasePath + "main-bps.js?cbidg=" + getCBID( ); document.body.appendChild( mainJS );
-							 
-				
-				//----------------------------------------------------------------
-				//----------------------------------------------------------------
-				
-				function openURL( pURL, pTargetNewWindow ) { try { window.parent.open( pURL, pTargetNewWindow ? "_blank" : "_self" ); } catch ( e ) { } }
-				function getPageElapsedTimeMSEC( ) { return isIFrame ? window.parent.getPageElapsedTimeMSEC( ) : ( ( Date.now( ) - pageStartTimeMSEC ) ); }
-				function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK( ) { return isIFrame ? window.parent.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK( ) : 0; }
-				function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT( ) { return isIFrame ? window.parent.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT( ) : 0; }
-				function getCBID( ) { return cbidg; } 
-				function getGameDiv( ) { return gameDiv; }			
-				function getGameCanvas( ) { return gameCanvas; }					
-				function getCurrentYear( ) { return new Date().getFullYear(); }				
-				function gameLoadingSceneIsReady( ) { try { removeLoadingDisplay( ); } catch ( e ) { } }				
-				function removeLoadingDisplay( )
-				{
-					// window.parent.console.log( "removeLoadingDisplay: getPageElapsedTimeMSEC=" + getPageElapsedTimeMSEC( ) );
-					// window.parent.trackGUAPageEvent( "Game Load Duration MS", "", getPageElapsedTimeMSEC( ), true );
-					{ var loadingText = document.getElementById( 'loadingText' ); if ( loadingText ) { loadingText.parentNode.removeChild( loadingText ); } { var loadingDisplay = document.getElementById( 'loadingDisplay' ); if ( loadingDisplay ) { loadingDisplay.parentNode.removeChild( loadingDisplay ); } } }
-				 }
-				function trackGUAEvent( category, action, opt_label, opt_value, opt_noninteraction ) { if ( isIFrame ) { try { window.parent.trackGUAEvent( category, action, opt_label, opt_value, opt_noninteraction ); } catch (e) {} } }
-									function trackGA4PageEvent( pEventName, pParameters ) { if ( isIFrame ) { try { window.parent.trackGA4PageEvent( pEventName, pParameters ); } catch (e) {} } }
-					function trackGA4GameEvent( pEventName, pParameters ) { if ( isIFrame ) { try { window.parent.trackGA4GameEvent( pEventName, pParameters ); } catch (e) {} } }
-					            function refreshAds( ) { if ( isIFrame ) { window.parent.refreshAds( ); } }
-				function isGameAreaAdEnabled( ) { return isIFrame ? window.parent.canShowAds : false; }
-				function isGameAreaAdActive( ) { return isIFrame ? window.parent.isGameAreaAdActive : false; }
-	            function showGameAreaAd(pType = 'next') 
-				{
-											//console.log("showGameAreaAd 1 " +  pType + " " + ( getPageElapsedTimeMSEC( ) * 0.001 ) );
-						try {								
-							switch (pType)
-							{
-								case 'preroll':
-									adBreak( {
-										type: pType,
-										name: 'AD_NAME',
-										adBreakDone: axGAFGHTML5_axBreakDone
-									} );						
-									break;
-									
-								case 'next':
-								default:
-									window.parent.showGameAreaAd( );
-									adBreak( {
-										type: pType,
-										name: 'AD_NAME',
-										beforeAd: axGAFGHTML5_beforeAx,
-										afterAd: axGAFGHTML5_afterAx,
-										adBreakDone: axGAFGHTML5_axBreakDone
-									} );						
-									break;
-							}		
-						} catch (e) { console.log("e = " + e ); };
-						//console.log("showGameAreaAd 2");
-												 
-				}
-				
-				function onGameAreaAdComplete( ) 
-				{
-	                var onGameAreaAdCompleteInterval = setInterval( function ( ) {
-						try {
-													if ( window.mBPSApp )
-							{
-	                        	clearInterval( onGameAreaAdCompleteInterval );
-								window.parent.document.activeElement.blur( );
-								window.parent.document.getElementById( "gameIFrame" ).focus( );
-								document.activeElement.blur( );
-								document.getElementById( "GameCanvas" ).focus( );
-								window.mBPSApp.dispatchAppMessage( 979287055 );
-							}
-													 
-				    	} catch (e) { }
-        			}, 100 );
-				}
-				
-				//----------------------------------------------------------------	
-				//-- GAFGHTML5:
-				
-				function axGAFGHTML5_beforeAx( )
-				{
-					//console.log("axGAFGHTML5_beforeAx");
-				}
-				
-				function axGAFGHTML5_afterAx( )
-				{
-					//console.log("axGAFGHTML5_afterAx");
-				}
-				
-				function axGAFGHTML5_axBreakDone(pPlacementInfo)
-				{
-					//console.log("axGAFGHTML5_axBreakDone");
-					//console.log(pPlacementInfo);
-					window.parent.onGameAreaAdComplete(); 
-				}
-				
-				function axGAFGHTML5_onReadyTimeout( )
-				{
-					//console.log("axGAFGHTML5_onReadyTimeout");
-					axGAFGHTML_didOnReadyTimeout = true;
-					window.parent.onGameAreaAdFailed(); 
-				}
-				
-				//----------------------------------------------------------------				
-				
-			}	
-		</script>
-	</body>
+      window.adsbygoogle = window.adsbygoogle || [];
+      var adBreak = (adConfig = function (o) {
+        adsbygoogle.push(o);
+      });
+      adConfig({
+        preloadAdBreaks: "on",
+        onReady: () => {
+          //console.log( "adConfig.onReady 1" );
+          clearInterval(onReadyTimeoutInterval);
+          if (!window.axGAFGHTML_didOnReadyTimeout) {
+            //console.log( "adConfig.onReady 2" );
+            showGameAreaAd("preroll");
+            //console.log( "adConfig.onReady 3" );
+          }
+        },
+      });
+    </script>
+  </head>
+  <body>
+    <canvas
+      id="GameCanvas"
+      oncontextmenu="event.preventDefault()"
+      tabindex="0"
+    ></canvas>
+    <div id="loadingDisplay"></div>
+    <div id="loadingText">LOADING</div>
+
+    <script type="text/javascript">
+      var t = 1755179442;
+
+      var isIFrame =
+        window.frameElement && window.frameElement.nodeName == "IFRAME";
+      if ("true" == "1" && !isIFrame) {
+        window.location.replace(
+          window.location.protocol + "//" + window.location.hostname
+        );
+      } else {
+        //----------------------------------------------------------------
+
+        var pageStartTimeMSEC = Date.now();
+        var cbidg = "CDFD98B9FCE1712B";
+        var isDesktop = "" == "1";
+        var isMobile = "1" == "1";
+        window.gameContentBasePath = "";
+        window.platformSrcDir = "src-mobile/";
+
+        var gameDiv = document.getElementById("GameDiv");
+        var gameCanvas = document.getElementById("GameCanvas");
+
+        var settingsJS = document.createElement("script");
+        settingsJS.async = false;
+        settingsJS.src =
+          window.platformSrcDir + "settings.js?cbidg=" + getCBID();
+        document.body.appendChild(settingsJS);
+        var mainJS = document.createElement("script");
+        mainJS.async = false;
+        mainJS.src =
+          window.gameContentBasePath + "main-bps.js?cbidg=" + getCBID();
+        document.body.appendChild(mainJS);
+
+        //----------------------------------------------------------------
+        //----------------------------------------------------------------
+
+        function openURL(pURL, pTargetNewWindow) {
+          try {
+            window.parent.open(pURL, pTargetNewWindow ? "_blank" : "_self");
+          } catch (e) {}
+        }
+        function getPageElapsedTimeMSEC() {
+          return isIFrame
+            ? window.parent.getPageElapsedTimeMSEC()
+            : Date.now() - pageStartTimeMSEC;
+        }
+        function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
+          return isIFrame
+            ? window.parent.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK()
+            : 0;
+        }
+        function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT() {
+          return isIFrame
+            ? window.parent.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT()
+            : 0;
+        }
+        function getCBID() {
+          return cbidg;
+        }
+        function getGameDiv() {
+          return gameDiv;
+        }
+        function getGameCanvas() {
+          return gameCanvas;
+        }
+        function getCurrentYear() {
+          return new Date().getFullYear();
+        }
+        function gameLoadingSceneIsReady() {
+          try {
+            removeLoadingDisplay();
+          } catch (e) {}
+        }
+        function removeLoadingDisplay() {
+          // window.parent.console.log( "removeLoadingDisplay: getPageElapsedTimeMSEC=" + getPageElapsedTimeMSEC( ) );
+          // window.parent.trackGUAPageEvent( "Game Load Duration MS", "", getPageElapsedTimeMSEC( ), true );
+          {
+            var loadingText = document.getElementById("loadingText");
+            if (loadingText) {
+              loadingText.parentNode.removeChild(loadingText);
+            }
+            {
+              var loadingDisplay = document.getElementById("loadingDisplay");
+              if (loadingDisplay) {
+                loadingDisplay.parentNode.removeChild(loadingDisplay);
+              }
+            }
+          }
+        }
+        function trackGUAEvent(
+          category,
+          action,
+          opt_label,
+          opt_value,
+          opt_noninteraction
+        ) {
+          if (isIFrame) {
+            try {
+              window.parent.trackGUAEvent(
+                category,
+                action,
+                opt_label,
+                opt_value,
+                opt_noninteraction
+              );
+            } catch (e) {}
+          }
+        }
+        function trackGA4PageEvent(pEventName, pParameters) {
+          if (isIFrame) {
+            try {
+              window.parent.trackGA4PageEvent(pEventName, pParameters);
+            } catch (e) {}
+          }
+        }
+        function trackGA4GameEvent(pEventName, pParameters) {
+          if (isIFrame) {
+            try {
+              window.parent.trackGA4GameEvent(pEventName, pParameters);
+            } catch (e) {}
+          }
+        }
+        function refreshAds() {
+          if (isIFrame) {
+            window.parent.refreshAds();
+          }
+        }
+        function isGameAreaAdEnabled() {
+          return isIFrame ? window.parent.canShowAds : false;
+        }
+        function isGameAreaAdActive() {
+          return isIFrame ? window.parent.isGameAreaAdActive : false;
+        }
+        function showGameAreaAd(pType = "next") {
+          //console.log("showGameAreaAd 1 " +  pType + " " + ( getPageElapsedTimeMSEC( ) * 0.001 ) );
+          try {
+            switch (pType) {
+              case "preroll":
+                adBreak({
+                  type: pType,
+                  name: "AD_NAME",
+                  adBreakDone: axGAFGHTML5_axBreakDone,
+                });
+                break;
+
+              case "next":
+              default:
+                window.parent.showGameAreaAd();
+                adBreak({
+                  type: pType,
+                  name: "AD_NAME",
+                  beforeAd: axGAFGHTML5_beforeAx,
+                  afterAd: axGAFGHTML5_afterAx,
+                  adBreakDone: axGAFGHTML5_axBreakDone,
+                });
+                break;
+            }
+          } catch (e) {
+            console.log("e = " + e);
+          }
+          //console.log("showGameAreaAd 2");
+        }
+
+        function onGameAreaAdComplete() {
+          var onGameAreaAdCompleteInterval = setInterval(function () {
+            try {
+              if (window.mBPSApp) {
+                clearInterval(onGameAreaAdCompleteInterval);
+                window.parent.document.activeElement.blur();
+                window.parent.document.getElementById("gameIFrame").focus();
+                document.activeElement.blur();
+                document.getElementById("GameCanvas").focus();
+                window.mBPSApp.dispatchAppMessage(979287055);
+              }
+            } catch (e) {}
+          }, 100);
+        }
+
+        //----------------------------------------------------------------
+        //-- GAFGHTML5:
+
+        function axGAFGHTML5_beforeAx() {
+          //console.log("axGAFGHTML5_beforeAx");
+        }
+
+        function axGAFGHTML5_afterAx() {
+          //console.log("axGAFGHTML5_afterAx");
+        }
+
+        function axGAFGHTML5_axBreakDone(pPlacementInfo) {
+          //console.log("axGAFGHTML5_axBreakDone");
+          //console.log(pPlacementInfo);
+          window.parent.onGameAreaAdComplete();
+        }
+
+        function axGAFGHTML5_onReadyTimeout() {
+          //console.log("axGAFGHTML5_onReadyTimeout");
+          axGAFGHTML_didOnReadyTimeout = true;
+          window.parent.onGameAreaAdFailed();
+        }
+
+        //----------------------------------------------------------------
+      }
+    </script>
+  </body>
 </html>
