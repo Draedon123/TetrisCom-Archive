@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-<!-- saved from url=(0175)http://tetris.cc/games-content/play-tetris-content-gems/resources/project-tetriscom-Gems/game/game-9AA07370835DF94B/target-desktop/if_game_html5.php?p=d&cbidg=9AA07370835DF94B -->
+<!-- saved from url=(0176)https://tetris.cc/games-content/play-tetris-content-gems/resources/project-tetriscom-Gems/game/game-9AA07370835DF94B/target-desktop/if_game_html5.php?p=d&cbidg=9AA07370835DF94B -->
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -111,7 +111,7 @@
     </div>
 
     <script type="text/javascript">
-      var t = 1754208532;
+      var t = 1755177541;
 
       var isIFrame =
         window.frameElement && window.frameElement.nodeName == "IFRAME";
@@ -120,8 +120,6 @@
           window.location.protocol + "//" + window.location.hostname
         );
       } else {
-        //----------------------------------------------------------------
-
         var pageStartTimeMSEC = Date.now();
         var cbidg = "9AA07370835DF94B";
         var isDesktop = "1" == "1";
@@ -143,19 +141,6 @@
           { onProgress: UnityProgress }
         );
 
-        //----------------------------------------------------------------
-        //----------------------------------------------------------------
-
-        function openURL(pURL, pTargetNewWindow) {
-          try {
-            window.parent.open(pURL, pTargetNewWindow ? "_blank" : "_self");
-          } catch (e) {}
-        }
-        function getPageElapsedTimeMSEC() {
-          return isIFrame
-            ? window.parent.getPageElapsedTimeMSEC()
-            : Date.now() - pageStartTimeMSEC;
-        }
         function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
           return isIFrame
             ? window.parent.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK()
@@ -184,8 +169,6 @@
           } catch (e) {}
         }
         function removeLoadingDisplay() {
-          //window.parent.console.log( "removeLoadingDisplay: getPageElapsedTimeMSEC=" + getPageElapsedTimeMSEC( ) );
-          //window.parent.trackGUAPageEvent( "Game Load Duration MS", "", getPageElapsedTimeMSEC( ), true );
           {
             var loadingText = document.getElementById("loadingText");
             if (loadingText) {
@@ -199,6 +182,143 @@
             }
           }
         }
+        function trackGUAEvent(
+
+        ) {
+          
+        }
+        function trackGA4GameEvent(pEventName, pParameters) {
+
+        }
+        function refreshAds() {
+
+        }
+        function isGameAreaAdEnabled() {
+          return isIFrame ? window.parent.canShowAds : false;
+        }
+        function isGameAreaAdActive() {
+          return isIFrame ? window.parent.isGameAreaAdActive : false;
+        }
+        function showGameAreaAd(pType = "next") {
+          try {
+            switch (pType) {
+              case "preroll":
+                adBreak({
+                  type: pType,
+                  name: "AD_NAME",
+                  adBreakDone: axGAFGHTML5_axBreakDone,
+                });
+                break;
+
+              case "next":
+              default:
+                window.parent.showGameAreaAd();
+                adBreak({
+                  type: pType,
+                  name: "AD_NAME",
+                  beforeAd: axGAFGHTML5_beforeAx,
+                  afterAd: axGAFGHTML5_afterAx,
+                  adBreakDone: axGAFGHTML5_axBreakDone,
+                });
+                break;
+            }
+          } catch (e) {
+            console.log("e = " + e);
+          }
+          //window.console.log("showGameAreaAd 2");
+        }
+
+        function onGameAreaAdComplete() {
+          var onGameAreaAdCompleteInterval = setInterval(function () {
+            try {
+              UnityGameInstance.SendMessage(
+                "BPSTUWPI",
+                "dispatchMessage",
+                "979287055"
+              );
+              clearInterval(onGameAreaAdCompleteInterval);
+              window.parent.document.activeElement.blur();
+              window.parent.document.getElementById("gameIFrame").focus();
+              document.activeElement.blur();
+            } catch (e) {}
+          }, 100);
+        }
+        // //-- GAFGHTML5:
+
+        // function axGAFGHTML5_beforeAx() {
+        //   //window.console.log("axGAFGHTML5_beforeAx");
+        // }
+
+        // function axGAFGHTML5_afterAx() {
+        //   //window.console.log("axGAFGHTML5_afterAx");
+        // }
+
+        // function axGAFGHTML5_axBreakDone(pPlacementInfo) {
+        //   //window.console.log("axGAFGHTML5_axBreakDone");
+        //   //window.console.log(pPlacementInfo);
+        //   switch (pPlacementInfo.breakStatus) {
+        //     case "timeout":
+        //       trackGUAEvent(
+        //         "Game Page",
+        //         "ads_google_h5",
+        //         "system_timeout",
+        //         0,
+        //         true
+        //       );
+        //       trackGA4PageEvent("ads_google_h5__system_timeout", {});
+        //       break;
+
+        //     case "dismissed":
+        //       trackGUAEvent(
+        //         "Game Page",
+        //         "ads_google_h5",
+        //         "ad_skipped",
+        //         0,
+        //         true
+        //       );
+        //       trackGA4PageEvent("ads_google_h5__ad_skipped", {});
+        //       break;
+
+        //     case "viewed":
+        //       trackGUAEvent(
+        //         "Game Page",
+        //         "ads_google_h5",
+        //         "ad_complete",
+        //         0,
+        //         true
+        //       );
+        //       trackGA4PageEvent("ads_google_h5__ad_complete", {});
+        //       break;
+
+        //     default:
+        //       trackGUAEvent(
+        //         "Game Page",
+        //         "ads_google_h5",
+        //         "no_ad_delivered",
+        //         0,
+        //         true
+        //       );
+        //       trackGA4PageEvent("ads_google_h5__no_ad_delivered", {});
+        //       break;
+        //   }
+        //   window.parent.onGameAreaAdComplete();
+        // }
+
+        // function axGAFGHTML5_onReadyTimeout() {
+        //   //window.console.log("axGAFGHTML5_onReadyTimeout");
+        //   trackGUAEvent(
+        //     "Game Page",
+        //     "ads_google_h5",
+        //     "system_timeout",
+        //     0,
+        //     true
+        //   );
+        //   trackGA4PageEvent("ads_google_h5__system_timeout", {});
+        //   axGAFGHTML_didOnReadyTimeout = true;
+        //   window.parent.onGameAreaAdFailed();
+        // }
+
+        // //----------------------------------------------------------------
       }
     </script>
   </body>
