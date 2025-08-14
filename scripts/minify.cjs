@@ -13,11 +13,6 @@ const TERSER_OPTIONS = {
     passes: 3,
     unused: false,
   },
-  mangle: {
-    module: true,
-    toplevel: true,
-    keep_fnames: /gameLoadingSceneIsReady|onGameAreaAdComplete/,
-  },
   format: {
     comments: false,
     indent_level: 0,
