@@ -41,6 +41,17 @@ new GameRow(
 ).mount(document.body);
 
 new GameRow(
+  "Gems",
+  "#985c25",
+  "/Gems",
+  "games-content/play-tetris-content-gems-mobile/resources/project-tetriscom-Gems-mobile/game/game-CDFD98B9FCE1712B/res/raw-assets/resources/Tetrion-resources/project-Gems/art/logos/main-logo.png",
+  "Tetris Gems Logo",
+  undefined,
+  isMobile,
+  true
+).mount(document.body);
+
+new GameRow(
   "N-Blox",
   "#656da3",
   "/Nblox",

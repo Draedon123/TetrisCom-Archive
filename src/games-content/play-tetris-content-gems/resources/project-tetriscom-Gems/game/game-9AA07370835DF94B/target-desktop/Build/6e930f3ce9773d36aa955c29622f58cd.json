@@ -1,0 +1,16 @@
+{
+"companyName": "Blue Planet Software, Inc.",
+"productName": "BPSTetrisGems",
+"productVersion": "0.1",
+"dataUrl": "79a5bef3e0a81b4910a5ad4701a4a7f0.unityweb",
+"wasmCodeUrl": "1cfa75869a94dd57ad988012e97e5371.unityweb",
+"wasmFrameworkUrl": "a7fddb763e43936b8db214ae525c9c03.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.4.39f1"
+}
