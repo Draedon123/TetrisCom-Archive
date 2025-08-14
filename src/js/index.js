@@ -14,6 +14,9 @@ const mindBenderScores = parseSaveString(
     SCORE_KEYS[isMobile ? "MIND_BENDER_MOBILE" : "MIND_BENDER"]
   ) ?? ""
 );
+const nbloxScores = parseSaveString(
+  localStorage.getItem(SCORE_KEYS["NBLOX"]) ?? ""
+);
 
 new GameRow(
   "Main Game",
@@ -35,6 +38,17 @@ new GameRow(
   Math.max(...mindBenderScores),
   isMobile,
   true
+).mount(document.body);
+
+new GameRow(
+  "N-Blox",
+  "#656da3",
+  "/Nblox",
+  "./games-content/nblox/resources/project-nbloxcom/game/game-2061DB924E2F0AC2/Tetrion-resources/project-FTO/art/main-logo-FTO.png",
+  "N-Blox Logo",
+  Math.max(...nbloxScores),
+  isMobile,
+  false
 ).mount(document.body);
 
 new GameRow(

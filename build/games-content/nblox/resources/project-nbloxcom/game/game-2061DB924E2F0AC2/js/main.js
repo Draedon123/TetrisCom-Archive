@@ -1,0 +1,1 @@
+function gameLoadingSceneIsReady(){try{e()}catch(e){}}function e(){var e=document.getElementById("loadingText");e&&e.parentNode.removeChild(e);var n=document.getElementById("loadingDisplay");n&&n.parentNode.removeChild(n)}

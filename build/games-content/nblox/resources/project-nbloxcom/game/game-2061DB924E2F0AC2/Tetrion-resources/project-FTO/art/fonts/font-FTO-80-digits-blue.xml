@@ -1,0 +1,23 @@
+<?xml version='1.0'?>
+   <font>
+       <info aa='1' size='80' smooth='1' stretchH='100' bold='0' padding='0,0,0,0' spacing='0,0' charset='' italic='0' unicode='0' face='Angies New House'/>
+       <common scaleW='192' packed='0' pages='1' lineHeight='92' scaleH='192' base='72'/>
+       <pages>
+            <page id='0' file='font-FTO-80-digits-blue.png'/>
+       </pages>
+        <chars count='11'>
+            <char xadvance='20' x='2' chnl='0' yoffset='72' y='146' xoffset='0' id='32' page='0' height='0' width='0'/>
+            <char xadvance='32' x='98' chnl='0' yoffset='4' y='74' xoffset='0' id='48' page='0' height='70' width='30'/>
+            <char xadvance='21' x='162' chnl='0' yoffset='4' y='2' xoffset='0' id='49' page='0' height='70' width='20'/>
+            <char xadvance='32' x='66' chnl='0' yoffset='4' y='74' xoffset='0' id='50' page='0' height='70' width='30'/>
+            <char xadvance='32' x='130' chnl='0' yoffset='4' y='2' xoffset='0' id='51' page='0' height='70' width='30'/>
+            <char xadvance='32' x='98' chnl='0' yoffset='4' y='2' xoffset='0' id='52' page='0' height='70' width='30'/>
+            <char xadvance='32' x='66' chnl='0' yoffset='4' y='2' xoffset='0' id='53' page='0' height='70' width='30'/>
+            <char xadvance='32' x='34' chnl='0' yoffset='4' y='74' xoffset='0' id='54' page='0' height='70' width='30'/>
+            <char xadvance='32' x='34' chnl='0' yoffset='4' y='2' xoffset='0' id='55' page='0' height='70' width='30'/>
+            <char xadvance='32' x='2' chnl='0' yoffset='4' y='74' xoffset='0' id='56' page='0' height='70' width='30'/>
+            <char xadvance='32' x='2' chnl='0' yoffset='4' y='2' xoffset='0' id='57' page='0' height='70' width='30'/>
+       </chars>
+       <kernings count="0">
+       </kernings>
+   </font>

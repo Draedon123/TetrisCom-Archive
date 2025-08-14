@@ -1,0 +1,1 @@
+System.register(["./application.js"],(function(t,n){"use strict";var e,r;function c(t){return System.import(t)}return{setters:[function(t){e=t.Application}],execute:function(){r=new e,c("cc").then((function(t){return r.init(t)})).then((function(){return r.start()})).catch((function(t){console.error(t)}))}}}));
