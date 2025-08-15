@@ -1,1 +1,95 @@
-System.register([],(function(t,e){"use strict";var n,i;function s(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}function o(t,e){for(var n=0;n<e.length;n++){var i=e[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(t,i.key,i)}}function a(t,e,n){return e&&o(t.prototype,e),n&&o(t,n),t}return{setters:[],execute:function(){t("Application",i=function(){function t(){s(this,t),this.settingsPath="src/settings.json",this.showFPS=!1}return a(t,[{key:"init",value:function t(e){(n=e).game.onPostBaseInitDelegate.add(this.onPostInitBase.bind(this)),n.game.onPostSubsystemInitDelegate.add(this.onPostSystemInit.bind(this))}},{key:"onPostInitBase",value:function t(){}},{key:"onPostSystemInit",value:function t(){}},{key:"start",value:function t(){return n.game.init({debugMode:n.DebugMode.ERROR,settingsPath:this.settingsPath,overrideSettings:{profiling:{showFPS:this.showFPS}}}).then((function(){return n.game.run()}))}}]),t}())}}}));
+System.register([], function (_export, _context) {
+  "use strict";
+
+  var cc, Application;
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
+
+  return {
+    setters: [],
+    execute: function () {
+      _export(
+        "Application",
+        (Application = /*#__PURE__*/ (function () {
+          function Application() {
+            _classCallCheck(this, Application);
+
+            this.settingsPath = "src/settings.json";
+            this.showFPS = false;
+          }
+
+          _createClass(Application, [
+            {
+              key: "init",
+              value: function init(engine) {
+                cc = engine;
+                cc.game.onPostBaseInitDelegate.add(
+                  this.onPostInitBase.bind(this)
+                );
+                cc.game.onPostSubsystemInitDelegate.add(
+                  this.onPostSystemInit.bind(this)
+                );
+              },
+            },
+            {
+              key: "onPostInitBase",
+              value: function onPostInitBase() {
+                // cc.settings.overrideSettings('assets', 'server', '');
+                // do custom logic
+              },
+            },
+            {
+              key: "onPostSystemInit",
+              value: function onPostSystemInit() {
+                // do custom logic
+              },
+            },
+            {
+              key: "start",
+              value: function start() {
+                return cc.game
+                  .init({
+                    debugMode: false ? cc.DebugMode.INFO : cc.DebugMode.ERROR,
+                    settingsPath: this.settingsPath,
+                    overrideSettings: {
+                      // assets: {
+                      //      preloadBundles: [{ bundle: 'main', version: 'xxx' }],
+                      // }
+                      profiling: {
+                        showFPS: this.showFPS,
+                      },
+                    },
+                  })
+                  .then(function () {
+                    return cc.game.run();
+                  });
+              },
+            },
+          ]);
+
+          return Application;
+        })())
+      );
+    },
+  };
+});

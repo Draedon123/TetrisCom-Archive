@@ -6,6 +6,7 @@ const minify = require("./minify.cjs");
 
 const SOURCE = path.resolve(__dirname, "../src");
 const BUILD = path.resolve(__dirname, "../build");
+const MINIFY_FILES = false;
 
 async function build() {
   const start = Date.now();
@@ -15,9 +16,11 @@ async function build() {
   copyDirectory(SOURCE, BUILD);
 
   console.log("Finished copying source directory");
-  console.log("Minifying build directory");
 
-  await minify(BUILD);
+  if (MINIFY_FILES) {
+    console.log("Minifying build directory");
+    await minify(BUILD);
+  }
 
   const end = Date.now();
   const elapsedMilliseconds = end - start;

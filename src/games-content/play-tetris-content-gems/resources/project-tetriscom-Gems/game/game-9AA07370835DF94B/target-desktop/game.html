@@ -12,7 +12,6 @@
       div {
         outline: none;
         -moz-outline-style: none;
-        -moz-outline-style: none;
         -moz-user-select: none;
         -webkit-user-select: none;
         -ms-user-select: none;
@@ -88,7 +87,7 @@
         }
       }
     </style>
-    <script src="./Build/20986a4044eaa8551db6be07233cc1d9.js"></script>
+    <script src="Build/20986a4044eaa8551db6be07233cc1d9.js"></script>
   </head>
   <body>
     <div id="contentDiv">
@@ -108,6 +107,9 @@
           height="810"
         ></canvas>
       </div>
+
+      <div id="loadingDisplay"></div>
+      <div id="loadingText">LOADING</div>
     </div>
 
     <script type="text/javascript">
@@ -115,202 +117,75 @@
 
       var isIFrame =
         window.frameElement && window.frameElement.nodeName == "IFRAME";
-      if ("true" == "1" && !isIFrame) {
-        window.location.replace(
-          window.location.protocol + "//" + window.location.hostname
-        );
-      } else {
-        var pageStartTimeMSEC = Date.now();
-        var cbidg = "9AA07370835DF94B";
-        var isDesktop = "1" == "1";
-        var isMobile = "" == "1";
-        window.gameContentBasePath = "";
-        window.platformSrcDir = "";
 
-        var gameDiv = document.getElementById("GameDiv");
-        var gameCanvas = document.getElementById("GameCanvas");
+      var pageStartTimeMSEC = Date.now();
+      var cbidg = "9AA07370835DF94B";
+      var isDesktop = "1" == "1";
+      var isMobile = "" == "1";
+      window.gameContentBasePath = "";
+      window.platformSrcDir = "";
 
-        function UnityProgress(gameInstance, progress) {
-          if (progress == 1) {
-            removeLoadingDisplay();
+      var gameDiv = document.getElementById("GameDiv");
+      var gameCanvas = document.getElementById("GameCanvas");
+
+      function UnityProgress(gameInstance, progress) {
+        if (progress == 1) {
+          removeLoadingDisplay();
+        }
+      }
+      var UnityGameInstance = UnityLoader.instantiate(
+        "GameDiv",
+        "Build/6e930f3ce9773d36aa955c29622f58cd.json",
+        { onProgress: UnityProgress }
+      );
+
+      function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
+        return isIFrame ? window.parent.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() : 0;
+      }
+      function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT() {
+        return isIFrame
+          ? window.parent.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT()
+          : 0;
+      }
+      function getCBID() {
+        return cbidg;
+      }
+      function getGameDiv() {
+        return gameDiv;
+      }
+      function getGameCanvas() {
+        return gameCanvas;
+      }
+      function getCurrentYear() {
+        return new Date().getFullYear();
+      }
+      function gameLoadingSceneIsReady() {
+        try {
+          removeLoadingDisplay();
+        } catch (e) {}
+      }
+      function removeLoadingDisplay() {
+        {
+          var loadingText = document.getElementById("loadingText");
+          if (loadingText) {
+            loadingText.parentNode.removeChild(loadingText);
           }
-        }
-        var UnityGameInstance = UnityLoader.instantiate(
-          "GameDiv",
-          "Build/6e930f3ce9773d36aa955c29622f58cd.json",
-          { onProgress: UnityProgress }
-        );
-
-        function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
-          return isIFrame
-            ? window.parent.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK()
-            : 0;
-        }
-        function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT() {
-          return isIFrame
-            ? window.parent.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT()
-            : 0;
-        }
-        function getCBID() {
-          return cbidg;
-        }
-        function getGameDiv() {
-          return gameDiv;
-        }
-        function getGameCanvas() {
-          return gameCanvas;
-        }
-        function getCurrentYear() {
-          return new Date().getFullYear();
-        }
-        function gameLoadingSceneIsReady() {
-          try {
-            removeLoadingDisplay();
-          } catch (e) {}
-        }
-        function removeLoadingDisplay() {
           {
-            var loadingText = document.getElementById("loadingText");
-            if (loadingText) {
-              loadingText.parentNode.removeChild(loadingText);
-            }
-            {
-              var loadingDisplay = document.getElementById("loadingDisplay");
-              if (loadingDisplay) {
-                loadingDisplay.parentNode.removeChild(loadingDisplay);
-              }
+            var loadingDisplay = document.getElementById("loadingDisplay");
+            if (loadingDisplay) {
+              loadingDisplay.parentNode.removeChild(loadingDisplay);
             }
           }
         }
-        function trackGUAEvent() {}
-        function trackGA4GameEvent(pEventName, pParameters) {}
-        function refreshAds() {}
-        function isGameAreaAdEnabled() {
-          return isIFrame ? window.parent.canShowAds : false;
-        }
-        function isGameAreaAdActive() {
-          return isIFrame ? window.parent.isGameAreaAdActive : false;
-        }
-        function showGameAreaAd(pType = "next") {
-          try {
-            switch (pType) {
-              case "preroll":
-                adBreak({
-                  type: pType,
-                  name: "AD_NAME",
-                  adBreakDone: axGAFGHTML5_axBreakDone,
-                });
-                break;
-
-              case "next":
-              default:
-                window.parent.showGameAreaAd();
-                adBreak({
-                  type: pType,
-                  name: "AD_NAME",
-                  beforeAd: axGAFGHTML5_beforeAx,
-                  afterAd: axGAFGHTML5_afterAx,
-                  adBreakDone: axGAFGHTML5_axBreakDone,
-                });
-                break;
-            }
-          } catch (e) {
-            console.log("e = " + e);
-          }
-          //window.console.log("showGameAreaAd 2");
-        }
-
-        function onGameAreaAdComplete() {
-          var onGameAreaAdCompleteInterval = setInterval(function () {
-            try {
-              UnityGameInstance.SendMessage(
-                "BPSTUWPI",
-                "dispatchMessage",
-                "979287055"
-              );
-              clearInterval(onGameAreaAdCompleteInterval);
-              window.parent.document.activeElement.blur();
-              window.parent.document.getElementById("gameIFrame").focus();
-              document.activeElement.blur();
-            } catch (e) {}
-          }, 100);
-        }
-        // //-- GAFGHTML5:
-
-        // function axGAFGHTML5_beforeAx() {
-        //   //window.console.log("axGAFGHTML5_beforeAx");
-        // }
-
-        // function axGAFGHTML5_afterAx() {
-        //   //window.console.log("axGAFGHTML5_afterAx");
-        // }
-
-        // function axGAFGHTML5_axBreakDone(pPlacementInfo) {
-        //   //window.console.log("axGAFGHTML5_axBreakDone");
-        //   //window.console.log(pPlacementInfo);
-        //   switch (pPlacementInfo.breakStatus) {
-        //     case "timeout":
-        //       trackGUAEvent(
-        //         "Game Page",
-        //         "ads_google_h5",
-        //         "system_timeout",
-        //         0,
-        //         true
-        //       );
-        //       trackGA4PageEvent("ads_google_h5__system_timeout", {});
-        //       break;
-
-        //     case "dismissed":
-        //       trackGUAEvent(
-        //         "Game Page",
-        //         "ads_google_h5",
-        //         "ad_skipped",
-        //         0,
-        //         true
-        //       );
-        //       trackGA4PageEvent("ads_google_h5__ad_skipped", {});
-        //       break;
-
-        //     case "viewed":
-        //       trackGUAEvent(
-        //         "Game Page",
-        //         "ads_google_h5",
-        //         "ad_complete",
-        //         0,
-        //         true
-        //       );
-        //       trackGA4PageEvent("ads_google_h5__ad_complete", {});
-        //       break;
-
-        //     default:
-        //       trackGUAEvent(
-        //         "Game Page",
-        //         "ads_google_h5",
-        //         "no_ad_delivered",
-        //         0,
-        //         true
-        //       );
-        //       trackGA4PageEvent("ads_google_h5__no_ad_delivered", {});
-        //       break;
-        //   }
-        //   window.parent.onGameAreaAdComplete();
-        // }
-
-        // function axGAFGHTML5_onReadyTimeout() {
-        //   //window.console.log("axGAFGHTML5_onReadyTimeout");
-        //   trackGUAEvent(
-        //     "Game Page",
-        //     "ads_google_h5",
-        //     "system_timeout",
-        //     0,
-        //     true
-        //   );
-        //   trackGA4PageEvent("ads_google_h5__system_timeout", {});
-        //   axGAFGHTML_didOnReadyTimeout = true;
-        //   window.parent.onGameAreaAdFailed();
-        // }
-
-        // //----------------------------------------------------------------
+      }
+      function trackGUAEvent() {}
+      function trackGA4GameEvent(pEventName, pParameters) {}
+      function refreshAds() {}
+      function isGameAreaAdEnabled() {
+        return false;
+      }
+      function isGameAreaAdActive() {
+        return false;
       }
     </script>
   </body>
