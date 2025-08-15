@@ -108,39 +108,6 @@
         }
       }
     </style>
-
-    <script>
-      //console.log( "adConfig" );
-      window.axGAFGHTML_didOnReadyTimeout = false;
-      onReadyElapsedTimeSEC = 0;
-      var onReadyTimeoutInterval = setInterval(function () {
-        //console.log( "adConfig timeout? " + onReadyElapsedTimeSEC );
-        onReadyElapsedTimeSEC++;
-        var onReadyTimeoutLimitSEC = 5;
-        if (onReadyElapsedTimeSEC > onReadyTimeoutLimitSEC && window.mBPSApp) {
-          //console.log( "adConfig timeout!" );
-          clearInterval(onReadyTimeoutInterval);
-          axGAFGHTML5_onReadyTimeout();
-        }
-      }, 1000);
-
-      window.adsbygoogle = window.adsbygoogle || [];
-      var adBreak = (adConfig = function (o) {
-        adsbygoogle.push(o);
-      });
-      adConfig({
-        preloadAdBreaks: "on",
-        onReady: () => {
-          //console.log( "adConfig.onReady 1" );
-          clearInterval(onReadyTimeoutInterval);
-          if (!window.axGAFGHTML_didOnReadyTimeout) {
-            //console.log( "adConfig.onReady 2" );
-            showGameAreaAd("preroll");
-            //console.log( "adConfig.onReady 3" );
-          }
-        },
-      });
-    </script>
   </head>
   <body>
     <canvas
@@ -156,203 +123,70 @@
 
       var isIFrame =
         window.frameElement && window.frameElement.nodeName == "IFRAME";
-      if ("true" == "1" && !isIFrame) {
-        window.location.replace(
-          window.location.protocol + "//" + window.location.hostname
-        );
-      } else {
-        //----------------------------------------------------------------
 
-        var pageStartTimeMSEC = Date.now();
-        var cbidg = "CDFD98B9FCE1712B";
-        var isDesktop = "" == "1";
-        var isMobile = "1" == "1";
-        window.gameContentBasePath = "";
-        window.platformSrcDir = "src-mobile/";
+      var pageStartTimeMSEC = Date.now();
+      var cbidg = "CDFD98B9FCE1712B";
+      var isDesktop = "" == "1";
+      var isMobile = "1" == "1";
+      window.gameContentBasePath = "";
+      window.platformSrcDir = "src-mobile/";
 
-        var gameDiv = document.getElementById("GameDiv");
-        var gameCanvas = document.getElementById("GameCanvas");
+      var gameDiv = document.getElementById("GameDiv");
+      var gameCanvas = document.getElementById("GameCanvas");
 
-        var settingsJS = document.createElement("script");
-        settingsJS.async = false;
-        settingsJS.src =
-          window.platformSrcDir + "settings.js?cbidg=" + getCBID();
-        document.body.appendChild(settingsJS);
-        var mainJS = document.createElement("script");
-        mainJS.async = false;
-        mainJS.src =
-          window.gameContentBasePath + "main-bps.js?cbidg=" + getCBID();
-        document.body.appendChild(mainJS);
+      var settingsJS = document.createElement("script");
+      settingsJS.async = false;
+      settingsJS.src = window.platformSrcDir + "settings.js?cbidg=" + getCBID();
+      document.body.appendChild(settingsJS);
+      var mainJS = document.createElement("script");
+      mainJS.async = false;
+      mainJS.src =
+        window.gameContentBasePath + "main-bps.js?cbidg=" + getCBID();
+      document.body.appendChild(mainJS);
 
-        //----------------------------------------------------------------
-        //----------------------------------------------------------------
-
-        function openURL(pURL, pTargetNewWindow) {
-          try {
-            window.parent.open(pURL, pTargetNewWindow ? "_blank" : "_self");
-          } catch (e) {}
-        }
-        function getPageElapsedTimeMSEC() {
-          return isIFrame
-            ? window.parent.getPageElapsedTimeMSEC()
-            : Date.now() - pageStartTimeMSEC;
-        }
-        function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
-          return isIFrame
-            ? window.parent.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK()
-            : 0;
-        }
-        function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT() {
-          return isIFrame
-            ? window.parent.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT()
-            : 0;
-        }
-        function getCBID() {
-          return cbidg;
-        }
-        function getGameDiv() {
-          return gameDiv;
-        }
-        function getGameCanvas() {
-          return gameCanvas;
-        }
-        function getCurrentYear() {
-          return new Date().getFullYear();
-        }
-        function gameLoadingSceneIsReady() {
-          try {
-            removeLoadingDisplay();
-          } catch (e) {}
-        }
-        function removeLoadingDisplay() {
-          // window.parent.console.log( "removeLoadingDisplay: getPageElapsedTimeMSEC=" + getPageElapsedTimeMSEC( ) );
-          // window.parent.trackGUAPageEvent( "Game Load Duration MS", "", getPageElapsedTimeMSEC( ), true );
+      function getPageElapsedTimeMSEC() {
+        return isIFrame
+          ? window.parent.getPageElapsedTimeMSEC()
+          : Date.now() - pageStartTimeMSEC;
+      }
+      function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
+        return isIFrame ? window.parent.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() : 0;
+      }
+      function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT() {
+        return isIFrame
+          ? window.parent.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT()
+          : 0;
+      }
+      function getCBID() {
+        return cbidg;
+      }
+      function getGameDiv() {
+        return gameDiv;
+      }
+      function getGameCanvas() {
+        return gameCanvas;
+      }
+      function getCurrentYear() {
+        return new Date().getFullYear();
+      }
+      function gameLoadingSceneIsReady() {
+        try {
+          removeLoadingDisplay();
+        } catch (e) {}
+      }
+      function removeLoadingDisplay() {
+        {
+          var loadingText = document.getElementById("loadingText");
+          if (loadingText) {
+            loadingText.parentNode.removeChild(loadingText);
+          }
           {
-            var loadingText = document.getElementById("loadingText");
-            if (loadingText) {
-              loadingText.parentNode.removeChild(loadingText);
-            }
-            {
-              var loadingDisplay = document.getElementById("loadingDisplay");
-              if (loadingDisplay) {
-                loadingDisplay.parentNode.removeChild(loadingDisplay);
-              }
+            var loadingDisplay = document.getElementById("loadingDisplay");
+            if (loadingDisplay) {
+              loadingDisplay.parentNode.removeChild(loadingDisplay);
             }
           }
         }
-        function trackGUAEvent(
-          category,
-          action,
-          opt_label,
-          opt_value,
-          opt_noninteraction
-        ) {
-          if (isIFrame) {
-            try {
-              window.parent.trackGUAEvent(
-                category,
-                action,
-                opt_label,
-                opt_value,
-                opt_noninteraction
-              );
-            } catch (e) {}
-          }
-        }
-        function trackGA4PageEvent(pEventName, pParameters) {
-          if (isIFrame) {
-            try {
-              window.parent.trackGA4PageEvent(pEventName, pParameters);
-            } catch (e) {}
-          }
-        }
-        function trackGA4GameEvent(pEventName, pParameters) {
-          if (isIFrame) {
-            try {
-              window.parent.trackGA4GameEvent(pEventName, pParameters);
-            } catch (e) {}
-          }
-        }
-        function refreshAds() {
-          if (isIFrame) {
-            window.parent.refreshAds();
-          }
-        }
-        function isGameAreaAdEnabled() {
-          return isIFrame ? window.parent.canShowAds : false;
-        }
-        function isGameAreaAdActive() {
-          return isIFrame ? window.parent.isGameAreaAdActive : false;
-        }
-        function showGameAreaAd(pType = "next") {
-          //console.log("showGameAreaAd 1 " +  pType + " " + ( getPageElapsedTimeMSEC( ) * 0.001 ) );
-          try {
-            switch (pType) {
-              case "preroll":
-                adBreak({
-                  type: pType,
-                  name: "AD_NAME",
-                  adBreakDone: axGAFGHTML5_axBreakDone,
-                });
-                break;
-
-              case "next":
-              default:
-                window.parent.showGameAreaAd();
-                adBreak({
-                  type: pType,
-                  name: "AD_NAME",
-                  beforeAd: axGAFGHTML5_beforeAx,
-                  afterAd: axGAFGHTML5_afterAx,
-                  adBreakDone: axGAFGHTML5_axBreakDone,
-                });
-                break;
-            }
-          } catch (e) {
-            console.log("e = " + e);
-          }
-          //console.log("showGameAreaAd 2");
-        }
-
-        function onGameAreaAdComplete() {
-          var onGameAreaAdCompleteInterval = setInterval(function () {
-            try {
-              if (window.mBPSApp) {
-                clearInterval(onGameAreaAdCompleteInterval);
-                window.parent.document.activeElement.blur();
-                window.parent.document.getElementById("gameIFrame").focus();
-                document.activeElement.blur();
-                document.getElementById("GameCanvas").focus();
-                window.mBPSApp.dispatchAppMessage(979287055);
-              }
-            } catch (e) {}
-          }, 100);
-        }
-
-        //----------------------------------------------------------------
-        //-- GAFGHTML5:
-
-        function axGAFGHTML5_beforeAx() {
-          //console.log("axGAFGHTML5_beforeAx");
-        }
-
-        function axGAFGHTML5_afterAx() {
-          //console.log("axGAFGHTML5_afterAx");
-        }
-
-        function axGAFGHTML5_axBreakDone(pPlacementInfo) {
-          //console.log("axGAFGHTML5_axBreakDone");
-          //console.log(pPlacementInfo);
-          window.parent.onGameAreaAdComplete();
-        }
-
-        function axGAFGHTML5_onReadyTimeout() {
-          //console.log("axGAFGHTML5_onReadyTimeout");
-          axGAFGHTML_didOnReadyTimeout = true;
-          window.parent.onGameAreaAdFailed();
-        }
-
-        //----------------------------------------------------------------
       }
     </script>
   </body>

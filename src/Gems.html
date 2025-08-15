@@ -3,7 +3,11 @@
 <html lang="en">
   <head>
     <script>
-      alert("I know this is broken, no need to let me know");
+      if (window.location.hostname !== "localhost") {
+        alert(
+          "If this is broken, chances are, I already know and there's no need to report it"
+        );
+      }
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
