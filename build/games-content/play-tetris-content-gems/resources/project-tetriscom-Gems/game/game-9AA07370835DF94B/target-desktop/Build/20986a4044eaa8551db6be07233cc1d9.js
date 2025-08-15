@@ -4664,9 +4664,7 @@ var UnityLoader = UnityLoader || {
           return o(this.resolveBuildUrl("../StreamingAssets"));
         },
         locateFile: function (e) {
-          return "/games-content/play-tetris-content-gems/resources/project-tetriscom-Gems/game/game-9AA07370835DF94B/target-desktop/Build/".concat(
-            "build.wasm" == e ? this.wasmCodeUrl : e
-          );
+          return "Build/".concat("build.wasm" == e ? this.wasmCodeUrl : e);
         },
       },
       SetFullscreen: function () {
