@@ -1,1 +1,35 @@
-System.register(["./application.js"],(function(t,n){"use strict";var e,i,r,c,o;function u(t){return System.import(t)}return{setters:[function(t){e=t.Application}],execute:function(){i=document.getElementById("GameCanvas"),r=i.parentElement,c=r.getBoundingClientRect(),i.width=c.width,i.height=c.height,o=new e,u("cc").then((function(t){return o.init(t)})).then((function(){return o.start()})).catch((function(t){console.error(t)}))}}}));
+System.register(["./application.js"], function (_export, _context) {
+  "use strict";
+
+  var Application, canvas, $p, bcr, application;
+
+  function topLevelImport(url) {
+    return System["import"](url);
+  }
+
+  return {
+    setters: [
+      function (_applicationJs) {
+        Application = _applicationJs.Application;
+      },
+    ],
+    execute: function () {
+      canvas = document.getElementById("GameCanvas");
+      $p = canvas.parentElement;
+      bcr = $p.getBoundingClientRect();
+      canvas.width = bcr.width;
+      canvas.height = bcr.height;
+      application = new Application();
+      topLevelImport("cc")
+        .then(function (engine) {
+          return application.init(engine);
+        })
+        .then(function () {
+          return application.start();
+        })
+        ["catch"](function (err) {
+          console.error(err);
+        });
+    },
+  };
+});
