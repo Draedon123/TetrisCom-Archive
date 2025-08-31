@@ -6,7 +6,7 @@ const minify = require("./minify.cjs");
 
 const SOURCE = path.resolve(__dirname, "../src");
 const BUILD = path.resolve(__dirname, "../build");
-const MINIFY_FILES = false;
+const MINIFY_FILES = true;
 
 async function build() {
   const start = Date.now();
