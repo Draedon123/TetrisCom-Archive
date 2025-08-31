@@ -1,16 +1,1 @@
-function gameLoadingSceneIsReady() {
-  try {
-    removeLoadingDisplay();
-  } catch (e) {}
-}
-
-function removeLoadingDisplay() {
-  var loadingText = document.getElementById("loadingText");
-  if (loadingText) {
-    loadingText.parentNode.removeChild(loadingText);
-  }
-  var loadingDisplay = document.getElementById("loadingDisplay");
-  if (loadingDisplay) {
-    loadingDisplay.parentNode.removeChild(loadingDisplay);
-  }
-}
+function gameLoadingSceneIsReady(){try{removeLoadingDisplay()}catch(e){}}function removeLoadingDisplay(){var e=document.getElementById("loadingText");e&&e.parentNode.removeChild(e);var n=document.getElementById("loadingDisplay");n&&n.parentNode.removeChild(n)}
