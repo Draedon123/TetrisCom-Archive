@@ -95,7 +95,7 @@ function _randomInt2(a, b) {
  * @returns { number }
  */
 function forceSignedInt32(n) {
-  return n > 2147483647 && (n = n - 2147483647 - 2147483648 - 1), ~~n;
+  return (n > 2147483647 && (n = n - 2147483647 - 2147483648 - 1), ~~n);
 }
 
 export { parseSaveString, SCORE_KEYS };

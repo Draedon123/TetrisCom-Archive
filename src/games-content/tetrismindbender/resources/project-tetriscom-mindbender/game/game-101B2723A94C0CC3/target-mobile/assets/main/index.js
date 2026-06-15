@@ -26,9 +26,9 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose),
+          ((e = t.inheritsLoose),
             (i = t.createClass),
-            (n = t.assertThisInitialized);
+            (n = t.assertThisInitialized));
         },
         function (t) {
           a = t.cclegacy;
@@ -97,7 +97,7 @@ System.register(
             function s(e, i, a, c) {
               var l;
               if (((l = t.call(this) || this), !s.isValid())) return n(l);
-              o.doStaticInit(), m.doStaticInit();
+              (o.doStaticInit(), m.doStaticInit());
               var g = i.getStringValueWithKeyStringPath(
                 "metadata.buildNumberOverride"
               );
@@ -107,15 +107,15 @@ System.register(
                 null != s.sInstance)
               )
                 return n(l);
-              (s.sInstance = n(l)),
+              ((s.sInstance = n(l)),
                 (l.mStateMachine = new p(n(l))),
                 (l.x1223600293558112366x = i.x2049916819781837214x()),
                 (l.mNativeAppParams = a),
-                (l.mResourcesPath = c);
+                (l.mResourcesPath = c));
               var d = l.x1223600293558112366x.getDictionaryWithKeyStringPath(
                 "application.platforms." + m.getPlatformName()
               );
-              d ||
+              (d ||
                 (d = l.x1223600293558112366x
                   .getDictionaryWithKeyStringPath("application.platforms")
                   .createDictionary(
@@ -182,9 +182,9 @@ System.register(
                 (l.mTimeScaleUnit = 0.1),
                 (l.mTimeScaleMultiplier = 10),
                 (l.mTimeScale = 1),
-                (l.mIsPaused = !1);
+                (l.mIsPaused = !1));
               var f;
-              (f = a.nativeAppRootView),
+              ((f = a.nativeAppRootView),
                 (l.mAppRootView = new y(!1, null)),
                 l.mAppRootView.retain(),
                 l.mAppRootView.initWithNativeView(f),
@@ -224,7 +224,7 @@ System.register(
                   : (r.setIsTouchInputEnabled(m.isPlatformTouchBased()),
                     r.setIsMouseHoverEnabled(!m.isPlatformTouchBased())),
                 (l.mIsGUAEnabled = !1),
-                (l.mIsGA4Enabled = !1);
+                (l.mIsGA4Enabled = !1));
               try {
                 h.createAudioContexts(4);
               } catch (t) {}
@@ -249,43 +249,44 @@ System.register(
                 switch (m.getPlatformId()) {
                   case m.x3753750011322042749x:
                     var t = document.getElementById("GameDiv");
-                    t &&
+                    (t &&
                       ((t.style.display = "flex"),
                       (t.style.alignItems = "center"),
                       (t.style.justifyContent = "center")),
                       (this.mJS_GameContainerDiv = document.getElementById(
                         "Cocos2dGameContainer"
-                      ));
+                      )));
                     var e =
                       this.x1223600293558112366x.getStringValueWithKeyStringPath(
                         "application.platforms.HTML5Desktop.css"
                       );
                     if ("" != e) {
                       var i = document.createElement("style");
-                      (i.type = "text/css"),
+                      ((i.type = "text/css"),
                         "textContent" in i
                           ? (i.textContent = e)
                           : (i.innerText = e),
-                        document.head.appendChild(i);
+                        document.head.appendChild(i));
                     }
                 }
               }),
               (a.hideGameContainer = function () {
                 switch (m.getPlatformId()) {
                   case m.x3753750011322042749x:
-                    this.mJS_GameBGDiv &&
+                    (this.mJS_GameBGDiv &&
                       (this.mJS_GameBGDiv.style.visibility = "visible"),
                       this.mJS_GameContainerDiv &&
-                        (this.mJS_GameContainerDiv.style.visibility = "hidden");
+                        (this.mJS_GameContainerDiv.style.visibility =
+                          "hidden"));
                 }
               }),
               (a.showGameContainer = function () {
                 switch (m.getPlatformId()) {
                   case m.x3753750011322042749x:
-                    this.mJS_GameContainerDiv &&
+                    (this.mJS_GameContainerDiv &&
                       (this.mJS_GameContainerDiv.style.visibility = "visible"),
                       this.mJS_GameBGDiv &&
-                        (this.mJS_GameBGDiv.style.visibility = "hidden");
+                        (this.mJS_GameBGDiv.style.visibility = "hidden"));
                 }
               }),
               (a.trackGA4GameEvent = function (t, e) {
@@ -332,16 +333,16 @@ System.register(
                   case s.x1985127891713932056x:
                     return;
                 }
-                this.mSceneMgr.terminate(),
+                (this.mSceneMgr.terminate(),
                   this.mAppRootView.removeFromParent(),
                   this.mAppRootView && this.mAppRootView.release(),
                   (this.mAppRootView = null),
-                  this.mNativeAppHelper && (this.mNativeAppHelper = null);
+                  this.mNativeAppHelper && (this.mNativeAppHelper = null));
                 try {
                   h.closeAllAudioContexts();
                 } catch (t) {}
-                this.mStateMachine.setStateImmediate(s.x1985127891713932056x),
-                  P.setIsPointerActive(!0);
+                (this.mStateMachine.setStateImmediate(s.x1985127891713932056x),
+                  P.setIsPointerActive(!0));
               }),
               (a.getNativeAppHelper = function () {
                 return this.mNativeAppHelper;
@@ -349,14 +350,14 @@ System.register(
               (a.processTimeSEC = function (t) {
                 if (t <= this.mMaxDeltaTimeSEC) {
                   if (!this.mIsPaused) {
-                    (t *= this.mTimeScale), (this.mAvailableTimeSEC += t);
+                    ((t *= this.mTimeScale), (this.mAvailableTimeSEC += t));
                     var e = 1e3 * this.mAvailableTimeSEC;
                     if (e > this.mMinAvailableTimeMSEC) {
                       for (var i = 0, n = 0; e > 0; )
-                        (i = e > 20 ? 20 : e),
+                        ((i = e > 20 ? 20 : e),
                           this.mStateMachine.processTime(i),
                           (e -= i),
-                          (n += i);
+                          (n += i));
                       this.mAvailableTimeSEC -= 0.001 * n;
                     }
                   }
@@ -480,12 +481,12 @@ System.register(
                 }
               }),
               (a.onAppActivated = function () {
-                this.setIsInputActive(!0),
-                  this.dispatchMessage(s.x538024739111092424x, this, null);
+                (this.setIsInputActive(!0),
+                  this.dispatchMessage(s.x538024739111092424x, this, null));
               }),
               (a.onAppDeactivated = function () {
-                this.setIsInputActive(!1),
-                  this.dispatchMessage(s.x24259617708556324x, this, null);
+                (this.setIsInputActive(!1),
+                  this.dispatchMessage(s.x24259617708556324x, this, null));
               }),
               (a.savePrefs = function () {
                 this.x724278735493411283x();
@@ -557,8 +558,8 @@ System.register(
                   } catch (t) {}
               }),
               (a.setSoundEffectsVolume = function (t) {
-                this.mSoundEffectsMgr.setVolume(t),
-                  this.mSoundEffectsMgr.setIsMuted(t <= 0);
+                (this.mSoundEffectsMgr.setVolume(t),
+                  this.mSoundEffectsMgr.setIsMuted(t <= 0));
               }),
               (a.getStartGameDeviceControlString = function () {
                 return this.mStartGameDeviceControlString;
@@ -615,7 +616,7 @@ System.register(
               }),
               (a.x2553210986502324220x = function (t) {}),
               (a.x4554517263080478179x = function () {
-                l.setCursorToNormal(),
+                (l.setCursorToNormal(),
                   null !== this.mStateMachine &&
                     (this.mStateMachine.destroy(), (this.mStateMachine = null)),
                   null !== this.x1223600293558112366x &&
@@ -641,7 +642,7 @@ System.register(
                     (this.mSoundEffectsMgr = null)),
                   this.mNativeAppHelper && (this.mNativeAppHelper = null),
                   this == s.sInstance && (s.sInstance = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (a.x900042063961702878x = function (e, i, n, a) {
                 if (e == c.x1673908432382400910x)
@@ -654,17 +655,17 @@ System.register(
                     case s.x3269693517490728328x:
                     case s.x2956959047337965747x:
                     case s.x2744154456684720869x:
-                      a < 500 &&
+                      (a < 500 &&
                         (this.mSoundEffectsMgr.processTimeMSEC(a),
                         this.mSceneMgr.processTimeMSEC(a),
                         this.mAppRootView.processTimeMSEC(a)),
-                        this.mHTTPConnectionMgr.processConnections();
+                        this.mHTTPConnectionMgr.processConnections());
                   }
                 switch (i) {
                   case s.x1950884242598133457x:
                     switch (e) {
                       case c.x121795124178233464x:
-                        (this.mIsGUAEnabled =
+                        ((this.mIsGUAEnabled =
                           this.x1223600293558112366x.getBoolValueWithKeyStringPath(
                             "application.analytics.GoogleUniversalAnalytics.enabled"
                           )),
@@ -685,7 +686,7 @@ System.register(
                               "application"
                             )
                           ),
-                          this.mStateMachine.incrementState();
+                          this.mStateMachine.incrementState());
                     }
                     break;
                   case s.x4388228436660509966x:
@@ -719,14 +720,14 @@ System.register(
                             .getResourceMgr()
                             .isDoneLoading("app")
                         ) {
-                          (this.mAppBGView = new f(this.mAppSupportFactory)),
+                          ((this.mAppBGView = new f(this.mAppSupportFactory)),
                             this.mAppBGView.retain(),
-                            this.mAppBGView.setName("AppBGView");
+                            this.mAppBGView.setName("AppBGView"));
                           var p =
                             this.x1223600293558112366x.getDictionaryWithKeyStringPath(
                               "application.backgroundImage"
                             );
-                          this.mAppBGView.setStyle(
+                          (this.mAppBGView.setStyle(
                             p.getDictionaryWithKeyString("style")
                           ),
                             this.mAppBGView.setTransformWithParams(
@@ -737,7 +738,7 @@ System.register(
                                 this.getWindowWidth(),
                                 this.getWindowHeight()
                               ),
-                            this.mStateMachine.incrementState();
+                            this.mStateMachine.incrementState());
                         } else
                           this.mAppSupportFactory
                             .getResourceMgr()
@@ -751,10 +752,10 @@ System.register(
                           this.x1223600293558112366x.getDictionaryWithKeyStringPath(
                             "application.scenes.loading"
                           );
-                        this.mAppSupportFactory.addResources(S, "app"),
+                        (this.mAppSupportFactory.addResources(S, "app"),
                           this.mAppSupportFactory
                             .getResourceMgr()
-                            .startLoading();
+                            .startLoading());
                         break;
                       case c.x1673908432382400910x:
                         this.mAppSupportFactory
@@ -783,7 +784,7 @@ System.register(
                   case s.x2016815050744368811x:
                     switch (e) {
                       case c.x121795124178233464x:
-                        this.mAppSupportFactory.addResources(
+                        (this.mAppSupportFactory.addResources(
                           this.x1223600293558112366x.getDictionaryWithKeyString(
                             "application"
                           ),
@@ -792,7 +793,7 @@ System.register(
                           this.x2896656248433051307x(this.mAppSupportFactory),
                           this.mAppSupportFactory
                             .getResourceMgr()
-                            .startLoading();
+                            .startLoading());
                         break;
                       case c.x1673908432382400910x:
                         this.mAppSupportFactory
@@ -813,20 +814,20 @@ System.register(
                   case s.x3269693517490728328x:
                     switch (e) {
                       case c.x121795124178233464x:
-                        this.x1119974332240822773x(this.mSceneMgr),
+                        (this.x1119974332240822773x(this.mSceneMgr),
                           (this.mInitialScene = this.mSceneMgr.getManagedScene(
                             this.x1223600293558112366x.getStringValueWithKeyStringPath(
                               "application.initialScene"
                             )
                           )),
                           this.mSceneMgr.initManagedScenes(),
-                          this.mStateMachine.incrementState();
+                          this.mStateMachine.incrementState());
                     }
                     break;
                   case s.x2956959047337965747x:
                     switch (e) {
                       case c.x1673908432382400910x:
-                        this.mAppSupportFactory
+                        (this.mAppSupportFactory
                           .getResourceMgr()
                           .isDoneLoading("") ||
                           this.mAppSupportFactory
@@ -851,7 +852,7 @@ System.register(
                                   "application.audio.effects.sounds"
                                 )
                               ),
-                            this.mStateMachine.incrementState());
+                            this.mStateMachine.incrementState()));
                     }
                     break;
                   case s.x2744154456684720869x:
@@ -964,9 +965,9 @@ System.register(
             );
           })(s)
         );
-        (D.sInstance = null),
+        ((D.sInstance = null),
           (D.sValidationStatus = "UAYIOLMEKQCE"),
-          a._RF.pop();
+          a._RF.pop());
       },
     };
   }
@@ -1125,13 +1126,13 @@ System.register(
                 return this.mResourceMgr;
               }),
               (r.setFactoryData = function (t) {
-                null !== this.mFactoryData &&
+                (null !== this.mFactoryData &&
                   (this.mFactoryData.destroy(), (this.mFactoryData = null)),
                   (this.mFactoryData = new n(!0)),
                   this.mFactoryData.copy(t, !0),
                   (this.mStylesData =
                     this.mFactoryData.getDictionaryWithKeyString("styles")),
-                  this.expandStyles(this.mFactoryData);
+                  this.expandStyles(this.mFactoryData));
               }),
               (r.expandStyles = function (t) {
                 if (t) {
@@ -1168,7 +1169,7 @@ System.register(
               (r.createViewWithTypeAndClass = function (t, e, i) {
                 if ("" == t) return null;
                 var r = this.x4125438279526586563x(t, e);
-                return r.initWithParams(i), r;
+                return (r.initWithParams(i), r);
               }),
               (r.createViewWithType = function (t, e) {
                 var i = null,
@@ -1179,14 +1180,14 @@ System.register(
                 else {
                   var n = r.getDictionaryWithKeyString("params"),
                     s = null;
-                  e && e.getNumValues() > 0
+                  (e && e.getNumValues() > 0
                     ? (s = e).synchronizeWithSource(n, !1, !1, !1)
                     : (s = n),
                     (i = this.createViewWithTypeAndClass(
                       t,
                       r.getStringValue(a.stringToValueKey("class")),
                       s
-                    ));
+                    )));
                 }
                 return i;
               }),
@@ -1197,11 +1198,11 @@ System.register(
                   s = a.firstIndexInString(t, "@"),
                   o = a.firstIndexInString(t, ":");
                 if (!(o > 0)) return null;
-                (n = o + 1),
+                ((n = o + 1),
                   s > 0
                     ? ((i = a.substringToIndex(t, s)),
                       (r = a.substringWithRange(t, s + 1, o)))
-                    : (i = r = a.substringToIndex(t, o));
+                    : (i = r = a.substringToIndex(t, o)));
                 var u = this.createViewWithType(i, e);
                 if ((u || (u = this.createViewWithTypeAndClass(i, r, e)), u)) {
                   var c = a.substringFromIndex(t, n);
@@ -1361,12 +1362,12 @@ System.register(
                                   : null;
               }),
               (r.x4554517263080478179x = function () {
-                null !== this.mResourceMgr &&
+                (null !== this.mResourceMgr &&
                   (this.mResourceMgr.destroy(), (this.mResourceMgr = null)),
                   null !== this.mFactoryData &&
                     (this.mFactoryData.destroy(), (this.mFactoryData = null)),
                   (this.mStylesData = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               i
             );
@@ -1454,7 +1455,7 @@ System.register(
                   ));
               }),
               (s.x878158922330897399x = function (e) {
-                t.prototype.x878158922330897399x.call(this, e),
+                (t.prototype.x878158922330897399x.call(this, e),
                   this.setName("_BPSBitmapTextView"),
                   e &&
                     (this.setFont(
@@ -1464,19 +1465,21 @@ System.register(
                           e.getStringValue(n.stringToValueKey("resource_font"))
                         )
                     ),
-                    this.setText(e.getStringValue(n.stringToValueKey("text"))));
+                    this.setText(
+                      e.getStringValue(n.stringToValueKey("text"))
+                    )));
               }),
               (s.x4554517263080478179x = function () {
-                (this.mFont = null),
+                ((this.mFont = null),
                   null !== this.mTextView &&
                     (this.mTextView.destroy(), (this.mTextView = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (s.x2587986063263023769x = function (t) {
                 this.mTextView.setAlpha(t);
               }),
               (s.x1024581039465332205x = function (t) {
-                this.setFont(
+                (this.setFont(
                   this.getAppSupportFactory()
                     .getResourceMgr()
                     .getBitmapFontResource(
@@ -1485,7 +1488,7 @@ System.register(
                 ),
                   this.setAlpha(
                     t.getFloatValueWithDefault(n.stringToValueKey("alpha"), 1)
-                  );
+                  ));
                 var e = n.stringToValueKey(
                   t.getStringValueWithDefault(
                     n.stringToValueKey("horizontalAlignment"),
@@ -1518,7 +1521,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           n = t.cclegacy;
@@ -1562,23 +1565,23 @@ System.register(
               (o.updateChildren = function () {
                 switch (this.mLayout) {
                   case n.x2570129461964701616x:
-                    this.distributeExternalChildrenHorizontally(this.mStride),
+                    (this.distributeExternalChildrenHorizontally(this.mStride),
                       this.mAlignment >= 0 &&
-                        this.setChildrenAnchorY(this.mAlignment);
+                        this.setChildrenAnchorY(this.mAlignment));
                     break;
                   case n.x282041429816244164x:
-                    this.distributeExternalChildrenVertically(this.mStride),
+                    (this.distributeExternalChildrenVertically(this.mStride),
                       this.mAlignment >= 0 &&
-                        this.setChildrenAnchorX(this.mAlignment);
+                        this.setChildrenAnchorX(this.mAlignment));
                 }
-                this.mAutoWidth &&
+                (this.mAutoWidth &&
                   this.setWidthToChildrenBounds(this.mHorizontalPadding),
                   this.mAutoHeight &&
-                    this.setHeightToChildrenBounds(this.mVerticalPadding);
+                    this.setHeightToChildrenBounds(this.mVerticalPadding));
               }),
               (o.x878158922330897399x = function (e) {
-                t.prototype.x878158922330897399x.call(this, e),
-                  this.setName("_BPSContainerView");
+                (t.prototype.x878158922330897399x.call(this, e),
+                  this.setName("_BPSContainerView"));
               }),
               (o.x4554517263080478179x = function () {
                 t.prototype.x4554517263080478179x.call(this);
@@ -1588,7 +1591,7 @@ System.register(
                   a.stringToValueKey("layout"),
                   "none"
                 );
-                "none" == e
+                ("none" == e
                   ? (this.mLayout = n.x1264481342553853272x)
                   : "horizontal" == e
                     ? (this.mLayout = n.x2570129461964701616x)
@@ -1615,7 +1618,7 @@ System.register(
                     a.stringToValueKey("alignment"),
                     -1
                   )),
-                  this.updateChildren();
+                  this.updateChildren());
               }),
               (o.x1867884065912011382x = function () {
                 this.updateChildren();
@@ -1668,9 +1671,9 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose),
+          ((e = t.inheritsLoose),
             (a = t.createClass),
-            (n = t.assertThisInitialized);
+            (n = t.assertThisInitialized));
         },
         function (t) {
           i = t.cclegacy;
@@ -1771,11 +1774,13 @@ System.register(
                   case i.x3758641433360617955x:
                     return;
                 }
-                this.dispatchMessage(i.x995470322819674504x, this, null),
+                (this.dispatchMessage(i.x995470322819674504x, this, null),
                   this.x2892143761918022134x(),
                   this.mGameRootView.removeAllChildren(!0),
                   this.mGameRootView.removeFromParent(),
-                  this.mStateMachine.setStateImmediate(i.x3758641433360617955x);
+                  this.mStateMachine.setStateImmediate(
+                    i.x3758641433360617955x
+                  ));
               }),
               (s.handleDeviceControlOn = function (t, e) {
                 this.getState() == i.x4572021390473056467x &&
@@ -1820,14 +1825,14 @@ System.register(
               (s.x4253982453522538254x = function (t, e, a, n) {}),
               (s.x163798361296138542x = function (t, e) {}),
               (s.x4554517263080478179x = function () {
-                this.mValueChangedSource.removeMessageListener(this),
+                (this.mValueChangedSource.removeMessageListener(this),
                   null !== this.mGameMgrData &&
                     (this.mGameMgrData.destroy(), (this.mGameMgrData = null)),
                   null !== this.mStateMachine &&
                     (this.mStateMachine.destroy(), (this.mStateMachine = null)),
                   (this.mAppSupportFactory = null),
                   (this.mGameRootView = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (s.x900042063961702878x = function (e, a, n, s) {
                 switch (a) {
@@ -2001,9 +2006,9 @@ System.register(
                 this.mHTTPRequest = new XMLHttpRequest();
                 var e = this.x4250253263247936071x.getMethodAsString(),
                   t = this.x4250253263247936071x.getURL();
-                this.mHTTPRequest.open(e, t, !0),
+                (this.mHTTPRequest.open(e, t, !0),
                   (this.mHTTPRequest.timeout =
-                    1e3 * this.x4250253263247936071x.getTimeoutSEC());
+                    1e3 * this.x4250253263247936071x.getTimeoutSEC()));
                 for (
                   var n = this.x4250253263247936071x.getHeaders(),
                     s = n.getNumValues(),
@@ -2018,7 +2023,7 @@ System.register(
                   }
                 }
                 var u = this;
-                (this.mHTTPRequest.onreadystatechange = function (e) {
+                ((this.mHTTPRequest.onreadystatechange = function (e) {
                   4 == u.mHTTPRequest.readyState &&
                     (u.x4250253263247936071x._setResponseContent(
                       u.mHTTPRequest.responseText,
@@ -2031,7 +2036,7 @@ System.register(
                 }),
                   this.mHTTPRequest.send(
                     this.x4250253263247936071x.getBodyDataString()
-                  );
+                  ));
               }),
               (s.cancel = function () {
                 this.mHTTPRequest &&
@@ -2114,22 +2119,22 @@ System.register(
                 this.x2358322760688891750x();
               }),
               (i.enter = function () {
-                this.mSceneDiv &&
+                (this.mSceneDiv &&
                   this.getParentDiv().appendChild(this.mSceneDiv),
-                  this.x2286916272810300599x();
+                  this.x2286916272810300599x());
               }),
               (i.exit = function () {
-                this.x2589952590661649957x(),
+                (this.x2589952590661649957x(),
                   this.mSceneDiv &&
-                    this.getParentDiv().removeChild(this.mSceneDiv);
+                    this.getParentDiv().removeChild(this.mSceneDiv));
               }),
               (i.suspend = function () {
-                (this.mSceneDiv.style.visibility = "hidden"),
-                  this.x2973277422655884104x();
+                ((this.mSceneDiv.style.visibility = "hidden"),
+                  this.x2973277422655884104x());
               }),
               (i.resume = function () {
-                (this.mSceneDiv.style.visibility = "visible"),
-                  this.x4350259003430254870x();
+                ((this.mSceneDiv.style.visibility = "visible"),
+                  this.x4350259003430254870x());
               }),
               (i.terminate = function () {
                 this.x2786289153157999656x();
@@ -2177,10 +2182,10 @@ System.register(
           "x1991479375545777879x",
           (function () {
             function t(t, i, e, n) {
-              (this.mX = t),
+              ((this.mX = t),
                 (this.mY = i),
                 (this.mWidth = e),
-                (this.mHeight = n);
+                (this.mHeight = n));
             }
             var i = t.prototype;
             return (
@@ -2229,7 +2234,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           s = t.cclegacy;
@@ -2290,7 +2295,7 @@ System.register(
                 return this.mName;
               }),
               (n.setName = function (t) {
-                (this.mName = t), this.x3359283749312540189x(t);
+                ((this.mName = t), this.x3359283749312540189x(t));
               }),
               (n.x3359283749312540189x = function (t) {}),
               (n.x4554517263080478179x = function () {
@@ -2457,10 +2462,10 @@ System.register(
                         r < 9;
                         r++
                       )
-                        (e = i.getChildAtIndex(r)).setSpriteFrame(t),
-                          e.setSpriteFrameIndex(r);
+                        ((e = i.getChildAtIndex(r)).setSpriteFrame(t),
+                          e.setSpriteFrameIndex(r));
                     else
-                      (this.mLeftInset = 0),
+                      ((this.mLeftInset = 0),
                         (this.mRightInset = 0),
                         (this.mTopInset = 0),
                         (this.mBottomInset = 0),
@@ -2468,7 +2473,7 @@ System.register(
                           (i.removeAllChildren(!0),
                           i.addChild(this.mCenterSprite)),
                         this.mCenterSprite.setSpriteFrame(t),
-                        this.mCenterSprite.setSpriteFrameIndex(0);
+                        this.mCenterSprite.setSpriteFrameIndex(0));
                     this.x4321423084006054643x(
                       this.getWidth(),
                       this.getHeight()
@@ -2481,7 +2486,7 @@ System.register(
                 }
               }),
               (r.x878158922330897399x = function (e) {
-                t.prototype.x878158922330897399x.call(this, e),
+                (t.prototype.x878158922330897399x.call(this, e),
                   this.setName("_BPSScale9Sprite"),
                   e &&
                     this.setSpriteFrame(
@@ -2492,10 +2497,10 @@ System.register(
                             s.stringToValueKey("resource_texture")
                           )
                         )
-                    );
+                    ));
               }),
               (r.x4554517263080478179x = function () {
-                (this.mSpriteFrame = null),
+                ((this.mSpriteFrame = null),
                   this.mTopLeftSprite && this.mTopLeftSprite.release(),
                   (this.mTopLeftSprite = null),
                   this.mTopSprite && this.mTopSprite.release(),
@@ -2514,7 +2519,7 @@ System.register(
                   (this.mBottomSprite = null),
                   this.mBottomRightSprite && this.mBottomRightSprite.release(),
                   (this.mBottomRightSprite = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (r.x4321423084006054643x = function (e, i) {
                 if (
@@ -2529,7 +2534,7 @@ System.register(
                     h = p + m,
                     S = s + this.mBottomInset,
                     n = S + o;
-                  this.mCenterSprite.setSize(m, o),
+                  (this.mCenterSprite.setSize(m, o),
                     this.mTopLeftSprite.setPosition(p, n),
                     this.mTopRightSprite.setPosition(h, n),
                     this.mBottomLeftSprite.setPosition(p, S),
@@ -2541,7 +2546,7 @@ System.register(
                     this.mRightSprite.setPosition(h, 0),
                     this.mRightSprite.setSize(this.mRightInset, o),
                     this.mBottomSprite.setPosition(0, S),
-                    this.mBottomSprite.setSize(m, this.mBottomInset);
+                    this.mBottomSprite.setSize(m, this.mBottomInset));
                 } else this.mCenterSprite.setSize(e, i);
               }),
               (r.x1246695524197320415x = function () {
@@ -2578,7 +2583,7 @@ System.register(
                     e.getChildAtIndex(r).setAlpha(t);
               }),
               (r.x1024581039465332205x = function (t) {
-                this.setSpriteFrame(
+                (this.setSpriteFrame(
                   this.getAppSupportFactory()
                     .getResourceMgr()
                     .getNativeSpriteFrameResource(
@@ -2587,7 +2592,7 @@ System.register(
                 ),
                   this.setAlpha(
                     t.getFloatValueWithDefault(s.stringToValueKey("alpha"), 1)
-                  );
+                  ));
               }),
               i
             );
@@ -2621,9 +2626,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (n = e.createClass),
-            (i = e.assertThisInitialized);
+            (i = e.assertThisInitialized));
         },
         function (e) {
           s = e.cclegacy;
@@ -2671,7 +2676,7 @@ System.register(
           (function (e) {
             function s(t, n, r, S) {
               var m;
-              ((m = e.call(this) || this).mSceneName = t),
+              (((m = e.call(this) || this).mSceneName = t),
                 (m.mSceneId = n),
                 (m.x3409470267685603147x = r),
                 (m.mNativeSceneController = null),
@@ -2687,7 +2692,7 @@ System.register(
                 (m.mSceneRootView = new g(!0, r.getAppSupportFactory())),
                 m.mSceneRootView.retain(),
                 m.mSceneRootView.setName(t + "-rootView"),
-                (m.mDimmingView = null);
+                (m.mDimmingView = null));
               var l = m.mSceneParams.getDictionary(s.x1825471455395521030x);
               return (
                 l &&
@@ -2760,7 +2765,7 @@ System.register(
                 switch (this.mSceneState) {
                   case s.x2709647651927492456x:
                   case s.x2579359355116925441x:
-                    this.mSceneState == s.x2709647651927492456x &&
+                    (this.mSceneState == s.x2709647651927492456x &&
                       ((this.mElapsedActiveTimeMSEC += e),
                       this.mInputBlockingDelayTimerMSEC > 0 &&
                         ((this.mInputBlockingDelayTimerMSEC -= e),
@@ -2771,7 +2776,7 @@ System.register(
                       this.mTimerMgr.processTimeMSEC(e),
                       this.x1748512213907527052x(e),
                       this.mNativeSceneController &&
-                        this.mNativeSceneController.processTimeMSEC(e);
+                        this.mNativeSceneController.processTimeMSEC(e));
                 }
               }),
               (r.enter = function () {
@@ -2814,7 +2819,7 @@ System.register(
                   case s.x119847156746484687x:
                     return;
                 }
-                m.setCursorToNormal(),
+                (m.setCursorToNormal(),
                   this.mUIInputMgr.clearManagedControls(),
                   (this.mSceneState = s.x948272111261624760x),
                   this.dispatchMessage(s.x4326438752450300425x, this, null),
@@ -2828,7 +2833,7 @@ System.register(
                   this.mNativeSceneController &&
                     this.mNativeSceneController.exit(),
                   this.mDimmingView && this.mDimmingView.removeFromParent(),
-                  this.mSceneRootView.removeFromParent();
+                  this.mSceneRootView.removeFromParent());
               }),
               (r.suspend = function () {
                 switch (this.mSceneState) {
@@ -2837,7 +2842,7 @@ System.register(
                   case s.x119847156746484687x:
                     return;
                 }
-                m.setCursorToNormal(),
+                (m.setCursorToNormal(),
                   this.mUIInputMgr.cancelAllInputActions(),
                   (this.mSceneState = s.x2579359355116925441x),
                   this.mDimmingView && this.mDimmingView.removeFromParent(),
@@ -2851,7 +2856,7 @@ System.register(
                   ),
                   this.x2878673084604274481x(),
                   this.mNativeSceneController &&
-                    this.mNativeSceneController.suspend();
+                    this.mNativeSceneController.suspend());
               }),
               (r.resume = function () {
                 switch (this.mSceneState) {
@@ -2860,7 +2865,7 @@ System.register(
                   case s.x119847156746484687x:
                     return;
                 }
-                (this.mSceneState = s.x2709647651927492456x),
+                ((this.mSceneState = s.x2709647651927492456x),
                   (this.mInputBlockingDelayTimerMSEC =
                     this.mSceneParams.getIntValue(
                       S.stringToValueKey("inputBlockingDelayMSEC")
@@ -2889,18 +2894,18 @@ System.register(
                   this.x4328264010118866272x(),
                   this.mSceneRootView.updateLayout(!0),
                   this.mNativeSceneController &&
-                    this.mNativeSceneController.resume();
+                    this.mNativeSceneController.resume());
               }),
               (r.terminate = function () {
                 switch (this.mSceneState) {
                   case s.x119847156746484687x:
                     return;
                 }
-                this.x1446981245456363814x(),
+                (this.x1446981245456363814x(),
                   this.exit(),
                   (this.mSceneState = s.x119847156746484687x),
                   this.mNativeSceneController &&
-                    this.mNativeSceneController.terminate();
+                    this.mNativeSceneController.terminate());
               }),
               (r.handleDeviceControlOn = function (e, t, n, i) {
                 this.isInputAllowed() &&
@@ -2962,7 +2967,7 @@ System.register(
                     this.mSceneParams.getDictionaryWithKeyString(
                       "viewHierarchy"
                     );
-                  t &&
+                  (t &&
                     t.getBoolValueWithDefault(
                       S.stringToValueKey("enabled"),
                       !0
@@ -2990,7 +2995,7 @@ System.register(
                     this.mUIInputMgr.manageControlsInView(
                       this.getSceneRootView()
                     ),
-                    (this.mDidConstruct = !0);
+                    (this.mDidConstruct = !0));
                 }
               }),
               (r.x3741355791916698374x = function () {
@@ -3004,7 +3009,7 @@ System.register(
               (r.x1446981245456363814x = function () {}),
               (r.x1748512213907527052x = function (e) {}),
               (r.x4554517263080478179x = function () {
-                this.mNativeSceneController &&
+                (this.mNativeSceneController &&
                   (this.mNativeSceneController.destroy(),
                   (mNativeSceneController = null)),
                   null !== this.mSceneParams &&
@@ -3023,7 +3028,7 @@ System.register(
                     (this.mStateMachine.destroy(), (this.mStateMachine = null)),
                   null !== this.mMessageData &&
                     (this.mMessageData.destroy(), (this.mMessageData = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               n(s, null, [
                 {
@@ -3109,9 +3114,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (n = e.createClass),
-            (s = e.assertThisInitialized);
+            (s = e.assertThisInitialized));
         },
         function (e) {
           a = e.cclegacy;
@@ -3188,12 +3193,12 @@ System.register(
                   var n = this.mManagedScenes.getObjectValueAtIndex(t);
                   n && n.x4037128969117730011x();
                 }
-                this.dispatchMessageToManagedScenes(
+                (this.dispatchMessageToManagedScenes(
                   a.x1815863738674710524x,
                   this,
                   null
                 ),
-                  this.dispatchMessage(a.x1815863738674710524x, this, null);
+                  this.dispatchMessage(a.x1815863738674710524x, this, null));
               }),
               (i.dispatchMessageToManagedScenes = function (e, t, n) {
                 for (
@@ -3247,46 +3252,58 @@ System.register(
               }),
               (i.terminate = function () {
                 var e = this.getCurrentScene();
-                e && e.terminate(), this.mStateMachine.setState(-1);
+                (e && e.terminate(), this.mStateMachine.setState(-1));
               }),
               (i.processTimeMSEC = function (e) {
                 this.mStateMachine.processTime(e);
               }),
               (i.x4554517263080478179x = function () {
-                null !== this.mStateMachine &&
+                (null !== this.mStateMachine &&
                   (this.mStateMachine.destroy(), (this.mStateMachine = null)),
                   null !== this.mManagedScenes &&
                     (this.mManagedScenes.destroy(),
                     (this.mManagedScenes = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (i.x900042063961702878x = function (t, n, s, i) {
                 var c = this.getManagedSceneWithId(n);
                 if (c)
                   switch (t) {
                     case S.x121795124178233464x:
-                      this.dispatchMessage(a.x2565119053123910543x, this, null),
+                      (this.dispatchMessage(
+                        a.x2565119053123910543x,
+                        this,
+                        null
+                      ),
                         c.enter(),
                         this.mStateMachine.getNumStatesOnStack() > 1 &&
-                          o.instance().handleUIEvent(o.x3165488958101061085x);
+                          o.instance().handleUIEvent(o.x3165488958101061085x));
                       break;
                     case S.x1673908432382400910x:
                       c.processTimeMSEC(i);
                       break;
                     case S.x3293153264341002567x:
-                      this.dispatchMessage(a.x199800079403302811x, this, null),
+                      (this.dispatchMessage(a.x199800079403302811x, this, null),
                         c.exit(),
-                        (this.mPreviousSceneName = c.getSceneName());
+                        (this.mPreviousSceneName = c.getSceneName()));
                       break;
                     case S.x227620873720349767x:
-                      this.dispatchMessage(a.x3244418593457082679x, this, null),
+                      (this.dispatchMessage(
+                        a.x3244418593457082679x,
+                        this,
+                        null
+                      ),
                         c.suspend(),
-                        (this.mPreviousSceneName = c.getSceneName());
+                        (this.mPreviousSceneName = c.getSceneName()));
                       break;
                     case S.x456834656653288185x:
-                      this.dispatchMessage(a.x2988557211782246982x, this, null),
+                      (this.dispatchMessage(
+                        a.x2988557211782246982x,
+                        this,
+                        null
+                      ),
                         c.resume(),
-                        o.instance().handleUIEvent(o.x2470349383679704135x);
+                        o.instance().handleUIEvent(o.x2470349383679704135x));
                   }
                 return e.prototype.x900042063961702878x.call(this, t, n, s, i);
               }),
@@ -3393,23 +3410,23 @@ System.register(
                 if (this.mSpriteFrame != e) {
                   this.mSpriteFrame = e;
                   var t = this.mSpriteFrameIndex;
-                  (this.mSpriteFrameIndex = -1), this.setSpriteFrameIndex(t);
+                  ((this.mSpriteFrameIndex = -1), this.setSpriteFrameIndex(t));
                 }
               }),
               (r.setSpriteFrameIndex = function (e) {
                 if (this.mSpriteFrameIndex != e)
                   if (((this.mSpriteFrameIndex = e), this.mSpriteFrame)) {
                     var t = this.mSpriteFrame.getNativeSpriteFrame(e);
-                    p.NativeSprite_setSpriteFrame(this.mNativeSprite, t, !0),
+                    (p.NativeSprite_setSpriteFrame(this.mNativeSprite, t, !0),
                       this.setSize(
                         p.NativeSpriteFrame_getWidth(t),
                         p.NativeSpriteFrame_getHeight(t)
-                      );
+                      ));
                   } else
                     p.NativeSprite_setSpriteFrame(this.mNativeSprite, null, !1);
               }),
               (r.x878158922330897399x = function (t) {
-                e.prototype.x878158922330897399x.call(this, t),
+                (e.prototype.x878158922330897399x.call(this, t),
                   this.setName("_BPSSprite"),
                   t &&
                     this.setSpriteFrame(
@@ -3420,12 +3437,12 @@ System.register(
                             a.stringToValueKey("resource_texture")
                           )
                         )
-                    );
+                    ));
               }),
               (r.x4554517263080478179x = function () {
-                (this.mNativeSprite = null),
+                ((this.mNativeSprite = null),
                   (this.mSpriteFrame = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (r.x4321423084006054643x = function (e, t) {
                 p.NativeSprite_setSize(this.mNativeSprite, e, t);
@@ -3452,7 +3469,7 @@ System.register(
                 p.NativeSprite_setAlpha(this.mNativeSprite, e);
               }),
               (r.x1024581039465332205x = function (e) {
-                this.setSpriteFrame(
+                (this.setSpriteFrame(
                   this.getAppSupportFactory()
                     .getResourceMgr()
                     .getNativeSpriteFrameResource(
@@ -3461,7 +3478,7 @@ System.register(
                 ),
                   this.setAlpha(
                     e.getFloatValueWithDefault(a.stringToValueKey("alpha"), 1)
-                  );
+                  ));
               }),
               i
             );
@@ -3482,7 +3499,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (n = e.createClass);
+          ((t = e.inheritsLoose), (n = e.createClass));
         },
         function (e) {
           i = e.cclegacy;
@@ -3572,8 +3589,8 @@ System.register(
               (s.x3739382590539192162x = function () {}),
               (s.x2074302598147687231x = function (e) {}),
               (s.x4554517263080478179x = function () {
-                (this.mAchievementsComponent = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                ((this.mAchievementsComponent = null),
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               n(i, null, [
                 {
@@ -3646,9 +3663,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (n = e.createClass),
-            (a = e.assertThisInitialized);
+            (a = e.assertThisInitialized));
         },
         function (e) {
           s = e.cclegacy;
@@ -3707,19 +3724,19 @@ System.register(
                   );
               }),
               (i.handleAchievementComplete = function (e) {
-                this.mMessageData.setObjectValue(s.x3172298471309837079x, e),
+                (this.mMessageData.setObjectValue(s.x3172298471309837079x, e),
                   this.dispatchMessage(
                     s.x1573352203731736474x,
                     this,
                     this.mMessageData
                   ),
-                  this.mMessageData.clearObjectValues();
+                  this.mMessageData.clearObjectValues());
               }),
               (i.createStandardAchievements = function (e) {
                 for (var t = e.getNumValues(), n = 0; n < t; n++) {
                   var a = new o(this);
-                  a.setParams(e.getDictionaryAtIndex(n)),
-                    this.manageAchievement(a);
+                  (a.setParams(e.getDictionaryAtIndex(n)),
+                    this.manageAchievement(a));
                 }
               }),
               (i.handleWillPreStartGame = function () {
@@ -3754,11 +3771,11 @@ System.register(
                 }
               }),
               (i.x4554517263080478179x = function () {
-                null !== this.mAchievements &&
+                (null !== this.mAchievements &&
                   (this.mAchievements.destroy(), (this.mAchievements = null)),
                   null !== this.mMessageData &&
                     (this.mMessageData.destroy(), (this.mMessageData = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (i.x3202151272846750673x = function (e, t, n, a) {
                 switch (e) {
@@ -3767,7 +3784,7 @@ System.register(
                   case r.x121795124178233464x:
                     return 0;
                   case r.x1673908432382400910x:
-                    return this._processTime(a), a;
+                    return (this._processTime(a), a);
                   case r.x3293153264341002567x:
                   default:
                     return 0;
@@ -3846,7 +3863,7 @@ System.register(
         },
       ],
       execute: function () {
-        t._RF.push(
+        (t._RF.push(
           {},
           "6e373yjtHVA648Q5hdEq0pn",
           "x1195556301714669293x",
@@ -3923,7 +3940,7 @@ System.register(
                   } catch (t) {
                     e = "0";
                   }
-                  return (e && "" != e) || (e = "0"), e;
+                  return ((e && "" != e) || (e = "0"), e);
                 }),
                 (e.getNumFilePathPermutations = function (e) {
                   var t = r.firstIndexInString(e, "{"),
@@ -3975,7 +3992,7 @@ System.register(
                 }),
                 (e.NativeBitmap_createWithSize = function (e, t, i) {
                   var r = document.createElement("canvas");
-                  return (r.width = e), (r.height = t), r;
+                  return ((r.width = e), (r.height = t), r);
                 }),
                 (e.NativeBitmap_release = function (e) {}),
                 (e.NativeBitmap_getWidth = function (e) {
@@ -4017,7 +4034,7 @@ System.register(
                   if ("" == t) return null;
                   var i = e.NativeBitmap_createWithFile(t),
                     r = e.NativeTexture_createWithBitmap(i);
-                  return e.NativeBitmap_release(i), r;
+                  return (e.NativeBitmap_release(i), r);
                 }),
                 (e.NativeTexture_getWidth = function (e) {
                   return e ? e.width : 0;
@@ -4048,7 +4065,7 @@ System.register(
                     var r = i._uiProps.uiTransformComp,
                       n = i.BPS_hasSize ? i.BPS_width : r.width,
                       a = i.BPS_hasSize ? i.BPS_height : r.height;
-                    t.addChild(i), r.setContentSize(n, a);
+                    (t.addChild(i), r.setContentSize(n, a));
                   }
                 }),
                 (e.NativeView_removeChild = function (e, t) {
@@ -4116,9 +4133,13 @@ System.register(
                   if (!t) return null;
                   var o = e.NativeTexture_getWidth(t),
                     u = e.NativeTexture_getHeight(t);
-                  n <= 0 && (n = o), a <= 0 && (a = u);
+                  (n <= 0 && (n = o), a <= 0 && (a = u));
                   var s = new cc.SpriteFrame();
-                  return (s.texture = t), s.setRect(new cc.rect(i, r, n, a)), s;
+                  return (
+                    (s.texture = t),
+                    s.setRect(new cc.rect(i, r, n, a)),
+                    s
+                  );
                 }),
                 (e.NativeSpriteFrame_createWithBitmap = function (t) {
                   var i = e.NativeTexture_createWithBitmap(t);
@@ -4136,8 +4157,8 @@ System.register(
                 }),
                 (e.NativeSprite_createWithSpriteFrame = function (t) {
                   var i = new cc.Node();
-                  (i.name = "_BPSNativeSprite"),
-                    (i.layer = cc.Layers.Enum.UI_2D);
+                  ((i.name = "_BPSNativeSprite"),
+                    (i.layer = cc.Layers.Enum.UI_2D));
                   var r = i.addComponent(cc.Sprite);
                   return (
                     (i.BPS_spriteComponent = r),
@@ -4213,8 +4234,8 @@ System.register(
                   s
                 ) {
                   var c = new cc.Node();
-                  (c.name = "_BPSNativeCropView"),
-                    (c.layer = cc.Layers.Enum.UI_2D);
+                  ((c.name = "_BPSNativeCropView"),
+                    (c.layer = cc.Layers.Enum.UI_2D));
                   var l = c.addComponent("cc.UITransform");
                   return (
                     l.setAnchorPoint(o, u),
@@ -4250,7 +4271,6 @@ System.register(
                   for (
                     var t = e.firstChild;
                     null != t && t.nodeType != Node.ELEMENT_NODE;
-
                   )
                     t = t.nextSibling;
                   return t;
@@ -4262,7 +4282,6 @@ System.register(
                   for (
                     var r = e.NativeXMLElement_getFirstElementNodeChild(t);
                     r;
-
                   ) {
                     if (e.NativeXMLElement_getName(r) == i) return r;
                     r = e.NativeXMLElement_getNextElementNodeSibling(r);
@@ -4273,14 +4292,13 @@ System.register(
                   for (
                     var t = e.nextSibling;
                     null != t && t.nodeType != Node.ELEMENT_NODE;
-
                   )
                     t = t.nextSibling;
                   return t;
                 }),
                 (e.x681246252875111093x = function (t, a, o, u, s, c) {
-                  t.setSerializationFormat(i.x4174731969673950831x),
-                    o && t.removeAllValues();
+                  (t.setSerializationFormat(i.x4174731969673950831x),
+                    o && t.removeAllValues());
                   for (
                     var l, m = e.NativeXMLElement_getNumAttributes(a), N = 0;
                     N < m;
@@ -4297,7 +4315,6 @@ System.register(
                       var v = null,
                         g = e.NativeXMLElement_getFirstElementNodeChild(a);
                       null != g;
-
                     ) {
                       var p = e.NativeXMLElement_getName(g),
                         _ = e.NativeXMLElement_getAttributeValue(g, "key"),
@@ -4313,9 +4330,9 @@ System.register(
                           : (_ = r.stringFromInt(t.getNumValues(), 1, !1)),
                         "dict" == p)
                       )
-                        (v = new i(!0)),
+                        ((v = new i(!0)),
                           e.x681246252875111093x(v, g, !0, u, s, c),
-                          t.insertObjectValue(S, _, t.getNumValues(), v);
+                          t.insertObjectValue(S, _, t.getNumValues(), v));
                       else
                         switch (n.valueTypeFromString(p)) {
                           case n.x1816879051713746700x:
@@ -4352,8 +4369,8 @@ System.register(
                             if (s && r.stringEndsWith(_, "-JSON")) {
                               v = new i(!0);
                               var h = e.NativeXMLElement_getStringValue(g);
-                              v.parseJSONString(h, c, !0),
-                                t.insertObjectValue(S, _, t.getNumValues(), v);
+                              (v.parseJSONString(h, c, !0),
+                                t.insertObjectValue(S, _, t.getNumValues(), v));
                             } else
                               t.insertStringValue(
                                 S,
@@ -4386,9 +4403,9 @@ System.register(
                     var e = 0,
                       t = 0;
                     try {
-                      (e = window.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK()),
+                      ((e = window.TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK()),
                         (t =
-                          window.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT());
+                          window.PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT()));
                     } catch (e) {
                       return !1;
                     }
@@ -4402,7 +4419,7 @@ System.register(
               );
             })()
           ).sIsCursorVisible = !0),
-          t._RF.pop();
+          t._RF.pop());
       },
     };
   }
@@ -4430,9 +4447,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (a = e.createClass),
-            (n = e.assertThisInitialized);
+            (n = e.assertThisInitialized));
         },
         function (e) {
           r = e.cclegacy;
@@ -4480,7 +4497,7 @@ System.register(
           (function (e) {
             function r(t, a) {
               var s;
-              (s = e.call(this, r.x1987111697527652119x, t) || this)
+              ((s = e.call(this, r.x1987111697527652119x, t) || this)
                 .getParams()
                 .setIntValue(r.x2332428133001322959x, 0),
                 s.getParams().setIntValue(r.x3003952367968396233x, 3),
@@ -4503,7 +4520,7 @@ System.register(
                 s.getParams().copy(a, !1),
                 t.addMessageListener(n(s)),
                 s.getGame().addMessageListener(n(s)),
-                (s.mRNG = new d());
+                (s.mRNG = new d()));
               var i = s.getParams().getIntValue(r.x2332428133001322959x);
               return (
                 0 == i && (i = g.nextNativeRandomInt()),
@@ -4585,13 +4602,13 @@ System.register(
                     var s = t + n * a;
                     this.startTimer(s, this, r.x2719054570215784974x);
                   }
-                  (this.mNumAttacksSent += e),
+                  ((this.mNumAttacksSent += e),
                     this.mMessageData.setIntValue(r.x2941240369277282248x, e),
                     this.dispatchMessage(
                       r.x2554084924706305153x,
                       this,
                       this.mMessageData
-                    );
+                    ));
                 }
               }),
               (s.receiveAttacks = function (e, t) {
@@ -4599,7 +4616,7 @@ System.register(
                   var a = this.mNumIncomingAttacks;
                   this.mNumIncomingAttacks += e;
                   var n = this.getPlayer();
-                  (this.mNumIncomingAttacks = g.minInt(
+                  ((this.mNumIncomingAttacks = g.minInt(
                     this.mNumIncomingAttacks,
                     n.getMatrix().getVisibleHeight()
                   )),
@@ -4609,7 +4626,7 @@ System.register(
                       r.x4289962653175987446x,
                       this,
                       this.mMessageData
-                    );
+                    ));
                 }
               }),
               (s.handleDidSendKnockout = function (e) {
@@ -4783,37 +4800,36 @@ System.register(
               (s.processIncomingAttacks = function () {
                 if (this.mNumIncomingAttacks > 0) {
                   var e = this.getPlayer().getMatrix();
-                  e.setIsVerticalShiftEnabled(!0),
+                  (e.setIsVerticalShiftEnabled(!0),
                     e.setIsVerticalShiftUpwards(!0),
                     e.setVerticalShiftMSECPerLine(
                       this.getParams().getIntValue(r.x623419424023700635x)
-                    );
+                    ));
                   for (
                     var t = e.getWidth(),
                       a = this.mRNG.nextIntInRange(0, t - 1),
                       n = null;
                     this.mNumIncomingAttacks > 0;
-
                   ) {
                     for (var s = 0; s < t; s++)
-                      s != a &&
+                      (s != a &&
                         ((n = new l()).setMinoTypeId(g.x2214418706171680314x),
                         n.setCanFall(!0),
                         n.setIsMatchable(!0),
                         n.setIsKillable(!0)),
                         this.mScratchRowMinosArray.setAtIndex(s, n),
-                        (n = null);
-                    e.addExternalRowBelow(this.mScratchRowMinosArray, !1),
-                      this.mNumIncomingAttacks--;
+                        (n = null));
+                    (e.addExternalRowBelow(this.mScratchRowMinosArray, !1),
+                      this.mNumIncomingAttacks--);
                   }
                   this.mNumIncomingAttacks = 0;
                 }
               }),
               (s._counterAttacksFromTargetPlayer = function (e) {
-                (this.mNumIncomingAttacks -= e),
+                ((this.mNumIncomingAttacks -= e),
                   this.mNumIncomingAttacks < 0 &&
                     (this.mNumIncomingAttacks = 0),
-                  this.dispatchMessage(r.x2336462491123288011x, this, null);
+                  this.dispatchMessage(r.x2336462491123288011x, this, null));
               }),
               (s.checkForWinByKnockouts = function () {
                 if (
@@ -4890,13 +4906,14 @@ System.register(
                       : r.x1473068611652403351x;
               }),
               (s.x4554517263080478179x = function () {
-                null !== this.mRNG && (this.mRNG.destroy(), (this.mRNG = null)),
+                (null !== this.mRNG &&
+                  (this.mRNG.destroy(), (this.mRNG = null)),
                   null !== this.mScratchRowMinosArray &&
                     (this.mScratchRowMinosArray.destroy(),
                     (this.mScratchRowMinosArray = null)),
                   null !== this.mMessageData &&
                     (this.mMessageData.destroy(), (this.mMessageData = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (s.x3202151272846750673x = function (t, a, n, r) {
                 switch (
@@ -4907,7 +4924,7 @@ System.register(
                   case k.x121795124178233464x:
                     return 0;
                   case k.x1673908432382400910x:
-                    return this.checkForWinByKnockouts(), r;
+                    return (this.checkForWinByKnockouts(), r);
                   case k.x3293153264341002567x:
                   default:
                     return 0;
@@ -4930,11 +4947,11 @@ System.register(
                 else if (t == this.getPlayer())
                   switch (e) {
                     case m.x468145498827519783x:
-                      (this.mScoreComponent = this.getPlayer().getComponent(
+                      ((this.mScoreComponent = this.getPlayer().getComponent(
                         i.x1107523589684864332x
                       )),
                         this.mScoreComponent &&
-                          this.mScoreComponent.addMessageListener(this);
+                          this.mScoreComponent.addMessageListener(this));
                       var n = this.getGame().getNumPlayers();
                       this.mTargetPlayerIndex = g.loopClampedInt(
                         this.getPlayer().getPlayerIndex() + 1,
@@ -4974,12 +4991,12 @@ System.register(
                         this.getParams().getIntValue(r.x3003952367968396233x) >
                         0
                       ) {
-                        this.mNumKnockoutsReceived++,
+                        (this.mNumKnockoutsReceived++,
                           this.dispatchMessage(
                             r.x4328512667908842652x,
                             this,
                             null
-                          );
+                          ));
                         var c = this.getGame()
                           .getPlayerAtIndex(this.mTargetPlayerIndex)
                           .getComponent(r.x1987111697527652119x);
@@ -5429,8 +5446,8 @@ System.register(
                 return this.mXAdvance;
               }),
               (i.addKerning = function (t, e) {
-                this.mKernings || (this.mKernings = new s(!0)),
-                  this.mKernings.setIntValue(t, e);
+                (this.mKernings || (this.mKernings = new s(!0)),
+                  this.mKernings.setIntValue(t, e));
               }),
               (i.getKerning = function (t) {
                 return t > 0 && this.mKernings
@@ -5438,10 +5455,10 @@ System.register(
                   : 0;
               }),
               (i.x4554517263080478179x = function () {
-                (this.mNativeSpriteFrame = null),
+                ((this.mNativeSpriteFrame = null),
                   null !== this.mKernings &&
                     (this.mKernings.destroy(), (this.mKernings = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               n
             );
@@ -5471,7 +5488,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (r = e.createClass);
+          ((t = e.inheritsLoose), (r = e.createClass));
         },
         function (e) {
           i = e.cclegacy;
@@ -5518,10 +5535,10 @@ System.register(
                 n
               );
             }
-            t(i, e),
+            (t(i, e),
               (i.x3723660301301689227x = function (e) {
                 return o.stringToHash32("1262240242-" + e);
-              });
+              }));
             var a = i.prototype;
             return (
               (a.getBitmapFontChar = function (e) {
@@ -5561,13 +5578,13 @@ System.register(
                     r,
                     "common"
                   );
-                (this.mLineHeight = o.stringToInt(
+                ((this.mLineHeight = o.stringToInt(
                   s.NativeXMLElement_getAttributeValue(i, "lineHeight")
                 )),
                   (this.mBaseline = o.stringToInt(
                     s.NativeXMLElement_getAttributeValue(i, "base")
                   )),
-                  (this.mMaxCharId = -1);
+                  (this.mMaxCharId = -1));
                 for (
                   var a = s.NativeXMLElement_getElementNodeChildWithName(
                       r,
@@ -5576,13 +5593,12 @@ System.register(
                     c = s.NativeXMLElement_getFirstElementNodeChild(a),
                     h = 0;
                   c;
-
                 )
-                  (h = this.getMappedCharId(
+                  ((h = this.getMappedCharId(
                     o.stringToInt(s.NativeXMLElement_getAttributeValue(c, "id"))
                   )),
                     (this.mMaxCharId = o.maxInt(h, this.mMaxCharId)),
-                    (c = s.NativeXMLElement_getNextElementNodeSibling(c));
+                    (c = s.NativeXMLElement_getNextElementNodeSibling(c)));
                 this.mChars = new n(this.mMaxCharId + 1);
                 var l = this.getResourceMgr().getNativeTexture(
                   this.getResourceName()
@@ -5613,8 +5629,8 @@ System.register(
                       s.NativeXMLElement_getAttributeValue(c, "xadvance")
                     ),
                     S = new u(h, l, g, m, d, R, N, _, M);
-                  this.mChars.setAtIndex(h, S),
-                    (c = s.NativeXMLElement_getNextElementNodeSibling(c));
+                  (this.mChars.setAtIndex(h, S),
+                    (c = s.NativeXMLElement_getNextElementNodeSibling(c)));
                 }
                 var T = s.NativeXMLElement_getElementNodeChildWithName(
                   r,
@@ -5624,7 +5640,6 @@ System.register(
                   for (
                     var v = s.NativeXMLElement_getFirstElementNodeChild(T);
                     v;
-
                   ) {
                     var p = o.stringToInt(
                         s.NativeXMLElement_getAttributeValue(v, "first")
@@ -5643,13 +5658,13 @@ System.register(
                   }
               }),
               (a.x4554517263080478179x = function () {
-                this.mChars && this.mChars.destroyAll(),
+                (this.mChars && this.mChars.destroyAll(),
                   null !== this.mChars &&
                     (this.mChars.destroy(), (this.mChars = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (a.x477228624734195371x = function () {
-                (this.mNativeTextureResourceId =
+                ((this.mNativeTextureResourceId =
                   this.getResourceMgr().addNativeTextureResource(
                     this.getResourceName(),
                     this.getResourceGroupName(),
@@ -5660,7 +5675,7 @@ System.register(
                       this.getResourceName(),
                       this.getResourceGroupName(),
                       this.mFilePath + ".xml"
-                    ));
+                    )));
               }),
               (a.x3877241562699863631x = function () {}),
               (a.x2813930425793059317x = function () {
@@ -5735,7 +5750,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           n = t.cclegacy;
@@ -5765,7 +5780,7 @@ System.register(
           (function (t) {
             function n() {
               var e;
-              ((e = t.call(this) || this).mLineWidths = new Array()),
+              (((e = t.call(this) || this).mLineWidths = new Array()),
                 (e.mNativeLineViewsPool = new m(m.x301791299102268021x)),
                 (e.mNativeCharSpritesPool = new m(m.x301791299102268021x)),
                 (e.mFont = null),
@@ -5776,7 +5791,7 @@ System.register(
                 (e.mIntegerInsertCommas = !0),
                 (e.mTextWidth = 0),
                 (e.mTextHeight = 0),
-                (e.mStartAnimatorsOnTextChanged = !1);
+                (e.mStartAnimatorsOnTextChanged = !1));
               var i = r.NativeView_create();
               return (
                 r.NativeView_setName(i, "x2180772073777581929x"),
@@ -5784,11 +5799,11 @@ System.register(
                 e
               );
             }
-            e(n, t),
+            (e(n, t),
               (n.createWithParams = function (t, e, i) {
                 var a = new n();
-                return a.setParams(t, e, i), a;
-              });
+                return (a.setParams(t, e, i), a);
+              }));
             var a = n.prototype;
             return (
               (a.setFont = function (t) {
@@ -5829,7 +5844,6 @@ System.register(
                 for (
                   var t = this.getNativeView(), e = null, i = null;
                   r.NativeView_getNumChildren(t) > 0;
-
                 ) {
                   for (
                     e = r.NativeView_getChildAtIndex(
@@ -5837,18 +5851,17 @@ System.register(
                       r.NativeView_getNumChildren(t) - 1
                     );
                     r.NativeView_getNumChildren(e) > 0;
-
                   )
-                    (i = r.NativeView_getChildAtIndex(
+                    ((i = r.NativeView_getChildAtIndex(
                       e,
                       r.NativeView_getNumChildren(e) - 1
                     )),
                       this.mNativeCharSpritesPool.recycleObject(i),
                       r.NativeView_removeFromParent(i),
-                      (i = null);
-                  this.mNativeLineViewsPool.recycleObject(e),
+                      (i = null));
+                  (this.mNativeLineViewsPool.recycleObject(e),
                     r.NativeView_removeFromParent(e),
-                    (e = null);
+                    (e = null));
                 }
                 if (
                   ((this.mLineWidths.length = 0),
@@ -5873,7 +5886,7 @@ System.register(
                     switch ((a = this.mText.charCodeAt(u))) {
                       case 10:
                       case 13:
-                        (T = !0), (c = !0);
+                        ((T = !0), (c = !0));
                         break;
                       case 92:
                         u < g - 1 &&
@@ -5881,10 +5894,10 @@ System.register(
                           ((T = !0), (c = !0), u++);
                         break;
                       case -62:
-                        u++, (a = this.mText.charCodeAt(u));
+                        (u++, (a = this.mText.charCodeAt(u)));
                         break;
                       case -30:
-                        u++, u++, (a = this.mText.charCodeAt(u));
+                        (u++, u++, (a = this.mText.charCodeAt(u)));
                     }
                     if (
                       (c &&
@@ -5902,17 +5915,17 @@ System.register(
                         var V = _.getKerning(m),
                           P = _.getNativeSpriteFrame();
                         if (P) {
-                          (i = this.getCharSprite()),
+                          ((i = this.getCharSprite()),
                             r.NativeView_addChild(e, i),
-                            r.NativeSprite_setSpriteFrame(i, P, !0);
+                            r.NativeSprite_setSpriteFrame(i, P, !0));
                           var S = o + _.getXOffset() + V,
                             v = h - _.getYOffset();
                           r.NativeSprite_setPositionWithAnchor(i, S, v, 0, 1);
                         }
-                        (o += V + _.getXAdvance()),
+                        ((o += V + _.getXAdvance()),
                           (this.mLineWidths[l] = o),
                           (this.mTextWidth = s.maxInt(this.mTextWidth, o)),
-                          (m = a);
+                          (m = a));
                       }
                     }
                   }
@@ -5942,7 +5955,7 @@ System.register(
                       case n.x2079843621037463320x:
                         w = -this.mLineWidths[l];
                     }
-                    r.NativeView_setPosition(e, w, B), (B -= h);
+                    (r.NativeView_setPosition(e, w, B), (B -= h));
                   }
                 }
               }),
@@ -5950,23 +5963,23 @@ System.register(
                 if (this.mNativeLineViewsPool.getNumAvailableObjects() > 0)
                   return this.mNativeLineViewsPool.getAvailableObject();
                 var t = r.NativeView_create();
-                return r.NativeView_setName(t, "lineView"), t;
+                return (r.NativeView_setName(t, "lineView"), t);
               }),
               (a.getCharSprite = function () {
                 if (this.mNativeCharSpritesPool.getNumAvailableObjects() > 0)
                   return this.mNativeCharSpritesPool.getAvailableObject();
                 var t = r.NativeSprite_createWithSpriteFrame(null);
-                return r.NativeView_setName(t, "charSprite"), t;
+                return (r.NativeView_setName(t, "charSprite"), t);
               }),
               (a.x4554517263080478179x = function () {
-                null !== this.mNativeLineViewsPool &&
+                (null !== this.mNativeLineViewsPool &&
                   (this.mNativeLineViewsPool.destroy(),
                   (this.mNativeLineViewsPool = null)),
                   null !== this.mNativeCharSpritesPool &&
                     (this.mNativeCharSpritesPool.destroy(),
                     (this.mNativeCharSpritesPool = null)),
                   (this.mFont = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (a.x249024884402456004x = function (t, e) {
                 var i = t.getDictionary(n.x35432508290920045x);
@@ -5983,7 +5996,7 @@ System.register(
                     r = i.hasValue(n.x4012729121268107996x)
                       ? i.getStringValueAsHash32(n.x4012729121268107996x)
                       : this.mVerticalAlignment;
-                  this.setAlignment(a, r),
+                  (this.setAlignment(a, r),
                     (this.mIntegerMinNumDigits = i.getIntValueWithDefault(
                       n.x2065978369022926031x,
                       1
@@ -5999,7 +6012,7 @@ System.register(
                       )
                     ),
                     (this.mStartAnimatorsOnTextChanged =
-                      i.getBoolValueWithDefault(n.x270753681145917070x, !1));
+                      i.getBoolValueWithDefault(n.x270753681145917070x, !1)));
                 }
               }),
               (a.x1417452895033663399x = function () {
@@ -6125,7 +6138,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           a = t.cclegacy;
@@ -6199,19 +6212,19 @@ System.register(
                       var h = 0 == l ? n : s,
                         d = 0 == m ? o : u;
                       if (e.getMinoAt(h, d))
-                        (S = !0),
+                        ((S = !0),
                           this.mCurrentRadialXStep <= 0 &&
                           this.mCurrentRadialYStep <= 0
                             ? e.killMino(e.getMinoAt(h, d), 500, !0)
-                            : e.shatterMino(e.getMinoAt(h, d), 500);
+                            : e.shatterMino(e.getMinoAt(h, d), 500));
                     }
-                  this.mCurrentRadialYStep++,
+                  (this.mCurrentRadialYStep++,
                     this.mCurrentRadialYStep >= 3 &&
                       ((this.mCurrentRadialYStep = 0),
                       this.mCurrentRadialXStep++),
                     S
                       ? (this.mRadialStepTimerMSEC += 20)
-                      : (this.mRadialStepTimerMSEC = 0);
+                      : (this.mRadialStepTimerMSEC = 0));
                 }
                 this.mCurrentRadialXStep >= 11 &&
                   (e.popDestabilize(),
@@ -6235,20 +6248,20 @@ System.register(
                 return !1;
               }),
               (c.x1889113821654134487x = function () {
-                (this.mCurrentRadialXStep = 0),
+                ((this.mCurrentRadialXStep = 0),
                   (this.mCurrentRadialYStep = 0),
-                  (this.mRadialStepTimerMSEC = 0);
+                  (this.mRadialStepTimerMSEC = 0));
                 var t = this.getPlayer().getMatrix();
-                t.pushDestabilize(),
+                (t.pushDestabilize(),
                   t.pushMovementDisabled(),
-                  this.setCurrentState(r.x2374069116296912024x, 0);
+                  this.setCurrentState(r.x2374069116296912024x, 0));
               }),
               (c.x3202151272846750673x = function (e, i, a, n) {
                 switch (i) {
                   case r.x2374069116296912024x:
                     switch (e) {
                       case x2959592802880306419x.x1673908432382400910x:
-                        return this.processState_active(n), n;
+                        return (this.processState_active(n), n);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, i, a, n);
@@ -6291,7 +6304,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (n = t.createClass);
+          ((e = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           i = t.cclegacy;
@@ -6344,8 +6357,10 @@ System.register(
                 return !0;
               }),
               (r.x1889113821654134487x = function () {
-                this.getPlayer().addRemainingTimeMSEC(1e3 * this.mBonusTimeSEC),
-                  this.setCurrentState(o.x1636581458442852321x, 0);
+                (this.getPlayer().addRemainingTimeMSEC(
+                  1e3 * this.mBonusTimeSEC
+                ),
+                  this.setCurrentState(o.x1636581458442852321x, 0));
               }),
               n(i, null, [
                 {
@@ -6398,7 +6413,7 @@ System.register(
         },
       ],
       execute: function () {
-        o._RF.push(
+        (o._RF.push(
           {},
           "c392dgbrMdISJbQ3DEMOaiq",
           "x1913123406979919113x",
@@ -6415,7 +6430,7 @@ System.register(
                   e
                 );
               }
-              e(o, t),
+              (e(o, t),
                 (o.getAvailableInstance = function () {
                   o.sPool || (o.sPool = new Array());
                   var t = null;
@@ -6427,9 +6442,9 @@ System.register(
                   );
                 }),
                 (o.recycleAvailableInstance = function (t) {
-                  o.sPool || (o.sPool = new Array()),
+                  (o.sPool || (o.sPool = new Array()),
                     t.recycle(),
-                    o.sPool.push(t);
+                    o.sPool.push(t));
                 }),
                 (o.destroyPool = function () {
                   if (o.sPool) {
@@ -6439,7 +6454,7 @@ System.register(
                     }
                     null !== o.sPool && (o.sPool = null);
                   }
-                });
+                }));
               var u = o.prototype;
               return (
                 (u.getValue = function () {
@@ -6456,8 +6471,8 @@ System.register(
                   );
                 }),
                 (u.x4554517263080478179x = function () {
-                  (this.mValue = !1),
-                    t.prototype.x4554517263080478179x.call(this);
+                  ((this.mValue = !1),
+                    t.prototype.x4554517263080478179x.call(this));
                 }),
                 (u.setValueWithInt = function (t) {
                   this.mValue = 0 != t;
@@ -6487,7 +6502,7 @@ System.register(
               );
             })(l)
           ).sPool = null),
-          o._RF.pop();
+          o._RF.pop());
       },
     };
   }
@@ -6536,7 +6551,7 @@ System.register(
         },
       ],
       execute: function () {
-        e._RF.push(
+        (e._RF.push(
           {},
           "d1d5eSzDHlNM4mi2677cc6T",
           "x4392911488421799424x",
@@ -6568,7 +6583,7 @@ System.register(
               );
             })()
           ).sDidStaticInit = !1),
-          e._RF.pop();
+          e._RF.pop());
       },
     };
   }
@@ -6595,7 +6610,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (a = e.createClass);
+          ((t = e.inheritsLoose), (a = e.createClass));
         },
         function (e) {
           r = e.cclegacy;
@@ -6649,7 +6664,7 @@ System.register(
                 a
               );
             }
-            t(r, e),
+            (t(r, e),
               (r.x2918049195984500292x = function (e) {
                 return e && e.x2196573191586747388x() == r.x291360226749063105x
                   ? e
@@ -6690,25 +6705,25 @@ System.register(
                 var o = null;
                 switch (t.charCodeAt(s)) {
                   case 123:
-                    (o = r.createValue(g.x2696526907986933434x)),
-                      (l = r.parseJSONDictionaryValue(t, s, o, n, u));
+                    ((o = r.createValue(g.x2696526907986933434x)),
+                      (l = r.parseJSONDictionaryValue(t, s, o, n, u)));
                     break;
                   case 91:
-                    (o = r.createValue(g.x2696526907986933434x)),
-                      (l = r.parseJSONArrayValue(t, s, o, n));
+                    ((o = r.createValue(g.x2696526907986933434x)),
+                      (l = r.parseJSONArrayValue(t, s, o, n)));
                     break;
                   case 110:
-                    (o = r.createValue(g.x2696526907986933434x)),
-                      (l = r.parseJSONNullValue(t, s, o));
+                    ((o = r.createValue(g.x2696526907986933434x)),
+                      (l = r.parseJSONNullValue(t, s, o)));
                     break;
                   case 34:
-                    (o = r.createValue(g.x2150721931415762143x)),
-                      (l = r.parseJSONStringValue(t, s, o));
+                    ((o = r.createValue(g.x2150721931415762143x)),
+                      (l = r.parseJSONStringValue(t, s, o)));
                     break;
                   case 102:
                   case 116:
-                    (o = r.createValue(g.x451771404504279848x)),
-                      (l = r.parseJSONBoolValue(t, s, o));
+                    ((o = r.createValue(g.x451771404504279848x)),
+                      (l = r.parseJSONBoolValue(t, s, o)));
                     break;
                   case 45:
                   case 46:
@@ -6724,19 +6739,19 @@ System.register(
                   case 57:
                     switch (e) {
                       case 105:
-                        (o = r.createValue(g.x1816879051713746700x)),
-                          (l = r.parseJSONIntValue(t, s, o));
+                        ((o = r.createValue(g.x1816879051713746700x)),
+                          (l = r.parseJSONIntValue(t, s, o)));
                         break;
                       case 102:
-                        (o = r.createValue(g.x2276920205103910519x)),
-                          (l = r.parseJSONFloatValue(t, s, o));
+                        ((o = r.createValue(g.x2276920205103910519x)),
+                          (l = r.parseJSONFloatValue(t, s, o)));
                         break;
                       default:
-                        (o = r.createValue(g.x1816879051713746700x)),
+                        ((o = r.createValue(g.x1816879051713746700x)),
                           0 == (l = r.parseJSONIntValue(t, s, o)) &&
                             (r.recycleValue(o),
                             (o = r.createValue(g.x2276920205103910519x)),
-                            (l = r.parseJSONFloatValue(t, s, o)));
+                            (l = r.parseJSONFloatValue(t, s, o))));
                     }
                 }
                 return l > 0
@@ -6755,17 +6770,16 @@ System.register(
                     y = 0,
                     S = r.x1396977471858857726x;
                   S != r.x390929579866370134x;
-
                 )
                   switch (S) {
                     case r.x1396977471858857726x:
                       if ((h += r.parseJSONWhitespace(e, h)) < s)
                         switch (e.charCodeAt(h)) {
                           case 123:
-                            h++,
+                            (h++,
                               l || (l = new r(!0)),
                               l.setAttributesWithString(n),
-                              (S = r.x3660256604581093785x);
+                              (S = r.x3660256604581093785x));
                             break;
                           default:
                             S = r.x4225500153283808947x;
@@ -6777,7 +6791,7 @@ System.register(
                       if ((h += r.parseJSONWhitespace(e, h)) < s)
                         switch (e.charCodeAt(h)) {
                           case 125:
-                            h++, (S = r.x390929579866370134x);
+                            (h++, (S = r.x390929579866370134x));
                             break;
                           case 34:
                             if ((y = r.parseJSONStringValue(e, h, o)) > 0) {
@@ -6827,7 +6841,8 @@ System.register(
                                         )
                                           switch (e.charCodeAt(h)) {
                                             case 125:
-                                              h++, (S = r.x390929579866370134x);
+                                              (h++,
+                                                (S = r.x390929579866370134x));
                                               break;
                                             case 44:
                                               h++;
@@ -6849,11 +6864,11 @@ System.register(
                             S = r.x4225500153283808947x;
                         }
                       else S = r.x4225500153283808947x;
-                      o.setValue(""), V.setValue(null, !1);
+                      (o.setValue(""), V.setValue(null, !1));
                       break;
                     case r.x4225500153283808947x:
-                      c && null !== l && (l.destroy(), (l = null)),
-                        (S = r.x390929579866370134x);
+                      (c && null !== l && (l.destroy(), (l = null)),
+                        (S = r.x390929579866370134x));
                   }
                 return (
                   r.recycleValue(o),
@@ -6873,18 +6888,17 @@ System.register(
                     c = 0,
                     o = r.x1396977471858857726x;
                   o != r.x390929579866370134x;
-
                 )
                   switch (o) {
                     case r.x1396977471858857726x:
                       if ((l += r.parseJSONWhitespace(e, l)) < n)
                         switch (e.charCodeAt(l)) {
                           case 91:
-                            l++,
+                            (l++,
                               (u = new r(!0)).setSerializationFormat(
                                 r.x2588845787822592604x
                               ),
-                              (o = r.x1672420711043413136x);
+                              (o = r.x1672420711043413136x));
                             break;
                           default:
                             o = r.x4225500153283808947x;
@@ -6895,7 +6909,7 @@ System.register(
                       if ((l += r.parseJSONWhitespace(e, l)) < n)
                         switch (e.charCodeAt(l)) {
                           case 93:
-                            l++, (o = r.x390929579866370134x);
+                            (l++, (o = r.x390929579866370134x));
                             break;
                           default:
                             if ((c = r.parseJSONValue(0, e, l, s, i, "")) > 0) {
@@ -6907,7 +6921,7 @@ System.register(
                               )
                                 switch (e.charCodeAt(l)) {
                                   case 93:
-                                    l++, (o = r.x390929579866370134x);
+                                    (l++, (o = r.x390929579866370134x));
                                     break;
                                   case 44:
                                     l++;
@@ -6922,10 +6936,10 @@ System.register(
                       s.setValue(null, !1);
                       break;
                     case r.x4225500153283808947x:
-                      null !== u && (u.destroy(), (u = null)),
-                        (o = r.x390929579866370134x);
+                      (null !== u && (u.destroy(), (u = null)),
+                        (o = r.x390929579866370134x));
                   }
-                return r.recycleValue(s), a.setValue(u, !0), u ? l - t : 0;
+                return (r.recycleValue(s), a.setValue(u, !0), u ? l - t : 0);
               }),
               (r.parseJSONNullValue = function (e, t, a) {
                 a.setValue(null, !0);
@@ -6979,7 +6993,7 @@ System.register(
                 }
                 var s = u.substringWithRange(e, t, r),
                   l = u.stringToInt(s);
-                return a.setValue(l), r - t;
+                return (a.setValue(l), r - t);
               }),
               (r.parseJSONFloatValue = function (e, t, a) {
                 a.setValue(0);
@@ -6991,7 +7005,7 @@ System.register(
                       break;
                     case 46:
                       if (n) return 0;
-                      r++, (n = !0);
+                      (r++, (n = !0));
                       break;
                     case 48:
                     case 49:
@@ -7021,7 +7035,7 @@ System.register(
                 }
                 var l = u.substringWithRange(e, t, r),
                   c = u.stringToFloat(l);
-                return a.setValue(c), r - t;
+                return (a.setValue(c), r - t);
               }),
               (r.parseJSONBoolValue = function (e, t, a) {
                 a.setValue(!1);
@@ -7063,7 +7077,7 @@ System.register(
                   if (i >= n) return 0;
                 }
                 var l = u.substringWithRange(e, r, i);
-                return a.setValue(l), i + 1 - t;
+                return (a.setValue(l), i + 1 - t);
               }),
               (r.createValue = function (e) {
                 switch (e) {
@@ -7099,31 +7113,31 @@ System.register(
                     case g.x2696526907986933434x:
                       o.recycleAvailableInstance(e);
                   }
-              });
+              }));
             var i = r.prototype;
             return (
               (i.copy = function (e, t) {
                 if (e && e != this) {
-                  this.copyAttributes(e, t),
+                  (this.copyAttributes(e, t),
                     (t || this.isKeylessArray() || e.isKeylessArray()) &&
                       this.removeAllValues(),
-                    this.setSerializationFormat(e.mSerializationFormat);
+                    this.setSerializationFormat(e.mSerializationFormat));
                   for (var a = e.getNumValues(), i = 0; i < a; i++) {
                     var n = e.getValueAtIndexWithType(i, 0),
                       u = n.getKey(),
                       s = n.getValueType(),
                       l = null;
-                    0 != u
+                    (0 != u
                       ? (l = this.getValueWithType(n.getKey(), s, !0))
                       : ((l = r.createValue(s)), this.pushBackValue(l)),
                       l.setKeyString(n.getKeyString()),
-                      this.copyValue(l, n, t);
+                      this.copyValue(l, n, t));
                   }
                 }
               }),
               (i.x2049916819781837214x = function () {
                 var e = new r(this.mIsOwnerOfObjectValues);
-                return e.copy(this, !0), e;
+                return (e.copy(this, !0), e);
               }),
               (i.synchronizeWithSource = function (e, t, a, i) {
                 if (this != e) {
@@ -7131,10 +7145,10 @@ System.register(
                     s = 0;
                   if (t)
                     for (s = 0; s < this.getNumValues(); )
-                      (n = this.getValueAtIndex(s)),
+                      ((n = this.getValueAtIndex(s)),
                         e.hasValue(n.getKey())
                           ? s++
-                          : this.removeValue(n.getKey());
+                          : this.removeValue(n.getKey()));
                   this.copyAttributes(e, !0);
                   var l = e.getNumValues();
                   for (s = 0; s < l; s++) {
@@ -7144,8 +7158,8 @@ System.register(
                       ((n = this.getValue(o)),
                       a || !n || n.getValueType() != c.getValueType())
                     )
-                      (n = this.getValueWithType(o, c.getValueType(), !0)),
-                        this.copyValue(n, c, !0);
+                      ((n = this.getValueWithType(o, c.getValueType(), !0)),
+                        this.copyValue(n, c, !0));
                     else if (c.getValueType() == g.x2696526907986933434x) {
                       var V = c,
                         h = r.x2918049195984500292x(V.getValue());
@@ -7172,8 +7186,8 @@ System.register(
                       if ((p = this.getValueAtIndex(b)).getKey() != k)
                         for (var d = 0; d < T; d++)
                           if ((f = this.getValueAtIndex(d)).getKey() == k) {
-                            this.mValues.setAtIndex(b, f),
-                              this.mValues.setAtIndex(d, p);
+                            (this.mValues.setAtIndex(b, f),
+                              this.mValues.setAtIndex(d, p));
                             break;
                           }
                     }
@@ -7191,7 +7205,7 @@ System.register(
                 for (var a = ~~(this.mAttributes.length / 2), r = 0; r < a; r++)
                   if (this.mAttributes[2 * r] == e)
                     return void (this.mAttributes[2 * r + 1] = t);
-                this.mAttributes.push(e), this.mAttributes.push(t);
+                (this.mAttributes.push(e), this.mAttributes.push(t));
               }),
               (i.getAttributesAsString = function () {
                 if (!this.mAttributes) return "";
@@ -7241,12 +7255,11 @@ System.register(
                 for (
                   var t, a = this, r = u.firstIndexInString(e, ".");
                   r >= 0 && a;
-
                 )
-                  (t = u.substringToIndex(e, r)),
+                  ((t = u.substringToIndex(e, r)),
                     (e = u.substringFromIndex(e, r + 1)),
                     (a = a.getDictionary(u.stringToValueKey(t))),
-                    (r = u.firstIndexInString(e, "."));
+                    (r = u.firstIndexInString(e, ".")));
                 return a ? a.getValue(u.stringToValueKey(e)) : null;
               }),
               (i.getValueType = function (e) {
@@ -7286,20 +7299,19 @@ System.register(
                 for (
                   var a = this, i = null, n = u.firstIndexInString(e, ".");
                   n >= 0;
-
                 ) {
                   var s = u.substringToIndex(e, n);
-                  (e = u.substringFromIndex(e, n + 1)),
+                  ((e = u.substringFromIndex(e, n + 1)),
                     (i = a.getDictionary(u.stringToValueKey(s))) ||
                       ((i = new r(!0)),
                       a.insertObjectValue(u.stringToValueKey(s), s, 999999, i)),
                     (a = i),
                     (i = null),
-                    (n = u.firstIndexInString(e, "."));
+                    (n = u.firstIndexInString(e, ".")));
                 }
                 if (a) {
                   var l = a.getValueWithType(u.stringToValueKey(e), t, !0);
-                  return l.setKeyString(e), l;
+                  return (l.setKeyString(e), l);
                 }
                 return null;
               }),
@@ -7398,12 +7410,12 @@ System.register(
               }),
               (i.pushBackIntValue = function (e) {
                 var t = r.createValue(g.x1816879051713746700x);
-                t.setValue(e), this.mValues.pushBack(t);
+                (t.setValue(e), this.mValues.pushBack(t));
               }),
               (i.insertIntValue = function (e, t, a, r) {
-                this.setIntValue(e, r),
+                (this.setIntValue(e, r),
                   this.getValue(e).setKeyString(t),
-                  this.setValueIndex(e, a);
+                  this.setValueIndex(e, a));
               }),
               (i.removeIntValue = function (e, t) {
                 for (
@@ -7462,12 +7474,12 @@ System.register(
               }),
               (i.pushBackFloatValue = function (e) {
                 var t = r.createValue(g.x2276920205103910519x);
-                t.setValue(e), this.mValues.pushBack(t);
+                (t.setValue(e), this.mValues.pushBack(t));
               }),
               (i.insertFloatValue = function (e, t, a, r) {
-                this.setFloatValue(e, r),
+                (this.setFloatValue(e, r),
                   this.getValue(e).setKeyString(t),
-                  this.setValueIndex(e, a);
+                  this.setValueIndex(e, a));
               }),
               (i.getBoolValue = function (e) {
                 var t = this.getValueWithType(e, g.x451771404504279848x, !1);
@@ -7505,12 +7517,12 @@ System.register(
               }),
               (i.pushBackBoolValue = function (e) {
                 var t = r.createValue(g.x451771404504279848x);
-                t.setValue(e), this.mValues.pushBack(t);
+                (t.setValue(e), this.mValues.pushBack(t));
               }),
               (i.insertBoolValue = function (e, t, a, r) {
-                this.setBoolValue(e, r),
+                (this.setBoolValue(e, r),
                   this.getValue(e).setKeyString(t),
-                  this.setValueIndex(e, a);
+                  this.setValueIndex(e, a));
               }),
               (i.getStringValue = function (e) {
                 var t = this.getValueWithType(e, g.x2150721931415762143x, !1);
@@ -7554,13 +7566,13 @@ System.register(
               }),
               (i.pushBackStringValue = function (e) {
                 var t = r.createValue(g.x2150721931415762143x);
-                t.setValue(e), this.mValues.pushBack(t);
+                (t.setValue(e), this.mValues.pushBack(t));
               }),
               (i.insertStringValue = function (e, t, a, r) {
-                0 == e && (e = u.stringToValueKey(t)),
+                (0 == e && (e = u.stringToValueKey(t)),
                   this.setStringValue(e, r),
                   this.getValue(e).setKeyString(t),
-                  this.setValueIndex(e, a);
+                  this.setValueIndex(e, a));
               }),
               (i.setIsOwnerOfObjectValues = function (e) {
                 this.mIsOwnerOfObjectValues = e;
@@ -7610,18 +7622,18 @@ System.register(
               }),
               (i.pushBackObjectValue = function (e) {
                 var t = r.createValue(g.x2696526907986933434x);
-                t.setValue(e, this.mIsOwnerOfObjectValues),
-                  this.mValues.pushBack(t);
+                (t.setValue(e, this.mIsOwnerOfObjectValues),
+                  this.mValues.pushBack(t));
               }),
               (i.insertObjectValue = function (e, t, a, r) {
-                this.setObjectValue(e, r),
+                (this.setObjectValue(e, r),
                   this.getValue(e).setKeyString(t),
-                  this.setValueIndex(e, a);
+                  this.setValueIndex(e, a));
               }),
               (i.insertObjectValueAtIndex = function (e, t) {
                 var a = r.createValue(g.x2696526907986933434x);
-                a.setValue(t, this.mIsOwnerOfObjectValues),
-                  this.mValues.insertAtIndex(e, a);
+                (a.setValue(t, this.mIsOwnerOfObjectValues),
+                  this.mValues.insertAtIndex(e, a));
               }),
               (i.clearObjectValues = function () {
                 for (
@@ -7638,7 +7650,7 @@ System.register(
               }),
               (i.createDictionary = function (e, t, a, i) {
                 var n = new r(i);
-                return this.insertObjectValue(e, t, a, n), n;
+                return (this.insertObjectValue(e, t, a, n), n);
               }),
               (i.getDictionary = function (e) {
                 return this.getObjectValue(e);
@@ -7746,7 +7758,7 @@ System.register(
                               ) && this.copyValue(o, S, !0);
                             }
                           this.removeValue(t.getKey());
-                        } else n.processPlatformValues(e), a++;
+                        } else (n.processPlatformValues(e), a++);
                       } else a++;
                       break;
                     default:
@@ -7763,7 +7775,6 @@ System.register(
                             l = u.firstIndexInString(s, "#{"),
                             c = u.firstIndexInString(s, "}");
                           l >= 0 && c > l;
-
                         ) {
                           var o = u.substringFromIndexWithLength(
                               s,
@@ -7777,7 +7788,7 @@ System.register(
                             t
                           ) {
                             var h = "";
-                            (h =
+                            ((h =
                               V && V.getValueType() == g.x2150721931415762143x
                                 ? V.getValue()
                                 : "UNKNOWN_PARAM"),
@@ -7786,10 +7797,10 @@ System.register(
                                 h +
                                 u.substringFromIndex(s, c + 1)),
                               (l = u.firstIndexInString(s, "#{")),
-                              (c = u.firstIndexInString(s, "}"));
+                              (c = u.firstIndexInString(s, "}")));
                           } else
-                            (l = u.nextIndexInString(s, "#{", c + 1)),
-                              (c = u.nextIndexInString(s, "}", c + 1));
+                            ((l = u.nextIndexInString(s, "#{", c + 1)),
+                              (c = u.nextIndexInString(s, "}", c + 1)));
                         }
                         a.setValue(s);
                         break;
@@ -7830,19 +7841,19 @@ System.register(
                 this.mSerializationFormat = e;
               }),
               (i.parseJSONString = function (e, t, a) {
-                a && this.removeAllValues(),
-                  this.setSerializationFormat(r.x1329235268083877626x);
+                (a && this.removeAllValues(),
+                  this.setSerializationFormat(r.x1329235268083877626x));
                 var i = r.createValue(g.x2696526907986933434x);
-                i.setValue(this, !1),
+                (i.setValue(this, !1),
                   r.parseJSONDictionaryValue(e, 0, i, t, ""),
                   i.setIsObjectOwner(!1),
                   i.setValue(null, !1),
-                  r.recycleValue(i);
+                  r.recycleValue(i));
               }),
               (i.toJSONString = function (e, t, a) {
                 var i = null;
-                e ? (i = e) : (i = u.getStringBuilder()).setString(""),
-                  i.appendString(this.isKeylessArray() ? "[" : "{");
+                (e ? (i = e) : (i = u.getStringBuilder()).setString(""),
+                  i.appendString(this.isKeylessArray() ? "[" : "{"));
                 var n = this.mValues.getNumObjects();
                 a >= 0 && n > 0 && i.appendString("\n");
                 for (var s = null, l = 0, c = 0; c < n; c++) {
@@ -7863,10 +7874,10 @@ System.register(
                         (s = r.x2918049195984500292x(o.getValue())) &&
                           (V += s.getAttributesAsString());
                     }
-                    i.appendString('"'),
+                    (i.appendString('"'),
                       i.appendString(V),
                       i.appendString('":'),
-                      a >= 0 && i.appendString(" ");
+                      a >= 0 && i.appendString(" "));
                   }
                   switch (o.getValueType()) {
                     case g.x1816879051713746700x:
@@ -7879,17 +7890,17 @@ System.register(
                       i.appendBoolean(o.getValue());
                       break;
                     case g.x2150721931415762143x:
-                      i.appendString('"'),
+                      (i.appendString('"'),
                         i.appendString(o.getValue()),
-                        i.appendString('"');
+                        i.appendString('"'));
                       break;
                     case g.x2696526907986933434x:
                       (s = r.x2918049195984500292x(o.getValue()))
                         ? s.toJSONString(i, t, a >= 0 ? a + 1 : -1)
                         : i.appendString("null");
                   }
-                  c < n - 1 && i.appendString(","),
-                    a >= 0 && i.appendString("\n");
+                  (c < n - 1 && i.appendString(","),
+                    a >= 0 && i.appendString("\n"));
                 }
                 if (a >= 0 && n > 0)
                   for (l = 0; l < a; l++) i.appendString("\t");
@@ -7909,7 +7920,7 @@ System.register(
                       a += " " + n + '="' + this.mAttributes[2 * r + 1] + '"';
                   }
                 }
-                (a += ">"), t >= 0 && (a += "\n");
+                ((a += ">"), t >= 0 && (a += "\n"));
                 var s = this.getNumValues();
                 for (r = 0; r < s; r++)
                   a += this.getValueXMLString(
@@ -7964,10 +7975,10 @@ System.register(
                 if (0 != t && a && a.getValueType() != t) {
                   var i = a.getKey(),
                     n = a.getKeyString();
-                  r.recycleValue(a),
+                  (r.recycleValue(a),
                     (a = r.createValue(t)).setKey(i, !1),
                     a.setKeyString(n),
-                    this.mValues.setAtIndex(e, a);
+                    this.mValues.setAtIndex(e, a));
                 }
                 return a;
               }),
@@ -8002,7 +8013,7 @@ System.register(
                   case g.x1816879051713746700x:
                   case g.x2276920205103910519x:
                   case g.x451771404504279848x:
-                    (a =
+                    ((a =
                       u.stringWithTabs(t) +
                       "<" +
                       n +
@@ -8013,11 +8024,11 @@ System.register(
                       "</" +
                       n +
                       ">"),
-                      t >= 0 && (a += "\n");
+                      t >= 0 && (a += "\n"));
                     break;
                   case g.x2150721931415762143x:
                     var l = e.toString();
-                    (l = u.regexReplaceString(l, "<", "&lt;")),
+                    ((l = u.regexReplaceString(l, "<", "&lt;")),
                       (l = u.regexReplaceString(l, ">", "&gt;")),
                       (a =
                         u.stringWithTabs(t) +
@@ -8030,7 +8041,7 @@ System.register(
                         "</" +
                         n +
                         ">"),
-                      t >= 0 && (a += "\n");
+                      t >= 0 && (a += "\n"));
                     break;
                   case g.x2696526907986933434x:
                     var c = e,
@@ -8074,11 +8085,11 @@ System.register(
                 );
               }),
               (i.x4554517263080478179x = function () {
-                null !== this.mAttributes && (this.mAttributes = null),
+                (null !== this.mAttributes && (this.mAttributes = null),
                   this.removeAllValues(),
                   null !== this.mValues &&
                     (this.mValues.destroy(), (this.mValues = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (i.x2231594212824136164x = function (e) {
                 return this.getIntValue(u.stringToValueKey(e));
@@ -8176,9 +8187,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (a = e.createClass),
-            (n = e.assertThisInitialized);
+            (n = e.assertThisInitialized));
         },
         function (e) {
           r = e.cclegacy;
@@ -8241,23 +8252,23 @@ System.register(
           (function (e) {
             function r(t, a) {
               var i;
-              (i = e.call(this, r.x1258791829166683764x, t) || this),
+              ((i = e.call(this, r.x1258791829166683764x, t) || this),
                 r.x597529785558271370x(i.getParams(), !1),
                 i.getParams().copy(a, !1),
                 t.addMessageListener(n(i)),
-                (i.mRNG = new h());
+                (i.mRNG = new h()));
               var s = i
                 .getParams()
                 .getIntValueWithDefault(r.x2510410936927135821x, 0);
-              0 == s && (s = l.nextNativeRandomInt()), i.mRNG.setSeed(s);
+              (0 == s && (s = l.nextNativeRandomInt()), i.mRNG.setSeed(s));
               var o = t.getMatrixWidth(),
                 c = t.getMatrixHeight();
               i.mScratchRowXValuesPool = new m(o);
               for (var S = 0; S < o; S++) {
                 var g = new u();
-                g.setValue(S), i.mScratchRowXValuesPool.setAtIndex(S, g);
+                (g.setValue(S), i.mScratchRowXValuesPool.setAtIndex(S, g));
               }
-              (i.mScratchRowXValuesArray = new m(0)),
+              ((i.mScratchRowXValuesArray = new m(0)),
                 i.mScratchRowXValuesArray.reserveCapacity(o),
                 (i.mScratchRowMinosArray = new m(o)),
                 (i.mScratchRectMinosArray = new m(0)),
@@ -8275,7 +8286,7 @@ System.register(
                     .getDictionary(r.x4279836589662002158x)
                     .getIntValue(r.x1215893083349102651x)
                 )),
-                (i.mDeepestLineClear = 0);
+                (i.mDeepestLineClear = 0));
               var P = null;
               return (
                 (P = i
@@ -8349,10 +8360,10 @@ System.register(
                 i
               );
             }
-            t(r, e),
+            (t(r, e),
               (r.x1540310840305023427x = function (e) {
                 var t = new s(!0);
-                return r.x597529785558271370x(t, e), t;
+                return (r.x597529785558271370x(t, e), t);
               }),
               (r.x597529785558271370x = function (e, t) {
                 e.parseJSONString(
@@ -8362,7 +8373,7 @@ System.register(
                   t,
                   !0
                 );
-              });
+              }));
             var i = r.prototype;
             return (
               (i.getDeepestLineClear = function () {
@@ -8373,13 +8384,13 @@ System.register(
                   t = e.getHighestMinoYWithMinoTypeId(l.x2214418706171680314x),
                   a = this.getParams().getIntValue(r.x881229300811774914x);
                 if (t >= a) return 0;
-                e.setIsVerticalShiftEnabled(!0),
+                (e.setIsVerticalShiftEnabled(!0),
                   e.setIsVerticalShiftUpwards(!0),
                   e.setVerticalShiftMSECPerLine(
                     this.getParams().getIntValue(r.x2027368437741921627x)
-                  );
+                  ));
                 var n = a - 1 - t;
-                return this.insertMatrixRows(n), n;
+                return (this.insertMatrixRows(n), n);
               }),
               (i.insertMatrixRows = function (e) {
                 for (
@@ -8401,7 +8412,7 @@ System.register(
                   s < e;
                   s++
                 )
-                  this.mBottomRowDepth--,
+                  (this.mBottomRowDepth--,
                     this.createMatrixRow(
                       this.mScratchRowMinosArray,
                       l.FXPTToInt(this.mCurrentMinHolesPerLineFXPT),
@@ -8416,7 +8427,7 @@ System.register(
                     (this.mCurrentMaxHolesPerLineFXPT = l.minInt(
                       this.mCurrentMaxHolesPerLineFXPT + i,
                       n
-                    ));
+                    )));
               }),
               (i.createMatrixRow = function (e, t, a) {
                 e.setAllToNull();
@@ -8441,12 +8452,12 @@ System.register(
                 var c = this.mScratchRowXValuesArray.getNumObjects();
                 for (r = 0; r < c; r++) {
                   var S = new g();
-                  S.setMinoTypeId(l.x2214418706171680314x),
+                  (S.setMinoTypeId(l.x2214418706171680314x),
                     S.setCanFall(!1),
                     S.setIsMatchable(!0),
                     S.setIsKillable(!0),
                     (i = this.mScratchRowXValuesArray.getAtIndex(r).getValue()),
-                    e.setAtIndex(i, S);
+                    e.setAtIndex(i, S));
                 }
                 for (r = 0; r < n - 1; r++) {
                   var P = e.getAtIndex(r),
@@ -8467,13 +8478,13 @@ System.register(
                   (t = this.getGemTargetMinoInRowMinosArray(e))
                 ) {
                   var a = new y(this.getPlayer(), null);
-                  a.setBonusTimeSEC(this.mBonusTimeGem_bonusTimeSECPerGem),
+                  (a.setBonusTimeSEC(this.mBonusTimeGem_bonusTimeSECPerGem),
                     t.attachPlayerAction(a, P.x3353239403785490213x),
                     (this.mBonusTimeGem_spawnByDepth_currentGemDistance +=
                       this.mBonusTimeGem_spawnByDepth_depthIncrement),
                     (this.mBonusTimeGem_spawnByDepth_nextGemDepth =
                       this.mBottomRowDepth -
-                      this.mBonusTimeGem_spawnByDepth_currentGemDistance);
+                      this.mBonusTimeGem_spawnByDepth_currentGemDistance));
                 }
                 if (
                   this.mScoreMultiplierGem_doSpawnByDepth &&
@@ -8482,12 +8493,13 @@ System.register(
                   (t = this.getGemTargetMinoInRowMinosArray(e))
                 ) {
                   var n = new _(this.getPlayer(), null);
-                  t.attachPlayerAction(n, P.x3353239403785490213x),
+                  (t.attachPlayerAction(n, P.x3353239403785490213x),
                     (this.mScoreMultiplierGem_spawnByDepth_currentGemDistance +=
                       this.mScoreMultiplierGem_spawnByDepth_depthIncrement),
                     (this.mScoreMultiplierGem_spawnByDepth_nextGemDepth =
                       this.mBottomRowDepth -
-                      this.mScoreMultiplierGem_spawnByDepth_currentGemDistance);
+                      this
+                        .mScoreMultiplierGem_spawnByDepth_currentGemDistance));
                 }
               }),
               (i.getGemTargetMinoInRowMinosArray = function (e) {
@@ -8525,15 +8537,15 @@ System.register(
                   if (r) {
                     if ((o = this.getGemTargetMinoInPatternMatches(s))) {
                       var m = new p(this.getPlayer(), null);
-                      o.attachPlayerAction(m, P.x3353239403785490213x),
+                      (o.attachPlayerAction(m, P.x3353239403785490213x),
                         o.getMinoPlayerActionItem().preActivate(),
-                        this.getPlayer().dispatchActionSpawnedMessage(m);
+                        this.getPlayer().dispatchActionSpawnedMessage(m));
                     }
                     if ((o = this.getGemTargetMinoInPatternMatches(s))) {
                       var S = new y(this.getPlayer(), null);
-                      S.setBonusTimeSEC(this.mBonusTimeGem_bonusTimeSECPerGem),
+                      (S.setBonusTimeSEC(this.mBonusTimeGem_bonusTimeSECPerGem),
                         o.attachPlayerAction(S, P.x3353239403785490213x),
-                        this.getPlayer().dispatchActionSpawnedMessage(S);
+                        this.getPlayer().dispatchActionSpawnedMessage(S));
                     }
                   }
                   if (
@@ -8543,11 +8555,11 @@ System.register(
                     (o = this.getGemTargetMinoInPatternMatches(s))
                   ) {
                     var g = new _(this.getPlayer(), null);
-                    this
+                    (this
                       .mScoreMultiplierGem_spawnByTSpin_multiplierEqualsLinesCleared &&
                       g.setMultiplierIncrement(n),
                       o.attachPlayerAction(g, P.x3353239403785490213x),
-                      this.getPlayer().dispatchActionSpawnedMessage(g);
+                      this.getPlayer().dispatchActionSpawnedMessage(g));
                   }
                 }
               }),
@@ -8559,8 +8571,8 @@ System.register(
                 for (i = 0; i < r; i++) {
                   (o = a.getAtIndex(i)).getY() < n && (n = o.getY());
                 }
-                this.updateDeepestLineClear(n),
-                  this.mScratchRectMinosArray.removeAll();
+                (this.updateDeepestLineClear(n),
+                  this.mScratchRectMinosArray.removeAll());
                 var s = e;
                 if (
                   s.getMinosInRect(
@@ -8638,7 +8650,7 @@ System.register(
                           null
                         )
                       );
-                    this.mOvertimeShatterMinos.removeAll(),
+                    (this.mOvertimeShatterMinos.removeAll(),
                       t.getMinosWithLogicalStates(
                         !0,
                         !1,
@@ -8656,7 +8668,7 @@ System.register(
                       t.pushDestabilize(),
                       t.pushMovementDisabled(),
                       this.setNextState(r.x2861256750530327360x, !1),
-                      this.dispatchMessage(r.x850930746326157990x, this, null);
+                      this.dispatchMessage(r.x850930746326157990x, this, null));
                   }
                 }
               }),
@@ -8670,7 +8682,7 @@ System.register(
                   var n = this.mOvertimeShatterMinos.getAtIndex(0);
                   this.mOvertimeShatterMinos.popFront();
                   var i = n.getX() % 2 == n.getY() % 2;
-                  this.mOvertimeShatterRemainingShatterMinos <= 0 ||
+                  (this.mOvertimeShatterRemainingShatterMinos <= 0 ||
                   (i &&
                     this.getParams()
                       .getDictionary(r.x2319894155261933571x)
@@ -8691,7 +8703,7 @@ System.register(
                       this.mOvertimeShatterRemainingShatterMinos--),
                     (this.mOvertimeShatterMinoTimerMSEC += this.getParams()
                       .getDictionary(r.x2319894155261933571x)
-                      .getIntValue(r.x3396266432821137206x));
+                      .getIntValue(r.x3396266432821137206x)));
                 }
                 0 == this.mOvertimeShatterMinos.getNumObjects() &&
                   (a.popDestabilize(),
@@ -8699,7 +8711,8 @@ System.register(
                   this.setNextState(r.x151232271056709334x, !1));
               }),
               (i.x4554517263080478179x = function () {
-                null !== this.mRNG && (this.mRNG.destroy(), (this.mRNG = null)),
+                (null !== this.mRNG &&
+                  (this.mRNG.destroy(), (this.mRNG = null)),
                   this.mScratchRowXValuesPool.destroyAll(),
                   null !== this.mScratchRowXValuesPool &&
                     (this.mScratchRowXValuesPool.destroy(),
@@ -8716,7 +8729,7 @@ System.register(
                   null !== this.mOvertimeShatterMinos &&
                     (this.mOvertimeShatterMinos.destroy(),
                     (this.mOvertimeShatterMinos = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (i.x749692796470502123x = function (e) {
                 switch (this.getCurrentState()) {
@@ -8741,7 +8754,7 @@ System.register(
                       case o.x121795124178233464x:
                         return 0;
                       case o.x1673908432382400910x:
-                        return this.processState_overtimeShatter(a, n), n;
+                        return (this.processState_overtimeShatter(a, n), n);
                       case o.x3293153264341002567x:
                       default:
                         return 0;
@@ -9060,7 +9073,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (a = t.createClass);
+          ((e = t.inheritsLoose), (a = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -9138,7 +9151,7 @@ System.register(
                 return !1;
               }),
               (o.x1889113821654134487x = function () {
-                this.getPlayer()
+                (this.getPlayer()
                   .getControlComponent()
                   .x4589939837334800415x()
                   .x3466275190774367880x(
@@ -9147,14 +9160,14 @@ System.register(
                   (this.mDurationTimerMSEC =
                     1e3 *
                     this.getParams().getIntValue(r.x3634449106510801119x)),
-                  this.setCurrentState(n.x2374069116296912024x, 0);
+                  this.setCurrentState(n.x2374069116296912024x, 0));
               }),
               (o.x3202151272846750673x = function (e, a, r, c) {
                 switch (a) {
                   case n.x2374069116296912024x:
                     switch (e) {
                       case i.x1673908432382400910x:
-                        return this.processState_active(c), c;
+                        return (this.processState_active(c), c);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, a, r, c);
@@ -9212,7 +9225,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -9265,14 +9278,14 @@ System.register(
               (l.processState_active = function (t) {
                 var e = this.getPlayer().getMatrix(),
                   i = e.getHighestMinoY();
-                this.mScratchMinosArray.removeAll(),
+                (this.mScratchMinosArray.removeAll(),
                   e.getMinosInRect(
                     0,
                     0,
                     e.getWidth(),
                     i + 1,
                     this.mScratchMinosArray
-                  );
+                  ));
                 var r = this.mScratchMinosArray.getNumObjects(),
                   n = 0,
                   s = null,
@@ -9293,18 +9306,18 @@ System.register(
                     }
                   }
                 } else
-                  e.invertMinosY(this.mScratchMinosArray, i),
+                  (e.invertMinosY(this.mScratchMinosArray, i),
                     e.setMinosVisualAnimationOffsetY_FXPT(0),
                     e.popDestabilize(),
                     e.popMovementDisabled(),
-                    this.setNextState(a.x1636581458442852321x, !1);
+                    this.setNextState(a.x1636581458442852321x, !1));
                 this.mScratchMinosArray.removeAll();
               }),
               (l.x4554517263080478179x = function () {
-                null !== this.mScratchMinosArray &&
+                (null !== this.mScratchMinosArray &&
                   (this.mScratchMinosArray.destroy(),
                   (this.mScratchMinosArray = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (l.x3379342321577288781x = function () {
                 var t = this.getPlayer(),
@@ -9323,11 +9336,11 @@ System.register(
                 var t = this.getPlayer().getMatrix(),
                   e = t.getHighestMinoY() + 1;
                 if (e > 1) {
-                  t.pushDestabilize(), t.pushMovementDisabled();
+                  (t.pushDestabilize(), t.pushMovementDisabled());
                   var i = ~~(e / 2);
-                  (this.mAnimationTimeMSEC =
+                  ((this.mAnimationTimeMSEC =
                     i * this.getParams().getIntValue(r.x2652050698326985563x)),
-                    this.setCurrentState(a.x2374069116296912024x, 0);
+                    this.setCurrentState(a.x2374069116296912024x, 0));
                 } else this.setNextState(a.x1636581458442852321x, !1);
               }),
               (l.x3202151272846750673x = function (e, i, r, s) {
@@ -9335,7 +9348,7 @@ System.register(
                   case a.x2374069116296912024x:
                     switch (e) {
                       case n.x1673908432382400910x:
-                        return this.processState_active(s), s;
+                        return (this.processState_active(s), s);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, i, r, s);
@@ -9397,7 +9410,7 @@ System.register(
         },
       ],
       execute: function () {
-        o._RF.push(
+        (o._RF.push(
           {},
           "374785blSNFS7msny3gwwmY",
           "x2997302057544908750x",
@@ -9414,7 +9427,7 @@ System.register(
                   e
                 );
               }
-              e(o, t),
+              (e(o, t),
                 (o.getAvailableInstance = function () {
                   o.sPool || (o.sPool = new Array());
                   var t = null;
@@ -9426,9 +9439,9 @@ System.register(
                   );
                 }),
                 (o.recycleAvailableInstance = function (t) {
-                  o.sPool || (o.sPool = new Array()),
+                  (o.sPool || (o.sPool = new Array()),
                     t.recycle(),
-                    o.sPool.push(t);
+                    o.sPool.push(t));
                 }),
                 (o.destroyPool = function () {
                   if (o.sPool) {
@@ -9438,7 +9451,7 @@ System.register(
                     }
                     null !== o.sPool && (o.sPool = null);
                   }
-                });
+                }));
               var u = o.prototype;
               return (
                 (u.getValue = function () {
@@ -9455,8 +9468,8 @@ System.register(
                   );
                 }),
                 (u.x4554517263080478179x = function () {
-                  (this.mValue = 0),
-                    t.prototype.x4554517263080478179x.call(this);
+                  ((this.mValue = 0),
+                    t.prototype.x4554517263080478179x.call(this));
                 }),
                 (u.setValueWithInt = function (t) {
                   this.mValue = t;
@@ -9486,7 +9499,7 @@ System.register(
               );
             })(l)
           ).sPool = null),
-          o._RF.pop();
+          o._RF.pop());
       },
     };
   }
@@ -9509,7 +9522,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -9563,14 +9576,14 @@ System.register(
                 var e = this.getPlayer().getMatrix(),
                   i = e.getWidth(),
                   r = e.getHighestMinoY();
-                this.mScratchMinosArray.removeAll(),
+                (this.mScratchMinosArray.removeAll(),
                   e.getMinosInRect(
                     0,
                     0,
                     e.getWidth(),
                     r + 1,
                     this.mScratchMinosArray
-                  );
+                  ));
                 var n = this.mScratchMinosArray.getNumObjects(),
                   c = 0,
                   o = null,
@@ -9591,18 +9604,18 @@ System.register(
                     }
                   }
                 } else
-                  e.invertMinosX(this.mScratchMinosArray, i - 1),
+                  (e.invertMinosX(this.mScratchMinosArray, i - 1),
                     e.setMinosVisualAnimationOffsetX_FXPT(0),
                     e.popDestabilize(),
                     e.popMovementDisabled(),
-                    this.setNextState(a.x1636581458442852321x, !1);
+                    this.setNextState(a.x1636581458442852321x, !1));
                 this.mScratchMinosArray.removeAll();
               }),
               (S.x4554517263080478179x = function () {
-                null !== this.mScratchMinosArray &&
+                (null !== this.mScratchMinosArray &&
                   (this.mScratchMinosArray.destroy(),
                   (this.mScratchMinosArray = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (S.x3379342321577288781x = function () {
                 var t = this.getPlayer(),
@@ -9621,11 +9634,11 @@ System.register(
                 var t = this.getPlayer().getMatrix(),
                   e = t.getWidth();
                 if (e > 1) {
-                  t.pushDestabilize(), t.pushMovementDisabled();
+                  (t.pushDestabilize(), t.pushMovementDisabled());
                   var i = ~~(e / 2);
-                  (this.mAnimationTimeMSEC =
+                  ((this.mAnimationTimeMSEC =
                     i * this.getParams().getIntValue(r.x3654646312855022614x)),
-                    this.setCurrentState(a.x2374069116296912024x, 0);
+                    this.setCurrentState(a.x2374069116296912024x, 0));
                 } else this.setNextState(a.x1636581458442852321x, !1);
               }),
               (S.x3202151272846750673x = function (e, i, r, c) {
@@ -9633,7 +9646,7 @@ System.register(
                   case a.x2374069116296912024x:
                     switch (e) {
                       case n.x1673908432382400910x:
-                        return this.processState_active(c), c;
+                        return (this.processState_active(c), c);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, i, r, c);
@@ -9684,7 +9697,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (r = t.createClass);
+          ((e = t.inheritsLoose), (r = t.createClass));
         },
         function (t) {
           a = t.cclegacy;
@@ -9743,12 +9756,12 @@ System.register(
                 return this.mPlayers.getAtIndex(t);
               }),
               (n.x4554517263080478179x = function () {
-                null !== this.mParams &&
+                (null !== this.mParams &&
                   (this.mParams.destroy(), (this.mParams = null)),
                   this.mPlayers.destroyAll(),
                   null !== this.mPlayers &&
                     (this.mPlayers.destroy(), (this.mPlayers = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (n.x2000865438674377333x = function (e) {
                 switch (u.getFirstValueKeyInPath(e)) {
@@ -9808,9 +9821,9 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose),
+          ((e = t.inheritsLoose),
             (n = t.createClass),
-            (i = t.assertThisInitialized);
+            (i = t.assertThisInitialized));
         },
         function (t) {
           r = t.cclegacy;
@@ -9843,10 +9856,10 @@ System.register(
           (function (t) {
             function r(e, n) {
               var a;
-              (a = t.call(this, r.x1725294722787095099x, e) || this)
+              ((a = t.call(this, r.x1725294722787095099x, e) || this)
                 .getParams()
                 .copy(n, !1),
-                e.addMessageListener(i(a));
+                e.addMessageListener(i(a)));
               var s = a.getPlayer().getMatrix();
               return (
                 (a.mNumMatrixCells = s.getWidth() * s.getVisibleHeight()),
@@ -9890,7 +9903,6 @@ System.register(
                         this.mMinoInsertionStepTimerMSEC -= i;
                         this.mMinoInsertionStepTimerMSEC <= 0 &&
                         this.mMinoInsertionStepIndex < this.mNumMatrixCells;
-
                       ) {
                         var s = S.computeXFromGridIndex(
                             this.mMinoInsertionStepIndex,
@@ -9901,14 +9913,14 @@ System.register(
                             a
                           ),
                           m = new c();
-                        r.insertMinoAt(m, s, l),
+                        (r.insertMinoAt(m, s, l),
                           m.setIsMatchable(!1),
                           m.setIsKillable(!1),
                           m.setMinoTypeId(S.x2214418706171680314x),
                           m.setLogicalState(c.x2706814472936684117x),
                           (this.mMinoInsertionStepTimerMSEC +=
                             this.mMinoInsertionDelayMSEC),
-                          this.mMinoInsertionStepIndex++;
+                          this.mMinoInsertionStepIndex++);
                       }
                     }
                     return i;
@@ -9973,7 +9985,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (n = t.createClass);
+          ((e = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           a = t.cclegacy;
@@ -10030,17 +10042,18 @@ System.register(
             var l = a.prototype;
             return (
               (l.setRNGSeed = function (t) {
-                0 == t && (t = o.nextNativeRandomInt()), this.mRNG.setSeed(t);
+                (0 == t && (t = o.nextNativeRandomInt()), this.mRNG.setSeed(t));
               }),
               (l.processState_active = function (t) {
                 this.setNextState(r.x1636581458442852321x, !1);
               }),
               (l.x4554517263080478179x = function () {
-                null !== this.mRNG && (this.mRNG.destroy(), (this.mRNG = null)),
+                (null !== this.mRNG &&
+                  (this.mRNG.destroy(), (this.mRNG = null)),
                   null !== this.mScratchRowMinosArray &&
                     (this.mScratchRowMinosArray.destroy(),
                     (this.mScratchRowMinosArray = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (l.x3379342321577288781x = function () {
                 var t = this.getPlayer(),
@@ -10057,11 +10070,11 @@ System.register(
               }),
               (l.x1889113821654134487x = function () {
                 var t = this.getPlayer().getMatrix();
-                t.setIsVerticalShiftEnabled(!0),
+                (t.setIsVerticalShiftEnabled(!0),
                   t.setIsVerticalShiftUpwards(!0),
                   t.setVerticalShiftMSECPerLine(
                     this.getParams().getIntValue(a.x2681985281824086087x)
-                  );
+                  ));
                 for (
                   var e = t.getWidth(),
                     n = this.getParams().getIntValue(a.x4228993959753620432x),
@@ -10081,15 +10094,15 @@ System.register(
                         o.x2772115011511868345x,
                         o.x474089203390722897x
                       );
-                      c.setMinoTypeId(y),
+                      (c.setMinoTypeId(y),
                         c.setCanFall(!0),
                         c.setIsMatchable(!0),
-                        c.setIsKillable(!0);
+                        c.setIsKillable(!0));
                     }
                     this.mScratchRowMinosArray.setAtIndex(u, c);
                   }
-                  t.addExternalRowBelow(this.mScratchRowMinosArray, !1),
-                    --i <= 0 && (i = n);
+                  (t.addExternalRowBelow(this.mScratchRowMinosArray, !1),
+                    --i <= 0 && (i = n));
                 }
                 this.setCurrentState(r.x2374069116296912024x, 0);
               }),
@@ -10098,7 +10111,7 @@ System.register(
                   case r.x2374069116296912024x:
                     switch (e) {
                       case i.x1673908432382400910x:
-                        return this.processState_active(s), s;
+                        return (this.processState_active(s), s);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, n, a, s);
@@ -10160,9 +10173,9 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose),
+          ((e = t.inheritsLoose),
             (n = t.createClass),
-            (s = t.assertThisInitialized);
+            (s = t.assertThisInitialized));
         },
         function (t) {
           o = t.cclegacy;
@@ -10300,8 +10313,8 @@ System.register(
                   case o.x3022064487984521391x:
                     this.setHeader("content-type", "application/json");
                 }
-                this.mNativeConnection.start(),
-                  this.setCurrentState(o.x551420623478520235x, 0);
+                (this.mNativeConnection.start(),
+                  this.setCurrentState(o.x551420623478520235x, 0));
               }),
               (i.isActive = function () {
                 return this.getCurrentState() == o.x551420623478520235x;
@@ -10325,32 +10338,36 @@ System.register(
                 this.mResponseStatusCode = t;
               }),
               (i._setResponseContent = function (t, e) {
-                (this.mResponseContentString = t),
+                ((this.mResponseContentString = t),
                   (e = a.stringToLowerCase(e)),
                   a.firstIndexInString(e, "application/json") >= 0 &&
                     (this.mResponseContentJSONValues ||
                       (this.mResponseContentJSONValues = new r(!0)),
-                    this.mResponseContentJSONValues.parseJSONString(t, !0, !0));
+                    this.mResponseContentJSONValues.parseJSONString(
+                      t,
+                      !0,
+                      !0
+                    )));
               }),
               (i._handleComplete = function () {
-                this.dispatchMessage(o.x2696697764644697666x, this, null),
-                  this.setCurrentState(o.x2440640059012266930x, 0);
+                (this.dispatchMessage(o.x2696697764644697666x, this, null),
+                  this.setCurrentState(o.x2440640059012266930x, 0));
               }),
               (i._handleError = function () {
-                this.dispatchMessage(o.x2133544145364500849x, this, null),
+                (this.dispatchMessage(o.x2133544145364500849x, this, null),
                   this._cancel(),
-                  this.setCurrentState(o.x3800623404033361129x, 0);
+                  this.setCurrentState(o.x3800623404033361129x, 0));
               }),
               (i._handleTimeout = function () {
-                this.dispatchMessage(o.x271780637403091028x, this, null),
+                (this.dispatchMessage(o.x271780637403091028x, this, null),
                   this._cancel(),
-                  this.setCurrentState(o.x4152085372564364992x, 0);
+                  this.setCurrentState(o.x4152085372564364992x, 0));
               }),
               (i._cancel = function () {
                 this.isActive() && this.mNativeConnection.cancel();
               }),
               (i.x4554517263080478179x = function () {
-                this.cancel(),
+                (this.cancel(),
                   null !== this.mHeaders &&
                     (this.mHeaders.destroy(), (this.mHeaders = null)),
                   null !== this.mUserData &&
@@ -10359,7 +10376,7 @@ System.register(
                     (this.mResponseContentJSONValues.destroy(),
                     (this.mResponseContentJSONValues = null)),
                   (this.mNativeConnection = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               n(o, null, [
                 {
@@ -10517,7 +10534,7 @@ System.register(
           (function (t) {
             function e() {
               var n;
-              return ((n = t.call(this) || this).mConnections = new s(0)), n;
+              return (((n = t.call(this) || this).mConnections = new s(0)), n);
             }
             n(e, t);
             var o = e.prototype;
@@ -10553,10 +10570,10 @@ System.register(
                 }
               }),
               (o.x4554517263080478179x = function () {
-                this.mConnections.destroyAll(),
+                (this.mConnections.destroyAll(),
                   null !== this.mConnections &&
                     (this.mConnections.destroy(), (this.mConnections = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (o.x1416011893951084930x = function (t, n, e) {
                 this.dispatchMessage(t, n, e);
@@ -10641,7 +10658,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (r = e.inheritsLoose), (o = e.createClass);
+          ((r = e.inheritsLoose), (o = e.createClass));
         },
         function (e) {
           t = e.cclegacy;
@@ -10779,7 +10796,7 @@ System.register(
                   o
                 );
               }
-              r(t, e),
+              (r(t, e),
                 (t.doStaticInit = function () {
                   if (!t.sDidStaticInit) {
                     for (
@@ -10788,7 +10805,6 @@ System.register(
                         t.sKeyboardControlIndicesToControlIds.length = 0;
                       t.sKeyboardControlIndicesToControlIds.length <
                       t.x3935711209341470584x;
-
                     )
                       t.sKeyboardControlIndicesToControlIds.push(0);
                     for (var e = 0; e < t.x3935711209341470584x; e++)
@@ -10799,7 +10815,6 @@ System.register(
                         t.sNativeKeyCodesToKeyboardControlIds.length = 0;
                       t.sNativeKeyCodesToKeyboardControlIds.length <
                       t.x735514619763088066x;
-
                     )
                       t.sNativeKeyCodesToKeyboardControlIds.push(0);
                     for (e = 0; e < t.x735514619763088066x; e++)
@@ -10810,7 +10825,6 @@ System.register(
                         t.sGamePointerControlIndicesToControlIds.length = 0;
                       t.sGamePointerControlIndicesToControlIds.length <
                       t.x2941666473595113931x;
-
                     )
                       t.sGamePointerControlIndicesToControlIds.push(0);
                     for (e = 0; e < t.x2941666473595113931x; e++)
@@ -12175,7 +12189,7 @@ System.register(
                   r
                     ? (t.sMouseButtonsDown |= 1 << e)
                     : (t.sMouseButtonsDown &= ~(1 << e));
-                });
+                }));
               var n = t.prototype;
               return (
                 (n.addInputAction = function (e) {
@@ -12454,13 +12468,13 @@ System.register(
                   return !1;
                 }),
                 (n.x4554517263080478179x = function () {
-                  (this.mDelegate = null),
+                  ((this.mDelegate = null),
                     null !== this.mInputActions &&
                       (this.mInputActions.destroy(),
                       (this.mInputActions = null)),
                     null !== this.mDevices &&
                       (this.mDevices.destroy(), (this.mDevices = null)),
-                    e.prototype.x4554517263080478179x.call(this);
+                    e.prototype.x4554517263080478179x.call(this));
                 }),
                 o(t, null, [
                   {
@@ -14706,7 +14720,7 @@ System.register(
               );
             })(n)
           );
-        (rr.sDidStaticInit = !1),
+        ((rr.sDidStaticInit = !1),
           (rr.sKeyboardControlIndicesToControlIds = null),
           (rr.sNativeKeyCodesToKeyboardControlIds = null),
           (rr.sGamePointerControlIndicesToControlIds = null),
@@ -14716,7 +14730,7 @@ System.register(
           (rr.sMouseButtonsDown = 0),
           (rr.sIsTouchInputEnabled = !1),
           (rr.sConvertTouchInputToMouseInput = !0),
-          t._RF.pop();
+          t._RF.pop());
       },
     };
   }
@@ -14840,13 +14854,13 @@ System.register(
                   e.pushBackIntValue(this.mBagValues.getIntValueAtIndex(l));
               }),
               (a.x4554517263080478179x = function () {
-                null !== this.mRefillValues &&
+                (null !== this.mRefillValues &&
                   (this.mRefillValues.destroy(), (this.mRefillValues = null)),
                   null !== this.mBagValues &&
                     (this.mBagValues.destroy(), (this.mBagValues = null)),
                   null !== this.mRNG &&
                     (this.mRNG.destroy(), (this.mRNG = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               l
             );
@@ -14885,7 +14899,7 @@ System.register(
         },
       ],
       execute: function () {
-        n._RF.push(
+        (n._RF.push(
           {},
           "8673eUl8ahDyJrggOWtt5OP",
           "x2298805262327289139x",
@@ -14902,7 +14916,7 @@ System.register(
                   e
                 );
               }
-              e(n, t),
+              (e(n, t),
                 (n.getAvailableInstance = function () {
                   n.sPool || (n.sPool = new Array());
                   var t = null;
@@ -14914,9 +14928,9 @@ System.register(
                   );
                 }),
                 (n.recycleAvailableInstance = function (t) {
-                  n.sPool || (n.sPool = new Array()),
+                  (n.sPool || (n.sPool = new Array()),
                     t.recycle(),
-                    n.sPool.push(t);
+                    n.sPool.push(t));
                 }),
                 (n.destroyPool = function () {
                   if (n.sPool) {
@@ -14926,7 +14940,7 @@ System.register(
                     }
                     null !== n.sPool && (n.sPool = null);
                   }
-                });
+                }));
               var u = n.prototype;
               return (
                 (u.getValue = function () {
@@ -14943,8 +14957,8 @@ System.register(
                   );
                 }),
                 (u.x4554517263080478179x = function () {
-                  (this.mValue = 0),
-                    t.prototype.x4554517263080478179x.call(this);
+                  ((this.mValue = 0),
+                    t.prototype.x4554517263080478179x.call(this));
                 }),
                 (u.setValueWithInt = function (t) {
                   this.mValue = t;
@@ -14974,7 +14988,7 @@ System.register(
               );
             })(o)
           ).sPool = null),
-          n._RF.pop();
+          n._RF.pop());
       },
     };
   }
@@ -15002,9 +15016,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (a = e.inheritsLoose),
+          ((a = e.inheritsLoose),
             (t = e.createClass),
-            (n = e.assertThisInitialized);
+            (n = e.assertThisInitialized));
         },
         function (e) {
           l = e.cclegacy;
@@ -15052,7 +15066,7 @@ System.register(
           (function (e) {
             function l(a, t) {
               var r;
-              (r = e.call(this, l.x4184151634383032826x, a) || this)
+              ((r = e.call(this, l.x4184151634383032826x, a) || this)
                 .getParams()
                 .setIntValue(l.x2444174728814044177x, 0),
                 r
@@ -15094,7 +15108,7 @@ System.register(
                 r.getParams().setIntValue(l.x1025265157712519551x, 2),
                 r.getParams().setIntValue(l.x924896511944286405x, 3),
                 r.getParams().setIntValue(l.x368882055754204803x, 1),
-                r.getParams().setIntValue(l.x825199617972500388x, 1e3);
+                r.getParams().setIntValue(l.x825199617972500388x, 1e3));
               for (
                 var o = r
                     .getParams()
@@ -15113,193 +15127,193 @@ System.register(
                   m + 1)
                 ) {
                   case 1:
-                    _.setIntValue(l.x3291797274688149267x, 1e3),
+                    (_.setIntValue(l.x3291797274688149267x, 1e3),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 2:
-                    _.setIntValue(l.x3291797274688149267x, 793),
+                    (_.setIntValue(l.x3291797274688149267x, 793),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 3:
-                    _.setIntValue(l.x3291797274688149267x, 618),
+                    (_.setIntValue(l.x3291797274688149267x, 618),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 4:
-                    _.setIntValue(l.x3291797274688149267x, 473),
+                    (_.setIntValue(l.x3291797274688149267x, 473),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 5:
-                    _.setIntValue(l.x3291797274688149267x, 355),
+                    (_.setIntValue(l.x3291797274688149267x, 355),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 6:
-                    _.setIntValue(l.x3291797274688149267x, 262),
+                    (_.setIntValue(l.x3291797274688149267x, 262),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 7:
-                    _.setIntValue(l.x3291797274688149267x, 190),
+                    (_.setIntValue(l.x3291797274688149267x, 190),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 8:
-                    _.setIntValue(l.x3291797274688149267x, 135),
+                    (_.setIntValue(l.x3291797274688149267x, 135),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 9:
-                    _.setIntValue(l.x3291797274688149267x, 94),
+                    (_.setIntValue(l.x3291797274688149267x, 94),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 10:
-                    _.setIntValue(l.x3291797274688149267x, 64),
+                    (_.setIntValue(l.x3291797274688149267x, 64),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 11:
-                    _.setIntValue(l.x3291797274688149267x, 43),
+                    (_.setIntValue(l.x3291797274688149267x, 43),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 12:
-                    _.setIntValue(l.x3291797274688149267x, 28),
+                    (_.setIntValue(l.x3291797274688149267x, 28),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 13:
-                    _.setIntValue(l.x3291797274688149267x, 18),
+                    (_.setIntValue(l.x3291797274688149267x, 18),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 14:
-                    _.setIntValue(l.x3291797274688149267x, 11),
+                    (_.setIntValue(l.x3291797274688149267x, 11),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 15:
-                    _.setIntValue(l.x3291797274688149267x, 7),
+                    (_.setIntValue(l.x3291797274688149267x, 7),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 16:
-                    _.setIntValue(l.x3291797274688149267x, 4),
+                    (_.setIntValue(l.x3291797274688149267x, 4),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 17:
-                    _.setIntValue(l.x3291797274688149267x, 3),
+                    (_.setIntValue(l.x3291797274688149267x, 3),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 18:
-                    _.setIntValue(l.x3291797274688149267x, 1),
+                    (_.setIntValue(l.x3291797274688149267x, 1),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 19:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 500),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 20:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 450),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 21:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 400),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 22:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 350),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 23:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 300),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 24:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 250),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 25:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 200),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 26:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 195),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 27:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 184),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 28:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 167),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 29:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 151),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                     break;
                   case 30:
                   default:
-                    _.setIntValue(l.x3291797274688149267x, 0),
+                    (_.setIntValue(l.x3291797274688149267x, 0),
                       _.setIntValue(l.x1652004153770604644x, -20),
                       _.setIntValue(l.x3630904924476591857x, 150),
-                      _.setIntValue(l.x721709627417084861x, -1);
+                      _.setIntValue(l.x721709627417084861x, -1));
                 }
                 _.setBoolValue(l.x2291878920123301533x, !1);
                 var P = new i(!0);
-                P.setStringValue(l.x66392425524575627x, "lineClears"),
+                (P.setStringValue(l.x66392425524575627x, "lineClears"),
                   P.setIntValue(l.x349737004240287654x, 10),
                   _.setObjectValue(l.x2129664254733565435x, P),
                   _.setBoolValue(l.x546531732375001945x, !0),
-                  _.setBoolValue(l.x1114633447438780055x, !1);
+                  _.setBoolValue(l.x1114633447438780055x, !1));
               }
               return (
                 r.getParams().copy(t, !1),
@@ -15334,10 +15348,10 @@ System.register(
                 r
               );
             }
-            a(l, e),
+            (a(l, e),
               (l.getLevelEndConditionType = function (e) {
                 return s.stringToHash32(e);
-              });
+              }));
             var r = l.prototype;
             return (
               (r.isOnboardingRequired = function () {
@@ -15421,11 +15435,11 @@ System.register(
                   .getDictionaryAtIndex(t);
               }),
               (r.startLevel = function (e) {
-                (this.mLevelIndex = e),
+                ((this.mLevelIndex = e),
                   (this.mLevelEndConditionType = 0),
                   (this.mLevelEndConditionTargetValue = 0),
                   (this.mLevelRemainingActionGoal = 0),
-                  (this.mLevelElapsedTimeMSEC = 0);
+                  (this.mLevelElapsedTimeMSEC = 0));
                 var a = this.getLevelParams(this.mLevelIndex);
                 if (a) {
                   var t = this.getPlayer(),
@@ -15462,40 +15476,40 @@ System.register(
                         this.mLevelEndConditionTargetValue = n.getIntValue(
                           l.x349737004240287654x
                         );
-                      e == this.mBaseStartingLevelIndex &&
+                      (e == this.mBaseStartingLevelIndex &&
                         (this.mLevelEndConditionTargetValue = s.maxInt(
                           this.mLevelEndConditionTargetValue -
                             t.getTotalMatrixMinoPatternMatches(),
                           0
                         )),
                         (this.mLevelRemainingActionGoal =
-                          this.mLevelEndConditionTargetValue);
+                          this.mLevelEndConditionTargetValue));
                       break;
                     case l.x1905191552484024979x:
-                      (this.mLevelEndConditionTargetValue = n.getIntValue(
+                      ((this.mLevelEndConditionTargetValue = n.getIntValue(
                         l.x4407695151591411706x
                       )),
                         (this.mLevelRemainingActionGoal =
-                          this.mLevelEndConditionTargetValue);
+                          this.mLevelEndConditionTargetValue));
                       break;
                     case l.x2399672998907277738x:
-                      (this.mLevelEndConditionTargetValue = n.getIntValue(
+                      ((this.mLevelEndConditionTargetValue = n.getIntValue(
                         l.x3983593432338319933x
                       )),
                         (this.mLevelRemainingActionGoal =
-                          this.mLevelEndConditionTargetValue);
+                          this.mLevelEndConditionTargetValue));
                       break;
                     case l.x1145944259112355621x:
-                      (this.mLevelEndConditionTargetValue = n.getIntValue(
+                      ((this.mLevelEndConditionTargetValue = n.getIntValue(
                         l.x3591516254569698119x
                       )),
-                        (this.mLevelRemainingActionGoal = 1);
+                        (this.mLevelRemainingActionGoal = 1));
                       break;
                     case l.x1812165955236857297x:
-                      (this.mLevelEndConditionTargetValue = n.getIntValue(
+                      ((this.mLevelEndConditionTargetValue = n.getIntValue(
                         l.x4098406401282084143x
                       )),
-                        (this.mLevelRemainingActionGoal = 1);
+                        (this.mLevelRemainingActionGoal = 1));
                   }
                   var o = a.getDictionary(l.x2558516992931135854x);
                   if (o) {
@@ -15508,7 +15522,7 @@ System.register(
                     var g = o.getDictionary(l.x4566427435562359875x);
                     t.getMatrix().createAndInsertMinos(g, !0);
                   }
-                  a.hasValue(l.x2203239602929422238x) &&
+                  (a.hasValue(l.x2203239602929422238x) &&
                     t
                       .getParams()
                       .setIntValue(
@@ -15521,7 +15535,7 @@ System.register(
                         .setIntValue(
                           P.x1662271928908008119x,
                           a.getIntValue(l.x3255295510285322210x)
-                        );
+                        ));
                   var c = t.getPieceSequenceGenerator();
                   if (
                     (a.hasValue(l.x664811951222751524x) &&
@@ -15553,7 +15567,7 @@ System.register(
                   if (this.mControlComponent) {
                     var S = a.getIntValue(l.x3291797274688149267x),
                       p = a.getIntValue(l.x1652004153770604644x);
-                    p < 0 && (p = ~~((S >= 0 ? S : -S) / (p >= 0 ? p : -p))),
+                    (p < 0 && (p = ~~((S >= 0 ? S : -S) / (p >= 0 ? p : -p))),
                       this.mControlComponent
                         .x4589939837334800415x()
                         .x2502995138554013379x(S),
@@ -15570,7 +15584,7 @@ System.register(
                         .x4589939837334800415x()
                         .x4516114104380695083x(
                           a.getIntValue(l.x3630904924476591857x)
-                        );
+                        ));
                     var C = "all";
                     a.hasValue(l.x3603359514125386539x) &&
                       (C = a.getStringValue(l.x3603359514125386539x));
@@ -15626,12 +15640,12 @@ System.register(
                       }
                   }
                 }
-                this.mMessageParams.setIntValue(l.x2477250675081495992x, e),
+                (this.mMessageParams.setIntValue(l.x2477250675081495992x, e),
                   this.dispatchMessage(
                     l.x3064056236842279329x,
                     this,
                     this.mMessageParams
-                  );
+                  ));
               }),
               (r.completeLevel = function (e) {
                 var a = this.getLevelParams(e);
@@ -15640,7 +15654,7 @@ System.register(
                   a.getBoolValue(l.x1114633447438780055x) &&
                     t.setGameBreakPending();
                 }
-                this.mIsOnboardingRequired &&
+                (this.mIsOnboardingRequired &&
                   !this.mDidCompleteOnboarding &&
                   e == this.mOnboardingFinalLevelIndex &&
                   ((this.mDidCompleteOnboarding = !0),
@@ -15655,7 +15669,7 @@ System.register(
                     l.x1810587888228963480x,
                     this,
                     this.mMessageParams
-                  );
+                  ));
               }),
               (r.processScoreEventMessage = function (e) {
                 if (
@@ -15725,7 +15739,7 @@ System.register(
                             );
                         }
                     }
-                    e.getBoolValue(k.x2221138172290491091x) &&
+                    (e.getBoolValue(k.x2221138172290491091x) &&
                       (a = s.FXPTToInt(
                         s.FXPTMultiply(
                           s.FXPTFromInt(a),
@@ -15735,7 +15749,7 @@ System.register(
                       this.processCurrentLevelRemainingActionGoal(
                         a,
                         this.getParams().getBoolValue(l.x3943787737712496323x)
-                      );
+                      ));
                   }
                 }
               }),
@@ -15765,7 +15779,7 @@ System.register(
                       if (
                         ((n < i || o) && (this.completeLevel(n), n++), n > i)
                       ) {
-                        (m = !1),
+                        ((m = !1),
                           (this.mLevelRemainingActionGoal = 0),
                           (this.mLevelIndex = i),
                           o &&
@@ -15776,16 +15790,16 @@ System.register(
                                 l.x1986736830051972858x
                               ),
                               !1
-                            );
+                            ));
                         break;
                       }
-                      a && !_.isGameBreakPending()
+                      (a && !_.isGameBreakPending()
                         ? (m = (u -= this.mLevelRemainingActionGoal) > 0)
                         : ((this.mLevelRemainingActionGoal = 0), (m = !1)),
                         _.isGameBreakPending()
                           ? (this.mPendingLevelIndex = n)
-                          : this.startLevel(n);
-                    } else (this.mLevelRemainingActionGoal -= u), (m = !1);
+                          : this.startLevel(n));
+                    } else ((this.mLevelRemainingActionGoal -= u), (m = !1));
                 if (n > t) {
                   var P = this.getLevelParams(t);
                   P &&
@@ -15802,9 +15816,9 @@ System.register(
                 }
               }),
               (r.x4554517263080478179x = function () {
-                null !== this.mMessageParams &&
+                (null !== this.mMessageParams &&
                   (this.mMessageParams.destroy(), (this.mMessageParams = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (r.x3202151272846750673x = function (e, a, t, n) {
                 switch (e) {
@@ -15867,7 +15881,7 @@ System.register(
                 else if (a == this.getPlayer())
                   switch (e) {
                     case P.x468145498827519783x:
-                      (this.mScoreComponent = this.getPlayer().getComponent(
+                      ((this.mScoreComponent = this.getPlayer().getComponent(
                         k.x1107523589684864332x
                       )),
                         this.mScoreComponent &&
@@ -15879,7 +15893,7 @@ System.register(
                           this.mControlComponent.addMessageListener(this),
                         this.startLevel(
                           this.getParams().getIntValue(l.x2444174728814044177x)
-                        );
+                        ));
                   }
                 else if (a == this.getGame()) {
                   var n = this.getGame();
@@ -16314,7 +16328,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (i = t.inheritsLoose), (e = t.createClass);
+          ((i = t.inheritsLoose), (e = t.createClass));
         },
         function (t) {
           n = t.cclegacy;
@@ -16359,7 +16373,6 @@ System.register(
                   r.mMinosGrid = new o(i * e),
                   r.mScratchCellDataGrid.length = 0;
                 r.mScratchCellDataGrid.length < i * e;
-
               )
                 r.mScratchCellDataGrid.push(0);
               return (
@@ -16388,7 +16401,7 @@ System.register(
                 r
               );
             }
-            i(n, t),
+            (i(n, t),
               (n.getMinosMinY = function (t) {
                 var i = t.getNumObjects();
                 if (i <= 0) return 0;
@@ -16428,7 +16441,7 @@ System.register(
                   (s = n.getMinosMaxY(a)) > e && (e = s);
                 }
                 return e;
-              });
+              }));
             var s = n.prototype;
             return (
               (s.getPlayerIndex = function () {
@@ -16475,7 +16488,7 @@ System.register(
                 if (t) {
                   this.isCellInsideMatrix(i, e) || ((i = 0), (e = 0));
                   var n = this.getMinoAt(i, e);
-                  null !== n && (n.destroy(), (n = null)),
+                  (null !== n && (n.destroy(), (n = null)),
                     t.setPosition(i, e),
                     t.setInitialPosition(
                       i,
@@ -16483,7 +16496,7 @@ System.register(
                     ),
                     t.setLogicalState(r.x3917898295966128265x),
                     t.resetFallSteps(this.mIsGravityLimited),
-                    this.mMinosGrid.setAtIndex(this.computeGridIndex(i, e), t);
+                    this.mMinosGrid.setAtIndex(this.computeGridIndex(i, e), t));
                 }
               }),
               (s.removeMinoAt = function (t, i) {
@@ -16604,9 +16617,9 @@ System.register(
                   if (i) {
                     this.mMovingMinos.removeAll();
                     for (var n = this.mWidth * this.mHeight, s = 0; s < n; s++)
-                      null !== (e = this.getMinoAtIndex(s)) &&
+                      (null !== (e = this.getMinoAtIndex(s)) &&
                         (e.destroy(), (e = null)),
-                        this.mMinosGrid.setAtIndex(s, null);
+                        this.mMinosGrid.setAtIndex(s, null));
                   }
                   var a = t.getNumValues();
                   a = l.minInt(a, this.mHeight);
@@ -16618,11 +16631,11 @@ System.register(
                       var m = l.substringFromIndexWithLength(h, M, 1);
                       if ("-" != m) {
                         var g = l.getStandardPieceTypeId(m);
-                        (e = new r()).setMinoTypeId(g),
+                        ((e = new r()).setMinoTypeId(g),
                           e.setCanFall(!0),
                           e.setIsMatchable(!0),
                           e.setIsKillable(!0),
-                          this.insertMinoAt(e, M, o);
+                          this.insertMinoAt(e, M, o));
                       }
                     }
                   }
@@ -16631,10 +16644,10 @@ System.register(
               (s.insertMinosFromPiece = function (t) {
                 for (var i = t.getNumMinos(), e = 0; e < i; e++) {
                   var n = t.getMinoAtIndex(e);
-                  n.setCanFall(!0),
+                  (n.setCanFall(!0),
                     n.setIsMatchable(!0),
                     n.setIsKillable(!0),
-                    this.insertMinoAt(n, n.getX(), n.getY());
+                    this.insertMinoAt(n, n.getX(), n.getY()));
                 }
                 t.removeAllMinos();
               }),
@@ -16675,9 +16688,9 @@ System.register(
                 var s = 0,
                   r = null;
                 for (i.startIterating(); i.isIteratorValid(); ) {
-                  e.getNumObjects() <= s &&
+                  (e.getNumObjects() <= s &&
                     ((r = n.x1237769978482411857x(0)), e.pushBack(r)),
-                    (r = e.getAtIndex(s));
+                    (r = e.getAtIndex(s)));
                   var a = i.getCurrentX(),
                     o = i.getCurrentY();
                   for (t.startIterating(); t.isIteratorValid(); ) {
@@ -16689,7 +16702,7 @@ System.register(
                       ? (r.pushBack(h), t.advanceIterator())
                       : (r.removeAll(), t.invalidateIterator());
                   }
-                  r.getNumObjects() > 0 && s++, i.advanceIterator();
+                  (r.getNumObjects() > 0 && s++, i.advanceIterator());
                 }
                 for (var l = e.getNumObjects() - 1; l >= 0; l--)
                   0 == (r = e.getAtIndex(l)).getNumObjects() &&
@@ -16727,7 +16740,7 @@ System.register(
                   this.unstickMino(t.getAtIndex(e));
               }),
               (s.shatterMinoPatternMatches = function (t, i) {
-                this.mScratchMessageData.setObjectValue(
+                (this.mScratchMessageData.setObjectValue(
                   n.x1318576951407990159x,
                   t
                 ),
@@ -16736,14 +16749,14 @@ System.register(
                     this,
                     this.mScratchMessageData
                   ),
-                  this.mScratchMessageData.clearObjectValues();
+                  this.mScratchMessageData.clearObjectValues());
                 for (var e = t.getNumObjects(), s = 0; s < e; s++) {
                   var r = t.getAtIndex(s);
                   this.shatterMinos(r, i);
                 }
               }),
               (s.shatterMinos = function (t, i) {
-                this.mScratchMessageData.setObjectValue(
+                (this.mScratchMessageData.setObjectValue(
                   n.x1141350994541722421x,
                   t
                 ),
@@ -16752,7 +16765,7 @@ System.register(
                     this,
                     this.mScratchMessageData
                   ),
-                  this.mScratchMessageData.clearObjectValues();
+                  this.mScratchMessageData.clearObjectValues());
                 for (var e = t.getNumObjects(), s = 0; s < e; s++)
                   this.shatterMino(t.getAtIndex(s), i);
               }),
@@ -16777,7 +16790,7 @@ System.register(
                 }
               }),
               (s.killMinos = function (t, i, e) {
-                this.mScratchMessageData.setObjectValue(
+                (this.mScratchMessageData.setObjectValue(
                   n.x3886522750833908845x,
                   t
                 ),
@@ -16786,7 +16799,7 @@ System.register(
                     this,
                     this.mScratchMessageData
                   ),
-                  this.mScratchMessageData.clearObjectValues();
+                  this.mScratchMessageData.clearObjectValues());
                 for (var s = t.getNumObjects(), r = 0; r < s; r++)
                   this.killMino(t.getAtIndex(r), i, e);
               }),
@@ -16844,7 +16857,7 @@ System.register(
                   s++
                 ) {
                   var a = t.getAtIndex(s);
-                  a &&
+                  (a &&
                     (a.setPosition(s, 0),
                     a.setInitialPosition(
                       s,
@@ -16852,15 +16865,15 @@ System.register(
                     ),
                     a.setLogicalState(r.x3917898295966128265x)),
                     n.setAtIndex(s, a),
-                    t.setAtIndex(s, null);
+                    t.setAtIndex(s, null));
                 }
                 i
                   ? this.mExternalMinosAbove.pushFront(n)
                   : this.mExternalMinosAbove.pushBack(n);
               }),
               (s.destroyAllExternalMinosAbove = function () {
-                this.mExternalMinosAbove.destroyAllInObjectsAsObjectArrays(),
-                  this.mExternalMinosAbove.destroyAll();
+                (this.mExternalMinosAbove.destroyAllInObjectsAsObjectArrays(),
+                  this.mExternalMinosAbove.destroyAll());
               }),
               (s.getNumExternalRowsBelow = function () {
                 return this.mExternalMinosBelow.getNumObjects();
@@ -16879,7 +16892,7 @@ System.register(
                   s++
                 ) {
                   var a = t.getAtIndex(s);
-                  a &&
+                  (a &&
                     (a.setPosition(s, 0),
                     a.setInitialPosition(
                       s,
@@ -16887,15 +16900,15 @@ System.register(
                     ),
                     a.setLogicalState(r.x707577078435805617x)),
                     n.setAtIndex(s, a),
-                    t.setAtIndex(s, null);
+                    t.setAtIndex(s, null));
                 }
                 i
                   ? this.mExternalMinosBelow.pushFront(n)
                   : this.mExternalMinosBelow.pushBack(n);
               }),
               (s.destroyAllExternalMinosBelow = function () {
-                this.mExternalMinosBelow.destroyAllInObjectsAsObjectArrays(),
-                  this.mExternalMinosBelow.destroyAll();
+                (this.mExternalMinosBelow.destroyAllInObjectsAsObjectArrays(),
+                  this.mExternalMinosBelow.destroyAll());
               }),
               (s.findMovableMinosInRect = function (t, i, e, s, r, a) {
                 var o = 0,
@@ -16906,35 +16919,35 @@ System.register(
                   g = l.minInt(i + s, this.mHeight);
                 for (h = i; h < g; h++)
                   for (o = t; o < m; o++)
-                    (c = l.computeGridIndex(o, h, this.mWidth)),
+                    ((c = l.computeGridIndex(o, h, this.mWidth)),
                       (M = this.getMinoAtIndex(c))
                         ? this.canMinoMoveInRect(M, t, i, e, s, r)
                           ? (this.mScratchCellDataGrid[c] =
                               n.x342174511884594311x)
                           : (this.mScratchCellDataGrid[c] =
                               n.x2088248599105803201x)
-                        : (this.mScratchCellDataGrid[c] = 0);
+                        : (this.mScratchCellDataGrid[c] = 0));
                 for (h = i; h < g; h++)
                   for (o = t; o < m; o++)
-                    (c = l.computeGridIndex(o, h, this.mWidth)),
+                    ((c = l.computeGridIndex(o, h, this.mWidth)),
                       (M = this.getMinoAtIndex(c)) &&
                         this.mScratchCellDataGrid[c] ==
                           n.x2088248599105803201x &&
-                        this.propagateMinoCannotMove(M, r);
+                        this.propagateMinoCannotMove(M, r));
                 for (a.removeAll(), h = i; h < g; h++)
                   for (o = t; o < m; o++)
-                    (c = l.computeGridIndex(o, h, this.mWidth)),
+                    ((c = l.computeGridIndex(o, h, this.mWidth)),
                       (M = this.getMinoAtIndex(c)) &&
                         this.mScratchCellDataGrid[c] ==
                           n.x342174511884594311x &&
-                        a.pushBack(M);
+                        a.pushBack(M));
                 for (h = i; h < g; h++)
                   for (o = t; o < m; o++)
-                    (c = l.computeGridIndex(o, h, this.mWidth)),
-                      (this.mScratchCellDataGrid[c] = 0);
+                    ((c = l.computeGridIndex(o, h, this.mWidth)),
+                      (this.mScratchCellDataGrid[c] = 0));
               }),
               (s.canMoveMinosInRect = function (t, i, e, n, s) {
-                this.mScratchMinosArray.removeAll(),
+                (this.mScratchMinosArray.removeAll(),
                   this.findMovableMinosInRect(
                     t,
                     i,
@@ -16942,9 +16955,9 @@ System.register(
                     n,
                     s,
                     this.mScratchMinosArray
-                  );
+                  ));
                 var r = this.mScratchMinosArray.getNumObjects();
-                return this.mScratchMinosArray.removeAll(), r > 0;
+                return (this.mScratchMinosArray.removeAll(), r > 0);
               }),
               (s.moveMinosInRect = function (t, i, e, n, s) {
                 var r = 0,
@@ -16964,55 +16977,55 @@ System.register(
                   return !1;
                 var o = this.mScratchMinosArray.getNumObjects();
                 for (r = 0; r < o; r++)
-                  (a = this.mScratchMinosArray.getAtIndex(r)),
+                  ((a = this.mScratchMinosArray.getAtIndex(r)),
                     this.mMinosGrid.setAtIndex(
                       this.computeGridIndex(a.getX(), a.getY()),
                       null
-                    );
+                    ));
                 for (r = 0; r < o; r++)
-                  (a = this.mScratchMinosArray.getAtIndex(r)).move(s),
+                  ((a = this.mScratchMinosArray.getAtIndex(r)).move(s),
                     this.destroyMinoAt(a.getX(), a.getY()),
                     this.mMinosGrid.setAtIndex(
                       this.computeGridIndex(a.getX(), a.getY()),
                       a
-                    );
-                return this.mScratchMinosArray.removeAll(), !0;
+                    ));
+                return (this.mScratchMinosArray.removeAll(), !0);
               }),
               (s.invertMinosX = function (t, i) {
                 var e = t.getNumObjects(),
                   n = 0,
                   s = null;
                 for (n = 0; n < e; n++)
-                  (s = t.getAtIndex(n)),
+                  ((s = t.getAtIndex(n)),
                     this.mMinosGrid.setAtIndex(
                       this.computeGridIndex(s.getX(), s.getY()),
                       null
-                    );
+                    ));
                 for (n = 0; n < e; n++)
-                  (s = t.getAtIndex(n)).setPosition(i - s.getX(), s.getY()),
+                  ((s = t.getAtIndex(n)).setPosition(i - s.getX(), s.getY()),
                     this.destroyMinoAt(s.getX(), s.getY()),
                     this.mMinosGrid.setAtIndex(
                       this.computeGridIndex(s.getX(), s.getY()),
                       s
-                    );
+                    ));
               }),
               (s.invertMinosY = function (t, i) {
                 var e = t.getNumObjects(),
                   n = 0,
                   s = null;
                 for (n = 0; n < e; n++)
-                  (s = t.getAtIndex(n)),
+                  ((s = t.getAtIndex(n)),
                     this.mMinosGrid.setAtIndex(
                       this.computeGridIndex(s.getX(), s.getY()),
                       null
-                    );
+                    ));
                 for (n = 0; n < e; n++)
-                  (s = t.getAtIndex(n)).setPosition(s.getX(), i - s.getY()),
+                  ((s = t.getAtIndex(n)).setPosition(s.getX(), i - s.getY()),
                     this.destroyMinoAt(s.getX(), s.getY()),
                     this.mMinosGrid.setAtIndex(
                       this.computeGridIndex(s.getX(), s.getY()),
                       s
-                    );
+                    ));
               }),
               (s.setMinosVisualAnimationOffsetX_FXPT = function (t) {
                 for (var i = this.mWidth * this.mHeight, e = 0; e < i; e++) {
@@ -17051,9 +17064,9 @@ System.register(
                 this.mForcedDestabilizeCount++;
               }),
               (s.popDestabilize = function () {
-                this.mForcedDestabilizeCount--,
+                (this.mForcedDestabilizeCount--,
                   this.mForcedDestabilizeCount < 0 &&
-                    (this.mForcedDestabilizeCount = 0);
+                    (this.mForcedDestabilizeCount = 0));
               }),
               (s.isMovementEnabled = function () {
                 return this.mForceDisableMovementCount <= 0;
@@ -17062,9 +17075,9 @@ System.register(
                 this.mForceDisableMovementCount++;
               }),
               (s.popMovementDisabled = function () {
-                this.mForceDisableMovementCount--,
+                (this.mForceDisableMovementCount--,
                   this.mForceDisableMovementCount < 0 &&
-                    (this.mForceDisableMovementCount = 0);
+                    (this.mForceDisableMovementCount = 0));
               }),
               (s.areAnyMinosObscured = function () {
                 var t = 0,
@@ -17106,7 +17119,7 @@ System.register(
                       case r.x1493871101947002175x:
                         this.destroyMinoAt(n.getX(), n.getY());
                     }
-                !this.mIsGravityLimited &&
+                (!this.mIsGravityLimited &&
                   this.mDidMatrixDestabilizeInternal &&
                   (this.resetAllMinosFallSteps(!1),
                   (this.mDidMatrixDestabilizeInternal = !1)),
@@ -17115,7 +17128,7 @@ System.register(
                     this.mDidMatrixDestabilizeInternal &&
                     (this.resetAllMinosFallSteps(!1),
                     (this.mDidMatrixDestabilizeInternal = !1)),
-                  (this.mDidMatrixDestabilizeInternal = !1);
+                  (this.mDidMatrixDestabilizeInternal = !1));
               }),
               (s.computeGridIndex = function (t, i) {
                 return i * this.mWidth + t;
@@ -17213,8 +17226,8 @@ System.register(
                   )
                     (e = this.getMinoNeighbor(t, i, !0)) &&
                       e.validateStickyBits();
-                  this.mIsGravityLimited || t.setCanFall(!0),
-                    this.destabilizeInternal();
+                  (this.mIsGravityLimited || t.setCanFall(!0),
+                    this.destabilizeInternal());
                 }
               }),
               (s.processMovement = function (t) {
@@ -17234,9 +17247,9 @@ System.register(
                   this.mMovingMinos.getNumObjects() > 0)
                 )
                   if (this.mGravityStepElapsedTimeMSEC < 0)
-                    (this.mCurrentGravityMSECPerLine =
+                    ((this.mCurrentGravityMSECPerLine =
                       this.mGravityMSECPerLineMax),
-                      (this.mGravityStepElapsedTimeMSEC = 0);
+                      (this.mGravityStepElapsedTimeMSEC = 0));
                   else {
                     var s = 0,
                       r = l.FXPTFromInt(this.mGravityMSECPerLineDeltaPerSEC),
@@ -17254,28 +17267,27 @@ System.register(
                       this.mGravityStepElapsedTimeMSEC >=
                         this.mCurrentGravityMSECPerLine &&
                       this.mMovingMinos.getNumObjects() > 0;
-
                     ) {
                       for (
                         s = this.mMovingMinos.getNumObjects(), e = 0;
                         e < s;
                         e++
                       )
-                        (i = this.mMovingMinos.getAtIndex(e)),
+                        ((i = this.mMovingMinos.getAtIndex(e)),
                           this.mMinosGrid.setAtIndex(
                             this.computeGridIndex(i.getX(), i.getY()),
                             null
-                          );
+                          ));
                       for (e = 0; e < s; e++)
-                        (i = this.mMovingMinos.getAtIndex(e)).fall(),
+                        ((i = this.mMovingMinos.getAtIndex(e)).fall(),
                           this.destroyMinoAt(i.getX(), i.getY()),
                           this.mMinosGrid.setAtIndex(
                             this.computeGridIndex(i.getX(), i.getY()),
                             i
-                          );
-                      this.findMovingMinos(this.mMovingMinos),
+                          ));
+                      (this.findMovingMinos(this.mMovingMinos),
                         (this.mGravityStepElapsedTimeMSEC -=
-                          this.mCurrentGravityMSECPerLine);
+                          this.mCurrentGravityMSECPerLine));
                     }
                     0 == this.mMovingMinos.getNumObjects() &&
                       (this.dispatchMessage(
@@ -17322,15 +17334,14 @@ System.register(
                   a = null;
                 if (this.isVerticalShiftActive()) {
                   if (this.mVerticalShiftStepElapsedTimeMSEC < 0)
-                    (this.mVerticalShiftStepElapsedTimeMSEC = 0),
-                      this.stickVerticalShiftIncomingRow();
+                    ((this.mVerticalShiftStepElapsedTimeMSEC = 0),
+                      this.stickVerticalShiftIncomingRow());
                   else
                     for (
                       this.mVerticalShiftStepElapsedTimeMSEC += t;
                       this.mVerticalShiftStepElapsedTimeMSEC >=
                         this.mVerticalShiftMSECPerLine &&
                       this.isVerticalShiftActive();
-
                     ) {
                       var o = 0,
                         h = 0,
@@ -17365,16 +17376,17 @@ System.register(
                         e < this.mWidth;
                         e++
                       )
-                        (i = this.getMinoAt(e, M)) && i.setPosition(e, M + c),
+                        ((i = this.getMinoAt(e, M)) && i.setPosition(e, M + c),
                           a.setAtIndex(e, i),
                           this.mMinosGrid.setAtIndex(
                             this.computeGridIndex(e, M),
                             null
-                          );
+                          ));
                       a = null;
                       for (var d = o; d != h; ) {
                         for (e = 0; e < this.mWidth; e++)
-                          (i = this.getMinoAt(e, d)) && i.setPosition(e, d - c),
+                          ((i = this.getMinoAt(e, d)) &&
+                            i.setPosition(e, d - c),
                             this.mMinosGrid.setAtIndex(
                               this.computeGridIndex(e, d),
                               null
@@ -17382,7 +17394,7 @@ System.register(
                             this.mMinosGrid.setAtIndex(
                               this.computeGridIndex(e, d - c),
                               i
-                            );
+                            ));
                         d += c;
                       }
                       for (
@@ -17393,12 +17405,12 @@ System.register(
                         e < s;
                         e++
                       )
-                        (i = a.getAtIndex(e)),
+                        ((i = a.getAtIndex(e)),
                           a.setAtIndex(e, null),
                           i &&
                             (this.insertMinoAt(i, e, m),
-                            i.setLogicalState(r.x707577078435805617x));
-                      this.mMinoArrayPool.recycleObject(a),
+                            i.setLogicalState(r.x707577078435805617x)));
+                      (this.mMinoArrayPool.recycleObject(a),
                         (a = null),
                         this.stickVerticalShiftIncomingRow(),
                         (this.mVerticalShiftStepElapsedTimeMSEC -=
@@ -17413,7 +17425,7 @@ System.register(
                               n.x4548809221371198683x,
                               this,
                               null
-                            );
+                            ));
                     }
                   this.mIsGravityLimited ||
                     this.isVerticalShiftActive() ||
@@ -17545,7 +17557,7 @@ System.register(
                       o = l.rotateDirections90(a, !0),
                       h = l.rotateDirections90(o, !0),
                       c = l.rotateDirections90(h, !0);
-                    this.propagateMinoCannotMove(
+                    (this.propagateMinoCannotMove(
                       this.getMinoNeighbor(t, a, !1),
                       i
                     ),
@@ -17560,7 +17572,7 @@ System.register(
                       this.propagateMinoCannotMove(
                         this.getMinoNeighbor(t, c, !0),
                         i
-                      );
+                      ));
                   }
                 }
               }),
@@ -17583,25 +17595,25 @@ System.register(
                     r += 1;
                     break;
                   case l.x4243506880605982262x:
-                    (r += 1), (s += 1);
+                    ((r += 1), (s += 1));
                     break;
                   case l.x1286431423943892959x:
                     s += 1;
                     break;
                   case l.x4548198580679388900x:
-                    (r -= 1), (s += 1);
+                    ((r -= 1), (s += 1));
                     break;
                   case l.x3990669600500259413x:
                     r -= 1;
                     break;
                   case l.x224584922570083767x:
-                    (r -= 1), (s -= 1);
+                    ((r -= 1), (s -= 1));
                     break;
                   case l.x1869465774161400874x:
                     s -= 1;
                     break;
                   case l.x2879086112364631957x:
-                    (r += 1), (s -= 1);
+                    ((r += 1), (s -= 1));
                 }
                 return s < 0 || s >= this.mWidth
                   ? null
@@ -17626,7 +17638,7 @@ System.register(
                 this.mDidMatrixDestabilizeInternal = !0;
               }),
               (s.x4554517263080478179x = function () {
-                this.mMovingMinos.removeAll(),
+                (this.mMovingMinos.removeAll(),
                   null !== this.mMovingMinos &&
                     (this.mMovingMinos.destroy(), (this.mMovingMinos = null)),
                   this.mMinosGrid.destroyAll(),
@@ -17650,7 +17662,7 @@ System.register(
                   null !== this.mScratchMinosArray &&
                     (this.mScratchMinosArray.destroy(),
                     (this.mScratchMinosArray = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               e(n, null, [
                 {
@@ -17793,7 +17805,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (i = t.inheritsLoose), (e = t.createClass);
+          ((i = t.inheritsLoose), (e = t.createClass));
         },
         function (t) {
           a = t.cclegacy;
@@ -17885,8 +17897,8 @@ System.register(
                 this.mCanFall = t;
               }),
               (n.resetFallSteps = function (t) {
-                (this.mRemainingFallSteps = t ? 0 : l.x2221445971348164774x),
-                  (this.mVisualFallOffsetY_FXPT = 0);
+                ((this.mRemainingFallSteps = t ? 0 : l.x2221445971348164774x),
+                  (this.mVisualFallOffsetY_FXPT = 0));
               }),
               (n.incrementRemainingFallSteps = function () {
                 this.mRemainingFallSteps < l.x2221445971348164774x - 1 &&
@@ -17899,8 +17911,8 @@ System.register(
                     this.mRemainingFallSteps--);
               }),
               (n.stopFall = function () {
-                (this.mRemainingFallSteps = 0),
-                  (this.mVisualFallOffsetY_FXPT = 0);
+                ((this.mRemainingFallSteps = 0),
+                  (this.mVisualFallOffsetY_FXPT = 0));
               }),
               (n.move = function (t) {
                 switch (t) {
@@ -18021,7 +18033,7 @@ System.register(
                 return this.mY;
               }),
               (n.setPosition = function (t, i) {
-                (this.mX = t), (this.mY = i);
+                ((this.mX = t), (this.mY = i));
               }),
               (n.getInitialX = function () {
                 return this.mInitialX;
@@ -18030,7 +18042,7 @@ System.register(
                 return this.mInitialY;
               }),
               (n.setInitialPosition = function (t, i) {
-                (this.mInitialX = t), (this.mInitialY = i);
+                ((this.mInitialX = t), (this.mInitialY = i));
               }),
               (n.getVisualX_FXPT = function () {
                 return (
@@ -18083,10 +18095,10 @@ System.register(
                 return this.mMinoPlayerActionItem;
               }),
               (n.attachPlayerAction = function (t, i) {
-                null !== this.mMinoPlayerActionItem &&
+                (null !== this.mMinoPlayerActionItem &&
                   (this.mMinoPlayerActionItem.destroy(),
                   (this.mMinoPlayerActionItem = null)),
-                  (this.mMinoPlayerActionItem = new s(this, t, i));
+                  (this.mMinoPlayerActionItem = new s(this, t, i)));
               }),
               (n.destroyPlayerAction = function () {
                 null !== this.mMinoPlayerActionItem &&
@@ -18144,8 +18156,8 @@ System.register(
                         l.FXPTFromInt(this.mLogicalStateDurationMSEC)
                       );
                 } else
-                  (this.mLogicalStateElapsedTimeMSEC += t),
-                    (this.mLogicalStateTween_FXPT = 0);
+                  ((this.mLogicalStateElapsedTimeMSEC += t),
+                    (this.mLogicalStateTween_FXPT = 0));
               }),
               (n._setLogicalState = function (t, i) {
                 switch (
@@ -18162,12 +18174,12 @@ System.register(
                   case a.x2758640941284329337x:
                   case a.x1782401791862926648x:
                   case a.x1493871101947002175x:
-                    (this.mCanFall = !1),
+                    ((this.mCanFall = !1),
                       (this.mIsMatchable = !1),
-                      (this.mIsKillable = !1);
+                      (this.mIsKillable = !1));
                     break;
                   case a.x3866642761077093990x:
-                    (this.mIsMatchable = !1), (this.mIsKillable = !1);
+                    ((this.mIsMatchable = !1), (this.mIsKillable = !1));
                 }
               }),
               (n.tryActivateMinoPlayerActionItem = function () {
@@ -18175,10 +18187,10 @@ System.register(
                   this.mMinoPlayerActionItem.tryActivate();
               }),
               (n.x4554517263080478179x = function () {
-                null !== this.mMinoPlayerActionItem &&
+                (null !== this.mMinoPlayerActionItem &&
                   (this.mMinoPlayerActionItem.destroy(),
                   (this.mMinoPlayerActionItem = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               e(a, null, [
                 {
@@ -18411,36 +18423,36 @@ System.register(
                         _ = 0;
                       switch (S) {
                         case c.x4243506880605982262x:
-                          (d = m),
+                          ((d = m),
                             (g = m),
                             (v = N + o),
                             (f = 0),
                             (y = B * (r + this.mSpacingInDestBitmap) + o),
-                            (_ = f);
+                            (_ = f));
                           break;
                         case c.x4548198580679388900x:
-                          (d = m),
+                          ((d = m),
                             (g = o),
                             (v = N + o),
                             (f = m),
                             (y = B * (r + this.mSpacingInDestBitmap) + o),
-                            (_ = f);
+                            (_ = f));
                           break;
                         case c.x224584922570083767x:
-                          (d = o),
+                          ((d = o),
                             (g = o),
                             (v = N),
                             (f = m),
                             (y = B * (r + this.mSpacingInDestBitmap)),
-                            (_ = f);
+                            (_ = f));
                           break;
                         case c.x2879086112364631957x:
-                          (d = o),
+                          ((d = o),
                             (g = m),
                             (v = N),
                             (f = 0),
                             (y = B * (r + this.mSpacingInDestBitmap)),
-                            (_ = f);
+                            (_ = f));
                       }
                       s.NativeBitmap_copy(
                         t,
@@ -18454,7 +18466,7 @@ System.register(
                       );
                     }
                 } else
-                  (this.mNativeBitmap = s.NativeBitmap_createWithSize(
+                  ((this.mNativeBitmap = s.NativeBitmap_createWithSize(
                     r,
                     r,
                     !0
@@ -18468,7 +18480,7 @@ System.register(
                       this.mNativeBitmap,
                       0,
                       0
-                    );
+                    ));
               }),
               (a.getQuadrantIndexInBaseBitmap = function (t, i) {
                 var e,
@@ -18477,33 +18489,33 @@ System.register(
                   n = 0;
                 switch (t) {
                   case c.x4243506880605982262x:
-                    (i &= c.x4089072458462285842x), (s = 1), (n = 0);
+                    ((i &= c.x4089072458462285842x), (s = 1), (n = 0));
                     break;
                   case c.x4548198580679388900x:
-                    (i &= c.x819092921884314887x),
+                    ((i &= c.x819092921884314887x),
                       (e =
                         ((1 & (i = c.rotateDirections90(i, !1))) << 2) |
                         ((4 & i) >>> 2)),
                       (i &= -6),
                       (i |= e),
                       (s = 1),
-                      (n = 1);
+                      (n = 1));
                     break;
                   case c.x224584922570083767x:
-                    (i &= c.x3085873200103841169x),
+                    ((i &= c.x3085873200103841169x),
                       (i = c.rotateDirections180(i)),
                       (s = 0),
-                      (n = 1);
+                      (n = 1));
                     break;
                   case c.x2879086112364631957x:
-                    (i &= c.x96936968218327941x),
+                    ((i &= c.x96936968218327941x),
                       (e =
                         ((1 & (i = c.rotateDirections90(i, !0))) << 2) |
                         ((4 & i) >>> 2)),
                       (i &= -6),
                       (i |= e),
                       (s = 0),
-                      (n = 0);
+                      (n = 0));
                 }
                 switch (i) {
                   case 0:
@@ -18526,8 +18538,8 @@ System.register(
                 return 10 * n + (2 * a + s);
               }),
               (a.x4554517263080478179x = function () {
-                s.NativeBitmap_release(this.mNativeBitmap),
-                  t.prototype.x4554517263080478179x.call(this);
+                (s.NativeBitmap_release(this.mNativeBitmap),
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               e
             );
@@ -18553,7 +18565,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           n = t.cclegacy;
@@ -18604,7 +18616,7 @@ System.register(
                 if (this.mPlayerAction && !this.mIsTryingToActivate)
                   switch (this.mActivationType) {
                     case n.x3353239403785490213x:
-                      (this.mIsTryingToActivate = !0),
+                      ((this.mIsTryingToActivate = !0),
                         this.mPlayerAction.tryActivate(
                           this.mOwnerMino.getX(),
                           this.mOwnerMino.getY()
@@ -18612,26 +18624,26 @@ System.register(
                           ? ((this.mPlayerAction = null),
                             this.setNextState(n.x3819580094468209440x, !1))
                           : this.setNextState(n.x3369061338750359508x, !1),
-                        (this.mIsTryingToActivate = !1);
+                        (this.mIsTryingToActivate = !1));
                       break;
                     case n.x3690058181588952361x:
-                      this.getPlayerAction().setActivationMatrixPosition(
+                      (this.getPlayerAction().setActivationMatrixPosition(
                         this.mOwnerMino.getX(),
                         this.mOwnerMino.getY()
                       ),
                         this.getPlayerAction()
                           .getPlayer()
                           .enqueuePendingAction(this.mPlayerAction),
-                        (this.mPlayerAction = null);
+                        (this.mPlayerAction = null));
                   }
               }),
               (a.didActivate = function () {
                 return !this.mPlayerAction || this.mPlayerAction.didActivate();
               }),
               (a.x4554517263080478179x = function () {
-                null !== this.mPlayerAction &&
+                (null !== this.mPlayerAction &&
                   (this.mPlayerAction.destroy(), (this.mPlayerAction = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (a.x3202151272846750673x = function (e, i, a, r) {
                 switch (i) {
@@ -18640,7 +18652,7 @@ System.register(
                   case n.x3369061338750359508x:
                     switch (e) {
                       case c.x1673908432382400910x:
-                        return this.tryActivate(), r;
+                        return (this.tryActivate(), r);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, i, a, r);
@@ -18766,7 +18778,7 @@ System.register(
                     (u = new l(!0)),
                     this.mMinoIsStickyByLogicalState.setObjectValue(t, u));
                   var p = new o(i, a, n, s, c, r, m);
-                  S.setObjectValue(e, p), u.setBoolValue(e, p.isSticky());
+                  (S.setObjectValue(e, p), u.setBoolValue(e, p.isSticky()));
                 }
               }),
               (a.remapMinoLogicalState = function (t, e) {
@@ -18798,9 +18810,9 @@ System.register(
                     o < a;
                     o++
                   )
-                    (S = r.getObjectValueAtIndex(o)),
+                    ((S = r.getObjectValueAtIndex(o)),
                       (p = c.maxInt(p, S.getWidth())),
-                      (g += S.getHeight() + 1);
+                      (g += S.getHeight() + 1));
                 t = n.NativeBitmap_createWithSize(p, g, !0);
                 var y = 0,
                   B = 0;
@@ -18814,7 +18826,7 @@ System.register(
                     o < a;
                     o++
                   )
-                    (S = r.getObjectValueAtIndex(o)),
+                    ((S = r.getObjectValueAtIndex(o)),
                       n.NativeBitmap_copy(
                         S.getNativeBitmap(),
                         0,
@@ -18825,7 +18837,7 @@ System.register(
                         y,
                         B
                       ),
-                      (B += S.getHeight() + 1);
+                      (B += S.getHeight() + 1));
                 for (
                   u = n.NativeTexture_createWithBitmap(t), y = 0, B = 0, i = 0;
                   i < e;
@@ -18858,7 +18870,7 @@ System.register(
                     S.isSticky() && (V = 0.4);
                     for (var T = 2 * V, b = 0; b < L; b++) {
                       var k = S.getIndexedStickyBits(b);
-                      (f = y + S.getMinoX(b)),
+                      ((f = y + S.getMinoX(b)),
                         (M = n.NativeSpriteFrame_createWithTexture(
                           u,
                           f + V,
@@ -18867,13 +18879,13 @@ System.register(
                           I - T
                         )),
                         (d = new s(M)),
-                        h.setObjectValue(k, d);
+                        h.setObjectValue(k, d));
                     }
                     B += S.getHeight() + 1;
                   }
-                this.mMinoBitmapsByLogicalState.removeAllValues(),
+                (this.mMinoBitmapsByLogicalState.removeAllValues(),
                   n.NativeBitmap_release(t),
-                  (u = null);
+                  (u = null));
               }),
               (a.isMinoSticky = function (t, e) {
                 var i = this.mMinoIsStickyByLogicalState.getDictionary(t);
@@ -18922,7 +18934,7 @@ System.register(
                 return s ? s.getNativeObject() : null;
               }),
               (a.x4554517263080478179x = function () {
-                null !== this.mMinoBitmapsByLogicalState &&
+                (null !== this.mMinoBitmapsByLogicalState &&
                   (this.mMinoBitmapsByLogicalState.destroy(),
                   (this.mMinoBitmapsByLogicalState = null)),
                   null !== this.mMinoIsStickyByLogicalState &&
@@ -18937,7 +18949,7 @@ System.register(
                   null !== this.mRemappedMinoTypes &&
                     (this.mRemappedMinoTypes.destroy(),
                     (this.mRemappedMinoTypes = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               i
             );
@@ -18963,7 +18975,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (c = t.createClass);
+          ((e = t.inheritsLoose), (c = t.createClass));
         },
         function (t) {
           i = t.cclegacy;
@@ -18999,9 +19011,9 @@ System.register(
             return (
               (n.recycleObject = function (t) {
                 var e = this.mObjects.length;
-                this.getNumAvailableObjects() >= e && this.mObjects.push(null),
+                (this.getNumAvailableObjects() >= e && this.mObjects.push(null),
                   this.mTopIndex++,
-                  (this.mObjects[this.mTopIndex] = t);
+                  (this.mObjects[this.mTopIndex] = t));
               }),
               (n.getNumAvailableObjects = function () {
                 return this.mTopIndex + 1;
@@ -19010,7 +19022,9 @@ System.register(
                 if (this.mTopIndex >= 0) {
                   var t = this.mObjects[this.mTopIndex];
                   return (
-                    (this.mObjects[this.mTopIndex] = null), this.mTopIndex--, t
+                    (this.mObjects[this.mTopIndex] = null),
+                    this.mTopIndex--,
+                    t
                   );
                 }
                 return null;
@@ -19023,8 +19037,8 @@ System.register(
                       s.NativeView_destroy(n, !0);
                     }
                 }
-                (this.mObjects.length = 0),
-                  t.prototype.x4554517263080478179x.call(this);
+                ((this.mObjects.length = 0),
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               c(i, null, [
                 {
@@ -19080,7 +19094,7 @@ System.register(
           (function (t) {
             function c(e) {
               var c;
-              return ((c = t.call(this) || this).mNativeObject = e), c;
+              return (((c = t.call(this) || this).mNativeObject = e), c);
             }
             e(c, t);
             var i = c.prototype;
@@ -19092,8 +19106,8 @@ System.register(
                 this.mNativeObject = t;
               }),
               (i.x4554517263080478179x = function () {
-                (this.mNativeObject = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                ((this.mNativeObject = null),
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               c
             );
@@ -19157,19 +19171,19 @@ System.register(
                 s
               );
             }
-            t(i, e),
+            (t(i, e),
               (i.x1484944004323029215x = function (e) {
                 return o.stringToHash32("459508803-" + e);
-              });
+              }));
             var r = i.prototype;
             return (
               (r.getNativeBitmap = function () {
                 return this.mNativeBitmap;
               }),
               (r.x4554517263080478179x = function () {
-                a.NativeBitmap_release(this.mNativeBitmap),
+                (a.NativeBitmap_release(this.mNativeBitmap),
                   (this.mNativeBitmap = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (r.x477228624734195371x = function () {}),
               (r.x3877241562699863631x = function () {
@@ -19178,20 +19192,20 @@ System.register(
                   e = a.prepareRemoteResourceFilePath(e);
                   var t = new Image(),
                     i = this;
-                  (t.onload = function () {
-                    (i.mNativeBitmap = document.createElement("canvas")),
+                  ((t.onload = function () {
+                    ((i.mNativeBitmap = document.createElement("canvas")),
                       (i.mNativeBitmap.width = t.width),
                       (i.mNativeBitmap.height = t.height),
                       i.mNativeBitmap.getContext("2d").drawImage(t, 0, 0),
-                      i.setNextState(s.x2175411116998686501x, !1);
+                      i.setNextState(s.x2175411116998686501x, !1));
                   }),
                     (t.onerror = function () {
                       i.setNextState(s.x3180255004771075659x, !1);
                     }),
-                    (t.src = e);
+                    (t.src = e));
                 } else
-                  (e = a.prepareLocalResourceFilePath(e)),
-                    i.setNextState(s.x3180255004771075659x, !1);
+                  ((e = a.prepareLocalResourceFilePath(e)),
+                    i.setNextState(s.x3180255004771075659x, !1));
               }),
               (r.x2813930425793059317x = function () {
                 return s.x1549494839056092619x;
@@ -19222,7 +19236,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (o = e.createClass);
+          ((t = e.inheritsLoose), (o = e.createClass));
         },
         function (e) {
           i = e.cclegacy;
@@ -19252,8 +19266,8 @@ System.register(
           (function (e) {
             function i(t, o, n, r, u, s, a) {
               var d;
-              (d = e.call(this, t, o, n, r) || this),
-                i.verifyNativeAudioSupport();
+              ((d = e.call(this, t, o, n, r) || this),
+                i.verifyNativeAudioSupport());
               var c = "";
               switch (s) {
                 case i.x4416477907949329854x:
@@ -19269,7 +19283,7 @@ System.register(
                 d
               );
             }
-            t(i, e),
+            (t(i, e),
               (i.x2668613991293318747x = function (e) {
                 return u.stringToHash32("621423319-" + e);
               }),
@@ -19285,7 +19299,7 @@ System.register(
                   }
                 }
                 return null != i.sAudioContextForLoading;
-              });
+              }));
             var n = i.prototype;
             return (
               (n.isNativeSoundLoaded = function () {
@@ -19301,8 +19315,8 @@ System.register(
                 this.mDidPlay = e;
               }),
               (n.x4554517263080478179x = function () {
-                (this.mNativeSound = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                ((this.mNativeSound = null),
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (n.x477228624734195371x = function () {}),
               (n.x3877241562699863631x = function () {
@@ -19322,22 +19336,22 @@ System.register(
                     else if (i.sAudioContextForLoading) {
                       var t = new XMLHttpRequest(),
                         o = this;
-                      (t.onload = function () {
+                      ((t.onload = function () {
                         i.sAudioContextForLoading.decodeAudioData(
                           t.response,
                           function (e) {
-                            (o.mNativeSound = e),
-                              o.setNextState(s.x2175411116998686501x, !1);
+                            ((o.mNativeSound = e),
+                              o.setNextState(s.x2175411116998686501x, !1));
                           },
                           function () {
-                            (this.mNativeSound = null),
-                              o.setNextState(s.x3180255004771075659x, !1);
+                            ((this.mNativeSound = null),
+                              o.setNextState(s.x3180255004771075659x, !1));
                           }
                         );
                       }),
                         (t.onerror = function () {
-                          (this.mNativeSound = null),
-                            o.setNextState(s.x3180255004771075659x, !1);
+                          ((this.mNativeSound = null),
+                            o.setNextState(s.x3180255004771075659x, !1));
                         }),
                         (t.onabort = function () {
                           o.setNextState(s.x3180255004771075659x, !1);
@@ -19346,11 +19360,11 @@ System.register(
                         (t.responseType = "arraybuffer"),
                         t.send(),
                         this.mRequirePreload ||
-                          this.setNextState(s.x2175411116998686501x, !1);
+                          this.setNextState(s.x2175411116998686501x, !1));
                     } else this.setNextState(s.x3180255004771075659x, !1);
                   else
-                    (e = r.prepareLocalResourceFilePath(e)),
-                      this.setNextState(s.x2175411116998686501x, !1);
+                    ((e = r.prepareLocalResourceFilePath(e)),
+                      this.setNextState(s.x2175411116998686501x, !1));
                 } else this.setNextState(s.x2175411116998686501x, !1);
               }),
               (n.x2813930425793059317x = function () {
@@ -19441,10 +19455,10 @@ System.register(
                 n
               );
             }
-            t(r, e),
+            (t(r, e),
               (r.x3667859659907255043x = function (e) {
                 return u.stringToHash32("342825776-" + e);
-              });
+              }));
             var i = r.prototype;
             return (
               (i.getNumNativeSpriteFrames = function () {
@@ -19539,7 +19553,7 @@ System.register(
                   S = n - i,
                   h = u - t - r,
                   g = n - i - s;
-                this.addSpriteFrame(e, 0, 0, t, s),
+                (this.addSpriteFrame(e, 0, 0, t, s),
                   this.addSpriteFrame(e, o, 0, h, s),
                   this.addSpriteFrame(e, c, 0, r, s),
                   this.addSpriteFrame(e, 0, m, t, g),
@@ -19547,17 +19561,17 @@ System.register(
                   this.addSpriteFrame(e, c, m, r, g),
                   this.addSpriteFrame(e, 0, S, t, i),
                   this.addSpriteFrame(e, o, S, h, i),
-                  this.addSpriteFrame(e, c, S, r, i);
+                  this.addSpriteFrame(e, c, S, r, i));
               }),
               (i.addSpriteFrame = function (e, t, r, i, s) {
                 var u = a.NativeSpriteFrame_createWithTexture(e, t, r, i, s);
                 this.mNativeSpriteFrames.push(u);
               }),
               (i.x4554517263080478179x = function () {
-                null !== this.mNativeTextureResources &&
+                (null !== this.mNativeTextureResources &&
                   (this.mNativeTextureResources.destroy(),
                   (this.mNativeTextureResources = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (i.x477228624734195371x = function () {
                 for (
@@ -19567,14 +19581,14 @@ System.register(
                 ) {
                   var r = a.getFilePathPermutation(this.mFilePath, t),
                     i = a.getFilePathPermutation(this.getResourceName(), t);
-                  this.getResourceMgr().addNativeTextureResource(
+                  (this.getResourceMgr().addNativeTextureResource(
                     i,
                     this.getResourceGroupName(),
                     r
                   ),
                     this.mNativeTextureResources.pushBack(
                       this.getResourceMgr().getNativeTextureResource(i)
-                    );
+                    ));
                 }
               }),
               (i.x3877241562699863631x = function () {}),
@@ -19601,7 +19615,7 @@ System.register(
                       return n.x3180255004771075659x;
                   }
                 }
-                return this.createSpriteFrames(), n.x2175411116998686501x;
+                return (this.createSpriteFrames(), n.x2175411116998686501x);
               }),
               r
             );
@@ -19666,10 +19680,10 @@ System.register(
                 i
               );
             }
-            t(r, e),
+            (t(r, e),
               (r.x444430910099290654x = function (e) {
                 return u.stringToHash32("1353164259-" + e);
-              });
+              }));
             var s = r.prototype;
             return (
               (s.getNativeTexture = function () {
@@ -19749,8 +19763,8 @@ System.register(
           "x2959592802880306419x",
           (function () {
             function t() {
-              (this.mIsDestroyed = !1),
-                (this.mRandomizedObjectId = ~~(2147483647 * Math.random()));
+              ((this.mIsDestroyed = !1),
+                (this.mRandomizedObjectId = ~~(2147483647 * Math.random())));
             }
             t.safeDestroy = function (t) {
               t && t.destroy();
@@ -19867,7 +19881,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (n = e.createClass);
+          ((t = e.inheritsLoose), (n = e.createClass));
         },
         function (e) {
           s = e.cclegacy;
@@ -19891,7 +19905,7 @@ System.register(
           (function (e) {
             function s() {
               var t;
-              return ((t = e.call(this) || this).mMessageListeners = null), t;
+              return (((t = e.call(this) || this).mMessageListeners = null), t);
             }
             t(s, e);
             var i = s.prototype;
@@ -19959,10 +19973,10 @@ System.register(
                 return !1;
               }),
               (i.x4554517263080478179x = function () {
-                null !== this.mMessageListeners &&
+                (null !== this.mMessageListeners &&
                   (this.mMessageListeners.destroy(),
                   (this.mMessageListeners = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               n(s, null, [
                 {
@@ -20079,11 +20093,11 @@ System.register(
                   if (-1 != n && n != e) {
                     var c = 0;
                     for (c = n; c < s - 1; c++)
-                      (this.mObjects[c] = this.mObjects[c + 1]),
-                        (this.mObjects[c + 1] = null);
+                      ((this.mObjects[c] = this.mObjects[c + 1]),
+                        (this.mObjects[c + 1] = null));
                     for (c = s - 1; c > e; c--)
-                      (this.mObjects[c] = this.mObjects[c - 1]),
-                        (this.mObjects[c - 1] = null);
+                      ((this.mObjects[c] = this.mObjects[c - 1]),
+                        (this.mObjects[c - 1] = null));
                     this.mObjects[e] = t;
                   }
                 }
@@ -20122,7 +20136,7 @@ System.register(
                       (n = this.getAtIndex(c)) &&
                         (this.setAtIndex(s, n), this.setAtIndex(c, null), t++);
                 }
-                for (var i = e - t; i > 0; ) this.popBack(), i--;
+                for (var i = e - t; i > 0; ) (this.popBack(), i--);
               }),
               (n.setAllToNull = function () {
                 for (var t = 0; t < this.mObjects.length; t++)
@@ -20156,7 +20170,6 @@ System.register(
                     this.getNumObjects(),
                     this.mObjects.length = 0;
                   this.mObjects.length < t;
-
                 )
                   this.mObjects.push(null);
               }),
@@ -20168,7 +20181,8 @@ System.register(
                 );
               }),
               (n.x4554517263080478179x = function () {
-                this.removeAll(), t.prototype.x4554517263080478179x.call(this);
+                (this.removeAll(),
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               s
             );
@@ -20230,7 +20244,7 @@ System.register(
             return (
               (o.x1237769978482411857x = function (t) {
                 var e = this.getAvailableObject();
-                return e.destroyAllAndResize(t), e;
+                return (e.destroyAllAndResize(t), e);
               }),
               (o.x4554517263080478179x = function () {
                 t.prototype.x4554517263080478179x.call(this);
@@ -20316,7 +20330,8 @@ System.register(
               (s.recycleObjectsInArray = function (t, e) {
                 if (t) {
                   for (var c = t.getNumObjects(), s = 0; s < c; s++)
-                    this.recycleObject(t.getAtIndex(s)), t.setAtIndex(s, null);
+                    (this.recycleObject(t.getAtIndex(s)),
+                      t.setAtIndex(s, null));
                   e && t.removeAll();
                 }
               }),
@@ -20329,13 +20344,13 @@ System.register(
                   this.mObjects.getNumObjects() > 0)
                 ) {
                   var t = this.mObjects.peekBack();
-                  return this.mObjects.popBack(), t;
+                  return (this.mObjects.popBack(), t);
                 }
                 return null;
               }),
               (s.setAutoRefillCount = function (t) {
-                (this.mAutoRefillCount = t),
-                  this.mObjects.reserveCapacity(this.mAutoRefillCount);
+                ((this.mAutoRefillCount = t),
+                  this.mObjects.reserveCapacity(this.mAutoRefillCount));
               }),
               (s.doAutoRefill = function () {
                 if (!(this.mAutoRefillCount <= 0)) {
@@ -20348,10 +20363,10 @@ System.register(
               }),
               (s.x213280754322304381x = function (t) {}),
               (s.x4554517263080478179x = function () {
-                this.mObjects.destroyAll(),
+                (this.mObjects.destroyAll(),
                   null !== this.mObjects &&
                     (this.mObjects.destroy(), (this.mObjects = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               c
             );
@@ -20382,7 +20397,7 @@ System.register(
         },
       ],
       execute: function () {
-        l._RF.push(
+        (l._RF.push(
           {},
           "140a4bYtglDTaNemRd6cjQM",
           "x3421039355339826678x",
@@ -20400,7 +20415,7 @@ System.register(
                   t
                 );
               }
-              t(l, e),
+              (t(l, e),
                 (l.getAvailableInstance = function () {
                   l.sPool || (l.sPool = new Array());
                   var e = null;
@@ -20412,9 +20427,9 @@ System.register(
                   );
                 }),
                 (l.recycleAvailableInstance = function (e) {
-                  l.sPool || (l.sPool = new Array()),
+                  (l.sPool || (l.sPool = new Array()),
                     e.recycle(),
-                    l.sPool.push(e);
+                    l.sPool.push(e));
                 }),
                 (l.destroyPool = function () {
                   if (l.sPool) {
@@ -20424,18 +20439,18 @@ System.register(
                     }
                     null !== l.sPool && (l.sPool = null);
                   }
-                });
+                }));
               var n = l.prototype;
               return (
                 (n.getValue = function () {
                   return this.mValue;
                 }),
                 (n.setValue = function (e, t) {
-                  this.mIsObjectOwner &&
+                  (this.mIsObjectOwner &&
                     null !== this.mValue &&
                     (this.mValue.destroy(), (this.mValue = null)),
                     (this.mValue = e),
-                    (this.mIsObjectOwner = t);
+                    (this.mIsObjectOwner = t));
                 }),
                 (n.setIsObjectOwner = function (e) {
                   this.mIsObjectOwner = e;
@@ -20448,14 +20463,14 @@ System.register(
                   );
                 }),
                 (n.x4554517263080478179x = function () {
-                  this.setValue(null, !1),
-                    e.prototype.x4554517263080478179x.call(this);
+                  (this.setValue(null, !1),
+                    e.prototype.x4554517263080478179x.call(this));
                 }),
                 l
               );
             })(o)
           ).sPool = null),
-          l._RF.pop();
+          l._RF.pop());
       },
     };
   }
@@ -20477,7 +20492,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (a = t.createClass);
+          ((e = t.inheritsLoose), (a = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -20528,8 +20543,8 @@ System.register(
                   o = this.getCurrentStateElapsedTimeMSEC(),
                   s = a + P + i;
                 if (o >= s)
-                  e.setObscurationFactor_FXPT(0),
-                    this.setNextState(n.x1636581458442852321x, !1);
+                  (e.setObscurationFactor_FXPT(0),
+                    this.setNextState(n.x1636581458442852321x, !1));
                 else {
                   var T = this.getParams().getIntValue(r.x2942628071318263251x),
                     S = this.getParams().getIntValue(r.x369486179017663036x),
@@ -20564,13 +20579,13 @@ System.register(
                           c.FXPTFromInt(B)
                         ),
                       O = c.loopInt(y + X, 0, c.x3866479767085181449x);
-                    (O *= 2) > c.x3866479767085181449x &&
+                    ((O *= 2) > c.x3866479767085181449x &&
                       (O =
                         c.x3866479767085181449x -
                         (O - c.x3866479767085181449x)),
                       (F = c.FXPTLerp(u, S, O)),
                       (F = c.FXPTLerp(F, 0, m)),
-                      e.setColumnObscurationFactor_FXPT(M, F);
+                      e.setColumnObscurationFactor_FXPT(M, F));
                   }
                 }
               }),
@@ -20598,7 +20613,7 @@ System.register(
                   case n.x2374069116296912024x:
                     switch (e) {
                       case P.x1673908432382400910x:
-                        return this.processState_active(c), c;
+                        return (this.processState_active(c), c);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, a, r, c);
@@ -20693,13 +20708,13 @@ System.register(
           (function (t) {
             function r() {
               var e;
-              return ((e = t.call(this) || this).mIteratorIndex = -1), e;
+              return (((e = t.call(this) || this).mIteratorIndex = -1), e);
             }
             e(r, t);
             var n = r.prototype;
             return (
               (n.startIterating = function () {
-                (this.mIteratorIndex = 0), this.x3848675593437167325x();
+                ((this.mIteratorIndex = 0), this.x3848675593437167325x());
               }),
               (n.isIteratorValid = function () {
                 return (
@@ -20792,18 +20807,18 @@ System.register(
               var e;
               e = i.call(this) || this;
               var n = t.getNumMinos();
-              (e.mPieceDefinition = t),
+              ((e.mPieceDefinition = t),
                 (e.mMinos = new s(n)),
                 (e.mX = 0),
                 (e.mY = 0),
-                (e.mFacing = 0);
+                (e.mFacing = 0));
               for (var c = 0; c < n; c++) {
                 var r = e.mPieceDefinition.getMino(c),
                   m = new o();
-                m.setMinoTypeId(t.getTypeId()),
+                (m.setMinoTypeId(t.getTypeId()),
                   m.setPosition(r.mX, r.mY),
                   m.setStickyBits(r.mStickyBits),
-                  e.mMinos.setAtIndex(c, m);
+                  e.mMinos.setAtIndex(c, m));
               }
               return e;
             }
@@ -20835,14 +20850,14 @@ System.register(
                 if (this.mX != i || this.mY != t || this.mFacing != e) {
                   var n = this.mPieceDefinition.getFirstValidPieceForFacing(e);
                   if (n) {
-                    (this.mX = i), (this.mY = t), (this.mFacing = e);
+                    ((this.mX = i), (this.mY = t), (this.mFacing = e));
                     for (var o = this.getNumMinos(), s = 0; s < o; s++) {
                       var c = this.getMinoAtIndex(s);
-                      c.setPosition(
+                      (c.setPosition(
                         i + n.getMinoXInPiece(s),
                         t + n.getMinoYInPiece(s)
                       ),
-                        c.setStickyBits(n.getMinoStickyBits(s));
+                        c.setStickyBits(n.getMinoStickyBits(s)));
                     }
                   }
                 }
@@ -20939,11 +20954,11 @@ System.register(
                 this.mMinos.removeAll();
               }),
               (n.x4554517263080478179x = function () {
-                (this.mPieceDefinition = null),
+                ((this.mPieceDefinition = null),
                   this.mMinos.destroyAll(),
                   null !== this.mMinos &&
                     (this.mMinos.destroy(), (this.mMinos = null)),
-                  i.prototype.x4554517263080478179x.call(this);
+                  i.prototype.x4554517263080478179x.call(this));
               }),
               e
             );
@@ -21015,8 +21030,8 @@ System.register(
                 this.mRefillValues.push(e);
               }),
               (s.setPieceIdRefillValues = function (e) {
-                this.clearRefillValues(),
-                  l.copyNativeIntVector(e, this.mRefillValues);
+                (this.clearRefillValues(),
+                  l.copyNativeIntVector(e, this.mRefillValues));
               }),
               (s.setPieceIdRefillValuesWithPieceNamesArray = function (e) {
                 this.clearRefillValues();
@@ -21041,14 +21056,14 @@ System.register(
                 }
               }),
               (s.clearRefillValues = function () {
-                (this.mNumRandomRefillExtrasPerBag = 0),
-                  (this.mRefillValues.length = 0);
+                ((this.mNumRandomRefillExtrasPerBag = 0),
+                  (this.mRefillValues.length = 0));
               }),
               (s.setRefillMultiplier = function (e) {
                 this.mRefillMultiplier = e;
               }),
               (s.setRNGSeed = function (e) {
-                (this.mIsOrderRandom = -1 != e), this.mRNG.setSeed(e);
+                ((this.mIsOrderRandom = -1 != e), this.mRNG.setSeed(e));
               }),
               (s.setSequenceWithPieceNamesList = function (e) {
                 this.mSequenceContents.length = 0;
@@ -21063,8 +21078,9 @@ System.register(
                 }
               }),
               (s.x4554517263080478179x = function () {
-                null !== this.mRNG && (this.mRNG.destroy(), (this.mRNG = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                (null !== this.mRNG &&
+                  (this.mRNG.destroy(), (this.mRNG = null)),
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (s.x681213733940053288x = function (e) {
                 var t = 0;
@@ -21166,7 +21182,7 @@ System.register(
           (function (e) {
             function c() {
               var t;
-              return ((t = e.call(this) || this).mPieceData = null), t;
+              return (((t = e.call(this) || this).mPieceData = null), t);
             }
             t(c, e);
             var i = c.prototype;
@@ -21259,7 +21275,7 @@ System.register(
                 return this.mCapacity;
               }),
               (n.setCapacity = function (e) {
-                this.mPieces.reserveCapacity(e), (this.mCapacity = e);
+                (this.mPieces.reserveCapacity(e), (this.mCapacity = e));
               }),
               (n.fillToCapacity = function () {
                 this.fillToNumPieces(this.mCapacity);
@@ -21274,21 +21290,20 @@ System.register(
                     e > 0 &&
                     this.getNumPieces() < this.mCapacity &&
                     0 != this.mRemainingNumPieceFills;
-
                   ) {
                     var i = this.mPieceSequenceGenerator.generateNextPiece();
-                    i.setMinosLogicalState(c.x3219299747897366687x),
+                    (i.setMinosLogicalState(c.x3219299747897366687x),
                       i.setTransform(0, 0, this.mPieceInitialFacing),
                       this.mPieces.pushBack(i),
                       this.mRemainingNumPieceFills > 0 &&
                         this.mRemainingNumPieceFills--,
-                      e--;
+                      e--);
                   }
               }),
               (n.clear = function () {
                 for (var e = this.popFront(); e; )
-                  null !== e && (e.destroy(), (e = null)),
-                    (e = this.popFront());
+                  (null !== e && (e.destroy(), (e = null)),
+                    (e = this.popFront()));
               }),
               (n.getNumPieces = function () {
                 return this.mPieces.getNumObjects();
@@ -21301,7 +21316,7 @@ System.register(
               (n.popFront = function () {
                 if (this.getNumPieces() > 0) {
                   var e = this.getPieceAtIndex(0);
-                  return this.mPieces.popFront(), e;
+                  return (this.mPieces.popFront(), e);
                 }
                 return null;
               }),
@@ -21312,10 +21327,10 @@ System.register(
                 this.mIsFillingEnabled = e;
               }),
               (n.x4554517263080478179x = function () {
-                this.mPieces.destroyAll(),
+                (this.mPieces.destroyAll(),
                   null !== this.mPieces &&
                     (this.mPieces.destroy(), (this.mPieces = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               t
             );
@@ -21413,7 +21428,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (n = e.createClass);
+          ((t = e.inheritsLoose), (n = e.createClass));
         },
         function (e) {
           i = e.cclegacy;
@@ -21485,7 +21500,7 @@ System.register(
               }),
               (s.addComponentWithParams = function (e, t) {
                 var n = this.x3662799518264508775x(e, t);
-                return n && this.addComponent(n), n;
+                return (n && this.addComponent(n), n);
               }),
               (s.addComponent = function (e) {
                 this.mComponents.pushBack(e);
@@ -21532,11 +21547,11 @@ System.register(
                 this.mAutoActivatePendingActionsQueue = e;
               }),
               (s.setPendingActionsQueueMaxSize = function (e) {
-                (this.mPendingActionsQueueMaxSize = e),
-                  this.updatePendingActionsQueueSize();
+                ((this.mPendingActionsQueueMaxSize = e),
+                  this.updatePendingActionsQueueSize());
               }),
               (s.enqueuePendingAction = function (e) {
-                this.mPendingActionsQueue.pushBack(e),
+                (this.mPendingActionsQueue.pushBack(e),
                   this.x3782206147212781733x.setObjectValue(
                     i.x1587235144591162708x,
                     e
@@ -21548,7 +21563,7 @@ System.register(
                   ),
                   this.updatePendingActionsQueueSize(),
                   this.mAutoActivatePendingActionsQueue &&
-                    this.tryActivateNextQueuedPendingAction();
+                    this.tryActivateNextQueuedPendingAction());
               }),
               (s.getNextQueuedPendingAction = function () {
                 return this.mPendingActionsQueue.getNumObjects() > 0
@@ -21565,7 +21580,7 @@ System.register(
                 }
               }),
               (s.dispatchActionSpawnedMessage = function (e) {
-                this.x3782206147212781733x.setObjectValue(
+                (this.x3782206147212781733x.setObjectValue(
                   i.x398692978822117073x,
                   e
                 ),
@@ -21574,10 +21589,10 @@ System.register(
                     this,
                     this.x3782206147212781733x
                   ),
-                  this.x3782206147212781733x.clearObjectValues();
+                  this.x3782206147212781733x.clearObjectValues());
               }),
               (s.dispatchActionPreActivatedMessage = function (e) {
-                this.x3782206147212781733x.setObjectValue(
+                (this.x3782206147212781733x.setObjectValue(
                   i.x4573463065545833488x,
                   e
                 ),
@@ -21586,7 +21601,7 @@ System.register(
                     this,
                     this.x3782206147212781733x
                   ),
-                  this.x3782206147212781733x.clearObjectValues();
+                  this.x3782206147212781733x.clearObjectValues());
               }),
               (s.activateAndManageAction = function (e) {
                 switch (e.getConcurrencyType()) {
@@ -21620,7 +21635,7 @@ System.register(
                           }
                     }
                 }
-                this.mActions.pushBack(e),
+                (this.mActions.pushBack(e),
                   e.isComplete() ||
                     (e._activate(),
                     this.x3782206147212781733x.setObjectValue(
@@ -21632,7 +21647,7 @@ System.register(
                       this,
                       this.x3782206147212781733x
                     ),
-                    this.x3782206147212781733x.clearObjectValues());
+                    this.x3782206147212781733x.clearObjectValues()));
               }),
               (s.askComponentsIfPlayerCanExitState = function (e) {
                 for (
@@ -21676,7 +21691,7 @@ System.register(
                   s++
                 ) {
                   var a;
-                  (a = this.mActions.getAtIndex(s)).processTime(e),
+                  ((a = this.mActions.getAtIndex(s)).processTime(e),
                     a.isComplete() &&
                       (this.x3782206147212781733x.setObjectValue(
                         i.x3051041575915044553x,
@@ -21690,7 +21705,7 @@ System.register(
                       this.x3782206147212781733x.clearObjectValues(),
                       this.mActions.setAtIndex(s, null),
                       null !== a && (a.destroy(), (a = null)),
-                      (t = !0));
+                      (t = !0)));
                 }
                 t && this.mActions.compactNullEntries();
               }),
@@ -21699,11 +21714,10 @@ System.register(
                   ;
                   this.mPendingActionsQueue.getNumObjects() >
                   this.mPendingActionsQueueMaxSize;
-
                 ) {
                   var e = this.mPendingActionsQueue.peekFront();
-                  this.mPendingActionsQueue.popFront(),
-                    null !== e && (e.destroy(), (e = null));
+                  (this.mPendingActionsQueue.popFront(),
+                    null !== e && (e.destroy(), (e = null)));
                 }
               }),
               (s.x3308100843256410702x = function () {}),
@@ -21711,7 +21725,7 @@ System.register(
                 return null;
               }),
               (s.x4554517263080478179x = function () {
-                null !== this.mParams &&
+                (null !== this.mParams &&
                   (this.mParams.destroy(), (this.mParams = null)),
                   this.mComponents.destroyAll(),
                   null !== this.mComponents &&
@@ -21726,7 +21740,7 @@ System.register(
                   null !== this.x3782206147212781733x &&
                     (this.x3782206147212781733x.destroy(),
                     (this.x3782206147212781733x = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (s.x3202151272846750673x = function (e, t, n, i) {
                 switch (e) {
@@ -21735,7 +21749,11 @@ System.register(
                   case o.x121795124178233464x:
                     return 0;
                   case o.x1673908432382400910x:
-                    return this.processComponents(i), this.processActions(i), i;
+                    return (
+                      this.processComponents(i),
+                      this.processActions(i),
+                      i
+                    );
                   case o.x3293153264341002567x:
                   default:
                     return 0;
@@ -21856,7 +21874,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           n = t.cclegacy;
@@ -21928,7 +21946,7 @@ System.register(
                 return this.mSpawnedMatrixY;
               }),
               (a.setSpawnedMatrixPosition = function (t, e) {
-                (this.mSpawnedMatrixX = t), (this.mSpawnedMatrixY = e);
+                ((this.mSpawnedMatrixX = t), (this.mSpawnedMatrixY = e));
               }),
               (a.tryActivate = function (t, e) {
                 return (
@@ -21950,7 +21968,7 @@ System.register(
                 return this.mActivationMatrixY;
               }),
               (a.setActivationMatrixPosition = function (t, e) {
-                (this.mActivationMatrixX = t), (this.mActivationMatrixY = e);
+                ((this.mActivationMatrixX = t), (this.mActivationMatrixY = e));
               }),
               (a.didTryActivate = function () {
                 return this.mActivationTries > 0;
@@ -21984,11 +22002,11 @@ System.register(
               }),
               (a.x784848910771581250x = function () {}),
               (a.x4554517263080478179x = function () {
-                null !== this.mParams &&
+                (null !== this.mParams &&
                   (this.mParams.destroy(), (this.mParams = null)),
                   null !== this.mMessageData &&
                     (this.mMessageData.destroy(), (this.mMessageData = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               i(n, null, [
                 {
@@ -22055,7 +22073,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (n = t.createClass);
+          ((e = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -22133,11 +22151,11 @@ System.register(
                 return !0;
               }),
               (i.x4554517263080478179x = function () {
-                null !== this.mParams &&
+                (null !== this.mParams &&
                   (this.mParams.destroy(), (this.mParams = null)),
                   null !== this.mTimerMgr &&
                     (this.mTimerMgr.destroy(), (this.mTimerMgr = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (i.x3202151272846750673x = function (t, e, n, r) {
                 switch ((this.mTimerMgr.processTimeMSEC(r), t)) {
@@ -22198,7 +22216,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (r = t.createClass);
+          ((e = t.inheritsLoose), (r = t.createClass));
         },
         function (t) {
           a = t.cclegacy;
@@ -22254,7 +22272,7 @@ System.register(
             var S = a.prototype;
             return (
               (S.setRNGSeed = function (t) {
-                0 == t && (t = c.nextNativeRandomInt()), this.mRNG.setSeed(t);
+                (0 == t && (t = c.nextNativeRandomInt()), this.mRNG.setSeed(t));
               }),
               (S.processState_active = function (t) {
                 var e = this.getPlayer().getMatrix();
@@ -22266,7 +22284,7 @@ System.register(
                     a.x3293149330720715581x
                   );
                   var r = this.mScratchMinosArray.getAtIndex(0);
-                  this.getMessageData().setObjectValue(
+                  (this.getMessageData().setObjectValue(
                     a.x4568587167817110994x,
                     r
                   ),
@@ -22281,7 +22299,7 @@ System.register(
                       this.getParams().getIntValue(a.x1662271928908008119x),
                       !0
                     ),
-                    this.mScratchMinosArray.removeAtIndex(0);
+                    this.mScratchMinosArray.removeAtIndex(0));
                 }
                 0 == this.mScratchMinosArray.getNumObjects() &&
                   (e.popDestabilize(),
@@ -22289,14 +22307,15 @@ System.register(
                   this.setNextState(i.x1636581458442852321x, !1));
               }),
               (S.x4554517263080478179x = function () {
-                null !== this.mRNG && (this.mRNG.destroy(), (this.mRNG = null)),
+                (null !== this.mRNG &&
+                  (this.mRNG.destroy(), (this.mRNG = null)),
                   null !== this.mScratchRowMinosArray &&
                     (this.mScratchRowMinosArray.destroy(),
                     (this.mScratchRowMinosArray = null)),
                   null !== this.mScratchMinosArray &&
                     (this.mScratchMinosArray.destroy(),
                     (this.mScratchMinosArray = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (S.x3379342321577288781x = function () {
                 var t = this.getPlayer(),
@@ -22315,8 +22334,8 @@ System.register(
                 this.mStepTimerMSEC = 0;
                 var t = this.getPlayer().getMatrix(),
                   e = this.getParams().getIntValue(a.x3858504143279692423x);
-                this.mScratchMinosArray.removeAll(),
-                  this.mScratchMinosArray.reserveCapacity(e);
+                (this.mScratchMinosArray.removeAll(),
+                  this.mScratchMinosArray.reserveCapacity(e));
                 var r = t.getWidth();
                 this.mScratchRowMinosArray.reserveCapacity(r);
                 var s = t.getHighestMinoY(),
@@ -22325,8 +22344,8 @@ System.register(
                   ? s + 1 - e
                   : 0;
                 for (var o = c.minInt(n + e - 1, s), l = n; l <= o; l++) {
-                  this.mScratchRowMinosArray.removeAll(),
-                    t.getMinosInRect(0, l, r, 1, this.mScratchRowMinosArray);
+                  (this.mScratchRowMinosArray.removeAll(),
+                    t.getMinosInRect(0, l, r, 1, this.mScratchRowMinosArray));
                   var S = this.mScratchRowMinosArray.getNumObjects();
                   if (S > 0) {
                     var h = this.mRNG.nextIntInRange(0, S - 1);
@@ -22336,16 +22355,16 @@ System.register(
                   }
                   this.mScratchRowMinosArray.removeAll();
                 }
-                t.pushDestabilize(),
+                (t.pushDestabilize(),
                   t.pushMovementDisabled(),
-                  this.setCurrentState(i.x2374069116296912024x, 0);
+                  this.setCurrentState(i.x2374069116296912024x, 0));
               }),
               (S.x3202151272846750673x = function (e, r, a, n) {
                 switch (r) {
                   case i.x2374069116296912024x:
                     switch (e) {
                       case s.x1673908432382400910x:
-                        return this.processState_active(n), n;
+                        return (this.processState_active(n), n);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, r, a, n);
@@ -22427,7 +22446,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (r = t.createClass);
+          ((e = t.inheritsLoose), (r = t.createClass));
         },
         function (t) {
           i = t.cclegacy;
@@ -22558,10 +22577,10 @@ System.register(
                 }
               }),
               (S.x4554517263080478179x = function () {
-                null !== this.mScratchMinosArray &&
+                (null !== this.mScratchMinosArray &&
                   (this.mScratchMinosArray.destroy(),
                   (this.mScratchMinosArray = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (S.x3379342321577288781x = function () {
                 var t = this.getPlayer(),
@@ -22597,7 +22616,7 @@ System.register(
                       s = ~~(e / 2),
                       a = e - s,
                       o = 0;
-                    this.mScratchMinosArray.removeAll(),
+                    (this.mScratchMinosArray.removeAll(),
                       t.findMovableMinosInRect(
                         0,
                         0,
@@ -22616,9 +22635,9 @@ System.register(
                         c.x1869465774161400874x,
                         this.mScratchMinosArray
                       ),
-                      (o += this.mScratchMinosArray.getNumObjects());
+                      (o += this.mScratchMinosArray.getNumObjects()));
                     var S = 0;
-                    this.mScratchMinosArray.removeAll(),
+                    (this.mScratchMinosArray.removeAll(),
                       t.findMovableMinosInRect(
                         0,
                         0,
@@ -22638,9 +22657,9 @@ System.register(
                         this.mScratchMinosArray
                       ),
                       (S += this.mScratchMinosArray.getNumObjects()),
-                      (this.mIsToCenter = o > S);
+                      (this.mIsToCenter = o > S));
                 }
-                this.mScratchMinosArray.removeAll(),
+                (this.mScratchMinosArray.removeAll(),
                   t.getMinosInRect(
                     0,
                     0,
@@ -22653,14 +22672,14 @@ System.register(
                   (this.mStepTimerMSEC = this.getParams().getIntValue(
                     i.x3293149330720715581x
                   )),
-                  this.setCurrentState(n.x2374069116296912024x, 0);
+                  this.setCurrentState(n.x2374069116296912024x, 0));
               }),
               (S.x3202151272846750673x = function (e, r, i, a) {
                 switch (r) {
                   case n.x2374069116296912024x:
                     switch (e) {
                       case s.x1673908432382400910x:
-                        return this.processState_active(a), a;
+                        return (this.processState_active(a), a);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, r, i, a);
@@ -22751,9 +22770,9 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose),
+          ((e = t.inheritsLoose),
             (n = t.createClass),
-            (a = t.assertThisInitialized);
+            (a = t.assertThisInitialized));
         },
         function (t) {
           i = t.cclegacy;
@@ -22831,14 +22850,14 @@ System.register(
           (function (t) {
             function i(e, n) {
               var I;
-              (I = t.call(this, i.x1577960351707702472x, e) || this),
+              ((I = t.call(this, i.x1577960351707702472x, e) || this),
                 i.x4295734281104816329x(I.getParams(), !1),
                 I.getParams().copy(n, !1),
                 e.addMessageListener(a(I)),
                 e.setAutoActivatePendingActionsQueue(
                   !I.getParams().getBoolValue(i.x2688115963107616540x)
                 ),
-                (I.mRNG = new K());
+                (I.mRNG = new K()));
               var s = I.getParams().getIntValueWithDefault(
                 i.x2332428133001322959x,
                 0
@@ -22867,10 +22886,10 @@ System.register(
                 I
               );
             }
-            e(i, t),
+            (e(i, t),
               (i.x2418015451475849709x = function (t) {
                 var e = new P(!0);
-                return i.x4295734281104816329x(e, t), e;
+                return (i.x4295734281104816329x(e, t), e);
               }),
               (i.x4295734281104816329x = function (t, e) {
                 t.parseJSONString(
@@ -22880,7 +22899,7 @@ System.register(
                   e,
                   !0
                 );
-              });
+              }));
             var I = i.prototype;
             return (
               (I.DEBUG_setActionItemSpawnTimerTo0 = function () {
@@ -22914,9 +22933,9 @@ System.register(
               }),
               (I.processSpawnActionItemTimer = function (t) {
                 if (this.mSpawnActionItemTimerMSEC > 0)
-                  (this.mSpawnActionItemTimerMSEC -= t),
+                  ((this.mSpawnActionItemTimerMSEC -= t),
                     this.mSpawnActionItemTimerMSEC <= 0 &&
-                      (this.mSpawnActionItemTimerMSEC = 0);
+                      (this.mSpawnActionItemTimerMSEC = 0));
                 else if (this.mSpawnActionItemTimerMSEC < 0) {
                   var e = this.getPlayer();
                   0 != e.getMatrix().getNumMinosWithActionItems() ||
@@ -22983,11 +23002,11 @@ System.register(
                         N = null,
                         L = -1;
                       if (this.mDEBUG_actionItemOverride < 0) {
-                        this.mScratchActionsIndicesBagValues.removeAllValues(),
+                        (this.mScratchActionsIndicesBagValues.removeAllValues(),
                           this.mActionsIndicesBag.refillBagIfEmpty(),
                           this.mActionsIndicesBag.copyBagValuesIntoDictionary(
                             this.mScratchActionsIndicesBagValues
-                          );
+                          ));
                         for (
                           var m =
                               this.mScratchActionsIndicesBagValues.getNumValues(),
@@ -22995,11 +23014,11 @@ System.register(
                           G < m;
                           G++
                         ) {
-                          (L =
+                          ((L =
                             this.mScratchActionsIndicesBagValues.getIntValueAtIndex(
                               G
                             )),
-                            (N = E.getDictionaryAtIndex(L));
+                            (N = E.getDictionaryAtIndex(L)));
                           var C = !0;
                           C =
                             C &&
@@ -23008,7 +23027,7 @@ System.register(
                               this.mLastActivatedActionId
                             );
                           var O = N.getIntValue(i.x2949532637391470647x);
-                          (C =
+                          ((C =
                             C &&
                             !(
                               O > 0 &&
@@ -23021,7 +23040,7 @@ System.register(
                             G--,
                             (m =
                               this.mScratchActionsIndicesBagValues.getNumValues())),
-                            (N = null);
+                            (N = null));
                         }
                         if (
                           (m =
@@ -23029,12 +23048,12 @@ System.register(
                           0
                         ) {
                           var F = this.mRNG.nextIntInRange(0, m - 1);
-                          (L =
+                          ((L =
                             this.mScratchActionsIndicesBagValues.getIntValueAtIndex(
                               F
                             )),
                             (N = E.getDictionaryAtIndex(L)),
-                            this.mActionsIndicesBag.removeValueFromBag(L, 1);
+                            this.mActionsIndicesBag.removeValueFromBag(L, 1));
                         } else this.mActionsIndicesBag.refillBag(!0);
                         this.mScratchActionsIndicesBagValues.removeAllValues();
                       } else {
@@ -23050,13 +23069,13 @@ System.register(
                           N.getStringValueAsHash32(i.x46952607228438527x),
                           N.getDictionary(i.x1594238776196851463x)
                         );
-                        B.setCustomData1(L),
+                        (B.setCustomData1(L),
                           K.attachPlayerAction(B, S.x3690058181588952361x),
                           t.dispatchActionSpawnedMessage(B),
                           (B = null),
                           (this.mSpawnActionItemTimerMSEC = -1),
                           (this.mSpawnedActionItemTimeMSEC =
-                            t.getElapsedActiveGameTimeMSEC());
+                            t.getElapsedActiveGameTimeMSEC()));
                       }
                     }
                     this.mScratchMinosArray.removeAll();
@@ -23109,10 +23128,10 @@ System.register(
                     t.getElapsedActiveGameTimeMSEC() >=
                       this.mSpawnedActionItemTimeMSEC + e
                   ) {
-                    this.mScratchMinosArray.removeAll(),
+                    (this.mScratchMinosArray.removeAll(),
                       t
                         .getMatrix()
-                        .getMinosWithActionItems(this.mScratchMinosArray);
+                        .getMinosWithActionItems(this.mScratchMinosArray));
                     var n = this.mScratchMinosArray.getNumObjects();
                     if (n > 0) {
                       for (var a = 0; a < n; a++) {
@@ -23120,9 +23139,9 @@ System.register(
                           P = I.getMinoPlayerActionItem()
                             .getPlayerAction()
                             .getCustomData1();
-                        this.mActionsIndicesBag.containsRefillValue(P) &&
+                        (this.mActionsIndicesBag.containsRefillValue(P) &&
                           this.mActionsIndicesBag.addBagValue(P, 1),
-                          I.destroyPlayerAction();
+                          I.destroyPlayerAction());
                       }
                       if (
                         ((this.mSpawnActionItemTimerMSEC =
@@ -23151,7 +23170,8 @@ System.register(
                 }
               }),
               (I.x4554517263080478179x = function () {
-                null !== this.mRNG && (this.mRNG.destroy(), (this.mRNG = null)),
+                (null !== this.mRNG &&
+                  (this.mRNG.destroy(), (this.mRNG = null)),
                   null !== this.mScratchMinosArray &&
                     (this.mScratchMinosArray.destroy(),
                     (this.mScratchMinosArray = null)),
@@ -23163,14 +23183,14 @@ System.register(
                     (this.mScratchActionsIndicesBagValues = null)),
                   (this.mLevelsComponent = null),
                   (this.mScoreComponent = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (I.x3202151272846750673x = function (e, n, a, I) {
                 switch (n) {
                   case i.x962049143200677693x:
                     switch (e) {
                       case s.x1673908432382400910x:
-                        return this.processSpawnActionItemTimer(I), I;
+                        return (this.processSpawnActionItemTimer(I), I);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, n, a, I);
@@ -23181,7 +23201,8 @@ System.register(
                   case L.x600761393005946187x:
                     switch (a.getCurrentState()) {
                       case L.x3436341186328857698x:
-                        this.tryDespawnActionItem(), this.trySpawnActionItem();
+                        (this.tryDespawnActionItem(),
+                          this.trySpawnActionItem());
                     }
                     break;
                   case M.x1385704444850139091x:
@@ -23215,7 +23236,7 @@ System.register(
                     );
                     break;
                   case L.x468145498827519783x:
-                    (this.mLevelsComponent = a.getComponent(
+                    ((this.mLevelsComponent = a.getComponent(
                       E.x4184151634383032826x
                     )),
                       this.mLevelsComponent &&
@@ -23225,7 +23246,7 @@ System.register(
                         )),
                       (this.mScoreComponent = a.getComponent(
                         N.x1107523589684864332x
-                      ));
+                      )));
                 }
               }),
               n(i, null, [
@@ -23424,9 +23445,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (n = e.createClass),
-            (a = e.assertThisInitialized);
+            (a = e.assertThisInitialized));
         },
         function (e) {
           s = e.cclegacy;
@@ -23492,10 +23513,10 @@ System.register(
                 r
               );
             }
-            t(s, e),
+            (t(s, e),
               (s.x2687472012028973780x = function (e) {
                 var t = new o(!0);
-                return s.x1214363421543575102x(t, e), t;
+                return (s.x1214363421543575102x(t, e), t);
               }),
               (s.x1214363421543575102x = function (e, t) {
                 e.parseJSONString(
@@ -23505,7 +23526,7 @@ System.register(
                   t,
                   !0
                 );
-              });
+              }));
             var r = s.prototype;
             return (
               (r.sendDifficulty = function (e) {
@@ -23540,7 +23561,8 @@ System.register(
                     if (this.mScoreComponent) {
                       var e = this.mScoreComponent.getScore(),
                         t = e - this.mPrevLargeScorePoints;
-                      this.sendLargeScore(t), (this.mPrevLargeScorePoints = e);
+                      (this.sendLargeScore(t),
+                        (this.mPrevLargeScorePoints = e));
                     }
                 }
               }),
@@ -23550,9 +23572,9 @@ System.register(
                 } catch (e) {}
               }),
               (r.x4554517263080478179x = function () {
-                (this.mScoreComponent = null),
+                ((this.mScoreComponent = null),
                   (this.mAchievementsComponent = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (r.x3202151272846750673x = function (t, n, a, r) {
                 switch (n) {
@@ -23620,18 +23642,18 @@ System.register(
                             (this.sendSmallScore(o, "visual"),
                             (this.mTotalSmallPointsVisual += o));
                       }
-                      (this.mRemainingLineClearsUntilSendCurrentScores -= r),
+                      ((this.mRemainingLineClearsUntilSendCurrentScores -= r),
                         this.mRemainingLineClearsUntilSendCurrentScores <= 0 &&
                           (this.sendCurrentScores(),
                           (this.mRemainingLineClearsUntilSendCurrentScores =
-                            this.mNumLineClearsPerSendCurrentScores));
+                            this.mNumLineClearsPerSendCurrentScores)));
                     }
                     break;
                   case S.x3913620046364842447x:
                     this.sendSmallScore(1, "visual");
                     break;
                   case l.x468145498827519783x:
-                    (this.mScoreComponent = this.getPlayer().getComponent(
+                    ((this.mScoreComponent = this.getPlayer().getComponent(
                       u.x1107523589684864332x
                     )),
                       this.mScoreComponent &&
@@ -23639,7 +23661,7 @@ System.register(
                       (this.mAchievementsComponent =
                         this.getPlayer().getComponent(P.x3526915812981421697x)),
                       this.mAchievementsComponent &&
-                        this.mAchievementsComponent.addMessageListener(this);
+                        this.mAchievementsComponent.addMessageListener(this));
                     break;
                   case l.x600761393005946187x:
                     switch ((a = t).getCurrentState()) {
@@ -23666,7 +23688,7 @@ System.register(
                               this.sendLargeScore(B);
                             }
                         }
-                        a.getGameEndCondition(), this.sendGameOver();
+                        (a.getGameEndCondition(), this.sendGameOver());
                     }
                     break;
                   case P.x1573352203731736474x:
@@ -23776,16 +23798,16 @@ System.register(
           (function (t) {
             function n(e, n, r, i) {
               var s;
-              return (s = t.call(this) || this).setRect(e, n, r, i), s;
+              return ((s = t.call(this) || this).setRect(e, n, r, i), s);
             }
             e(n, t);
             var r = n.prototype;
             return (
               (r.setRect = function (t, e, n, r) {
-                (this.mX = t),
+                ((this.mX = t),
                   (this.mY = e),
                   (this.mWidth = n),
-                  (this.mHeight = r);
+                  (this.mHeight = r));
               }),
               (r.x4554517263080478179x = function () {
                 t.prototype.x4554517263080478179x.call(this);
@@ -23883,7 +23905,7 @@ System.register(
                   case o.x661430089456291758x:
                     this.setNextState(o.x1549494839056092619x, !1);
                 }
-                return this.processTime(1), this.getCurrentState();
+                return (this.processTime(1), this.getCurrentState());
               }),
               (s.x477228624734195371x = function () {}),
               (s.x3877241562699863631x = function () {}),
@@ -23955,7 +23977,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (r = e.createClass);
+          ((t = e.inheritsLoose), (r = e.createClass));
         },
         function (e) {
           s = e.cclegacy;
@@ -24195,7 +24217,7 @@ System.register(
                           o = !0;
                           break;
                         case s.x3180255004771075659x:
-                          (o = !0),
+                          ((o = !0),
                             this.mMessageData.setIntValue(
                               s.x4569932049146296447x,
                               e.getResourceId()
@@ -24208,7 +24230,7 @@ System.register(
                               s.x2400544281594515847x,
                               this,
                               this.mMessageData
-                            );
+                            ));
                       }
                       o && (this.mResourcesToLoad.removeAtIndex(u), u--, r--);
                     }
@@ -24253,14 +24275,14 @@ System.register(
                   this.mResourcesToLoad.pushBack(e));
               }),
               (u.x4554517263080478179x = function () {
-                null !== this.mResources &&
+                (null !== this.mResources &&
                   (this.mResources.destroy(), (this.mResources = null)),
                   null !== this.mMessageData &&
                     (this.mMessageData.destroy(), (this.mMessageData = null)),
                   null !== this.mResourcesToLoad &&
                     (this.mResourcesToLoad.destroy(),
                     (this.mResourcesToLoad = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               r(s, null, [
                 {
@@ -24343,7 +24365,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           s = t.cclegacy;
@@ -24370,13 +24392,17 @@ System.register(
                   e.mSeed = 0,
                   e.mt.length = 0;
                 e.mt.length < s.N;
-
               )
                 e.mt.push(0);
               for (var i = 0; i < s.N; i++) e.mt[i] = 0;
               for (e.mti = s.N + 1, e.mag01.length = 0; e.mag01.length < 2; )
                 e.mag01.push(0);
-              return (e.mag01[0] = 0), (e.mag01[1] = s.MATRIX_A), e.reset(), e;
+              return (
+                (e.mag01[0] = 0),
+                (e.mag01[1] = s.MATRIX_A),
+                e.reset(),
+                e
+              );
             }
             e(s, t);
             var n = s.prototype;
@@ -24392,36 +24418,36 @@ System.register(
                   this.mti < s.N;
                   this.mti++
                 )
-                  (this.mt[this.mti] =
+                  ((this.mt[this.mti] =
                     1812433253 *
                       (this.mt[this.mti - 1] ^ (this.mt[this.mti - 1] >>> 30)) +
                     this.mti),
-                    (this.mt[this.mti] &= 4294967295);
+                    (this.mt[this.mti] &= 4294967295));
               }),
               (n.nextInt = function () {
                 var t;
                 if (this.mti >= s.N) {
                   var e;
                   for (e = 0; e < s.N - s.M; e++)
-                    (t =
+                    ((t =
                       (this.mt[e] & s.UPPER_MASK) |
                       (this.mt[e + 1] & s.LOWER_MASK)),
                       (this.mt[e] =
-                        this.mt[e + s.M] ^ (t >>> 1) ^ this.mag01[~~(1 & t)]);
+                        this.mt[e + s.M] ^ (t >>> 1) ^ this.mag01[~~(1 & t)]));
                   for (; e < s.N - 1; e++)
-                    (t =
+                    ((t =
                       (this.mt[e] & s.UPPER_MASK) |
                       (this.mt[e + 1] & s.LOWER_MASK)),
                       (this.mt[e] =
                         this.mt[e + (s.M - s.N)] ^
                         (t >>> 1) ^
-                        this.mag01[~~(1 & t)]);
-                  (t =
+                        this.mag01[~~(1 & t)]));
+                  ((t =
                     (this.mt[s.N - 1] & s.UPPER_MASK) |
                     (this.mt[0] & s.LOWER_MASK)),
                     (this.mt[s.N - 1] =
                       this.mt[s.M - 1] ^ (t >>> 1) ^ this.mag01[~~(1 & t)]),
-                    (this.mti = 0);
+                    (this.mti = 0));
                 }
                 return (
                   (t = this.mt[this.mti++]),
@@ -24588,7 +24614,8 @@ System.register(
                     );
                   case a.x3771098284122818008x:
                     return (
-                      this.mPlayer.tryActivateNextQueuedPendingAction(), !0
+                      this.mPlayer.tryActivateNextQueuedPendingAction(),
+                      !0
                     );
                   default:
                     return !1;
@@ -24640,7 +24667,7 @@ System.register(
                 t && t.setMinosLogicalState(r.x1926049909819204674x);
               }),
               (c.x989516280621389530x = function () {
-                this.getActiveInputType() == o.x3521116714989925786x &&
+                (this.getActiveInputType() == o.x3521116714989925786x &&
                   this.mPlayer.handleLivePieceSoftDropSteps(
                     this.getSoftDropStepsForPiece()
                   ),
@@ -24650,7 +24677,7 @@ System.register(
                   this.mPlayer.handleLivePieceTSpin(
                     this.getTSpinTypeForPiece()
                   ),
-                  this.mPlayer.lockLivePieceIntoMatrix();
+                  this.mPlayer.lockLivePieceIntoMatrix());
               }),
               i
             );
@@ -24683,9 +24710,9 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose),
+          ((e = t.inheritsLoose),
             (a = t.createClass),
-            (r = t.assertThisInitialized);
+            (r = t.assertThisInitialized));
         },
         function (t) {
           n = t.cclegacy;
@@ -25420,7 +25447,7 @@ System.register(
                 i
               );
             }
-            e(n, t),
+            (e(n, t),
               (n.createDefaultParams = function () {
                 var t = new o(!0),
                   e = new n(null, null);
@@ -25429,7 +25456,7 @@ System.register(
                   null !== e && (e.destroy(), (e = null)),
                   t
                 );
-              });
+              }));
             var i = n.prototype;
             return (
               (i.x4589939837334800415x = function () {
@@ -25463,7 +25490,7 @@ System.register(
                     .getDictionary(n.x2073487806287580959x)
                     .getBoolValue(n.x1444636778100537150x))
                 ) {
-                  this.x3681026915167425525x.enableInputType(
+                  (this.x3681026915167425525x.enableInputType(
                     s.x3409109038926087649x
                   ),
                     (this.x3681026915167425525x
@@ -25497,11 +25524,11 @@ System.register(
                       .getAIInputMgr().mParameter_actionPreDelayMSEC_firstStepMax =
                       e
                         .getDictionary(n.x2073487806287580959x)
-                        .getIntValue(n.x454080341957964471x));
+                        .getIntValue(n.x454080341957964471x)));
                   var a = e
                     .getDictionary(n.x2073487806287580959x)
                     .getIntValue(n.x3475772809341661392x);
-                  (this.x3681026915167425525x
+                  ((this.x3681026915167425525x
                     .getController()
                     .getAIInputMgr().mParameter_actionPreDelayMSEC_moveLR = a),
                     (this.x3681026915167425525x
@@ -25511,12 +25538,12 @@ System.register(
                     (this.x3681026915167425525x
                       .getController()
                       .getAIInputMgr().mParameter_actionPreDelayMSEC_hardDrop =
-                      a);
+                      a));
                   var r = this.x3681026915167425525x
                     .getController()
                     .getAIInputMgr()
                     .getTargetFinder();
-                  (r.mParameter_evaluation_singleLineClear = e
+                  ((r.mParameter_evaluation_singleLineClear = e
                     .getDictionary2(
                       n.x2073487806287580959x,
                       n.x4212574127166542126x
@@ -25629,7 +25656,7 @@ System.register(
                         n.x2073487806287580959x,
                         n.x4212574127166542126x
                       )
-                      .getIntValueWithDefault(n.x212240338195012864x, 1e6));
+                      .getIntValueWithDefault(n.x212240338195012864x, 1e6)));
                 } else
                   this.x3681026915167425525x.disableInputType(
                     s.x3409109038926087649x
@@ -25668,7 +25695,7 @@ System.register(
                     .getDictionary(n.x3497896058874826468x)
                     .getBoolValue(n.x3259796517042907796x))
                 ) {
-                  this.x3681026915167425525x.enableInputType(
+                  (this.x3681026915167425525x.enableInputType(
                     s.x3521116714989925786x
                   ),
                     this.x3681026915167425525x.setSmartInputParameter_isTargetFacingFixed(
@@ -25739,12 +25766,12 @@ System.register(
                     (this.x3681026915167425525x.getModel().mEnablePathToTarget =
                       e
                         .getDictionary(n.x3497896058874826468x)
-                        .getIntValue(n.x1918419406532551096x) > 0);
+                        .getIntValue(n.x1918419406532551096x) > 0));
                   var i = this.x3681026915167425525x
                     .getController()
                     .getSmartInputMgr()
                     .getTargetFinder();
-                  (i.mParameter_evaluation_singleLineClear = e
+                  ((i.mParameter_evaluation_singleLineClear = e
                     .getDictionary2(
                       n.x3497896058874826468x,
                       n.x4212574127166542126x
@@ -25863,12 +25890,12 @@ System.register(
                       .getSmartInputMgr().mEnablePathToTargetHardDrop = !0),
                     (this.x3681026915167425525x
                       .getController()
-                      .getSmartInputMgr().mOptimizePathToTarget = !0);
+                      .getSmartInputMgr().mOptimizePathToTarget = !0));
                 } else
                   this.x3681026915167425525x.disableInputType(
                     s.x3521116714989925786x
                   );
-                this.x3681026915167425525x.setSmartInputParameter_smartPlacementsAllowedBeforeLock(
+                (this.x3681026915167425525x.setSmartInputParameter_smartPlacementsAllowedBeforeLock(
                   e
                     .getDictionary(n.x3497896058874826468x)
                     .getIntValue(n.x1676909707322275697x)
@@ -25947,13 +25974,13 @@ System.register(
                     : this.x3681026915167425525x.disableInputType(
                         s.x1719580821783995404x
                       ),
-                  this.initializeInputs();
+                  this.initializeInputs());
               }),
               (i.getInputMgr = function () {
                 return this.mInputMgr;
               }),
               (i.initializeInputs = function () {
-                this.remapInputs(),
+                (this.remapInputs(),
                   this.x3681026915167425525x.setActiveInputType(
                     s.getInputTypeForName(
                       this.getParams().getStringValue(n.x637080553377278414x)
@@ -25961,14 +25988,14 @@ System.register(
                   ),
                   this.x3681026915167425525x.setEnableAutomaticInputTypeSwitching(
                     this.getParams().getBoolValue(n.x708392048446998240x)
-                  );
+                  ));
               }),
               (i.remapInputs = function () {
-                this.remapInputsForInputType(s.x1286691926007648149x),
+                (this.remapInputsForInputType(s.x1286691926007648149x),
                   this.remapInputsForPointerInputType(
                     this.getParams().getIntValue(n.x2837809706097199941x),
                     !1
-                  );
+                  ));
               }),
               (i.handleDeviceControlOn = function (t, e, a, r) {
                 return this.mInputMgr.handleDeviceControlOn(t, e, a, r);
@@ -25983,20 +26010,20 @@ System.register(
                 return this.mInputMgr.handleDeviceControlCancelled(t, e);
               }),
               (i.dispatchControlActionSucceededMessage = function (t) {
-                this.mMessageData.setIntValue(n.x429517656955113027x, t),
+                (this.mMessageData.setIntValue(n.x429517656955113027x, t),
                   this.dispatchMessage(
                     n.x3370523070742918091x,
                     this,
                     this.mMessageData
-                  );
+                  ));
               }),
               (i.dispatchControlActionFailedMessage = function (t) {
-                this.mMessageData.setIntValue(n.x3473714922256229774x, t),
+                (this.mMessageData.setIntValue(n.x3473714922256229774x, t),
                   this.dispatchMessage(
                     n.x1998756966076943414x,
                     this,
                     this.mMessageData
-                  );
+                  ));
               }),
               (i.remapInputsForInputType = function (t) {
                 var e = this.getParams().getDictionary2(
@@ -26053,7 +26080,7 @@ System.register(
                         n.x3497896058874826468x,
                         n.x2894516285335776403x
                       );
-                      a.setStringValue(
+                      (a.setStringValue(
                         n.x2075726015331195633x,
                         e.getStringValue(n.x1633135556891830072x)
                       ),
@@ -26106,7 +26133,7 @@ System.register(
                           a.getStringValue(n.x602026109025361240x),
                           s.x1318579038307930515x,
                           !0
-                        );
+                        ));
                     }
                     break;
                   case s.x1719580821783995404x:
@@ -26115,7 +26142,7 @@ System.register(
                         n.x2768101322067718866x,
                         n.x2920704196756133431x
                       );
-                      this.mapDeviceControlString(
+                      (this.mapDeviceControlString(
                         r.getStringValue(n.x770855407985732476x),
                         s.x1384591116865955095x,
                         !0
@@ -26134,7 +26161,7 @@ System.register(
                           r.getStringValue(n.x321515198847037949x),
                           s.x2290659735030518880x,
                           !0
-                        );
+                        ));
                     }
                 }
               }),
@@ -26168,14 +26195,14 @@ System.register(
                   : a && this.mInputMgr.unmapInputAction(e);
               }),
               (i.x4554517263080478179x = function () {
-                null !== this.x3681026915167425525x &&
+                (null !== this.x3681026915167425525x &&
                   (this.x3681026915167425525x.destroy(),
                   (this.x3681026915167425525x = null)),
                   null !== this.mInputMgr &&
                     (this.mInputMgr.destroy(), (this.mInputMgr = null)),
                   null !== this.mMessageData &&
                     (this.mMessageData.destroy(), (this.mMessageData = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (i.x3202151272846750673x = function (t, e, a, r) {
                 switch (t) {
@@ -26202,7 +26229,7 @@ System.register(
                       switch (this.getPlayer().getCurrentState()) {
                         case g.x17563674415764673x:
                           var i = r.getLivePiece();
-                          this.x3681026915167425525x.performEvaluationForIncomingPiece(
+                          (this.x3681026915167425525x.performEvaluationForIncomingPiece(
                             i.getPieceTypeId(),
                             i.getX(),
                             i.getY(),
@@ -26214,7 +26241,7 @@ System.register(
                               this,
                               null
                             ),
-                            this.x3681026915167425525x.handleLivePieceDidActivate();
+                            this.x3681026915167425525x.handleLivePieceDidActivate());
                           break;
                         case g.x1401301049358678740x:
                           this.x3681026915167425525x.handleLivePieceDidDeactivate();
@@ -26233,8 +26260,8 @@ System.register(
                     case l.x4374053753002286003x:
                       switch (this.getGame().getCurrentState()) {
                         case l.x420418942975315438x:
-                          this.x3681026915167425525x.resumeActivity(),
-                            this.mInputMgr.restartAllOnInputActions();
+                          (this.x3681026915167425525x.resumeActivity(),
+                            this.mInputMgr.restartAllOnInputActions());
                       }
                       break;
                     case l.x1513265368646980646x:
@@ -26291,7 +26318,8 @@ System.register(
               }),
               (i.x2400245882941450003x = function (t) {
                 return (
-                  this.x3681026915167425525x.handleInputOnIsCancelled(t), !0
+                  this.x3681026915167425525x.handleInputOnIsCancelled(t),
+                  !0
                 );
               }),
               a(n, null, [
@@ -27000,9 +27028,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (a = e.createClass),
-            (r = e.assertThisInitialized);
+            (r = e.assertThisInitialized));
         },
         function (e) {
           s = e.cclegacy;
@@ -27073,7 +27101,7 @@ System.register(
                 n
               );
             }
-            t(s, e),
+            (t(s, e),
               (s.getEventDescriptionWithMessageData = function (e) {
                 var t = e.getIntValue(s.x3073701875371199780x);
                 return c.getStandardScoreEventDescription(
@@ -27084,7 +27112,7 @@ System.register(
                   e.getIntValue(s.x2972859226766745747x),
                   e.getIntValue(s.x2325628615321090304x)
                 );
-              });
+              }));
             var n = s.prototype;
             return (
               (n.getScore = function () {
@@ -27095,7 +27123,7 @@ System.register(
                   var a = e,
                     r =
                       a * this.getParams().getIntValue(s.x859823845901397002x);
-                  (this.mScore += r),
+                  ((this.mScore += r),
                     this.mScoreEventMessageData.setBoolValue(
                       s.x2806390059010943905x,
                       !0
@@ -27156,7 +27184,7 @@ System.register(
                       s.x2327519492664430364x,
                       this,
                       this.mScoreEventMessageData
-                    );
+                    ));
                 }
               }),
               (n.getScoreMultiplier = function () {
@@ -27165,7 +27193,7 @@ System.register(
               (n.setScoreMultiplier = function (e) {
                 if (e != this.getScoreMultiplier()) {
                   var t = e > this.getScoreMultiplier();
-                  this.getParams().setIntValue(s.x859823845901397002x, e),
+                  (this.getParams().setIntValue(s.x859823845901397002x, e),
                     t
                       ? this.dispatchMessage(
                           s.x3958554063405433123x,
@@ -27176,14 +27204,14 @@ System.register(
                           s.x2254816129217544040x,
                           this,
                           null
-                        );
+                        ));
                 }
               }),
               (n.getStatValue = function (e) {
                 return this.mStats.getIntValue(e);
               }),
               (n.initStats = function () {
-                this.setStat(s.x2369331551369091426x, 0),
+                (this.setStat(s.x2369331551369091426x, 0),
                   this.setStat(s.x1841449871261570477x, 0),
                   this.setStat(s.x3175268653252678831x, 0),
                   this.setStat(s.x4396510559379433828x, 0),
@@ -27196,7 +27224,7 @@ System.register(
                   this.setStat(s.x1479471658056346637x, 0),
                   this.setStat(s.x630303173075417599x, 0),
                   this.setStat(s.x2479635842959197646x, 0),
-                  this.setStat(s.x3088726648814465372x, 0);
+                  this.setStat(s.x3088726648814465372x, 0));
               }),
               (n.setStat = function (e, t) {
                 this.mStats.setIntValue(e, t);
@@ -27216,9 +27244,9 @@ System.register(
                   r = e.getIntValue(o.x1562943909019930342x),
                   n = a + r,
                   i = e.getIntValue(o.x2694471565253067906x);
-                i > this.mCurrentCascadeCount &&
+                (i > this.mCurrentCascadeCount &&
                   (this.mCurrentCascadeCount = i),
-                  this.addStat(s.x2369331551369091426x, n);
+                  this.addStat(s.x2369331551369091426x, n));
                 var S,
                   u = 0,
                   l = c.x543886390795679903x,
@@ -27248,32 +27276,32 @@ System.register(
                           u = 0;
                           break;
                         case 1:
-                          (u = this.getParams().getIntValue(
+                          ((u = this.getParams().getIntValue(
                             s.x2945255581405474786x
                           )),
                             (m = !0),
-                            this.addStat(s.x1841449871261570477x, 1);
+                            this.addStat(s.x1841449871261570477x, 1));
                           break;
                         case 2:
-                          (u = this.getParams().getIntValue(
+                          ((u = this.getParams().getIntValue(
                             s.x3840358132938939088x
                           )),
                             (m = !0),
-                            this.addStat(s.x3175268653252678831x, 1);
+                            this.addStat(s.x3175268653252678831x, 1));
                           break;
                         case 3:
-                          (u = this.getParams().getIntValue(
+                          ((u = this.getParams().getIntValue(
                             s.x3068636541063242223x
                           )),
                             (m = !0),
-                            this.addStat(s.x4396510559379433828x, 1);
+                            this.addStat(s.x4396510559379433828x, 1));
                           break;
                         case 4:
-                          (u = this.getParams().getIntValue(
+                          ((u = this.getParams().getIntValue(
                             s.x1216860911711638619x
                           )),
                             (k = !0),
-                            this.addStat(s.x4375830887618861513x, 1);
+                            this.addStat(s.x4375830887618861513x, 1));
                           break;
                         default:
                           u = this.getParams().getIntValue(
@@ -27289,25 +27317,25 @@ System.register(
                           );
                           break;
                         case 1:
-                          (u = this.getParams().getIntValue(
+                          ((u = this.getParams().getIntValue(
                             s.x1555775003072271354x
                           )),
                             (k = !0),
-                            this.addStat(s.x1841449871261570477x, 1);
+                            this.addStat(s.x1841449871261570477x, 1));
                           break;
                         case 2:
-                          (u = this.getParams().getIntValue(
+                          ((u = this.getParams().getIntValue(
                             s.x3211856558640467136x
                           )),
                             (k = !0),
-                            this.addStat(s.x3175268653252678831x, 1);
+                            this.addStat(s.x3175268653252678831x, 1));
                           break;
                         case 3:
-                          (u = this.getParams().getIntValue(
+                          ((u = this.getParams().getIntValue(
                             s.x2607622251728884855x
                           )),
                             (k = !0),
-                            this.addStat(s.x4396510559379433828x, 1);
+                            this.addStat(s.x4396510559379433828x, 1));
                       }
                       break;
                     case c.x1269951002635396876x:
@@ -27318,12 +27346,12 @@ System.register(
                           );
                           break;
                         case 1:
-                          (u = this.getParams().getIntValue(
+                          ((u = this.getParams().getIntValue(
                             s.x3835925266786884035x
                           )),
                             (k = !0),
                             this.addStat(s.x1841449871261570477x, 1),
-                            this.addStat(s.x3981477207620906896x, 1);
+                            this.addStat(s.x3981477207620906896x, 1));
                       }
                   }
                   if (this.mIsBackToBackChainActive && k) {
@@ -27401,7 +27429,8 @@ System.register(
                     this.addStat(s.x630303173075417599x, 1);
                   }
                 }
-                (S = u * this.getParams().getIntValue(s.x859823845901397002x)) >
+                ((S =
+                  u * this.getParams().getIntValue(s.x859823845901397002x)) >
                   0 &&
                   ((this.mScore += S),
                   this.mScoreEventMessageData.setBoolValue(
@@ -27489,15 +27518,15 @@ System.register(
                     (T > 0 &&
                       0 == this.mCurrentCascadeCount &&
                       this.mCurrentComboCount++,
-                    this.mCurrentCascadeCount++);
+                    this.mCurrentCascadeCount++));
               }),
               (n.x4554517263080478179x = function () {
-                null !== this.mScoreEventMessageData &&
+                (null !== this.mScoreEventMessageData &&
                   (this.mScoreEventMessageData.destroy(),
                   (this.mScoreEventMessageData = null)),
                   null !== this.mStats &&
                     (this.mStats.destroy(), (this.mStats = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (n.x1416011893951084930x = function (e, t, a) {
                 if (t == this.getPlayer())
@@ -27505,8 +27534,8 @@ System.register(
                     case o.x600761393005946187x:
                       switch (this.getPlayer().getCurrentState()) {
                         case o.x3436341186328857698x:
-                          (this.mTSpinType = c.x543886390795679903x),
-                            (this.mCurrentCascadeCount = 0);
+                          ((this.mTSpinType = c.x543886390795679903x),
+                            (this.mCurrentCascadeCount = 0));
                       }
                       break;
                     case o.x2365915268548176660x:
@@ -27977,7 +28006,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (n = t.createClass);
+          ((e = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -28035,9 +28064,9 @@ System.register(
               (l.x1889113821654134487x = function () {
                 var t = this.getPlayer().getComponent(o.x1107523589684864332x),
                   e = t.getScoreMultiplier();
-                (e += this.mMultiplierIncrement),
+                ((e += this.mMultiplierIncrement),
                   t.setScoreMultiplier(e),
-                  this.setCurrentState(i.x1636581458442852321x, 0);
+                  this.setCurrentState(i.x1636581458442852321x, 0));
               }),
               n(r, null, [
                 {
@@ -28080,7 +28109,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -28166,7 +28195,7 @@ System.register(
                     s.FXPTFromInt(i),
                     0
                   );
-                  this.mDirection == s.x1869465774161400874x && (c *= -1),
+                  (this.mDirection == s.x1869465774161400874x && (c *= -1),
                     this.mScratchMinosArray.removeAll(),
                     e.findMovableMinosInRect(
                       0,
@@ -28175,7 +28204,7 @@ System.register(
                       e.getHeight(),
                       this.mDirection,
                       this.mScratchMinosArray
-                    );
+                    ));
                   for (
                     var a = this.mScratchMinosArray.getNumObjects(), o = 0;
                     o < a;
@@ -28188,10 +28217,10 @@ System.register(
                 }
               }),
               (h.x4554517263080478179x = function () {
-                null !== this.mScratchMinosArray &&
+                (null !== this.mScratchMinosArray &&
                   (this.mScratchMinosArray.destroy(),
                   (this.mScratchMinosArray = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (h.x3379342321577288781x = function () {
                 var t = this.getPlayer(),
@@ -28222,7 +28251,7 @@ System.register(
                     this.mDirection = s.x1286431423943892959x;
                     break;
                   case r.x2062115519414145517x:
-                    this.mScratchMinosArray.removeAll(),
+                    (this.mScratchMinosArray.removeAll(),
                       t.findMovableMinosInRect(
                         0,
                         0,
@@ -28230,9 +28259,9 @@ System.register(
                         t.getHeight(),
                         s.x1286431423943892959x,
                         this.mScratchMinosArray
-                      );
+                      ));
                     var e = this.mScratchMinosArray.getNumObjects();
-                    this.mScratchMinosArray.removeAll(),
+                    (this.mScratchMinosArray.removeAll(),
                       t.findMovableMinosInRect(
                         0,
                         0,
@@ -28240,12 +28269,12 @@ System.register(
                         t.getHeight(),
                         s.x1869465774161400874x,
                         this.mScratchMinosArray
-                      );
+                      ));
                     var i = this.mScratchMinosArray.getNumObjects();
                     this.mDirection =
                       e > i ? s.x1286431423943892959x : s.x1869465774161400874x;
                 }
-                this.mScratchMinosArray.removeAll(),
+                (this.mScratchMinosArray.removeAll(),
                   t.getMinosInRect(
                     0,
                     0,
@@ -28258,14 +28287,14 @@ System.register(
                   (this.mStepTimerMSEC = this.getParams().getIntValue(
                     r.x2846801485089393872x
                   )),
-                  this.setCurrentState(n.x2374069116296912024x, 0);
+                  this.setCurrentState(n.x2374069116296912024x, 0));
               }),
               (h.x3202151272846750673x = function (e, i, r, a) {
                 switch (i) {
                   case n.x2374069116296912024x:
                     switch (e) {
                       case c.x1673908432382400910x:
-                        return this.processState_active(a), a;
+                        return (this.processState_active(a), a);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, i, r, a);
@@ -28340,7 +28369,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (r = t.createClass);
+          ((e = t.inheritsLoose), (r = t.createClass));
         },
         function (t) {
           i = t.cclegacy;
@@ -28398,13 +28427,13 @@ System.register(
                   var i = this.getActivationMatrixY(),
                     a = i + this.mCurrentStep,
                     c = i - this.mCurrentStep;
-                  0 == this.mCurrentStep
+                  (0 == this.mCurrentStep
                     ? this.shatterRow(i, 500)
                     : (this.mCurrentStep <= 100 && this.shatterRow(a, 500),
                       this.mCurrentStep <= 100 && this.shatterRow(c, 500)),
                     a < e.getHighestMinoY() || c > 0
                       ? this.mCurrentStep++
-                      : (this.mCurrentStep = s.x2221445971348164774x);
+                      : (this.mCurrentStep = s.x2221445971348164774x));
                 }
                 this.mCurrentStep >= r &&
                   (e.popDestabilize(),
@@ -28432,18 +28461,18 @@ System.register(
                 return !1;
               }),
               (o.x1889113821654134487x = function () {
-                (this.mCurrentStep = 0), (this.mStepTimerMSEC = 0);
+                ((this.mCurrentStep = 0), (this.mStepTimerMSEC = 0));
                 var t = this.getPlayer().getMatrix();
-                t.pushDestabilize(),
+                (t.pushDestabilize(),
                   t.pushMovementDisabled(),
-                  this.setCurrentState(n.x2374069116296912024x, 0);
+                  this.setCurrentState(n.x2374069116296912024x, 0));
               }),
               (o.x3202151272846750673x = function (e, r, i, s) {
                 switch (r) {
                   case n.x2374069116296912024x:
                     switch (e) {
                       case a.x1673908432382400910x:
-                        return this.processState_active(s), s;
+                        return (this.processState_active(s), s);
                     }
                 }
                 return t.prototype.x3202151272846750673x.call(this, e, r, i, s);
@@ -28489,7 +28518,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (n = t.createClass);
+          ((e = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           o = t.cclegacy;
@@ -28517,12 +28546,12 @@ System.register(
           "x2804776027545959727x",
           void 0
         );
-        (t(
+        ((t(
           "x2804776027545959727x",
           (function (t) {
             function o(e) {
               var n;
-              (n = t.call(this) || this),
+              ((n = t.call(this) || this),
                 i.verifyNativeAudioSupport(),
                 (n.mSoundMgrType = e),
                 (n.mIsEnabled = !0),
@@ -28530,20 +28559,20 @@ System.register(
                 (n.mSounds = new d(!1)),
                 (n.mSoundsVolumes = new d(!0)),
                 (n.mVolume = 1),
-                (n.mIsPaused = !1);
+                (n.mIsPaused = !1));
               try {
-                (n.mAudioContext = null),
+                ((n.mAudioContext = null),
                   (n.mGainNode = null),
                   u.isBrowserIE() ||
                     (i.verifyNativeAudioSupport() &&
                       ((n.mAudioContext = o.getAvailableAudioContext()),
                       (n.mGainNode = n.mAudioContext.createGain()),
                       n.mGainNode.connect(n.mAudioContext.destination),
-                      n.mAudioContext.resume()));
+                      n.mAudioContext.resume())));
               } catch (t) {}
               return n;
             }
-            e(o, t),
+            (e(o, t),
               (o.createAudioContexts = function (t) {
                 try {
                   if (!i.verifyNativeAudioSupport()) return;
@@ -28552,16 +28581,15 @@ System.register(
                       window.AudioContext =
                         window.AudioContext || window.webkitAudioContext;
                     t-- > 0;
-
                   ) {
                     var e = new AudioContext(),
                       n = e.createBuffer(1, 1, 22050),
                       s = e.createBufferSource();
-                    (s.buffer = n),
+                    ((s.buffer = n),
                       s.connect(e.destination),
                       s.start(0),
                       o.sAllAudioContexts.push(e),
-                      o.recycleAvailableAudioContext(e);
+                      o.recycleAvailableAudioContext(e));
                   }
                 } catch (t) {}
               }),
@@ -28590,14 +28618,14 @@ System.register(
               (o.recycleAvailableAudioContext = function (t) {
                 if (null != t)
                   try {
-                    null == o.sAvailableAudioContexts &&
+                    (null == o.sAvailableAudioContexts &&
                       (o.sAvailableAudioContexts = []),
-                      o.sAvailableAudioContexts.push(t);
+                      o.sAvailableAudioContexts.push(t));
                   } catch (t) {}
               }),
               (o.setIsSoundPlaybackEnabled = function (t) {
                 o.sIsSoundPlaybackEnabled = t;
-              });
+              }));
             var s = o.prototype;
             return (
               (s.getIsEnabled = function () {
@@ -28630,7 +28658,7 @@ System.register(
                 }
               }),
               (s.addSound = function (t, e, n) {
-                this.mSounds.setObjectValue(t, e), this.setSoundVolume(t, n);
+                (this.mSounds.setObjectValue(t, e), this.setSoundVolume(t, n));
               }),
               (s.getSoundIdAtIndex = function (t) {
                 return this.mSounds.getValueKeyAtIndex(t);
@@ -28665,7 +28693,7 @@ System.register(
                             i = !1;
                             break;
                           case o.x3852019075326168120x:
-                            this.stopAllSounds(), (i = !0);
+                            (this.stopAllSounds(), (i = !0));
                         }
                         try {
                           if (!u.isBrowserIE()) {
@@ -28678,10 +28706,10 @@ System.register(
                                 d.connect(this.mGainNode))
                               : (d = this.mGainNode);
                             var a = this.mAudioContext.createBufferSource();
-                            a.connect(d),
+                            (a.connect(d),
                               (a.buffer = s),
                               (a.loop = i),
-                              a.start(0);
+                              a.start(0));
                           }
                         } catch (t) {}
                         e.setDidPlay(!0);
@@ -28722,10 +28750,10 @@ System.register(
                 try {
                   if (!u.isBrowserIE()) {
                     if (!this.mAudioContext) return;
-                    this.mGainNode.disconnect(),
+                    (this.mGainNode.disconnect(),
                       (this.mGainNode = this.mAudioContext.createGain()),
                       this.mGainNode.connect(this.mAudioContext.destination),
-                      (this.mGainNode.gain.value = this.mVolume);
+                      (this.mGainNode.gain.value = this.mVolume));
                   }
                 } catch (t) {}
               }),
@@ -28743,14 +28771,14 @@ System.register(
                 this.mSoundsVolumes.setFloatValue(t, e);
               }),
               (s.x4554517263080478179x = function () {
-                this.stopAllSounds(),
+                (this.stopAllSounds(),
                   null !== this.mSounds &&
                     (this.mSounds.destroy(), (this.mSounds = null)),
                   null !== this.mSoundsVolumes &&
                     (this.mSoundsVolumes.destroy(),
                     (this.mSoundsVolumes = null)),
                   o.recycleAvailableAudioContext(this.mAudioContext),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               n(o, null, [
                 {
@@ -28770,7 +28798,7 @@ System.register(
             );
           })(s)
         ).sIsSoundPlaybackEnabled = !0),
-          o._RF.pop();
+          o._RF.pop());
       },
     };
   }
@@ -28790,7 +28818,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (i = e.createClass);
+          ((t = e.inheritsLoose), (i = e.createClass));
         },
         function (e) {
           r = e.cclegacy;
@@ -28827,11 +28855,11 @@ System.register(
                 i
               );
             }
-            t(r, e),
+            (t(r, e),
               (r.createWithParams = function (e, t, i) {
                 var S = new r(null);
-                return S.setParams(e, t, i), S;
-              });
+                return (S.setParams(e, t, i), S);
+              }));
             var S = r.prototype;
             return (
               (S.setNativeSpriteFrame = function (e) {
@@ -28861,9 +28889,9 @@ System.register(
                   ));
               }),
               (S.x4554517263080478179x = function () {
-                (this.mNativeSprite = null),
+                ((this.mNativeSprite = null),
                   (this.mNativeSpriteFrame = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (S.x249024884402456004x = function (e, t) {
                 var i = e.getDictionary(r.x671354840402065806x);
@@ -28874,7 +28902,7 @@ System.register(
                       s = t.getNativeSpriteFrame(S, a);
                     this.setNativeSpriteFrame(s);
                   }
-                  this.setSize(
+                  (this.setSize(
                     i.getIntValueWithDefault(
                       r.x3411570132163610033x,
                       this.mSizeX
@@ -28887,7 +28915,7 @@ System.register(
                     this.x3598940726712219325x(
                       this.getScaleX(),
                       this.getScaleY()
-                    );
+                    ));
                 }
               }),
               (S.x1417452895033663399x = function () {
@@ -28975,7 +29003,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (a = e.createClass);
+          ((t = e.inheritsLoose), (a = e.createClass));
         },
         function (e) {
           r = e.cclegacy;
@@ -29036,10 +29064,10 @@ System.register(
                 t && this.setStatusComplete();
               }),
               (n.x4554517263080478179x = function () {
-                (this.mPlayer = null),
+                ((this.mPlayer = null),
                   (this.mLevelsComponent = null),
                   (this.mScoreComponent = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (n.x4561216876940193997x = function (e) {
                 var t = e.getDictionary(r.x4142876067344013701x);
@@ -29280,7 +29308,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (a = e.createClass);
+          ((t = e.inheritsLoose), (a = e.createClass));
         },
         function (e) {
           n = e.cclegacy;
@@ -29354,24 +29382,24 @@ System.register(
               (r.enterBreak = function () {
                 switch (this.getCurrentState()) {
                   case n.x420418942975315438x:
-                    this.setNextState(n.x3995960343432768768x, !1),
-                      this.processTime(0);
+                    (this.setNextState(n.x3995960343432768768x, !1),
+                      this.processTime(0));
                 }
               }),
               (r.pauseGame = function () {
                 switch (this.getCurrentState()) {
                   case n.x420418942975315438x:
                   case n.x2652834353956943894x:
-                    this.setNextState(n.x1155840784209584219x, !1),
-                      this.processTime(0);
+                    (this.setNextState(n.x1155840784209584219x, !1),
+                      this.processTime(0));
                 }
               }),
               (r.resumeGame = function () {
                 switch (this.getCurrentState()) {
                   case n.x3995960343432768768x:
                   case n.x1155840784209584219x:
-                    this.setNextState(n.x2652834353956943894x, !1),
-                      this.processTime(0);
+                    (this.setNextState(n.x2652834353956943894x, !1),
+                      this.processTime(0));
                 }
               }),
               (r.togglePauseGame = function () {
@@ -29389,8 +29417,8 @@ System.register(
                 if (!this.isGameEnded()) {
                   for (var e = this.getNumPlayers(), t = 0; t < e; t++) {
                     var a = this.getPlayerAtIndex(t);
-                    a.tryEndGame(i.x766778045210268997x, !1, !1, !1),
-                      a.processTime(0);
+                    (a.tryEndGame(i.x766778045210268997x, !1, !1, !1),
+                      a.processTime(0));
                   }
                   this.processTime(0);
                 }
@@ -29469,10 +29497,11 @@ System.register(
                       case n.x420418942975315438x:
                         var m = !0;
                         for (o = 0; o < i; o++)
-                          (u = this.getPlayerAtIndex(o)).processTime(r),
-                            u.isGameEnded() || (m = !1);
+                          ((u = this.getPlayerAtIndex(o)).processTime(r),
+                            u.isGameEnded() || (m = !1));
                         return (
-                          m && this.setNextState(n.x1278546682371783331x, !1), r
+                          m && this.setNextState(n.x1278546682371783331x, !1),
+                          r
                         );
                       case n.x1133555388324591903x:
                         var c = !0;
@@ -29486,7 +29515,7 @@ System.register(
                           o < i;
                           o++
                         )
-                          (u = this.getPlayerAtIndex(o)),
+                          ((u = this.getPlayerAtIndex(o)),
                             this.getParams().getBoolValue(
                               n.x4308374961886543340x
                             ) &&
@@ -29505,15 +29534,17 @@ System.register(
                                 (u.isReadyToStartGame() ||
                                   u.isAIControlled() ||
                                   u.setIsAIControlled())),
-                            u.isReadyToStartGame() || (c = !1);
+                            u.isReadyToStartGame() || (c = !1));
                         return (
-                          c && this.setNextState(n.x42941776668880805x, !1), r
+                          c && this.setNextState(n.x42941776668880805x, !1),
+                          r
                         );
                       case n.x42941776668880805x:
                         for (o = 0; o < i; o++)
                           this.getPlayerAtIndex(o).preStartGame();
                         return (
-                          this.setNextState(n.x2652834353956943894x, !1), r
+                          this.setNextState(n.x2652834353956943894x, !1),
+                          r
                         );
                       case n.x2652834353956943894x:
                         if (
@@ -29758,7 +29789,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (a = e.createClass);
+          ((t = e.inheritsLoose), (a = e.createClass));
         },
         function (e) {
           i = e.cclegacy;
@@ -29848,7 +29879,7 @@ System.register(
           (function (e) {
             function i(t, a, n, s) {
               var o;
-              (o = e.call(this, t, a, n) || this),
+              ((o = e.call(this, t, a, n) || this),
                 i.setDefaultParams(o.getParams()),
                 o.getParams().copy(s, !1),
                 (o.mAvatarIndex = o
@@ -29892,7 +29923,7 @@ System.register(
                 (o.mRemainingTimeMSEC = 0),
                 (o.mEnableEndGameOnTopoutDelaySEC = o
                   .getParams()
-                  .getIntValueWithDefault(i.x1358525404184657897x, 0));
+                  .getIntValueWithDefault(i.x1358525404184657897x, 0)));
               var P = o.getParams().getIntValue(i.x1536653868556239332x);
               return (
                 0 == P && (P = m.nextNativeRandomInt()),
@@ -29901,13 +29932,13 @@ System.register(
                 o
               );
             }
-            t(i, e),
+            (t(i, e),
               (i.createDefaultParams = function () {
                 var e = new r(!0);
-                return i.setDefaultParams(e), e;
+                return (i.setDefaultParams(e), e);
               }),
               (i.setDefaultParams = function (e) {
-                e.setIntValue(i.x2494556568886066695x, 0),
+                (e.setIntValue(i.x2494556568886066695x, 0),
                   e.setIntValue(i.x2928336463536844084x, 10),
                   e.setIntValue(i.x3590248665576947386x, 20),
                   e.setIntValue(i.x1010924348632414287x, 4),
@@ -29941,7 +29972,7 @@ System.register(
                   e.setBoolValue(i.x746549925759413264x, !1),
                   e.setBoolValue(i.x710468581219621267x, !0),
                   e.setIntValue(i.x1223074404472250426x, 500),
-                  e.setIntValue(i.x2851402737798122131x, 5);
+                  e.setIntValue(i.x2851402737798122131x, 5));
               }),
               (i.getStateName = function (e) {
                 switch (e) {
@@ -29974,7 +30005,7 @@ System.register(
                   default:
                     return m.stringFromInt(e, 1, !1);
                 }
-              });
+              }));
             var n = i.prototype;
             return (
               (n.getAvatarIndex = function () {
@@ -30043,8 +30074,8 @@ System.register(
                       default:
                         r = !1;
                     }
-                  r && n && (r = this.askComponentsIfPlayerCanEndGame(e)),
-                    r && this.setNextState(i.x496887159809826177x, !1);
+                  (r && n && (r = this.askComponentsIfPlayerCanEndGame(e)),
+                    r && this.setNextState(i.x496887159809826177x, !1));
                 }
               }),
               (n.isGameEnded = function () {
@@ -30072,28 +30103,28 @@ System.register(
                   .setActiveInputType(l.x3312105805643454553x);
               }),
               (n.constructMatrix = function (e, t, a) {
-                null !== this.mMatrix &&
+                (null !== this.mMatrix &&
                   (this.mMatrix.destroy(), (this.mMatrix = null)),
                   this.getParams().setIntValue(i.x2928336463536844084x, e),
                   this.getParams().setIntValue(i.x3590248665576947386x, t),
-                  this.getParams().setIntValue(i.x1010924348632414287x, a);
+                  this.getParams().setIntValue(i.x1010924348632414287x, a));
                 var n = t + a;
-                (this.mMatrix = new d(e, n, t, this.getPlayerIndex())),
+                ((this.mMatrix = new d(e, n, t, this.getPlayerIndex())),
                   this.mMatrix.setIsGravityLimited(
                     this.getParams().getBoolValue(i.x300785657768934336x)
                   ),
-                  this.setMatrixGravityTimeValues();
+                  this.setMatrixGravityTimeValues());
                 var r = new y(0, 0, e, 1);
                 this.setMatrixMinoMatchPattern(r);
                 var s = new y(0, 0, 1, n);
-                this.setMatrixMinoMatchSearchPattern(s),
+                (this.setMatrixMinoMatchSearchPattern(s),
                   this.mMatrixMinoPatternMatches.reserveCapacity(n),
                   null !== this.mMatrixMinoPatternMatchesPool &&
                     (this.mMatrixMinoPatternMatchesPool.destroy(),
                     (this.mMatrixMinoPatternMatchesPool = null)),
                   (this.mMatrixMinoPatternMatchesPool = new o(n, e)),
                   this.mMatrix.addMessageListener(this),
-                  this.dispatchMessage(i.x2750245097828587380x, this, null);
+                  this.dispatchMessage(i.x2750245097828587380x, this, null));
               }),
               (n.getMatrix = function () {
                 return this.mMatrix;
@@ -30114,28 +30145,28 @@ System.register(
                 return this.mPieceFactory;
               }),
               (n.setPieceFactory = function (e) {
-                null !== this.mPieceFactory &&
+                (null !== this.mPieceFactory &&
                   (this.mPieceFactory.destroy(), (this.mPieceFactory = null)),
                   (this.mPieceFactory = e),
                   this.mPieceSequenceGenerator &&
-                    this.mPieceSequenceGenerator.setPieceFactory(e);
+                    this.mPieceSequenceGenerator.setPieceFactory(e));
               }),
               (n.getPieceSequenceGenerator = function () {
                 return this.mPieceSequenceGenerator;
               }),
               (n.setPieceSequenceGenerator = function (e) {
-                null !== this.mPieceSequenceGenerator &&
+                (null !== this.mPieceSequenceGenerator &&
                   (this.mPieceSequenceGenerator.destroy(),
                   (this.mPieceSequenceGenerator = null)),
-                  (this.mPieceSequenceGenerator = e);
+                  (this.mPieceSequenceGenerator = e));
               }),
               (n.getPieceQueue = function () {
                 return this.mPieceQueue;
               }),
               (n.setPieceQueue = function (e) {
-                null !== this.mPieceQueue &&
+                (null !== this.mPieceQueue &&
                   (this.mPieceQueue.destroy(), (this.mPieceQueue = null)),
-                  (this.mPieceQueue = e);
+                  (this.mPieceQueue = e));
               }),
               (n.getIncomingPiece = function () {
                 return this.mIncomingPiece;
@@ -30191,7 +30222,7 @@ System.register(
                   var e = this.mMatrix.isPieceFullyOutsideVisibleMatrix(
                     this.mLivePiece
                   );
-                  (this.mLockedPieceTypeId = this.mLivePiece.getPieceTypeId()),
+                  ((this.mLockedPieceTypeId = this.mLivePiece.getPieceTypeId()),
                     (this.mLockedPieceMinX = this.mLivePiece.getMinMinoX()),
                     (this.mLockedPieceMaxX = this.mLivePiece.getMaxMinoX()),
                     (this.mLockedPieceMinY = this.mLivePiece.getMinMinoY()),
@@ -30217,7 +30248,7 @@ System.register(
                       ),
                       this.getParams().getBoolValue(i.x710468581219621267x)
                         ? this.tryEndGame(i.x4132889727165052484x, !1, !1, !1)
-                        : this.doTopoutMatrixClear());
+                        : this.doTopoutMatrixClear()));
                 }
               }),
               (n.getLockedPieceCenterX = function () {
@@ -30247,7 +30278,7 @@ System.register(
                 return e ? e.getPieceTypeId() : 0;
               }),
               (n.performHoldAction = function () {
-                (this.mIncomingPiece = this.mHoldPiece),
+                ((this.mIncomingPiece = this.mHoldPiece),
                   (this.mHoldPiece = this.mLivePiece),
                   (this.mLivePiece = null),
                   this.mHoldPiece &&
@@ -30259,7 +30290,7 @@ System.register(
                     this.mHoldPiece.setMinosLogicalState(
                       u.x1782401791862926648x
                     )),
-                  (this.mDidHoldLivePiece = !0);
+                  (this.mDidHoldLivePiece = !0));
               }),
               (n.didHoldLivePiece = function () {
                 return this.mDidHoldLivePiece;
@@ -30268,19 +30299,19 @@ System.register(
                 return this.mMatrixMinoMatchPattern;
               }),
               (n.setMatrixMinoMatchPattern = function (e) {
-                null !== this.mMatrixMinoMatchPattern &&
+                (null !== this.mMatrixMinoMatchPattern &&
                   (this.mMatrixMinoMatchPattern.destroy(),
                   (this.mMatrixMinoMatchPattern = null)),
-                  (this.mMatrixMinoMatchPattern = e);
+                  (this.mMatrixMinoMatchPattern = e));
               }),
               (n.getMatrixMinoMatchSearchPattern = function () {
                 return this.mMatrixMinoMatchSearchPattern;
               }),
               (n.setMatrixMinoMatchSearchPattern = function (e) {
-                null !== this.mMatrixMinoMatchSearchPattern &&
+                (null !== this.mMatrixMinoMatchSearchPattern &&
                   (this.mMatrixMinoMatchSearchPattern.destroy(),
                   (this.mMatrixMinoMatchSearchPattern = null)),
-                  (this.mMatrixMinoMatchSearchPattern = e);
+                  (this.mMatrixMinoMatchSearchPattern = e));
               }),
               (n.getNumMatrixMinoPatternMatchesForPiece = function () {
                 return this.mNumMatrixMinoPatternMatchesForPiece;
@@ -30297,7 +30328,7 @@ System.register(
               (n.addRemainingTimeMSEC = function (e) {
                 if (this.isGameActive()) {
                   var t = this.mRemainingTimeMSEC;
-                  this.setRemainingTimeMSEC(
+                  (this.setRemainingTimeMSEC(
                     m.clampInt(
                       this.mRemainingTimeMSEC + e,
                       0,
@@ -30316,7 +30347,7 @@ System.register(
                     ),
                     t <= 0 &&
                       this.mRemainingTimeMSEC > 0 &&
-                      this.dispatchMessage(i.x358215251400151046x, this, null);
+                      this.dispatchMessage(i.x358215251400151046x, this, null));
                 }
               }),
               (n.getRemainingTimeSEC = function () {
@@ -30338,7 +30369,7 @@ System.register(
                 return !1;
               }),
               (n.setMatrixGravityTimeValues = function () {
-                this.mMatrix.setGravityMSECPerLineMax(
+                (this.mMatrix.setGravityMSECPerLineMax(
                   this.getCascadeScaledTimeMSEC(
                     this.getParams().getIntValue(i.x159759007568619358x)
                   )
@@ -30352,7 +30383,7 @@ System.register(
                     this.getCascadeScaledTimeMSEC(
                       this.getParams().getIntValue(i.x532914098833247744x)
                     )
-                  );
+                  ));
               }),
               (n.getGenerationFacing = function () {
                 return m.getFacingForName(
@@ -30360,14 +30391,14 @@ System.register(
                 );
               }),
               (n.createGhostPiece = function () {
-                this.mGhostPiece &&
+                (this.mGhostPiece &&
                   null !== this.mGhostPiece &&
                   (this.mGhostPiece.destroy(), (this.mGhostPiece = null)),
                   this.mLivePiece &&
                     ((this.mGhostPiece = this.mLivePiece.createCopy()),
                     this.mGhostPiece.setMinosLogicalState(
                       u.x1926049909819204674x
-                    ));
+                    )));
               }),
               (n.doTopoutMatrixClear = function () {
                 for (
@@ -30386,8 +30417,8 @@ System.register(
                     );
               }),
               (n.setNumCascadesForPieceCycle = function (e) {
-                (this.mNumCascadesForPieceCycle = e),
-                  (this.mCurrentCascadeScaleFXPT = m.x3866479767085181449x);
+                ((this.mNumCascadesForPieceCycle = e),
+                  (this.mCurrentCascadeScaleFXPT = m.x3866479767085181449x));
                 var t = this.getParams().getIntValue(i.x3661901011424947424x);
                 if (t != m.x3866479767085181449x)
                   for (
@@ -30395,15 +30426,14 @@ System.register(
                       i.x1807695599340414080x
                     );
                     e > 1 && this.mCurrentCascadeScaleFXPT > a;
-
                   )
-                    (this.mCurrentCascadeScaleFXPT = m.FXPTMultiply(
+                    ((this.mCurrentCascadeScaleFXPT = m.FXPTMultiply(
                       this.mCurrentCascadeScaleFXPT,
                       t
                     )),
                       this.mCurrentCascadeScaleFXPT < a &&
                         (this.mCurrentCascadeScaleFXPT = a),
-                      e--;
+                      e--);
                 this.setMatrixGravityTimeValues();
               }),
               (n.getCascadeScaledTimeMSEC = function (e) {
@@ -30424,7 +30454,7 @@ System.register(
                     (this.mDidCompleteGameSuccessfully = !1));
                   var t = ~~((this.mRemainingTimeMSEC + 999) / 1e3),
                     a = ~~((e + 999) / 1e3);
-                  (this.mRemainingTimeMSEC = e),
+                  ((this.mRemainingTimeMSEC = e),
                     a < t
                       ? this.dispatchMessage(
                           i.x4101073343859799816x,
@@ -30438,7 +30468,11 @@ System.register(
                           null
                         ),
                     0 == this.mRemainingTimeMSEC &&
-                      this.dispatchMessage(i.x3940275695043556944x, this, null);
+                      this.dispatchMessage(
+                        i.x3940275695043556944x,
+                        this,
+                        null
+                      ));
                 }
               }),
               (n.isRemainingTimeExpired = function () {
@@ -30447,7 +30481,7 @@ System.register(
                 );
               }),
               (n.x4554517263080478179x = function () {
-                null !== this.x3558445589553348151x &&
+                (null !== this.x3558445589553348151x &&
                   (this.x3558445589553348151x.destroy(),
                   (this.x3558445589553348151x = null)),
                   null !== this.mMatrix &&
@@ -30481,7 +30515,7 @@ System.register(
                   null !== this.mMatrixMinoPatternMatchesPool &&
                     (this.mMatrixMinoPatternMatchesPool.destroy(),
                     (this.mMatrixMinoPatternMatchesPool = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (n.x3308100843256410702x = function () {
                 var e = this.getMatrixWidth(),
@@ -30495,9 +30529,9 @@ System.register(
                     t,
                     this.getParams().getIntValue(i.x1826620858808843750x)
                   );
-                r.setPieceData(s), this.setPieceFactory(r);
+                (r.setPieceData(s), this.setPieceFactory(r));
                 var c = new h();
-                c.setPieceFactory(r),
+                (c.setPieceFactory(r),
                   c.setRNGSeed(
                     this.getParams().getIntValue(i.x1536653868556239332x)
                   ),
@@ -30507,13 +30541,13 @@ System.register(
                   c.setRefillMultiplier(
                     this.getParams().getIntValue(i.x64416028509423590x)
                   ),
-                  this.setPieceSequenceGenerator(c);
+                  this.setPieceSequenceGenerator(c));
                 var o = new M(this.getGenerationFacing());
-                o.setPieceSequenceGenerator(c),
+                (o.setPieceSequenceGenerator(c),
                   o.setCapacity(
                     this.getParams().getIntValue(i.x109979160473605982x)
                   ),
-                  this.setPieceQueue(o);
+                  this.setPieceQueue(o));
               }),
               (n.x3662799518264508775x = function (e, t) {
                 switch (e) {
@@ -30556,20 +30590,20 @@ System.register(
                       a)
                     ) {
                       case i.x3714414514113802630x:
-                        this.dispatchMessage(
+                        (this.dispatchMessage(
                           i.x1538063460101289304x,
                           this,
                           null
                         ),
                           this.resetTotalElapsedTimeMSEC(),
-                          this.setNextState(i.x3436341186328857698x, !1);
+                          this.setNextState(i.x3436341186328857698x, !1));
                         break;
                       case i.x3436341186328857698x:
-                        (this.mDidLivePieceExistForPieceCycle = !1),
+                        ((this.mDidLivePieceExistForPieceCycle = !1),
                           (this.mDidHoldLivePiece = !1),
                           (this.mNumProcessStableMatrixForPiece = 0),
                           (this.mNumMatrixMinoPatternMatchesForPiece = 0),
-                          this.setNumCascadesForPieceCycle(0);
+                          this.setNumCascadesForPieceCycle(0));
                         break;
                       case i.x1401301049358678740x:
                         this.mMatrix.isStable()
@@ -30577,12 +30611,12 @@ System.register(
                           : this.setNextState(i.x1829739581084524425x, !1);
                         break;
                       case i.x2297929665914852465x:
-                        this.mDidLivePieceExistForPieceCycle &&
+                        (this.mDidLivePieceExistForPieceCycle &&
                           this.mNumProcessStableMatrixForPiece++,
                           this.mMatrixMinoPatternMatchesPool.recycleObjectsInArray(
                             this.mMatrixMinoPatternMatches,
                             !0
-                          );
+                          ));
                         var c = this.mMatrix.findMinoPatternMatches(
                             this.mMatrixMinoMatchPattern,
                             this.mMatrixMinoMatchSearchPattern,
@@ -30592,7 +30626,7 @@ System.register(
                           o = 0,
                           m = 0,
                           P = this.mNumCascadesForPieceCycle;
-                        c > 0 &&
+                        (c > 0 &&
                           (this.setNumCascadesForPieceCycle(
                             this.mNumCascadesForPieceCycle + 1
                           ),
@@ -30672,7 +30706,7 @@ System.register(
                           ),
                           this.mMatrix.isStable()
                             ? this.setNextState(i.x1488568539032977387x, !1)
-                            : this.setNextState(i.x1829739581084524425x, !1);
+                            : this.setNextState(i.x1829739581084524425x, !1));
                         break;
                       case i.x1829739581084524425x:
                         this.mMatrix.isStable()
@@ -30758,9 +30792,8 @@ System.register(
                                     ),
                                   k = y;
                                 !S && k <= g;
-
                               )
-                                this.mIncomingPiece.setTransform(
+                                (this.mIncomingPiece.setTransform(
                                   M,
                                   k,
                                   this.getGenerationFacing()
@@ -30768,7 +30801,7 @@ System.register(
                                   (S = this.mMatrix.canInsertPiece(
                                     this.mIncomingPiece
                                   )),
-                                  k++;
+                                  k++);
                               S
                                 ? ((this.mLivePiece = this.mIncomingPiece),
                                   (this.mIncomingPiece = null),
@@ -31485,13 +31518,13 @@ System.register(
                 return this.mCurrentStateElapsedTimeMSEC;
               }),
               (a.setCurrentState = function (t, e) {
-                this.setNextState(t, !1), this.processTime(e);
+                (this.setNextState(t, !1), this.processTime(e));
               }),
               (a.getNextState = function () {
                 return this.mNextState;
               }),
               (a.setNextState = function (t, e) {
-                (this.mNextState = t), (this.mYieldForNextState = e);
+                ((this.mNextState = t), (this.mYieldForNextState = e));
               }),
               (a.getPreviousState = function () {
                 return this.mPreviousState;
@@ -31521,9 +31554,8 @@ System.register(
                     this.mTotalElapsedTimeMSEC += i,
                     this.mAvailableDeltaTimeMSEC -= i;
                   0 != this.mNextState && !this.mYieldForNextState;
-
                 )
-                  (this.mNextState = this.x3202151272846750673x(
+                  ((this.mNextState = this.x3202151272846750673x(
                     s.x3896242750341937348x,
                     this.mNextState,
                     this.mCurrentStateElapsedTimeMSEC,
@@ -31555,7 +31587,7 @@ System.register(
                         this.mCurrentState,
                         0,
                         0
-                      ));
+                      )));
                 this.mYieldForNextState = !1;
               }),
               (a.getTotalElapsedTimeMSEC = function () {
@@ -31577,8 +31609,8 @@ System.register(
                 }
               }),
               (a.x4554517263080478179x = function () {
-                (this.mDelegate = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                ((this.mDelegate = null),
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               i
             );
@@ -31605,7 +31637,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           a = t.cclegacy;
@@ -31676,35 +31708,35 @@ System.register(
                 return t < e ? this.mStatesStack[e - 1 - t] : -1;
               }),
               (n.setState = function (t) {
-                (this.mPendingAction = a.x3316337190100186556x),
-                  (this.mPendingState = t);
+                ((this.mPendingAction = a.x3316337190100186556x),
+                  (this.mPendingState = t));
               }),
               (n.incrementState = function () {
                 this.setState(this.getCurrentState() + 1);
               }),
               (n.swapState = function (t) {
-                (this.mPendingAction = a.x1351460682900433797x),
-                  (this.mPendingState = t);
+                ((this.mPendingAction = a.x1351460682900433797x),
+                  (this.mPendingState = t));
               }),
               (n.pushState = function (t) {
-                (this.mPendingAction = a.x2666939120679132158x),
-                  (this.mPendingState = t);
+                ((this.mPendingAction = a.x2666939120679132158x),
+                  (this.mPendingState = t));
               }),
               (n.popState = function () {
                 this.popStates(1);
               }),
               (n.popStates = function (t) {
-                (this.mPendingAction = a.x304660970270541863x),
+                ((this.mPendingAction = a.x304660970270541863x),
                   (this.mPendingNumPops = t),
-                  (this.mPendingState = -1);
+                  (this.mPendingState = -1));
               }),
               (n.popToStateThenSwapState = function (t, e) {
-                (this.mPendingAction = a.x2147843661672850015x),
+                ((this.mPendingAction = a.x2147843661672850015x),
                   (this.mPendingNumPops = this.getNumPopsToState(t)),
-                  (this.mPendingState = e);
+                  (this.mPendingState = e));
               }),
               (n.setStateImmediate = function (t) {
-                this.setState(t), this.processTime(0);
+                (this.setState(t), this.processTime(0));
               }),
               (n.processTime = function (t) {
                 this.mAvailableDeltaTimeMSEC += t;
@@ -31716,7 +31748,7 @@ System.register(
                       : this.mAvailableDeltaTimeMSEC;
                   var i = 0,
                     n = this.getCurrentState();
-                  (i =
+                  ((i =
                     n >= 0 && this.mPendingAction == a.x431241337027408625x
                       ? S.minInt(
                           this.x2874237042431988709x(
@@ -31730,7 +31762,7 @@ System.register(
                       : e),
                     (this.mCurrentStateElapsedTimeMSEC += i),
                     (this.mTotalElapsedTimeMSEC += i),
-                    (this.mAvailableDeltaTimeMSEC -= i);
+                    (this.mAvailableDeltaTimeMSEC -= i));
                 }
                 this.processPendingAction();
               }),
@@ -31767,9 +31799,8 @@ System.register(
                 for (
                   this.mPendingState = -1, this.mPreviousState = t;
                   this.mStatesStack.length > 0;
-
                 )
-                  (t = this.getCurrentState()),
+                  ((t = this.getCurrentState()),
                     this.x2874237042431988709x(
                       s.x3293153264341002567x,
                       t,
@@ -31779,15 +31810,20 @@ System.register(
                     this.mStatesStack.pop(),
                     (this.mCurrentStateElapsedTimeMSEC = 0),
                     (t = this.getCurrentState()),
-                    this.x2874237042431988709x(s.x456834656653288185x, t, 0, 0);
-                (this.mCurrentStateElapsedTimeMSEC = 0),
+                    this.x2874237042431988709x(
+                      s.x456834656653288185x,
+                      t,
+                      0,
+                      0
+                    ));
+                ((this.mCurrentStateElapsedTimeMSEC = 0),
                   this.mStatesStack.push(e),
-                  this.x2874237042431988709x(s.x121795124178233464x, e, 0, 0);
+                  this.x2874237042431988709x(s.x121795124178233464x, e, 0, 0));
               }),
               (n.processPushState = function () {
                 var t = this.getCurrentState(),
                   e = this.mPendingState;
-                (this.mPendingState = -1),
+                ((this.mPendingState = -1),
                   (this.mPreviousState = t),
                   this.x2874237042431988709x(
                     s.x227620873720349767x,
@@ -31797,13 +31833,13 @@ System.register(
                   ),
                   (this.mCurrentStateElapsedTimeMSEC = 0),
                   this.mStatesStack.push(e),
-                  this.x2874237042431988709x(s.x121795124178233464x, e, 0, 0);
+                  this.x2874237042431988709x(s.x121795124178233464x, e, 0, 0));
               }),
               (n.processPopStates = function () {
                 for (; this.mPendingNumPops > 0; ) {
                   this.mPendingNumPops--;
                   var t = this.getCurrentState();
-                  (this.mPendingState = -1),
+                  ((this.mPendingState = -1),
                     (this.mPreviousState = t),
                     this.x2874237042431988709x(
                       s.x3293153264341002567x,
@@ -31814,25 +31850,30 @@ System.register(
                     this.mStatesStack.pop(),
                     (this.mCurrentStateElapsedTimeMSEC = 0),
                     (t = this.getCurrentState()),
-                    this.x2874237042431988709x(s.x456834656653288185x, t, 0, 0);
+                    this.x2874237042431988709x(
+                      s.x456834656653288185x,
+                      t,
+                      0,
+                      0
+                    ));
                 }
               }),
               (n.processSwapState = function () {
                 var t = this.getCurrentState(),
                   e = this.mPendingState;
-                (this.mPendingState = -1),
+                ((this.mPendingState = -1),
                   (this.mPreviousState = t),
                   this.x2874237042431988709x(s.x3293153264341002567x, t, 0, 0),
                   this.mStatesStack.pop(),
                   (this.mCurrentStateElapsedTimeMSEC = 0),
                   this.mStatesStack.push(e),
-                  this.x2874237042431988709x(s.x121795124178233464x, e, 0, 0);
+                  this.x2874237042431988709x(s.x121795124178233464x, e, 0, 0));
               }),
               (n.processPopToStateThenSwapState = function () {
                 var t = this.mPendingState;
-                this.processPopStates(),
+                (this.processPopStates(),
                   (this.mPendingState = t),
-                  this.processSwapState();
+                  this.processSwapState());
               }),
               (n.x2874237042431988709x = function (t, e, i, a) {
                 if (this.mDelegate)
@@ -31847,8 +31888,8 @@ System.register(
                 }
               }),
               (n.x4554517263080478179x = function () {
-                (this.mDelegate = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                ((this.mDelegate = null),
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               i(a, null, [
                 {
@@ -31918,7 +31959,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (i = t.inheritsLoose), (n = t.createClass);
+          ((i = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -31937,7 +31978,7 @@ System.register(
           "x4432131895724403759x",
           void 0
         );
-        (t(
+        ((t(
           "x4432131895724403759x",
           (function (t) {
             function r(i, n) {
@@ -31954,7 +31995,7 @@ System.register(
                 r
               );
             }
-            i(r, t),
+            (i(r, t),
               (r.doStaticInit = function () {
                 r.sStringBuilder ||
                   (r.sStringBuilder = new s(r.x4459597719103463902x));
@@ -31962,7 +32003,7 @@ System.register(
               (r.doStaticDestroy = function () {
                 null !== r.sStringBuilder &&
                   (r.sStringBuilder.destroy(), (r.sStringBuilder = null));
-              });
+              }));
             var e = r.prototype;
             return (
               (e.ensureMaxIndex = function (t) {
@@ -31993,28 +32034,28 @@ System.register(
                 return this.mDefaultString;
               }),
               (e.setString = function (t, i) {
-                this.ensureMaxIndex(t), (this.mStrings[t] = i);
+                (this.ensureMaxIndex(t), (this.mStrings[t] = i));
               }),
               (e.addStrings = function (t, i, n, e, s) {
                 var u = this.mNumStrings;
-                this.ensureMaxIndex(s),
+                (this.ensureMaxIndex(s),
                   (this.mPrefix = t),
                   (this.mSuffix = i),
                   (this.mMinNumDigits = n),
-                  (this.mInsertCommas = e);
+                  (this.mInsertCommas = e));
                 for (var S = u; S < s; S++)
-                  r.sStringBuilder.setString(""),
+                  (r.sStringBuilder.setString(""),
                     r.sStringBuilder.appendString(t),
                     r.sStringBuilder.appendInt(S, n, e),
                     r.sStringBuilder.appendString(i),
-                    this.setString(S, r.sStringBuilder.getString());
+                    this.setString(S, r.sStringBuilder.getString()));
               }),
               (e.setIsAutoCreateEnabled = function (t) {
                 this.mIsAutoCreateEnabled = t;
               }),
               (e.x4554517263080478179x = function () {
-                null !== this.mStrings && (this.mStrings = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                (null !== this.mStrings && (this.mStrings = null),
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               n(r, null, [
                 {
@@ -32028,7 +32069,7 @@ System.register(
             );
           })(e)
         ).sStringBuilder = null),
-          r._RF.pop();
+          r._RF.pop());
       },
     };
   }
@@ -32064,7 +32105,10 @@ System.register(
           (function (t) {
             function e(i) {
               var e;
-              return ((e = t.call(this) || this).mNativeStringBuilder = ""), e;
+              return (
+                ((e = t.call(this) || this).mNativeStringBuilder = ""),
+                e
+              );
             }
             i(e, t);
             var n = e.prototype;
@@ -32133,10 +32177,10 @@ System.register(
               }),
               (n.appendFloat = function (t) {
                 var i = this.getLength();
-                this.appendString(t.toString()),
+                (this.appendString(t.toString()),
                   (0 == this.getLength() ||
                     this.lastIndexOfCharCode(".".charCodeAt(), i) < 0) &&
-                    this.appendString(".0");
+                    this.appendString(".0"));
               }),
               (n.appendBoolean = function (t) {
                 this.appendString(t ? "true" : "false");
@@ -32198,7 +32242,7 @@ System.register(
         },
       ],
       execute: function () {
-        o._RF.push(
+        (o._RF.push(
           {},
           "e7d4fwaxNBLbaRbNKE7pXDn",
           "x3357285310214871600x",
@@ -32215,7 +32259,7 @@ System.register(
                   e
                 );
               }
-              e(o, t),
+              (e(o, t),
                 (o.getAvailableInstance = function () {
                   o.sPool || (o.sPool = new Array());
                   var t = null;
@@ -32227,9 +32271,9 @@ System.register(
                   );
                 }),
                 (o.recycleAvailableInstance = function (t) {
-                  o.sPool || (o.sPool = new Array()),
+                  (o.sPool || (o.sPool = new Array()),
                     t.recycle(),
-                    o.sPool.push(t);
+                    o.sPool.push(t));
                 }),
                 (o.destroyPool = function () {
                   if (o.sPool) {
@@ -32239,7 +32283,7 @@ System.register(
                     }
                     null !== o.sPool && (o.sPool = null);
                   }
-                });
+                }));
               var u = o.prototype;
               return (
                 (u.getValue = function () {
@@ -32256,8 +32300,8 @@ System.register(
                   );
                 }),
                 (u.x4554517263080478179x = function () {
-                  (this.mValue = ""),
-                    t.prototype.x4554517263080478179x.call(this);
+                  ((this.mValue = ""),
+                    t.prototype.x4554517263080478179x.call(this));
                 }),
                 (u.setValueWithInt = function (t) {
                   this.mValue = l.stringFromInt(t, 1, !1);
@@ -32287,7 +32331,7 @@ System.register(
               );
             })(n)
           ).sPool = null),
-          o._RF.pop();
+          o._RF.pop());
       },
     };
   }
@@ -32345,10 +32389,10 @@ System.register(
                 u
               );
             }
-            t(r, e),
+            (t(r, e),
               (r.x2298514026523920069x = function (e) {
                 return n.stringToHash32("1385765729-" + e);
-              });
+              }));
             var o = r.prototype;
             return (
               (o.getText = function (e) {
@@ -32357,7 +32401,8 @@ System.register(
                   : n.x3005984195166997840x(this.mText);
               }),
               (o.x4554517263080478179x = function () {
-                (this.mText = ""), e.prototype.x4554517263080478179x.call(this);
+                ((this.mText = ""),
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (o.x477228624734195371x = function () {}),
               (o.x3877241562699863631x = function () {
@@ -32370,7 +32415,7 @@ System.register(
                 e = s.prepareRemoteResourceFilePath(e);
                 var t = new XMLHttpRequest(),
                   r = this;
-                (t.onload = function () {
+                ((t.onload = function () {
                   "" != t.responseText
                     ? ((r.mText = t.responseText),
                       r.setNextState(u.x2175411116998686501x, !1))
@@ -32384,7 +32429,7 @@ System.register(
                   }),
                   t.open("GET", e),
                   (t.responseType = "text"),
-                  t.send();
+                  t.send());
               }),
               (o.x2813930425793059317x = function () {
                 return u.x1549494839056092619x;
@@ -32408,7 +32453,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (s = t.createClass);
+          ((e = t.inheritsLoose), (s = t.createClass));
         },
         function (t) {
           i = t.cclegacy;
@@ -32442,11 +32487,11 @@ System.register(
             var a = i.prototype;
             return (
               (a.start = function (t, e, s) {
-                (this.mDurationMSEC = t),
+                ((this.mDurationMSEC = t),
                   (this.mMessageTarget = e),
                   (this.mMessageId = s),
                   (this.mState = i.x551420623478520235x),
-                  (this.mElapsedTimeMSEC = 0);
+                  (this.mElapsedTimeMSEC = 0));
               }),
               (a.getMessageId = function () {
                 return this.mMessageId;
@@ -32455,11 +32500,11 @@ System.register(
                 this.mElapsedTimeMSEC = 0;
               }),
               (a.cancel = function () {
-                (this.mDurationMSEC = 0),
+                ((this.mDurationMSEC = 0),
                   (this.mMessageTarget = null),
                   (this.mMessageId = 0),
                   (this.mState = i.x1786865474944739301x),
-                  (this.mElapsedTimeMSEC = 0);
+                  (this.mElapsedTimeMSEC = 0));
               }),
               (a.isActive = function () {
                 return this.mState == i.x551420623478520235x;
@@ -32489,12 +32534,12 @@ System.register(
                 );
               }),
               (a.x4554517263080478179x = function () {
-                (this.mDurationMSEC = 0),
+                ((this.mDurationMSEC = 0),
                   (this.mMessageTarget = null),
                   (this.mMessageId = 0),
                   (this.mState = i.x551420623478520235x),
                   (this.mElapsedTimeMSEC = 0),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               s(i, null, [
                 {
@@ -32584,7 +32629,7 @@ System.register(
               (s.startTimer = function (e, t, i) {
                 if (!(e < 0)) {
                   var s = this.getAvailableTimer();
-                  s.start(e, t, i), this.mActiveTimers.pushBack(s);
+                  (s.start(e, t, i), this.mActiveTimers.pushBack(s));
                 }
               }),
               (s.resetTimer = function (e) {
@@ -32615,9 +32660,9 @@ System.register(
               (s.cancelAllTimers = function () {
                 for (; this.mActiveTimers.getNumObjects() > 0; ) {
                   var e = this.mActiveTimers.peekBack();
-                  e.cancel(),
+                  (e.cancel(),
                     this.mTimersPool.recycleObject(e),
-                    this.mActiveTimers.popBack();
+                    this.mActiveTimers.popBack());
                 }
               }),
               (s.processTimeMSEC = function (e) {
@@ -32627,25 +32672,25 @@ System.register(
                   i++
                 ) {
                   var s = this.mActiveTimers.getAtIndex(i);
-                  s.isActive() && s.processTimeMSEC(e),
+                  (s.isActive() && s.processTimeMSEC(e),
                     s.isActive() ||
                       (this.mTimersPool.recycleObject(s),
                       this.mActiveTimers.removeAtIndex(i),
                       i--,
-                      t--);
+                      t--));
                 }
               }),
               (s.getAvailableTimer = function () {
                 var e = this.mTimersPool.getAvailableObject();
-                return e || (e = new m()), e;
+                return (e || (e = new m()), e);
               }),
               (s.x4554517263080478179x = function () {
-                this.cancelAllTimers(),
+                (this.cancelAllTimers(),
                   null !== this.mTimersPool &&
                     (this.mTimersPool.destroy(), (this.mTimersPool = null)),
                   null !== this.mActiveTimers &&
                     (this.mActiveTimers.destroy(), (this.mActiveTimers = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               i
             );
@@ -32674,9 +32719,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (n = e.createClass),
-            (a = e.assertThisInitialized);
+            (a = e.assertThisInitialized));
         },
         function (e) {
           r = e.cclegacy;
@@ -32752,23 +32797,23 @@ System.register(
               (i.startTurn = function () {
                 this.mRemainingPiecesForTurn = this.getNumPiecesPerTurn();
                 var e = this.getParams().getIntValue(r.x328858074007777708x);
-                (this.mRemainingTimeForTurnMSEC += e),
+                ((this.mRemainingTimeForTurnMSEC += e),
                   this.mRemainingTimeForTurnMSEC >=
                     this.mTargetTimeForAttackMSEC &&
-                    (this.sendAttack(), (this.mRemainingTimeForTurnMSEC = e));
+                    (this.sendAttack(), (this.mRemainingTimeForTurnMSEC = e)));
                 var t = this.getPlayer().getPieceQueue();
-                t.setIsFillingEnabled(!0),
+                (t.setIsFillingEnabled(!0),
                   t.fillToNumPieces(this.mRemainingPiecesForTurn),
                   t.setIsFillingEnabled(
                     this.getParams().getBoolValue(r.x1559878194186722441x)
                   ),
                   this.getPlayer().setIsPieceGenerationEnabled(!0),
-                  this.setNextState(r.x1766969844003292966x, !1);
+                  this.setNextState(r.x1766969844003292966x, !1));
               }),
               (i.endTurn = function () {
-                (this.mRemainingPiecesForTurn = 0),
+                ((this.mRemainingPiecesForTurn = 0),
                   this.getPlayer().setIsPieceGenerationEnabled(!1),
-                  this.setNextState(r.x4353312208197312805x, !1);
+                  this.setNextState(r.x4353312208197312805x, !1));
               }),
               (i.processRemainingPieces = function () {
                 this.mRemainingPiecesForTurn <= 0 && this.endTurn();
@@ -32885,14 +32930,14 @@ System.register(
                       this.mRemainingPiecesForTurn -= 1;
                       break;
                     case u.x468145498827519783x:
-                      (this.mBattleComponent = this.getPlayer().getComponent(
+                      ((this.mBattleComponent = this.getPlayer().getComponent(
                         s.x1987111697527652119x
                       )),
                         this.mBattleComponent &&
                           this.mBattleComponent.addMessageListener(this),
                         0 == this.getPlayer().getPlayerIndex()
                           ? this.startTurn()
-                          : this.getPlayer().setIsPieceGenerationEnabled(!1);
+                          : this.getPlayer().setIsPieceGenerationEnabled(!1));
                   }
               }),
               n(r, null, [
@@ -33019,11 +33064,11 @@ System.register(
               }),
               (r.doStaticInit = function () {
                 if (!r.sDidStaticInit) {
-                  (r.sDidStaticInit = !0),
+                  ((r.sDidStaticInit = !0),
                     (r.sDebugCounters_names = new Array()),
                     (r.sDebugCounters_counts = new Array()),
                     t.doStaticInit(),
-                    (r.sStringBuilder = new i(r.x4459597719103463902x));
+                    (r.sStringBuilder = new i(r.x4459597719103463902x)));
                   var n = 0,
                     e = 0;
                   for (
@@ -33733,10 +33778,10 @@ System.register(
                       case r.x3587067629243247864x:
                       case r.x2115122626560554544x:
                         for (var s; t != i; )
-                          (s = a),
+                          ((s = a),
                             (a = u),
                             (u = -s),
-                            (t = r.rotateFacing90(t, !0));
+                            (t = r.rotateFacing90(t, !0)));
                     }
                 }
                 return a;
@@ -33755,10 +33800,10 @@ System.register(
                       case r.x3587067629243247864x:
                       case r.x2115122626560554544x:
                         for (var s; t != i; )
-                          (s = a),
+                          ((s = a),
                             (a = u),
                             (u = -s),
-                            (t = r.rotateFacing90(t, !0));
+                            (t = r.rotateFacing90(t, !0)));
                     }
                 }
                 return u;
@@ -33784,14 +33829,14 @@ System.register(
                     e)
                   ) {
                     case r.x1269951002635396876x:
-                      r.sStringBuilder.getLength() > 0 &&
+                      (r.sStringBuilder.getLength() > 0 &&
                         r.sStringBuilder.appendString("\n"),
-                        r.sStringBuilder.appendString("MINI T-SPIN");
+                        r.sStringBuilder.appendString("MINI T-SPIN"));
                       break;
                     case r.x966599695852666027x:
-                      r.sStringBuilder.getLength() > 0 &&
+                      (r.sStringBuilder.getLength() > 0 &&
                         r.sStringBuilder.appendString("\n"),
-                        r.sStringBuilder.appendString("T-SPIN");
+                        r.sStringBuilder.appendString("T-SPIN"));
                   }
                   if (n > 0) {
                     if (r.sStringBuilder.getLength() > 0)
@@ -33817,8 +33862,8 @@ System.register(
                         r.sStringBuilder.appendString("TETRIS");
                         break;
                       default:
-                        r.sStringBuilder.appendInt(n, 1, !1),
-                          r.sStringBuilder.appendString(" LINE CLEAR");
+                        (r.sStringBuilder.appendInt(n, 1, !1),
+                          r.sStringBuilder.appendString(" LINE CLEAR"));
                     }
                   }
                   a > 0 &&
@@ -33827,7 +33872,7 @@ System.register(
                     r.sStringBuilder.appendString("COMBO "),
                     r.sStringBuilder.appendInt(a, 1, !1));
                 } else
-                  n > 0 &&
+                  (n > 0 &&
                     0 == u &&
                     (r.sStringBuilder.getLength() > 0 &&
                       r.sStringBuilder.appendString(" "),
@@ -33837,7 +33882,7 @@ System.register(
                       (r.sStringBuilder.getLength() > 0 &&
                         r.sStringBuilder.appendString(" "),
                       r.sStringBuilder.appendString("CASCADE "),
-                      r.sStringBuilder.appendInt(u, 1, !1));
+                      r.sStringBuilder.appendInt(u, 1, !1)));
                 return r.sStringBuilder.getString();
               }),
               (r.minInt = function (r, n) {
@@ -33903,7 +33948,7 @@ System.register(
                   case r.x3274732685862439983x:
                     return Math.pow(n, t);
                   case r.x540980583184748285x:
-                    return (n = 1 - n), 1 - Math.pow(n, t);
+                    return ((n = 1 - n), 1 - Math.pow(n, t));
                   case r.x1847493558324909800x:
                     return n < 0.5
                       ? 0.5 * r.interpolate01(2 * n, r.x3274732685862439983x, t)
@@ -33962,7 +34007,8 @@ System.register(
               }),
               (r.forceSignedInt32 = function (r) {
                 return (
-                  r > 2147483647 && (r = r - 2147483647 - 2147483648 - 1), ~~r
+                  r > 2147483647 && (r = r - 2147483647 - 2147483648 - 1),
+                  ~~r
                 );
               }),
               (r.FXPTFromInt = function (n) {
@@ -34125,17 +34171,17 @@ System.register(
                   case 0:
                     break;
                   case 1:
-                    r.sStringBuilder.appendString("."),
-                      r.sStringBuilder.appendInt(~~(a / 100), 1, !1);
+                    (r.sStringBuilder.appendString("."),
+                      r.sStringBuilder.appendInt(~~(a / 100), 1, !1));
                     break;
                   case 2:
-                    r.sStringBuilder.appendString("."),
-                      r.sStringBuilder.appendInt(~~(a / 10), 2, !1);
+                    (r.sStringBuilder.appendString("."),
+                      r.sStringBuilder.appendInt(~~(a / 10), 2, !1));
                     break;
                   case 3:
                   default:
-                    r.sStringBuilder.appendString("."),
-                      r.sStringBuilder.appendInt(a, 3, !1);
+                    (r.sStringBuilder.appendString("."),
+                      r.sStringBuilder.appendInt(a, 3, !1));
                 }
                 return r.sStringBuilder.getString();
               }),
@@ -34286,7 +34332,6 @@ System.register(
                 for (
                   var e = 0, t = n.length;
                   e < t && n.charCodeAt(e) != ".".charCodeAt();
-
                 )
                   e++;
                 return r.substringToIndex(n, e);
@@ -34296,7 +34341,6 @@ System.register(
                 for (
                   var e = 0, t = n.length;
                   e < t && n.charCodeAt(e) != ".".charCodeAt();
-
                 )
                   e++;
                 return e >= t ? "" : r.substringFromIndex(n, e + 1);
@@ -34308,11 +34352,10 @@ System.register(
                   for (
                     var t = 0, i = r.nextIndexInString(n, "-", e);
                     e >= 0 && i >= 0;
-
                   )
-                    t++,
+                    (t++,
                       (e = r.nextIndexInString(n, "~", e + 1)),
-                      (i = r.nextIndexInString(n, "-", e));
+                      (i = r.nextIndexInString(n, "-", e)));
                   return t;
                 }
                 return 0;
@@ -34324,11 +34367,10 @@ System.register(
                   for (
                     var i = 0, a = r.nextIndexInString(n, "-", t);
                     i < e && t >= 0 && a >= 0;
-
                   )
-                    i++,
+                    (i++,
                       (t = r.nextIndexInString(n, "~", t + 1)),
-                      (a = r.nextIndexInString(n, "-", t));
+                      (a = r.nextIndexInString(n, "-", t)));
                   return i == e ? r.substringWithRange(n, t + 1, a) : "";
                 }
                 return "";
@@ -34375,9 +34417,9 @@ System.register(
                   if (a == e) {
                     for (t = u; u < s && n.charCodeAt(u) != ",".charCodeAt(); )
                       u++;
-                    return (i = u), r.substringWithRange(n, t, i);
+                    return ((i = u), r.substringWithRange(n, t, i));
                   }
-                  n.charCodeAt(u) == ",".charCodeAt() && a++, u++;
+                  (n.charCodeAt(u) == ",".charCodeAt() && a++, u++);
                 }
                 return "";
               }),
@@ -34399,7 +34441,7 @@ System.register(
                   a,
                   u,
                   s = n.length;
-                (t =
+                ((t =
                   e < 0
                     ? r.stringToHash32(n) % 256
                     : 0 == e
@@ -34407,13 +34449,15 @@ System.register(
                       : e % 256),
                   r.sStringBuilder.setString(""),
                   r.sStringBuilder.appendCharCode(r.numTo2Chars_CharCode1(t)),
-                  r.sStringBuilder.appendCharCode(r.numTo2Chars_CharCode2(t));
+                  r.sStringBuilder.appendCharCode(r.numTo2Chars_CharCode2(t)));
                 for (var c = 0; c < s; c++)
-                  (i = r.randomInt2(t, c) % 420),
+                  ((i = r.randomInt2(t, c) % 420),
                     (a = n.charCodeAt(c)) > 255 && (a = 0),
                     (u = a + i),
                     r.sStringBuilder.appendCharCode(r.numTo2Chars_CharCode1(u)),
-                    r.sStringBuilder.appendCharCode(r.numTo2Chars_CharCode2(u));
+                    r.sStringBuilder.appendCharCode(
+                      r.numTo2Chars_CharCode2(u)
+                    ));
                 return r.sStringBuilder.getString();
               }),
               (r.x3005984195166997840x = function (n) {
@@ -34444,18 +34488,18 @@ System.register(
                   i,
                   a,
                   u = n.length;
-                (t =
+                ((t =
                   e < 0
                     ? (n.charCodeAt(0) + n.charCodeAt(u - 1) + u) % 256
                     : 0 == e
                       ? r.nextNativeRandomIntInRange(0, 255)
                       : e % 256),
                   r.sStringBuilder.setString(""),
-                  r.sStringBuilder.appendCharCode(t);
+                  r.sStringBuilder.appendCharCode(t));
                 for (var s = 0; s < u; s++)
-                  (a = 255 & ((i = n.charCodeAt(s)) ^ t)),
+                  ((a = 255 & ((i = n.charCodeAt(s)) ^ t)),
                     r.sStringBuilder.appendCharCode(a),
-                    (t = (t * i) % 256);
+                    (t = (t * i) % 256));
                 return r.sStringBuilder.getString();
               }),
               (r.x741133481604227305x = function (n) {
@@ -34465,9 +34509,9 @@ System.register(
                   i = n.charCodeAt(0);
                 r.sStringBuilder.setString("");
                 for (var a = 1; a < t; a++)
-                  (e = 255 & (n.charCodeAt(a) ^ i)),
+                  ((e = 255 & (n.charCodeAt(a) ^ i)),
                     r.sStringBuilder.appendCharCode(e),
-                    (i = (i * e) % 256);
+                    (i = (i * e) % 256));
                 return r.sStringBuilder.getString();
               }),
               (r.numTo2Chars_CharCode1 = function (r) {
@@ -34499,8 +34543,8 @@ System.register(
                     var t = r.sDebugCounters_counts[e];
                     r.sDebugCounters_counts[e] = t + 1;
                   } else
-                    r.sDebugCounters_names.push(n),
-                      r.sDebugCounters_counts.push(1);
+                    (r.sDebugCounters_names.push(n),
+                      r.sDebugCounters_counts.push(1));
                 }
               }),
               (r.debug_decrementCounter = function (n) {
@@ -34999,7 +35043,7 @@ System.register(
             );
           })()
         );
-        (a.sDidStaticInit = !1),
+        ((a.sDidStaticInit = !1),
           (a.sDebugCounters_names = null),
           (a.sDebugCounters_counts = null),
           (a.sStringBuilder = null),
@@ -35009,7 +35053,7 @@ System.register(
           (a.sEnableTabStringArray = !1),
           (a.sTimeStringArray = null),
           (a.sEnableTimeStringArray = !1),
-          e._RF.pop();
+          e._RF.pop());
       },
     };
   }
@@ -35029,7 +35073,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (n = t.createClass);
+          ((e = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           u = t.cclegacy;
@@ -35060,7 +35104,7 @@ System.register(
                 n
               );
             }
-            e(u, t),
+            (e(u, t),
               (u.valueTypeToString = function (t) {
                 switch (t) {
                   case u.x1816879051713746700x:
@@ -35089,7 +35133,7 @@ System.register(
                         : "object" == t
                           ? u.x2696526907986933434x
                           : 0;
-              });
+              }));
             var i = u.prototype;
             return (
               (i.getValueType = function () {
@@ -35099,19 +35143,19 @@ System.register(
                 return this.mKey;
               }),
               (i.setKey = function (t, e) {
-                (this.mKey = t),
+                ((this.mKey = t),
                   e
                     ? (this.mKeyString = o.stringFromValueKey(t))
                     : this.mKeyString &&
                       "" != this.mKeyString &&
-                      (this.mKeyString = "");
+                      (this.mKeyString = ""));
               }),
               (i.getKeyString = function () {
                 return this.mKeyString;
               }),
               (i.setKeyString = function (t) {
-                (this.mKeyString = t),
-                  t && "" != t && (this.mKey = o.stringToValueKey(t));
+                ((this.mKeyString = t),
+                  t && "" != t && (this.mKey = o.stringToValueKey(t)));
               }),
               (i.equalsValue = function (t, e) {
                 if (e && this.mValueType != t.getValueType()) return !1;
@@ -35160,7 +35204,7 @@ System.register(
                 return "";
               }),
               (i.x2466476482754696820x = function () {
-                return (this.mKey = 0), (this.mKeyString = ""), !0;
+                return ((this.mKey = 0), (this.mKeyString = ""), !0);
               }),
               (i.x4554517263080478179x = function () {
                 t.prototype.x4554517263080478179x.call(this);
@@ -35223,7 +35267,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (i = t.inheritsLoose), (e = t.createClass);
+          ((i = t.inheritsLoose), (e = t.createClass));
         },
         function (t) {
           s = t.cclegacy;
@@ -35273,10 +35317,10 @@ System.register(
                 i
               );
             }
-            i(s, t),
+            (i(s, t),
               (s.trySetIsVisible = function (t, i) {
                 t && t.setIsVisible(i);
-              });
+              }));
             var n = s.prototype;
             return (
               (n.setParams = function (t, i, e) {
@@ -35351,8 +35395,8 @@ System.register(
                 return this.mNativeView;
               }),
               (n.setNativeView = function (t) {
-                a.NativeView_removeFromParent(this.mNativeView),
-                  (this.mNativeView = t);
+                (a.NativeView_removeFromParent(this.mNativeView),
+                  (this.mNativeView = t));
               }),
               (n.setNativeViewName = function (t) {
                 a.NativeView_setName(this.mNativeView, t);
@@ -35536,12 +35580,12 @@ System.register(
                 );
               }),
               (n.x4554517263080478179x = function () {
-                this.deactivate(),
+                (this.deactivate(),
                   null !== this.mAnimators &&
                     (this.mAnimators.destroy(), (this.mAnimators = null)),
                   a.NativeView_destroy(this.mNativeView, !0),
                   (this.mNativeView = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               e(s, null, [
                 {
@@ -35637,7 +35681,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (n = e.inheritsLoose), (t = e.createClass);
+          ((n = e.inheritsLoose), (t = e.createClass));
         },
         function (e) {
           a = e.cclegacy;
@@ -35712,7 +35756,7 @@ System.register(
                 o
               );
             }
-            n(a, e),
+            (n(a, e),
               (a.channelIndexToChannelId = function (e) {
                 switch (e) {
                   case a.x1835768205109848443x:
@@ -35752,7 +35796,7 @@ System.register(
                   default:
                     return -1;
                 }
-              });
+              }));
             var i = a.prototype;
             return (
               (i.enableChannel = function (e) {
@@ -35797,9 +35841,9 @@ System.register(
                 return this.mIsActive;
               }),
               (i.start = function () {
-                this.mDidInitChannels ||
+                (this.mDidInitChannels ||
                   (this.initChannels(), (this.mDidInitChannels = !0)),
-                  (this.mIsActive = !0);
+                  (this.mIsActive = !0));
                 var e = this.mIndexDelaySEC * this.mView.getAnimatorsIndex();
                 this.mElapsedTimeSEC = -(this.mStartDelaySEC + e);
                 for (var n = 0; n < a.x4325641023688042564x; n++)
@@ -35891,15 +35935,15 @@ System.register(
                   l = 0;
                 switch (n.mLoopType) {
                   case o.x3796707421572418705x:
-                    (t = (l = this.mElapsedTimeSEC / i) < 1),
-                      (l = s.clamp01(l));
+                    ((t = (l = this.mElapsedTimeSEC / i) < 1),
+                      (l = s.clamp01(l)));
                     break;
                   case o.x2365989591790737327x:
                     l = s.modf(this.mElapsedTimeSEC, i) / i;
                     break;
                   case o.x859048802493933946x:
-                    (l = s.modf(this.mElapsedTimeSEC, i) / i),
-                      ~~(this.mElapsedTimeSEC / i) % 2 == 1 && (l = 1 - l);
+                    ((l = s.modf(this.mElapsedTimeSEC, i) / i),
+                      ~~(this.mElapsedTimeSEC / i) % 2 == 1 && (l = 1 - l));
                 }
                 var r = s.interpolate01(
                     l,
@@ -35932,12 +35976,12 @@ System.register(
                 return t;
               }),
               (i.x4554517263080478179x = function () {
-                (this.mView = null),
+                ((this.mView = null),
                   (this.mMessageHandler = null),
                   this.mChannels.destroyAll(),
                   null !== this.mChannels &&
                     (this.mChannels.destroy(), (this.mChannels = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               t(a, null, [
                 {
@@ -36109,7 +36153,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (n = t.createClass);
+          ((e = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           a = t.cclegacy;
@@ -36298,7 +36342,7 @@ System.register(
           (function (e) {
             function r(t) {
               var r;
-              return ((r = e.call(this) || this).mResourceMgr = t), r;
+              return (((r = e.call(this) || this).mResourceMgr = t), r);
             }
             t(r, e);
             var i = r.prototype;
@@ -36361,7 +36405,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (i = e.createClass);
+          ((t = e.inheritsLoose), (i = e.createClass));
         },
         function (e) {
           o = e.cclegacy;
@@ -36397,10 +36441,10 @@ System.register(
           (function (e) {
             function o(t, i, r) {
               var s;
-              ((s = e.call(this) || this).mViewFactory = i),
+              (((s = e.call(this) || this).mViewFactory = i),
                 (s.mViewPools = new n(!0)),
                 (s.mAnimatorsMessageHandler = r),
-                (s.mViewSchedulerPool = new l());
+                (s.mViewSchedulerPool = new l()));
               var c = t.getIntValue(o.x2741350905159659755x);
               return (
                 s.mViewSchedulerPool.setAutoRefillCount(c),
@@ -36454,7 +36498,7 @@ System.register(
               }),
               (r.activateAndManageViewFromPool = function (e, t) {
                 var i = this.getViewFromPool(e);
-                return i && this.activateAndManageView(i, t), i;
+                return (i && this.activateAndManageView(i, t), i);
               }),
               (r.activateAndManageViewFromPoolWithPosition = function (
                 e,
@@ -36472,16 +36516,16 @@ System.register(
                 );
               }),
               (r.activateAndManageView = function (e, t) {
-                s.NativeView_addChild(t, e.getNativeView()),
+                (s.NativeView_addChild(t, e.getNativeView()),
                   e.activate(),
-                  this.mActiveViews.pushBack(e);
+                  this.mActiveViews.pushBack(e));
               }),
               (r.activateAndManageViewsFromPool = function (e, t, i, o) {
                 if (1 != i)
                   for (var r = 0; r < i; r++) {
                     var s = this.mViewSchedulerPool.getAvailableViewScheduler();
-                    s.setParams(this, e, t, r * o),
-                      this.mViewSchedulers.pushBack(s);
+                    (s.setParams(this, e, t, r * o),
+                      this.mViewSchedulers.pushBack(s));
                   }
                 else this.activateAndManageViewFromPool(e, t);
               }),
@@ -36498,20 +36542,20 @@ System.register(
                   i = null,
                   o = this.mActiveViews.getNumObjects();
                 for (t = 0; t < o; t++)
-                  (i = this.mActiveViews.getAtIndex(t)).processTime(e),
+                  ((i = this.mActiveViews.getAtIndex(t)).processTime(e),
                     i.isActive() ||
                       (this.removeActiveViewAtIndex(t),
                       t--,
-                      (o = this.mActiveViews.getNumObjects()));
+                      (o = this.mActiveViews.getNumObjects())));
                 var r = null,
                   s = this.mViewSchedulers.getNumObjects();
                 for (t = 0; t < s; t++)
-                  (r = this.mViewSchedulers.getAtIndex(t)).processTime(e),
+                  ((r = this.mViewSchedulers.getAtIndex(t)).processTime(e),
                     r.isActive() ||
                       (this.mViewSchedulers.removeAtIndex(t),
                       this.mViewSchedulerPool.recycleObject(r),
                       t--,
-                      (s = this.mViewSchedulers.getNumObjects()));
+                      (s = this.mViewSchedulers.getNumObjects())));
               }),
               (r.createViewPools = function (e) {
                 if (e)
@@ -36538,7 +36582,7 @@ System.register(
               }),
               (r.removeActiveViewAtIndex = function (e) {
                 var t = this.mActiveViews.getAtIndex(e);
-                this.mActiveViews.removeAtIndex(e), t.deactivate();
+                (this.mActiveViews.removeAtIndex(e), t.deactivate());
                 var i = t.getPoolId();
                 if (0 != i) {
                   var o = this.getViewPool(i);
@@ -36553,7 +36597,7 @@ System.register(
                   );
               }),
               (r.x4554517263080478179x = function () {
-                this.removeAllActiveViews(),
+                (this.removeAllActiveViews(),
                   null !== this.mActiveViews &&
                     (this.mActiveViews.destroy(), (this.mActiveViews = null)),
                   null !== this.mViewPools &&
@@ -36565,7 +36609,7 @@ System.register(
                   null !== this.mViewSchedulers &&
                     (this.mViewSchedulers.destroy(),
                     (this.mViewSchedulers = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               i(o, null, [
                 {
@@ -36600,7 +36644,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (a = t.createClass);
+          ((e = t.inheritsLoose), (a = t.createClass));
         },
         function (t) {
           i = t.cclegacy;
@@ -36621,8 +36665,8 @@ System.register(
           (function (t) {
             function i(e, a, r, o) {
               var n;
-              ((n = t.call(this) || this).mPoolId = e),
-                (n.mParams = a.x2049916819781837214x());
+              (((n = t.call(this) || this).mPoolId = e),
+                (n.mParams = a.x2049916819781837214x()));
               var u = n.mParams.getDictionary(i.x1404914754155375668x);
               return (
                 u
@@ -36674,17 +36718,17 @@ System.register(
                 return this.mAutoActivatePerViewDelayMSEC;
               }),
               (r.x4554517263080478179x = function () {
-                null !== this.mParams &&
+                (null !== this.mParams &&
                   (this.mParams.destroy(), (this.mParams = null)),
                   (this.mAnimatorsMessageHandler = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (r.x3290176589131821290x = function () {
                 var t = this.mViewFactory.createView(
                   this.mViewParams,
                   this.mAnimatorsMessageHandler
                 );
-                return t && t.setPoolId(this.mPoolId), t;
+                return (t && t.setPoolId(this.mPoolId), t);
               }),
               (r.x213280754322304381x = function (t) {}),
               a(i, null, [
@@ -36783,14 +36827,14 @@ System.register(
             var r = i.prototype;
             return (
               (r.setParams = function (t, e, i, r) {
-                (this.mViewMgr = t),
+                ((this.mViewMgr = t),
                   (this.mPoolId = e),
                   (this.mParent = i),
                   (this.mDelayMSEC = r),
-                  this.tryActivateView();
+                  this.tryActivateView());
               }),
               (r.processTime = function (t) {
-                (this.mDelayMSEC -= t), this.tryActivateView();
+                ((this.mDelayMSEC -= t), this.tryActivateView());
               }),
               (r.isActive = function () {
                 return this.mDelayMSEC > 0 && this.mViewMgr;
@@ -36950,9 +36994,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (n = e.createClass),
-            (a = e.assertThisInitialized);
+            (a = e.assertThisInitialized));
         },
         function (e) {
           i = e.cclegacy;
@@ -37052,7 +37096,7 @@ System.register(
                 g
               );
             }
-            t(i, e),
+            (t(i, e),
               (i.isTetrionBuildNumberValid = function (e) {
                 var t = o.stringToInt(
                     o.substringToIndex(
@@ -37073,7 +37117,7 @@ System.register(
                     o.substringFromIndex(e, o.lastIndexInString(e, ".") + 1)
                   );
                 return !(a < t) && (a > t || r >= n);
-              });
+              }));
             var r = i.prototype;
             return (
               (r.getSavedDataId = function () {
@@ -37156,7 +37200,7 @@ System.register(
                   : null;
               }),
               (r.x4554517263080478179x = function () {
-                null !== this.mHighScoresMgr &&
+                (null !== this.mHighScoresMgr &&
                   (this.mHighScoresMgr.destroy(), (this.mHighScoresMgr = null)),
                   null !== this.mVSCPURecordsMgr &&
                     (this.mVSCPURecordsMgr.destroy(),
@@ -37167,13 +37211,13 @@ System.register(
                   null !== this.x4177037895760995209x &&
                     (this.x4177037895760995209x.destroy(),
                     (this.x4177037895760995209x = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (r.x3882397411290630044x = function (e) {
                 return new c(e);
               }),
               (r.x2896656248433051307x = function (e) {
-                e.addResources(
+                (e.addResources(
                   this.x3235992609840102036x().getDictionaryWithKeyStringPath(
                     "gameMgr.gameView"
                   ),
@@ -37196,7 +37240,7 @@ System.register(
                       "gameMgr.gameAudio.music"
                     ),
                     "game3"
-                  );
+                  ));
               }),
               (r.x60522887577710078x = function () {
                 var e =
@@ -37206,7 +37250,7 @@ System.register(
                 return new A(this, e.getDictionaryWithKeyString("loading"));
               }),
               (r.x1119974332240822773x = function (e) {
-                (this.mHighScoresMgr = new S(
+                ((this.mHighScoresMgr = new S(
                   this.x3191337994054389302x().getDictionaryWithKeyStringPath(
                     "highScoreMgr"
                   ),
@@ -37226,12 +37270,12 @@ System.register(
                     this.x3235992609840102036x().getDictionaryWithKeyStringPath(
                       "gameMgr.game.players.player-base.playerComponents.levels.params"
                     )
-                  ));
+                  )));
                 var t =
                   this.x3191337994054389302x().getDictionaryWithKeyString(
                     "scenes"
                   );
-                e.addManagedScene(
+                (e.addManagedScene(
                   this.createManagedScene("captureControlId", t)
                 ),
                   e.addManagedScene(this.createManagedScene("confirm", t)),
@@ -37246,7 +37290,7 @@ System.register(
                   e.addManagedScene(this.createManagedScene("mainMenu", t)),
                   e.addManagedScene(this.createManagedScene("moreGames", t)),
                   e.addManagedScene(this.createManagedScene("newHighScore", t)),
-                  e.addManagedScene(this.createManagedScene("options", t));
+                  e.addManagedScene(this.createManagedScene("options", t)));
               }),
               (r.x2553210986502324220x = function (e) {
                 switch (e) {
@@ -37307,13 +37351,13 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.applyDecoratedDescriptor),
+          ((t = e.applyDecoratedDescriptor),
             (n = e.inheritsLoose),
             (o = e.initializerDefineProperty),
-            (i = e.assertThisInitialized);
+            (i = e.assertThisInitialized));
         },
         function (e) {
-          (r = e.cclegacy), (a = e._decorator), (s = e.Component);
+          ((r = e.cclegacy), (a = e._decorator), (s = e.Component));
         },
         function (e) {
           c = e.x4392911488421799424x;
@@ -37374,10 +37418,10 @@ System.register(
                 var r = t.prototype;
                 return (
                   (r.onLoad = function () {
-                    cc._global.CC_DEBUG || (cc.log = function () {}),
+                    (cc._global.CC_DEBUG || (cc.log = function () {}),
                       cc.log("x675676601611045721x::onLoad"),
                       c.doStaticInit(),
-                      l.doStaticInit();
+                      l.doStaticInit());
                     var e = this.gameContentBasePath;
                     try {
                       this.gameContentBasePath = d.x1586548781083711048x(
@@ -37387,7 +37431,7 @@ System.register(
                     } catch (t) {
                       this.gameContentBasePath = e;
                     }
-                    (this.mGameResourcesRootPath = d.x1586548781083711048x(
+                    ((this.mGameResourcesRootPath = d.x1586548781083711048x(
                       "remote://./../" +
                         d.x3005984195166997840x(this.gameContentBasePath) +
                         d.x3005984195166997840x(
@@ -37424,12 +37468,12 @@ System.register(
                           d.x3005984195166997840x(this.mGameResourcesRootPath)
                       ),
                       (this.transformComponent =
-                        this.node.getComponent("cc.UITransform"));
+                        this.node.getComponent("cc.UITransform")));
                     try {
                       var t = window.location.href,
                         n = new URL(t),
                         o = n.searchParams.get("x825609486");
-                      o &&
+                      (o &&
                         0 !== o.length &&
                         (cc.log(
                           "x675676601611045721x::onLoad: gameDataFilePathOverride: " +
@@ -37439,9 +37483,9 @@ System.register(
                         cc.log(
                           "x675676601611045721x::onLoad: gameDataFilePath: " +
                             this.gameDataFilePath
-                        );
+                        ));
                       var i = n.searchParams.get("x966081210");
-                      i &&
+                      (i &&
                         0 !== i.length &&
                         (cc.log(
                           "x675676601611045721x::onLoad: gameDataOverrideFilePathOverride: " +
@@ -37451,9 +37495,9 @@ System.register(
                         cc.log(
                           "x675676601611045721x::onLoad: gameDataOverrideFilePath: " +
                             this.gameDataOverrideFilePath
-                        );
+                        ));
                     } catch (e) {}
-                    (this.mResourceMgr = new p(
+                    ((this.mResourceMgr = new p(
                       d.x3005984195166997840x(this.mGameResourcesRootPath)
                     )),
                       this.mResourceMgr.addTextResource(
@@ -37468,7 +37512,7 @@ System.register(
                           "",
                           d.x3005984195166997840x(this.gameDataOverrideFilePath)
                         ),
-                      this.mResourceMgr.startLoading();
+                      this.mResourceMgr.startLoading());
                   }),
                   (r.start = function () {
                     cc.log("x675676601611045721x::start");
@@ -37487,11 +37531,11 @@ System.register(
                     }
                   }),
                   (r.x1677155760160478339x = function () {
-                    cc.log("x675676601611045721x::x1677155760160478339x"),
+                    (cc.log("x675676601611045721x::x1677155760160478339x"),
                       cc.log(
                         "x675676601611045721x::x1677155760160478339x: base origin: " +
                           l.getApplicationBaseOrigin()
-                      );
+                      ));
                     var e = this;
                     if (
                       this.requireIFrame &&
@@ -37510,9 +37554,9 @@ System.register(
                     ) {
                       var o = this.mResourceMgr.getText("x966081210", "{"),
                         i = new u(!0);
-                      i.parseJSONString(o, !0, !1),
+                      (i.parseJSONString(o, !0, !1),
                         i.synchronizeWithSource(n, !1, !1, !1),
-                        (n = i);
+                        (n = i));
                     }
                     var r = {};
                     if (
@@ -37528,7 +37572,7 @@ System.register(
                     ) {
                       window.mBPSApp = this.mBPSApp;
                       try {
-                        window
+                        (window
                           .getGameCanvas()
                           .addEventListener(
                             "blur",
@@ -37538,15 +37582,15 @@ System.register(
                           window
                             .getGameCanvas()
                             .addEventListener("focus", function (t) {
-                              e.mDidAddKeyEventHandlersOnFocus ||
+                              (e.mDidAddKeyEventHandlersOnFocus ||
                                 (e.addKeyEventListeners(),
                                 (e.mDidAddKeyEventHandlersOnFocus = !0)),
                                 window.mBPSApp &&
-                                  window.mBPSApp.onAppActivated();
-                            });
+                                  window.mBPSApp.onAppActivated());
+                            }));
                       } catch (e) {}
                     }
-                    this.mBPSApp.run(),
+                    (this.mBPSApp.run(),
                       n.destroy(),
                       (n = null),
                       (this.didAddKeyEventListeners = !1),
@@ -37592,13 +37636,13 @@ System.register(
                       this.addEventsToCancelPointerInput(
                         document.documentElement
                       ),
-                      this.addEventsToCancelPointerInput(window);
+                      this.addEventsToCancelPointerInput(window));
                   }),
                   (r.addKeyEventListeners = function () {
                     if (!this.didAddKeyEventListeners) {
                       this.didAddKeyEventListeners = !0;
                       var e = this;
-                      cc.game.canvas.addEventListener(
+                      (cc.game.canvas.addEventListener(
                         "keydown",
                         function (t) {
                           e.mBPSApp.handleDeviceControlOn(
@@ -37621,7 +37665,7 @@ System.register(
                             );
                           },
                           !1
-                        );
+                        ));
                     }
                   }),
                   (r.addEventsToCancelPointerInput = function (e) {
@@ -37629,14 +37673,14 @@ System.register(
                       this.addEventToCancelPointerInput(e, "mouseup");
                   }),
                   (r.addEventToCancelPointerInput = function (e, t) {
-                    (self = this),
+                    ((self = this),
                       e.addEventListener(t, function (e) {
                         self.mGameMgr &&
                           self.mGameMgr.mStandardControlInterface &&
                           self.mGameMgr.mStandardControlInterface.handleInputOnIsCancelled(
                             self.mPointerInputId
                           );
-                      });
+                      }));
                   }),
                   (r.convertPointerLocation = function (e) {
                     return (
@@ -37879,9 +37923,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (r = e.createClass),
-            (i = e.assertThisInitialized);
+            (i = e.assertThisInitialized));
         },
         function (e) {
           s = e.cclegacy;
@@ -37948,11 +37992,11 @@ System.register(
             return (
               (a.resetHighScores = function () {
                 if (this.mIsEnabled) {
-                  this.mHighScoresDictionary.removeAllValues(),
+                  (this.mHighScoresDictionary.removeAllValues(),
                     this.mHighScoresDictionary.setIntValue(
                       s.x2841918445112888233x,
                       s.x2655982588689657486x
-                    );
+                    ));
                   var e = new n(!0);
                   this.mHighScoresDictionary.setObjectValue(
                     s.x203246119296407540x,
@@ -37965,9 +38009,9 @@ System.register(
                     i <= this.mNumEntries;
                     i++
                   )
-                    this.processNewScore(t, this.mPlaceholderName, !1),
-                      (t = o.maxInt(t - r, 0));
-                  this.mHighScoresDictionary.setStringValue(
+                    (this.processNewScore(t, this.mPlaceholderName, !1),
+                      (t = o.maxInt(t - r, 0)));
+                  (this.mHighScoresDictionary.setStringValue(
                     s.x849799983242179863x,
                     ""
                   ),
@@ -37975,7 +38019,7 @@ System.register(
                     (this.mLastScoreIndex = -1),
                     (this.mLastScore = 0),
                     (this.mIsLastScoreNewHighScore = !1),
-                    (this.mHighScore = 0);
+                    (this.mHighScore = 0));
                 }
               }),
               (a.didLoadHighScores = function () {
@@ -38070,42 +38114,41 @@ System.register(
                       0
                     );
                     t < s.x2655982588689657486x;
-
                   )
                     switch (t) {
                       case 0:
                       case 1:
                       case 2:
                       default:
-                        this.resetHighScores(), (t = s.x2655982588689657486x);
+                        (this.resetHighScores(), (t = s.x2655982588689657486x));
                     }
-                  (this.mLastScoreIndex = -1),
+                  ((this.mLastScoreIndex = -1),
                     (this.mLastScore = 0),
                     (this.mHighScore = this.getScoreForIndex(1)),
                     (this.mIsLastScoreNewHighScore = !1),
-                    this.dispatchMessage(s.x613430786256892710x, this, null);
+                    this.dispatchMessage(s.x613430786256892710x, this, null));
                 }
               }),
               (a.saveHighScoresToPrefs = function () {
                 if (this.mIsEnabled && this.didLoadHighScores()) {
                   this.mHighScoresDictionary.resetAllKeyStringsToKeyValue();
                   var e = this.mHighScoresDictionary.toJSONString(null, !0, -1);
-                  this.x3492736744867887433x.setPrefsString(
+                  (this.x3492736744867887433x.setPrefsString(
                     this.getSavedHighScoresDataId(),
                     e
                   ),
-                    this.x3492736744867887433x.savePrefs();
+                    this.x3492736744867887433x.savePrefs());
                 }
               }),
               (a.invalidateLastScore = function () {
-                (this.mLastScoreIndex = -1),
+                ((this.mLastScoreIndex = -1),
                   (this.mLastScore = 0),
-                  (this.mIsLastScoreNewHighScore = !1);
+                  (this.mIsLastScoreNewHighScore = !1));
               }),
               (a.processNewScore = function (e, t, r) {
                 if (this.mIsEnabled && this.didLoadHighScores()) {
                   var i = this.mParams.getBoolValue(s.x4288641470829354080x);
-                  (this.mLastScore = e), (this.mIsLastScoreNewHighScore = !1);
+                  ((this.mLastScore = e), (this.mIsLastScoreNewHighScore = !1));
                   var a = -1,
                     c = 0,
                     g = this.mHighScoresDictionary.getDictionary(
@@ -38147,7 +38190,7 @@ System.register(
                         : S.setKeyString(o.stringFromInt(l, 0, !1));
                     }
                     var m = new n(!0);
-                    m.setStringValue(s.x3044649643817401592x, t),
+                    (m.setStringValue(s.x3044649643817401592x, t),
                       m.setIntValue(s.x2690700401833681505x, e),
                       g.setObjectValue(
                         o.stringToValueKey(o.stringFromInt(a, 0, !1)),
@@ -38158,12 +38201,12 @@ System.register(
                         t
                       ),
                       r && this.saveHighScoresToPrefs(),
-                      this.dispatchMessage(s.x613430786256892710x, this, null);
+                      this.dispatchMessage(s.x613430786256892710x, this, null));
                   } else this.mLastScoreIndex = -1;
                 }
               }),
               (a.x4554517263080478179x = function () {
-                this.x3492736744867887433x.removeMessageListener(this),
+                (this.x3492736744867887433x.removeMessageListener(this),
                   this.x3492736744867887433x
                     .getSceneMgr()
                     .removeMessageListener(this),
@@ -38173,13 +38216,13 @@ System.register(
                   null !== this.mHighScoresDictionary &&
                     (this.mHighScoresDictionary.destroy(),
                     (this.mHighScoresDictionary = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (a.x1416011893951084930x = function (e, t, r) {
                 switch (e) {
                   case g.x1815863738674710524x:
-                    this.loadHighScoresFromPrefs(),
-                      h.getInstance().addMessageListener(this);
+                    (this.loadHighScoresFromPrefs(),
+                      h.getInstance().addMessageListener(this));
                     break;
                   case h.x115884585008795914x:
                     this.invalidateLastScore();
@@ -38351,7 +38394,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (r = e.createClass);
+          ((t = e.inheritsLoose), (r = e.createClass));
         },
         function (e) {
           i = e.cclegacy;
@@ -38420,7 +38463,7 @@ System.register(
                   n = a.getDescendantNamed(
                     o.x3005984195166997840x("ICGNUQDJSE")
                   );
-                (t = o.stringToUpperCase(t)),
+                ((t = o.stringToUpperCase(t)),
                   n.setText(t),
                   a
                     .getDescendantNamed(o.x3005984195166997840x("HDXTOGRPRLFP"))
@@ -38431,7 +38474,7 @@ System.register(
                         h.isEven(e)
                           ? this.mHighScoreEntryStyleNormalEven
                           : this.mHighScoreEntryStyleNormalOdd
-                      );
+                      ));
               }),
               (a.x878158922330897399x = function (t) {
                 this.mParams.copy(t, !0);
@@ -38451,7 +38494,9 @@ System.register(
                   g = l
                     .getDictionaryWithKeyString("_BPSUIPanel:highScoreEntry")
                     .x2049916819781837214x();
-                l.removeValue(o.stringToValueKey("_BPSUIPanel:highScoreEntry")),
+                (l.removeValue(
+                  o.stringToValueKey("_BPSUIPanel:highScoreEntry")
+                ),
                   this.mHighScoreEntryStyleNormalEven.copy(
                     g.getDictionaryWithKeyString("style"),
                     !0
@@ -38523,7 +38568,7 @@ System.register(
                       g.getFloatValueWithKeyStringPath(
                         "frameParams.highlightState.alpha"
                       )
-                    );
+                    ));
                 for (var y = 0; y < n; y++) {
                   var S = g.x2049916819781837214x(),
                     c = y + 1;
@@ -38550,7 +38595,7 @@ System.register(
                 }
               }),
               (a.x4554517263080478179x = function () {
-                null !== this.mParams &&
+                (null !== this.mParams &&
                   (this.mParams.destroy(), (this.mParams = null)),
                   null !== this.mHighScoreEntryStyleNormalEven &&
                     (this.mHighScoreEntryStyleNormalEven.destroy(),
@@ -38561,7 +38606,7 @@ System.register(
                   null !== this.mHighScoreEntryStyleHighlight &&
                     (this.mHighScoreEntryStyleHighlight.destroy(),
                     (this.mHighScoreEntryStyleHighlight = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (a.x1416011893951084930x = function (e, t, r) {
                 switch (e) {
@@ -38617,9 +38662,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (n = e.inheritsLoose),
+          ((n = e.inheritsLoose),
             (t = e.createClass),
-            (a = e.assertThisInitialized);
+            (a = e.assertThisInitialized));
         },
         function (e) {
           i = e.cclegacy;
@@ -38678,7 +38723,7 @@ System.register(
                 );
               }),
               (s.resetOnboardingData = function (e) {
-                this.mOnboardingData.removeAllValues(),
+                (this.mOnboardingData.removeAllValues(),
                   this.mOnboardingData.setIntValue(
                     i.x309411891911273914x,
                     i.x379146633025610151x
@@ -38687,7 +38732,7 @@ System.register(
                     i.x3405175558880058437x,
                     !1
                   ),
-                  e && this.saveOnboardingData();
+                  e && this.saveOnboardingData());
               }),
               (s.getSavedOnboardingDataId = function () {
                 return (
@@ -38707,30 +38752,29 @@ System.register(
                       i.x309411891911273914x
                     );
                   t < i.x379146633025610151x;
-
                 )
                   switch (t) {
                     case 0:
                     default:
-                      this.resetOnboardingData(!1),
+                      (this.resetOnboardingData(!1),
                         (n = !0),
-                        (t = i.x379146633025610151x);
+                        (t = i.x379146633025610151x));
                   }
                 n && this.saveOnboardingData();
               }),
               (s.saveOnboardingData = function () {
                 var e = this.mOnboardingData.toJSONString(null, !0, -1);
-                this.x3492736744867887433x.setPrefsString(
+                (this.x3492736744867887433x.setPrefsString(
                   this.getSavedOnboardingDataId(),
                   e
                 ),
-                  this.x3492736744867887433x.savePrefs();
+                  this.x3492736744867887433x.savePrefs());
               }),
               (s.handleDidCompleteOnboarding = function () {
                 this.saveOnboardingData();
               }),
               (s.x4554517263080478179x = function () {
-                this.x3492736744867887433x.removeMessageListener(this),
+                (this.x3492736744867887433x.removeMessageListener(this),
                   this.x3492736744867887433x
                     .getSceneMgr()
                     .removeMessageListener(this),
@@ -38741,17 +38785,17 @@ System.register(
                   null !== this.mOnboardingData &&
                     (this.mOnboardingData.destroy(),
                     (this.mOnboardingData = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (s.x1416011893951084930x = function (e, n, t) {
                 switch (e) {
                   case o.x2720846039592911721x:
-                    this.handleDidCompleteOnboarding(),
+                    (this.handleDidCompleteOnboarding(),
                       m
                         .getInstance()
                         .getGameMgr()
                         .getGame()
-                        .addMessageListener(this);
+                        .addMessageListener(this));
                     break;
                   case m.x608741659637987948x:
                     this.isOnboardingRequiredAndIncomplete() &&
@@ -38762,8 +38806,8 @@ System.register(
                         .removeMessageListener(this);
                     break;
                   case g.x1815863738674710524x:
-                    this.loadOnboardingData(),
-                      m.getInstance().addMessageListener(this);
+                    (this.loadOnboardingData(),
+                      m.getInstance().addMessageListener(this));
                     break;
                   case d.x1622556336154130212x:
                     this.resetOnboardingData(!0);
@@ -38817,7 +38861,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (a = e.assertThisInitialized);
+          ((t = e.inheritsLoose), (a = e.assertThisInitialized));
         },
         function (e) {
           s = e.cclegacy;
@@ -38864,7 +38908,7 @@ System.register(
                 n
               );
             }
-            t(s, e),
+            (t(s, e),
               (s.tryCreate = function (e, t) {
                 var a = r.stringToLowerCase(
                   e.getStringValueWithKeyStringPath("metadata.id")
@@ -38872,7 +38916,7 @@ System.register(
                 return r.firstIndexInString(a, "ispero") >= 0
                   ? new s(null, t)
                   : null;
-              });
+              }));
             var n = s.prototype;
             return (
               (n.dispatchEventMessage = function (e) {
@@ -38885,7 +38929,7 @@ System.register(
                 } catch (e) {}
               }),
               (n.x4554517263080478179x = function () {
-                this.x3492736744867887433x.removeMessageListener(this),
+                (this.x3492736744867887433x.removeMessageListener(this),
                   this.x3492736744867887433x
                     .getSceneMgr()
                     .removeMessageListener(this),
@@ -38895,23 +38939,23 @@ System.register(
                   null !== this.mEventMessageData &&
                     (this.mEventMessageData.destroy(),
                     (this.mEventMessageData = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (n.x1416011893951084930x = function (e, t, a) {
                 switch (e) {
                   case g.x1815863738674710524x:
-                    this.x3492736744867887433x
+                    (this.x3492736744867887433x
                       .getSceneMgr()
                       .getManagedScene("game")
                       .addMessageListener(this),
                       this.x3492736744867887433x
                         .getSceneMgr()
                         .getManagedScene("gameOver")
-                        .addMessageListener(this);
+                        .addMessageListener(this));
                     break;
                   case m.x608741659637987948x:
                     var s = a.getIntValue(m.x783144731450616512x);
-                    this.mEventMessageData.removeAllValues(),
+                    (this.mEventMessageData.removeAllValues(),
                       s <= 1
                         ? this.mEventMessageData.insertStringValue(
                             0,
@@ -38925,32 +38969,32 @@ System.register(
                             999,
                             "GameRestarted"
                           ),
-                      this.dispatchEventMessage(this.mEventMessageData);
+                      this.dispatchEventMessage(this.mEventMessageData));
                     break;
                   case m.x3297929916373582848x:
-                    this.mEventMessageData.removeAllValues(),
+                    (this.mEventMessageData.removeAllValues(),
                       this.mEventMessageData.insertStringValue(
                         0,
                         "event",
                         999,
                         "GamePaused"
                       ),
-                      this.dispatchEventMessage(this.mEventMessageData);
+                      this.dispatchEventMessage(this.mEventMessageData));
                     break;
                   case m.x2876941765638085350x:
-                    this.mEventMessageData.removeAllValues(),
+                    (this.mEventMessageData.removeAllValues(),
                       this.mEventMessageData.insertStringValue(
                         0,
                         "event",
                         999,
                         "GameResumed"
                       ),
-                      this.dispatchEventMessage(this.mEventMessageData);
+                      this.dispatchEventMessage(this.mEventMessageData));
                     break;
                   case m.x115884585008795914x:
                     var n = a.getIntValue(m.x1559533584586268212x),
                       i = a.getIntValue(m.x2744717253507315676x);
-                    this.mEventMessageData.removeAllValues(),
+                    (this.mEventMessageData.removeAllValues(),
                       this.mEventMessageData.insertStringValue(
                         0,
                         "event",
@@ -38964,12 +39008,12 @@ System.register(
                         999,
                         i
                       ),
-                      this.dispatchEventMessage(this.mEventMessageData);
+                      this.dispatchEventMessage(this.mEventMessageData));
                     break;
                   case m.x3859880478601358912x:
-                    (n = a.getIntValue(m.x2572002429198664426x)),
-                      (i = a.getIntValue(m.x4604675307524882191x));
-                    this.mEventMessageData.removeAllValues(),
+                    ((n = a.getIntValue(m.x2572002429198664426x)),
+                      (i = a.getIntValue(m.x4604675307524882191x)));
+                    (this.mEventMessageData.removeAllValues(),
                       this.mEventMessageData.insertStringValue(
                         0,
                         "event",
@@ -38983,17 +39027,17 @@ System.register(
                         999,
                         i
                       ),
-                      this.dispatchEventMessage(this.mEventMessageData);
+                      this.dispatchEventMessage(this.mEventMessageData));
                     break;
                   case c.x2183364143136481864x:
-                    this.mEventMessageData.removeAllValues(),
+                    (this.mEventMessageData.removeAllValues(),
                       this.mEventMessageData.insertStringValue(
                         0,
                         "event",
                         999,
                         "Quit"
                       ),
-                      this.dispatchEventMessage(this.mEventMessageData);
+                      this.dispatchEventMessage(this.mEventMessageData));
                 }
               }),
               s
@@ -39022,7 +39066,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (n = e.createClass);
+          ((t = e.inheritsLoose), (n = e.createClass));
         },
         function (e) {
           o = e.cclegacy;
@@ -39074,19 +39118,19 @@ System.register(
                   .setText(e);
               }),
               (c.popSceneWithCapturedDeviceControl = function (e, t) {
-                this.getMessageData().setIntValue(o.x2121689742406493478x, e),
+                (this.getMessageData().setIntValue(o.x2121689742406493478x, e),
                   this.getMessageData().setIntValue(o.x3439892467472226154x, t),
                   this.dispatchMessage(
                     o.x388939347451702411x,
                     this,
                     this.getMessageData()
                   ),
-                  this.getSceneMgr().popScene();
+                  this.getSceneMgr().popScene());
               }),
               (c.x4554517263080478179x = function () {
-                this.mFollowMouseButton && this.mFollowMouseButton.release(),
+                (this.mFollowMouseButton && this.mFollowMouseButton.release(),
                   (this.mFollowMouseButton = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (c.x45721443619589401x = function () {}),
               (c.x4217063068283409709x = function () {}),
@@ -39103,7 +39147,7 @@ System.register(
               (c.x1129735657014589326x = function (e, t, n) {
                 switch (e) {
                   case s.x2659953793612233060x:
-                    return this.getSceneMgr().popScene(), !0;
+                    return (this.getSceneMgr().popScene(), !0);
                 }
                 return !1;
               }),
@@ -39111,7 +39155,7 @@ System.register(
                 switch (e) {
                   case r.x682033629567773910x:
                   case r.x1696800367504081061x:
-                    return this.popSceneWithCapturedDeviceControl(e, t), !0;
+                    return (this.popSceneWithCapturedDeviceControl(e, t), !0);
                 }
                 return !1;
               }),
@@ -39213,19 +39257,19 @@ System.register(
                 return this.mDidConfirm;
               }),
               (i.performConfirm = function () {
-                (this.mDidConfirm = !0), this.getSceneMgr().popScene();
+                ((this.mDidConfirm = !0), this.getSceneMgr().popScene());
               }),
               (i.performCancel = function () {
-                (this.mDidConfirm = !1), this.getSceneMgr().popScene();
+                ((this.mDidConfirm = !1), this.getSceneMgr().popScene());
               }),
               (i.x4554517263080478179x = function () {
                 e.prototype.x4554517263080478179x.call(this);
               }),
               (i.x45721443619589401x = function () {
-                this.getSceneRootView()
+                (this.getSceneRootView()
                   .getDescendantNamed("title")
                   .setText(this.mMessage),
-                  (this.mDidConfirm = !1);
+                  (this.mDidConfirm = !1));
               }),
               (i.x4217063068283409709x = function () {}),
               (i.x2878673084604274481x = function () {}),
@@ -39244,7 +39288,7 @@ System.register(
               (i.x1129735657014589326x = function (e, t, n) {
                 switch (e) {
                   case o.x2659953793612233060x:
-                    return this.performCancel(), !0;
+                    return (this.performCancel(), !0);
                 }
                 return !1;
               }),
@@ -39284,9 +39328,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (a = e.createClass),
-            (n = e.assertThisInitialized);
+            (n = e.assertThisInitialized));
         },
         function (e) {
           s = e.cclegacy;
@@ -39341,7 +39385,7 @@ System.register(
           "x1196795996260559792x",
           void 0
         );
-        (e(
+        ((e(
           "x1196795996260559792x",
           (function (e) {
             function s(t, a) {
@@ -39363,17 +39407,17 @@ System.register(
                 i
               );
             }
-            t(s, e),
+            (t(s, e),
               (s.getInstance = function () {
                 return s.sInstance;
-              });
+              }));
             var i = s.prototype;
             return (
               (i.setIsAIDemoModeEnabled = function (e, t) {
-                (this.mIsAIDemoModeEnabled = e),
+                ((this.mIsAIDemoModeEnabled = e),
                   (this.mIsCurrentGameAIDemoMode = e),
                   (this.mCancelAIDemoModeOnInput = t),
-                  (this.mOverrideNumNonAIPlayers = e ? 0 : -1);
+                  (this.mOverrideNumNonAIPlayers = e ? 0 : -1));
               }),
               (i.getGameMgr = function () {
                 return this.mGameMgr;
@@ -39396,7 +39440,7 @@ System.register(
                     n = e
                       .getPlayerAtIndex(0)
                       .getComponent(o.x1107523589684864332x);
-                  n && (a = n.getScore()),
+                  (n && (a = n.getScore()),
                     this.getMessageData().setIntValue(
                       s.x1559533584586268212x,
                       a
@@ -39410,20 +39454,20 @@ System.register(
                       this,
                       this.getMessageData()
                     ),
-                    this.mGameMgr.terminate();
+                    this.mGameMgr.terminate());
                 }
               }),
               (i.x4554517263080478179x = function () {
-                this.x1742960969061545736x().removeMessageListener(this),
+                (this.x1742960969061545736x().removeMessageListener(this),
                   null !== this.mGameMgr &&
                     (this.mGameMgr.destroy(), (this.mGameMgr = null)),
                   this.mLoadingView && this.mLoadingView.release(),
                   (this.mLoadingView = null),
                   this == s.sInstance && (s.sInstance = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (i.x70409365346278932x = function () {
-                (this.mLoadingView =
+                ((this.mLoadingView =
                   this.getAppSupportFactory().createViewHierarchy(
                     "_BPSView:loadingView",
                     this.getSceneParams().getDictionaryWithKeyStringPath(
@@ -39433,7 +39477,7 @@ System.register(
                   this.mLoadingView.retain(),
                   (this.mDEBUG_enableAIPlay = this.x1742960969061545736x()
                     .x3235992609840102036x()
-                    .getBoolValueWithKeyStringPath("debug.enableAIPlay"));
+                    .getBoolValueWithKeyStringPath("debug.enableAIPlay")));
               }),
               (i.x45721443619589401x = function () {
                 var e = !1;
@@ -39468,7 +39512,7 @@ System.register(
                   : this.getStateMachine().setState(s.x747585171830523498x);
               }),
               (i.x4217063068283409709x = function () {
-                this.tryTerminateGame(),
+                (this.tryTerminateGame(),
                   this.getSceneRootView().removeAllChildren(!0),
                   this.getSceneRootView().setIsActive(!0),
                   this.x1742960969061545736x().setIsBGViewVisible(!0),
@@ -39477,7 +39521,7 @@ System.register(
                   this.mGameMgr &&
                     (this.mGameMgr.removeMessageListener(this),
                     null !== this.mGameMgr &&
-                      (this.mGameMgr.destroy(), (this.mGameMgr = null)));
+                      (this.mGameMgr.destroy(), (this.mGameMgr = null))));
               }),
               (i.x2878673084604274481x = function () {
                 this.getStateMachine().getCurrentState() !=
@@ -39571,7 +39615,7 @@ System.register(
                             );
                             break;
                           default:
-                            this.dispatchMessage(
+                            (this.dispatchMessage(
                               s.x3297929916373582848x,
                               this,
                               null
@@ -39580,7 +39624,7 @@ System.register(
                                 m.x3005984195166997840x(
                                   "KHNEIIVQKMQPEMVKWNFJFN"
                                 )
-                              );
+                              ));
                         }
                         break;
                       case d.x4302556719031715188x:
@@ -39614,7 +39658,7 @@ System.register(
                       switch (t) {
                         case r.x2691494905573128412x:
                         case r.x438114206828796755x:
-                          return this.pauseGame(), !0;
+                          return (this.pauseGame(), !0);
                       }
                     break;
                   case r.x1696800367504081061x:
@@ -39648,9 +39692,9 @@ System.register(
                         null !== this.mGameMgr &&
                           (this.mGameMgr.destroy(), (this.mGameMgr = null));
                         var r = new G(this.getAppSupportFactory());
-                        r.setName("gameRootView"),
+                        (r.setName("gameRootView"),
                           this.getSceneRootView().addChild(r),
-                          this.getSceneRootView().addChild(this.mLoadingView);
+                          this.getSceneRootView().addChild(this.mLoadingView));
                         break;
                       case g.x1673908432382400910x:
                         if (
@@ -39669,18 +39713,18 @@ System.register(
                                 this.mGameMgr.startConstruct();
                                 break;
                               case d.x2913260500556657359x:
-                                this.getUIInputMgr().manageControlsInView(
+                                (this.getUIInputMgr().manageControlsInView(
                                   this.getSceneRootView()
                                 ),
-                                  this.mGameMgr.initializeGame();
+                                  this.mGameMgr.initializeGame());
                                 break;
                               case d.x3499085574962874928x:
-                                this.mGameMgr
+                                (this.mGameMgr
                                   .getGame()
                                   .addMessageListener(this),
                                   this.getStateMachine().setState(
                                     s.x888899480013982112x
-                                  );
+                                  ));
                             }
                             this.mGameMgr.processTimeMSEC(i);
                           } else
@@ -39691,7 +39735,7 @@ System.register(
                           var S = this.x4477663390352594068x()
                             .x3235992609840102036x()
                             .getDictionaryWithKeyString("gameMgr");
-                          (this.mGameMgr = new M(
+                          ((this.mGameMgr = new M(
                             S,
                             this.mOverrideNumNonAIPlayers,
                             this.getAppSupportFactory(),
@@ -39700,12 +39744,12 @@ System.register(
                             ),
                             P.getInstance()
                           )),
-                            this.mGameMgr.addMessageListener(this);
+                            this.mGameMgr.addMessageListener(this));
                         }
                         break;
                       case g.x3293153264341002567x:
-                        this.mLoadingView.removeFromParent(),
-                          this.x1742960969061545736x().resetAvailableTime();
+                        (this.mLoadingView.removeFromParent(),
+                          this.x1742960969061545736x().resetAvailableTime());
                     }
                     break;
                   case s.x888899480013982112x:
@@ -39843,7 +39887,7 @@ System.register(
                                 !1
                               );
                             }
-                            u &&
+                            (u &&
                               T &&
                               this.x4477663390352594068x().trackGUAEvent(
                                 this.x4477663390352594068x().getGUAEventCategory(),
@@ -39894,7 +39938,7 @@ System.register(
                                     m.x3005984195166997840x(
                                       "LDFMKPTHYDNGBUHRJF"
                                     )
-                                  );
+                                  ));
                           }
                         else this.mGameMgr.processTimeMSEC(i);
                     }
@@ -40003,7 +40047,7 @@ System.register(
             );
           })(i)
         ).sInstance = null),
-          s._RF.pop();
+          s._RF.pop());
       },
     };
   }
@@ -40073,7 +40117,7 @@ System.register(
                   .getGameMgr()
                   .getPlayerAtIndex(0)
                   .getComponent(o.x4184151634383032826x);
-                this.getSceneRootView()
+                (this.getSceneRootView()
                   .getDescendantNamed("message")
                   .setText(
                     "LEVEL " +
@@ -40084,7 +40128,7 @@ System.register(
                   ),
                   this.getSceneRootView()
                     .getDescendantNamed("menu")
-                    .updateSize();
+                    .updateSize());
               }),
               (c.x4217063068283409709x = function () {}),
               (c.x2878673084604274481x = function () {}),
@@ -40101,7 +40145,7 @@ System.register(
                 switch (e) {
                   case S.x2683364378846173287x:
                   case S.x2659953793612233060x:
-                    return this.getSceneMgr().popScene(), !0;
+                    return (this.getSceneMgr().popScene(), !0);
                 }
                 return !1;
               }),
@@ -40134,7 +40178,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (n = e.createClass);
+          ((t = e.inheritsLoose), (n = e.createClass));
         },
         function (e) {
           a = e.cclegacy;
@@ -40173,10 +40217,10 @@ System.register(
           (function (e) {
             function a(t, n) {
               var a;
-              ((a =
+              (((a =
                 e.call(this, "gameOver", t, n) || this).mIsAIDemoModeEnabled =
                 !1),
-                (a.mAIDemoModeAutoStartDelayMSEC = 0);
+                (a.mAIDemoModeAutoStartDelayMSEC = 0));
               var r = n.getDictionaryWithKeyString("AIDemoMode");
               return (
                 r &&
@@ -40191,8 +40235,8 @@ System.register(
             var r = a.prototype;
             return (
               (r.performPlay = function (e) {
-                S.getInstance().setIsAIDemoModeEnabled(e, !0),
-                  this.getSceneMgr().setScene("game");
+                (S.getInstance().setIsAIDemoModeEnabled(e, !0),
+                  this.getSceneMgr().setScene("game"));
               }),
               (r.x4554517263080478179x = function () {
                 e.prototype.x4554517263080478179x.call(this);
@@ -40229,7 +40273,7 @@ System.register(
                 var n = null,
                   r = 0,
                   c = null;
-                (n = S.getInstance()
+                ((n = S.getInstance()
                   .getGameMgr()
                   .getPlayerAtIndex(0)
                   .getComponent(o.x1987111697527652119x)),
@@ -40252,7 +40296,7 @@ System.register(
                       ((r = n.getNumAttacksSent()),
                       c.setText(
                         "OPPONENT LINES SENT: " + s.stringFromInt(r, 1, !0)
-                      )));
+                      ))));
                 var m =
                   this.getSceneRootView().getDescendantNamed("currentScore");
                 if (m) {
@@ -40268,7 +40312,7 @@ System.register(
                 var d = this.getSceneRootView().getDescendantNamed("highScore");
                 if (d) {
                   var u, P;
-                  (u = this.x4477663390352594068x()
+                  ((u = this.x4477663390352594068x()
                     .getHighScoresMgr()
                     .isLastScoreNewHighScore()),
                     (P = this.x4477663390352594068x()
@@ -40284,7 +40328,7 @@ System.register(
                           this.getSceneParams().getStringValueWithKeyStringPath(
                             "viewHierarchy.views._BPSUIPanel:menu.content._BPSContainerView:resultViewContainer.children._BPSBitmapTextView:highScore.text"
                           ) + s.stringFromInt(P, 1, !0)
-                        );
+                        ));
                 }
                 var h =
                   this.getSceneRootView().getDescendantNamed("levelMessage");
@@ -40301,14 +40345,14 @@ System.register(
                       .getGameOverLevelResult()
                   ) {
                     case g.x3400817540768909542x:
-                      I == p
+                      (I == p
                         ? h.setText("MAXIMUM LEVEL UNLOCKED!")
                         : h.setText(
                             "LEVEL " +
                               s.stringFromInt(I + 1, 1, !0) +
                               " UNLOCKED!"
                           ),
-                        h.setIsVisible(!0);
+                        h.setIsVisible(!0));
                       break;
                     default:
                       I < p
@@ -40326,9 +40370,9 @@ System.register(
                 var B = this.getSceneRootView().getDescendantNamed("ad");
                 if (B) {
                   !0;
-                  B.setIsVisible(!1), B.setIsEnabled(!1);
+                  (B.setIsVisible(!1), B.setIsEnabled(!1));
                 }
-                this.getSceneRootView().updateLayout(!0),
+                (this.getSceneRootView().updateLayout(!0),
                   this.mIsAIDemoModeEnabled &&
                     this.startTimer(
                       this.mAIDemoModeAutoStartDelayMSEC,
@@ -40363,7 +40407,7 @@ System.register(
                         i.x3444784169864792613x,
                         a.x1730334912537731570x,
                         !1
-                      ));
+                      )));
               }),
               (r.x4217063068283409709x = function () {
                 if ((this.cancelTimer(a.x2840314978898428309x), window))
@@ -40433,7 +40477,7 @@ System.register(
                 if (this.getElapsedActiveTimeMSEC() > 500)
                   switch (e) {
                     case a.x1730334912537731570x:
-                      return this.performPlay(!1), !0;
+                      return (this.performPlay(!1), !0);
                   }
                 return !1;
               }),
@@ -40570,13 +40614,13 @@ System.register(
                   else if ("help" == o) this.getSceneMgr().pushScene("help");
                   else if ("quit" == o) {
                     var S = this.getSceneMgr().getManagedScene("confirm");
-                    S.setMessage(
+                    (S.setMessage(
                       this.getSceneParams().getStringValue(
                         i.stringToValueKey("confirmQuitMessage")
                       )
                     ),
                       S.setAction("quit"),
-                      this.getSceneMgr().pushScene("confirm");
+                      this.getSceneMgr().pushScene("confirm"));
                   }
                 }
                 e.prototype.x1416011893951084930x.call(this, t, n, c);
@@ -40584,7 +40628,7 @@ System.register(
               (c.x1129735657014589326x = function (e, t, n) {
                 switch (e) {
                   case o.x2659953793612233060x:
-                    return this.getSceneMgr().popScene(), !0;
+                    return (this.getSceneMgr().popScene(), !0);
                 }
                 return !1;
               }),
@@ -40670,16 +40714,16 @@ System.register(
                     this.mPages
                       .getChildAtIndex(n)
                       .setIsVisible(n == this.mCurrentPage);
-                  this.mPrevButton.setIsEnabled(this.mCurrentPage > 0),
-                    this.mNextButton.setIsEnabled(this.mCurrentPage < e - 1);
+                  (this.mPrevButton.setIsEnabled(this.mCurrentPage > 0),
+                    this.mNextButton.setIsEnabled(this.mCurrentPage < e - 1));
                 }
               }),
               (s.x4554517263080478179x = function () {
-                this.mNextButton && this.mNextButton.release(),
+                (this.mNextButton && this.mNextButton.release(),
                   (this.mNextButton = null),
                   this.mPrevButton && this.mPrevButton.release(),
                   (this.mPrevButton = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (s.x70409365346278932x = function () {
                 this.mPages =
@@ -40688,7 +40732,7 @@ System.register(
                   var e = this.mPages.getChildAtIndex(t);
                   e.getSpriteFrame() ? t++ : this.mPages.removeChild(e);
                 }
-                (this.mPrevButton =
+                ((this.mPrevButton =
                   this.getSceneRootView().getDescendantNamed("prev")),
                   this.mPrevButton.retain(),
                   (this.mNextButton =
@@ -40696,7 +40740,7 @@ System.register(
                   this.mNextButton.retain(),
                   this.mPages.getNumChildren() <= 1 &&
                     (this.mPrevButton.removeFromParent(),
-                    this.mNextButton.removeFromParent());
+                    this.mNextButton.removeFromParent()));
                 var n = this.getSceneRootView().getDescendantNamed(
                   "dontShowHelpAtStart"
                 );
@@ -40739,12 +40783,12 @@ System.register(
                       "dontShowHelpAtStart",
                       !1
                     );
-                    this.mDontShowHelpAtStartButton.setIsOn(i),
+                    (this.mDontShowHelpAtStartButton.setIsOn(i),
                       this.x1742960969061545736x().setPrefsBool(
                         "dontShowHelpAtStart",
                         i
                       ),
-                      this.x1742960969061545736x().savePrefs();
+                      this.x1742960969061545736x().savePrefs());
                   }
                 }
                 t.prototype.x1416011893951084930x.call(this, e, n, s);
@@ -40752,7 +40796,7 @@ System.register(
               (s.x1129735657014589326x = function (t, e, n) {
                 switch (t) {
                   case i.x2659953793612233060x:
-                    return this.getSceneMgr().popScene(), !0;
+                    return (this.getSceneMgr().popScene(), !0);
                 }
                 return !1;
               }),
@@ -40780,7 +40824,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (n = e.assertThisInitialized);
+          ((t = e.inheritsLoose), (n = e.assertThisInitialized));
         },
         function (e) {
           i = e.cclegacy;
@@ -40804,10 +40848,11 @@ System.register(
           (function (e) {
             function i(t, i) {
               var s;
-              ((s = e.call(this, "interstitialAd", t, i) || this).mIsAdEnabled =
+              (((s =
+                e.call(this, "interstitialAd", t, i) || this).mIsAdEnabled =
                 !1),
                 (s.mIsAdDone = !1),
-                t.addMessageListener(n(s));
+                t.addMessageListener(n(s)));
               try {
                 s.mIsAdEnabled = window.isGameAreaAdEnabled();
               } catch (e) {
@@ -40819,8 +40864,8 @@ System.register(
             var s = i.prototype;
             return (
               (s.x4554517263080478179x = function () {
-                this.x1742960969061545736x().removeMessageListener(this),
-                  e.prototype.x4554517263080478179x.call(this);
+                (this.x1742960969061545736x().removeMessageListener(this),
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (s.x70409365346278932x = function () {}),
               (s.x45721443619589401x = function () {
@@ -40843,10 +40888,10 @@ System.register(
                   this.getSceneMgr().popScene();
               }),
               (s.x1416011893951084930x = function (t, n, i) {
-                n == this.x4477663390352594068x() &&
+                (n == this.x4477663390352594068x() &&
                   979287055 == t &&
                   (this.mIsAdDone = !0),
-                  e.prototype.x1416011893951084930x.call(this, t, n, i);
+                  e.prototype.x1416011893951084930x.call(this, t, n, i));
               }),
               (s.x1129735657014589326x = function (e, t, n) {
                 return !1;
@@ -40878,7 +40923,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (i = e.assertThisInitialized);
+          ((t = e.inheritsLoose), (i = e.assertThisInitialized));
         },
         function (e) {
           n = e.cclegacy;
@@ -40928,8 +40973,8 @@ System.register(
                 }
               }),
               (s.x4554517263080478179x = function () {
-                this.x1742960969061545736x().removeMessageListener(this),
-                  e.prototype.x4554517263080478179x.call(this);
+                (this.x1742960969061545736x().removeMessageListener(this),
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (s.x45721443619589401x = function () {
                 try {
@@ -40950,7 +40995,7 @@ System.register(
                   S.x3005984195166997840x("UHUQOFZILEZHZEBRNFYQYEZRWEYNUJ"),
                   0
                 );
-                e++,
+                (e++,
                   this.x1742960969061545736x().setPrefsInt(
                     S.x3005984195166997840x("NISHQMBQNLBPLLZHNRWHAMXIYLKUWQ"),
                     e
@@ -40974,7 +41019,7 @@ System.register(
                     "game_session_started",
                     { player_game_sessions_count: e }
                   ),
-                  this.getSceneRootView().removeAllChildren(!0);
+                  this.getSceneRootView().removeAllChildren(!0));
               }),
               (s.x2878673084604274481x = function () {}),
               (s.x4328264010118866272x = function () {}),
@@ -40987,10 +41032,10 @@ System.register(
                 }
               }),
               (s.x1416011893951084930x = function (t, i, n) {
-                i == this.x4477663390352594068x() &&
+                (i == this.x4477663390352594068x() &&
                   979287055 == t &&
                   (this.mIsVisible = !0),
-                  e.prototype.x1416011893951084930x.call(this, t, i, n);
+                  e.prototype.x1416011893951084930x.call(this, t, i, n));
               }),
               (s.x1129735657014589326x = function (e, t, i) {
                 return !1;
@@ -41038,7 +41083,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (n = e.createClass);
+          ((t = e.inheritsLoose), (n = e.createClass));
         },
         function (e) {
           a = e.cclegacy;
@@ -41077,13 +41122,13 @@ System.register(
           (function (e) {
             function a(t, n) {
               var a;
-              ((a =
+              (((a =
                 e.call(this, "mainMenu", t, n) || this).mStartingLevelIndex =
                 0),
                 (a.mMenuButton_level = null),
                 (a.mDidHandleShowHelp = !1),
                 (a.mIsAIDemoModeEnabled = !1),
-                (a.mAIDemoModeAutoStartDelayMSEC = 0);
+                (a.mAIDemoModeAutoStartDelayMSEC = 0));
               var r = n.getDictionaryWithKeyString("AIDemoMode");
               return (
                 r &&
@@ -41153,16 +41198,16 @@ System.register(
                           this.getActualStartingLevelIndex()
                         )
                         .getStringValue(s.x2018994597378761287x);
-                  this.mMenuButton_level.setButtonText(t, ""),
+                  (this.mMenuButton_level.setButtonText(t, ""),
                     this.mMenuButton_level.setIsEnabled(
                       !this.x4477663390352594068x()
                         .getOnboardingMgr()
                         .isOnboardingRequiredAndIncomplete()
-                    );
+                    ));
                 }
               }),
               (r.updateStartGameControl = function () {
-                this.getUIInputMgr().unmapInputAction(a.x1730334912537731570x),
+                (this.getUIInputMgr().unmapInputAction(a.x1730334912537731570x),
                   this.x1742960969061545736x().getStartGameDeviceControlString() &&
                   "" !=
                     this.x1742960969061545736x().getStartGameDeviceControlString()
@@ -41188,10 +41233,10 @@ System.register(
                         i.x3444784169864792613x,
                         a.x1730334912537731570x,
                         !1
-                      ));
+                      )));
               }),
               (r.performPlay = function (e) {
-                this.x4477663390352594068x()
+                (this.x4477663390352594068x()
                   .x3235992609840102036x()
                   .getDictionaryWithKeyStringPath(
                     "gameMgr.game.players.player-base.playerComponents.levels.params"
@@ -41201,7 +41246,7 @@ System.register(
                     this.getActualStartingLevelIndex()
                   ),
                   S.getInstance().setIsAIDemoModeEnabled(e, !0),
-                  this.getSceneMgr().setScene("game");
+                  this.getSceneMgr().setScene("game"));
               }),
               (r.x4554517263080478179x = function () {
                 e.prototype.x4554517263080478179x.call(this);
@@ -41221,7 +41266,7 @@ System.register(
                     t = this.x1742960969061545736x().hasPrefsKey(
                       "dontShowHelpAtStart"
                     );
-                  !this.getSceneParams().getBoolValue(
+                  (!this.getSceneParams().getBoolValue(
                     o.stringToValueKey("showHelpAtStart")
                   ) ||
                   (t &&
@@ -41242,15 +41287,15 @@ System.register(
                           !1
                         ),
                         this.x1742960969061545736x().savePrefs())),
-                    (this.mDidHandleShowHelp = !0);
+                    (this.mDidHandleShowHelp = !0));
                 }
-                this.mIsAIDemoModeEnabled &&
+                (this.mIsAIDemoModeEnabled &&
                   this.startTimer(
                     this.mAIDemoModeAutoStartDelayMSEC,
                     this,
                     a.x2840314978898428309x
                   ),
-                  this.updateStartGameControl();
+                  this.updateStartGameControl());
               }),
               (r.x4217063068283409709x = function () {
                 this.cancelTimer(a.x2840314978898428309x);
@@ -41259,14 +41304,14 @@ System.register(
                 this.cancelTimer(a.x2840314978898428309x);
               }),
               (r.x4328264010118866272x = function () {
-                this.updateLevelButton(),
+                (this.updateLevelButton(),
                   this.updateStartGameControl(),
                   this.mIsAIDemoModeEnabled &&
                     this.startTimer(
                       this.mAIDemoModeAutoStartDelayMSEC,
                       this,
                       a.x2840314978898428309x
-                    );
+                    ));
               }),
               (r.x1446981245456363814x = function () {}),
               (r.x1748512213907527052x = function (e) {}),
@@ -41326,7 +41371,7 @@ System.register(
               (r.x1129735657014589326x = function (e, t, n) {
                 switch (e) {
                   case a.x1730334912537731570x:
-                    return this.performPlay(!1), !0;
+                    return (this.performPlay(!1), !0);
                 }
                 return !1;
               }),
@@ -41427,7 +41472,7 @@ System.register(
             var o = n.prototype;
             return (
               (o.performGameButtonClick = function (e) {
-                this.x4477663390352594068x().trackGUAEvent(
+                (this.x4477663390352594068x().trackGUAEvent(
                   this.x4477663390352594068x().getGUAEventCategory(),
                   "Clicked Button",
                   "More Games: " + e,
@@ -41437,7 +41482,7 @@ System.register(
                   this.x4477663390352594068x().trackGA4GameEvent(
                     "game_button_clicked",
                     { game_button_name: "More Games: " + e }
-                  );
+                  ));
                 var t = this.getSceneParams().getStringValueWithKeyStringPath(
                   "viewHierarchy.views._BPSUIPanel:menu.content._BPSUIButton:" +
                     e +
@@ -41469,7 +41514,7 @@ System.register(
               (o.x1129735657014589326x = function (e, t, n) {
                 switch (e) {
                   case i.x2659953793612233060x:
-                    return this.performDone(), !0;
+                    return (this.performDone(), !0);
                 }
                 return !1;
               }),
@@ -41499,7 +41544,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (a = e.createClass);
+          ((t = e.inheritsLoose), (a = e.createClass));
         },
         function (e) {
           n = e.cclegacy;
@@ -41529,10 +41574,10 @@ System.register(
           (function (e) {
             function n(t, a) {
               var r;
-              ((r = e.call(this, "newHighScore", t, a) || this).mNameView =
+              (((r = e.call(this, "newHighScore", t, a) || this).mNameView =
                 null),
                 (r.mName = ""),
-                (r.mResetNameOnNextKey = !1);
+                (r.mResetNameOnNextKey = !1));
               var i = a.getStringValueWithKeyStringPath("nameEntry.method");
               return (
                 (r.mNameEntryMethod =
@@ -41547,10 +41592,11 @@ System.register(
             var r = n.prototype;
             return (
               (r.resetName = function () {
-                this.setName(""), (this.mResetNameOnNextKey = !1);
+                (this.setName(""), (this.mResetNameOnNextKey = !1));
               }),
               (r.setName = function (e) {
-                (this.mName = s.stringToUpperCase(e)), this.updateDisplayName();
+                ((this.mName = s.stringToUpperCase(e)),
+                  this.updateDisplayName());
               }),
               (r.updateDisplayName = function () {
                 if (this.mNameView) {
@@ -41586,10 +41632,10 @@ System.register(
                 var e = this.x4477663390352594068x()
                   .getHighScoresMgr()
                   .getLastScoreIndex();
-                this.x4477663390352594068x()
+                (this.x4477663390352594068x()
                   .getHighScoresMgr()
                   .setNameForIndex(e, this.mName, !0),
-                  this.getSceneMgr().swapScene("gameOver");
+                  this.getSceneMgr().swapScene("gameOver"));
               }),
               (r.x4554517263080478179x = function () {
                 e.prototype.x4554517263080478179x.call(this);
@@ -41611,20 +41657,20 @@ System.register(
                   this.mNameEntryMethod)
                 ) {
                   case n.x3783354460906385417x:
-                    this.setName(
+                    (this.setName(
                       this.x4477663390352594068x()
                         .getHighScoresMgr()
                         .getNameForIndex(e)
                     ),
                       (this.mResetNameOnNextKey =
-                        this.mName && "" != this.mName);
+                        this.mName && "" != this.mName));
                     break;
                   case n.x384166506615516352x:
-                    (this.mCurrentLetterIndex = 0),
+                    ((this.mCurrentLetterIndex = 0),
                       (this.mDisplayNameBlinkTimerMSEC =
                         this.mDisplayNameBlinkRateMSEC),
                       this.setName("AAA"),
-                      (this.mResetNameOnNextKey = !1);
+                      (this.mResetNameOnNextKey = !1));
                 }
                 switch (
                   (this.startTimer(
@@ -41648,7 +41694,7 @@ System.register(
                         "application.scenes.newHighScore"
                       )
                       .getDictionary(n.x2520171071183273129x);
-                    this.getUIInputMgr().mapDeviceControlString(
+                    (this.getUIInputMgr().mapDeviceControlString(
                       t.getStringValue(n.x3075452123849494672x),
                       n.x344332078350517687x,
                       !0
@@ -41662,7 +41708,7 @@ System.register(
                         t.getStringValue(n.x1504120067486299083x),
                         n.x2853297003713387758x,
                         !0
-                      );
+                      ));
                     break;
                   default:
                     this.x1742960969061545736x().getStartGameDeviceControlString() &&
@@ -41700,13 +41746,13 @@ System.register(
               (r.x1748512213907527052x = function (e) {
                 switch (this.mNameEntryMethod) {
                   case n.x384166506615516352x:
-                    (this.mDisplayNameBlinkTimerMSEC -= e),
+                    ((this.mDisplayNameBlinkTimerMSEC -= e),
                       this.mDisplayNameBlinkTimerMSEC < 0 &&
                         ((this.mDisplayNameBlinkTimerMSEC +=
                           this.mDisplayNameBlinkRateMSEC),
                         (this.mDisplayNameBlinkState =
                           !this.mDisplayNameBlinkState),
-                        this.updateDisplayName());
+                        this.updateDisplayName()));
                 }
               }),
               (r.x1416011893951084930x = function (t, a, r) {
@@ -41732,7 +41778,7 @@ System.register(
                 if (this.getElapsedActiveTimeMSEC() > 500)
                   switch (e) {
                     case n.x1730334912537731570x:
-                      return this.performSaveAndExit(), !0;
+                      return (this.performSaveAndExit(), !0);
                     case n.x344332078350517687x:
                     case n.x2358335489099284554x:
                     case n.x2853297003713387758x:
@@ -41772,7 +41818,7 @@ System.register(
                                 i
                               );
                           }
-                          return this.setName(r), !0;
+                          return (this.setName(r), !0);
                         case n.x2853297003713387758x:
                           return (
                             this.mCurrentLetterIndex < 2
@@ -41804,7 +41850,7 @@ System.register(
                               default:
                                 switch (t) {
                                   case i.x4163349308425459208x:
-                                    this.mResetNameOnNextKey &&
+                                    (this.mResetNameOnNextKey &&
                                       this.resetName(),
                                       this.mName &&
                                         "" != this.mName &&
@@ -41813,7 +41859,7 @@ System.register(
                                             this.mName,
                                             this.mName.length - 1
                                           )
-                                        );
+                                        ));
                                     break;
                                   default:
                                     i.isAlphanumericKeyboardControlId(t) &&
@@ -41968,9 +42014,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (a = e.createClass),
-            (s = e.assertThisInitialized);
+            (s = e.assertThisInitialized));
         },
         function (e) {
           n = e.cclegacy;
@@ -42040,7 +42086,7 @@ System.register(
           "x999999166594657322x",
           void 0
         );
-        (e(
+        ((e(
           "x999999166594657322x",
           (function (e) {
             function n(t, a) {
@@ -42067,10 +42113,10 @@ System.register(
                 i
               );
             }
-            t(n, e),
+            (t(n, e),
               (n.getInstance = function () {
                 return n.sInstance;
-              });
+              }));
             var i = n.prototype;
             return (
               (i.getOptionsSavedDataId = function () {
@@ -42079,7 +42125,7 @@ System.register(
                 );
               }),
               (i.resetSavedOptionsData = function () {
-                this.mLocalOptionsItemsValues.removeAllValues(),
+                (this.mLocalOptionsItemsValues.removeAllValues(),
                   this.mLocalOptionsItemsValues.setIntValue(
                     u.stringToValueKey(
                       u.x3005984195166997840x("JELJNNOFERHFJMLKJRVNJSHOYRDFDR")
@@ -42087,7 +42133,7 @@ System.register(
                     n.x1939585874623365034x
                   ),
                   this.saveLocalValues(),
-                  this.loadLocalValuesFromPrefs(!1);
+                  this.loadLocalValuesFromPrefs(!1));
               }),
               (i.loadLocalValuesFromPrefs = function (e) {
                 var t = new r(!0),
@@ -42105,7 +42151,6 @@ System.register(
                 for (
                   this.migrateLegacyControlItemsV11(t);
                   s < n.x1939585874623365034x;
-
                 )
                   s = n.x1939585874623365034x;
                 var i = null,
@@ -42115,13 +42160,13 @@ System.register(
                   m = null,
                   c = 0,
                   h = this.mOptionsItemsParams.getNumValues();
-                this.mLocalOptionsItemsValues.removeAllValues(),
+                (this.mLocalOptionsItemsValues.removeAllValues(),
                   this.mLocalOptionsItemsValues.setIntValue(
                     u.stringToValueKey(
                       u.x3005984195166997840x("JELJNNOFERHFJMLKJRVNJSHOYRDFDR")
                     ),
                     n.x1939585874623365034x
-                  );
+                  ));
                 var I = null;
                 for (c = 0; c < h; c++)
                   if (
@@ -42161,13 +42206,13 @@ System.register(
                         I.getValue()
                       );
                   }
-                e &&
+                (e &&
                   this.mPreviousLocalOptionsItemsValues.copy(
                     this.mLocalOptionsItemsValues,
                     !0
                   ),
                   null !== t && (t.destroy(), (t = null)),
-                  this.saveLocalValuesToPrefsAndDispatch();
+                  this.saveLocalValuesToPrefsAndDispatch());
               }),
               (i.saveLocalValuesToPrefsAndDispatch = function () {
                 for (
@@ -42208,38 +42253,38 @@ System.register(
                             )
                           ) {
                             var S = 0.01 * p;
-                            this.setTargetValueFloat(e, I, S),
+                            (this.setTargetValueFloat(e, I, S),
                               this.mDispatchChangeDictionary.setFloatValue(
                                 l.x2838916409868501237x,
                                 S
-                              );
+                              ));
                           } else
-                            this.setTargetValueInt(e, I, p),
+                            (this.setTargetValueInt(e, I, p),
                               this.mDispatchChangeDictionary.setIntValue(
                                 l.x2595783736010041797x,
                                 p
-                              );
+                              ));
                           break;
                         case g.x2276920205103910519x:
-                          this.copyTargetValue(m, e, I),
+                          (this.copyTargetValue(m, e, I),
                             this.mDispatchChangeDictionary.setFloatValue(
                               l.x2838916409868501237x,
                               m.getValue()
-                            );
+                            ));
                           break;
                         case g.x451771404504279848x:
-                          this.copyTargetValue(m, e, I),
+                          (this.copyTargetValue(m, e, I),
                             this.mDispatchChangeDictionary.setBoolValue(
                               l.x2112738362433067795x,
                               m.getValue()
-                            );
+                            ));
                           break;
                         case g.x2150721931415762143x:
-                          this.copyTargetValue(m, e, I),
+                          (this.copyTargetValue(m, e, I),
                             this.mDispatchChangeDictionary.setStringValue(
                               l.x1230186095872395723x,
                               m.getValue()
-                            );
+                            ));
                       }
                       if (!m.equalsValue(c, !0)) {
                         if (this.isVolumeItemName(n)) {
@@ -42273,12 +42318,12 @@ System.register(
                       }
                     }
                 }
-                this.mPreviousLocalOptionsItemsValues.copy(
+                (this.mPreviousLocalOptionsItemsValues.copy(
                   this.mLocalOptionsItemsValues,
                   !0
                 ),
                   this.saveLocalValues(),
-                  this.updateControls();
+                  this.updateControls());
               }),
               (i.saveLocalValues = function () {
                 this.getSceneParams().getBoolValueWithDefault(
@@ -42317,11 +42362,11 @@ System.register(
                         var m = e.getIntValueWithKeyStringPath(l),
                           c = o.x1577124473919273652x(m),
                           h = o.getKeyboardDeviceControlString(c);
-                        e.insertValueWithKeyStringPath(
+                        (e.insertValueWithKeyStringPath(
                           l,
                           g.x2150721931415762143x
                         ),
-                          e.setStringValueWithKeyStringPath(l, h);
+                          e.setStringValueWithKeyStringPath(l, h));
                       }
                     }
                 }
@@ -42333,12 +42378,12 @@ System.register(
                     !this.mLocalOptionsItemsValues.getBoolValueWithKeyStringPath(
                       this.getItemPathInOptions(t, this.mPlayerIndex)
                     );
-                  this.mLocalOptionsItemsValues
+                  (this.mLocalOptionsItemsValues
                     .getValueWithKeyStringPath(
                       this.getItemPathInOptions(t, this.mPlayerIndex)
                     )
                     .setValue(a),
-                    this.updateButton(e);
+                    this.updateButton(e));
                 }
               }),
               (i.doStepperItem = function (e) {
@@ -42360,13 +42405,13 @@ System.register(
               (i.doControlIdItem = function (e) {
                 var t = this.getItemParamsForControl(e);
                 if (t) {
-                  (this.mPendingControlIdItemParams = t),
-                    (this.mPendingControlIdItemButton = e);
+                  ((this.mPendingControlIdItemParams = t),
+                    (this.mPendingControlIdItemButton = e));
                   var a =
                       this.getSceneMgr().getManagedScene("captureControlId"),
                     s = t.getStringValueWithKeyStringPath("title");
-                  a.setParams(s, u.firstIndexInString(s, "MOVE") >= 0),
-                    this.getSceneMgr().pushScene("captureControlId");
+                  (a.setParams(s, u.firstIndexInString(s, "MOVE") >= 0),
+                    this.getSceneMgr().pushScene("captureControlId"));
                 }
               }),
               (i.tryCaptureDeviceControl = function (e, t) {
@@ -42400,7 +42445,7 @@ System.register(
                     l < r;
                     l++
                   )
-                    (s = this.mOptionsItemsParams.getDictionaryAtIndex(l)),
+                    ((s = this.mOptionsItemsParams.getDictionaryAtIndex(l)),
                       (n = this.getItemNameFromKeyString(
                         this.mOptionsItemsParams.getValueKeyStringAtIndex(l)
                       )),
@@ -42424,8 +42469,8 @@ System.register(
                               .setValue(""),
                             this.updateButton(
                               this.getSceneRootView().getDescendantNamed(n)
-                            ))));
-                this.mLocalOptionsItemsValues
+                            )))));
+                (this.mLocalOptionsItemsValues
                   .getValueWithKeyStringPath(
                     this.getItemPathInOptions(
                       this.mPendingControlIdItemParams,
@@ -42435,7 +42480,7 @@ System.register(
                   .setValue(a),
                   this.updateButton(this.mPendingControlIdItemButton),
                   (this.mPendingControlIdItemParams = null),
-                  (this.mPendingControlIdItemButton = null);
+                  (this.mPendingControlIdItemButton = null));
               }),
               (i.isEnabledOptionsItem = function (e, t) {
                 return (
@@ -42570,7 +42615,7 @@ System.register(
                       ) &&
                       s.isOnboardingInputTypeSupported(m.x1719580821783995404x);
                   }
-                  e.setIsVisible(a), t.setIsVisible(a);
+                  (e.setIsVisible(a), t.setIsVisible(a));
                 }
               }),
               (i.updateControl = function (e) {
@@ -42659,16 +42704,16 @@ System.register(
                               u
                             ),
                           m = g.getValue();
-                        0 != (m = e ? -(m >= 0 ? m : -m) : m >= 0 ? m : -m) &&
+                        (0 != (m = e ? -(m >= 0 ? m : -m) : m >= 0 ? m : -m) &&
                           (t = !1),
-                          g.setValue(m);
+                          g.setValue(m));
                         var c = 0.01 * m,
                           h = this.getItemPathToTargetValue(i, l);
                         this.setTargetValueFloat(a, h, c);
                       }
                 }
-                t && !e && this.resetAllVolumeItemsToDefault(),
-                  this.saveLocalValuesToPrefsAndDispatch();
+                (t && !e && this.resetAllVolumeItemsToDefault(),
+                  this.saveLocalValuesToPrefsAndDispatch());
               }),
               (i.clampAllVolumeItems0To100 = function () {
                 for (
@@ -42738,7 +42783,7 @@ System.register(
                 }
               }),
               (i.setPlayerIndex = function (e) {
-                (this.mPlayerIndex = e), this.updateControls();
+                ((this.mPlayerIndex = e), this.updateControls());
               }),
               (i.copyTargetValue = function (e, t, a) {
                 var s = t.getValueWithKeyStringPath(a);
@@ -42757,7 +42802,7 @@ System.register(
                   s.setValue(a);
               }),
               (i.x4554517263080478179x = function () {
-                this.x1742960969061545736x().removeMessageListener(this),
+                (this.x1742960969061545736x().removeMessageListener(this),
                   null !== this.mLocalOptionsItemsValues &&
                     (this.mLocalOptionsItemsValues.destroy(),
                     (this.mLocalOptionsItemsValues = null)),
@@ -42768,10 +42813,10 @@ System.register(
                     (this.mDispatchChangeDictionary.destroy(),
                     (this.mDispatchChangeDictionary = null)),
                   this == n.sInstance && (n.sInstance = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (i.x70409365346278932x = function () {
-                (this.mPlayerIndexStepper =
+                ((this.mPlayerIndexStepper =
                   this.getSceneRootView().getDescendantNamed("playerIndex")),
                   this.mPlayerIndexStepper &&
                     this.mPlayerIndexStepper.addMessageListener(this),
@@ -42787,13 +42832,13 @@ System.register(
                     ),
                     this.getSceneRootView()
                       .getDescendantNamed("menu")
-                      .updateSize());
+                      .updateSize()));
               }),
               (i.x45721443619589401x = function () {
-                (this.mPlayerIndex = this.mPlayerIndexStepper
+                ((this.mPlayerIndex = this.mPlayerIndexStepper
                   ? this.mPlayerIndexStepper.getStepperValue() - 1
                   : 0),
-                  this.updateControls();
+                  this.updateControls());
               }),
               (i.x4217063068283409709x = function () {
                 this.saveLocalValuesToPrefsAndDispatch();
@@ -42830,9 +42875,9 @@ System.register(
                       var r = this.getSceneParams().getStringValue(
                         u.stringToValueKey("confirmResetOptionsMessage")
                       );
-                      n.setAction("resetOptions"),
+                      (n.setAction("resetOptions"),
                         n.setMessage(r),
-                        this.getSceneMgr().pushScene("confirm");
+                        this.getSceneMgr().pushScene("confirm"));
                     } else
                       "resetHighScores" == i
                         ? ((n =
@@ -42872,13 +42917,13 @@ System.register(
                     this.tryCaptureDeviceControl(o, g);
                     break;
                   case p.x1815863738674710524x:
-                    this.loadLocalValuesFromPrefs(!0),
+                    (this.loadLocalValuesFromPrefs(!0),
                       this.getSceneMgr()
                         .getManagedScene("captureControlId")
                         .addMessageListener(this),
                       this.getSceneMgr()
                         .getManagedScene("game")
-                        .addMessageListener(this);
+                        .addMessageListener(this));
                     break;
                   case T.x68069894833488355x:
                     this.handleAudioMuteChanged(!0);
@@ -42894,7 +42939,7 @@ System.register(
               (i.x1129735657014589326x = function (e, t, a) {
                 switch (e) {
                   case P.x2659953793612233060x:
-                    return this.getSceneMgr().popScene(), !0;
+                    return (this.getSceneMgr().popScene(), !0);
                 }
                 return !1;
               }),
@@ -42922,7 +42967,7 @@ System.register(
             );
           })(i)
         ).sInstance = null),
-          n._RF.pop();
+          n._RF.pop());
       },
     };
   }
@@ -43018,9 +43063,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (n = e.createClass),
-            (s = e.assertThisInitialized);
+            (s = e.assertThisInitialized));
         },
         function (e) {
           a = e.cclegacy;
@@ -43169,10 +43214,10 @@ System.register(
             var B = a.prototype;
             return (
               (B.processTime = function (e) {
-                this.mEffectsMgr.processTimeMSEC(e),
+                (this.mEffectsMgr.processTimeMSEC(e),
                   this.mMetaEffectsMgr.processTimeMSEC(e),
                   this.mMusicMgr.processTimeMSEC(e),
-                  this.tryStartMusic();
+                  this.tryStartMusic());
               }),
               (B.getIsMuted = function () {
                 return this.mIsMuted;
@@ -43205,7 +43250,8 @@ System.register(
                 }
               }),
               (B.stopMusic = function () {
-                this.mMusicMgr.stopAllSounds(), (this.mCurrentMusicSoundId = 0);
+                (this.mMusicMgr.stopAllSounds(),
+                  (this.mCurrentMusicSoundId = 0));
               }),
               (B.updateIsMuted = function () {
                 var e =
@@ -43216,7 +43262,7 @@ System.register(
                 this.setIsMuted(e);
               }),
               (B.x4554517263080478179x = function () {
-                this.mGameMgr.removeMessageListener(this),
+                (this.mGameMgr.removeMessageListener(this),
                   this.mGameMgr
                     .getValueChangedSource()
                     .removeMessageListener(this),
@@ -43231,7 +43277,7 @@ System.register(
                     (this.mMetaEffectsMgr = null)),
                   null !== this.mMusicMgr &&
                     (this.mMusicMgr.destroy(), (this.mMusicMgr = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (B.x1416011893951084930x = function (e, t, n) {
                 if (t == this.mGameMgr.getValueChangedSource())
@@ -43243,20 +43289,20 @@ System.register(
                         var y = n.getFloatValue(o.x2838916409868501237x);
                         switch (s) {
                           case 1211591272:
-                            this.mEffectsMgr.setVolume(y),
+                            (this.mEffectsMgr.setVolume(y),
                               this.mEffectsMgr.setIsMuted(y <= 0),
                               this.mMetaEffectsMgr.setVolume(y),
-                              this.mMetaEffectsMgr.setIsMuted(y <= 0);
+                              this.mMetaEffectsMgr.setIsMuted(y <= 0));
                             break;
                           case 1078007269:
-                            this.mMusicMgr.setVolume(y),
-                              this.mMusicMgr.setIsMuted(y <= 0);
+                            (this.mMusicMgr.setVolume(y),
+                              this.mMusicMgr.setIsMuted(y <= 0));
                         }
-                        this.updateIsMuted(),
+                        (this.updateIsMuted(),
                           this.mMusicMgr.getIsMuted() &&
                             this.mGameMgr
                               .getGame()
-                              .setWasMusicActiveDuringGame(!1);
+                              .setWasMusicActiveDuringGame(!1));
                         break;
                       case 729413392:
                         this.mSelectedMusicFileIndex =
@@ -43427,8 +43473,8 @@ System.register(
                           this.mEffectsMgr.playSound(a.x3456726242370627466x);
                           break;
                         case I.x1260764955804236362x:
-                          b.addMessageListener(this),
-                            this.mEffectsMgr.playSound(a.x777267360753116472x);
+                          (b.addMessageListener(this),
+                            this.mEffectsMgr.playSound(a.x777267360753116472x));
                           break;
                         case h.x4138763767871953620x:
                           var A = b;
@@ -43475,7 +43521,7 @@ System.register(
                           );
                           break;
                         case r.x420418942975315438x:
-                          this.mEffectsMgr.setIsPaused(!1),
+                          (this.mEffectsMgr.setIsPaused(!1),
                             this.mMusicMgr.setIsMuted(
                               this.mMusicMgr.getVolume() <= 0
                             ),
@@ -43483,12 +43529,12 @@ System.register(
                               ? (this.mMusicMgr.setIsPaused(!1),
                                 this.tryStartMusic())
                               : this.stopMusic(),
-                            this.updateIsMuted();
+                            this.updateIsMuted());
                           break;
                         case r.x1155840784209584219x:
-                          this.mEffectsMgr.setIsPaused(!0),
+                          (this.mEffectsMgr.setIsPaused(!0),
                             this.mMusicMgr.setIsPaused(!0),
-                            this.mMetaEffectsMgr.stopAllSounds();
+                            this.mMetaEffectsMgr.stopAllSounds());
                           break;
                         case r.x1278546682371783331x:
                           this.stopMusic();
@@ -43793,7 +43839,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (a = e.createClass);
+          ((t = e.inheritsLoose), (a = e.createClass));
         },
         function (e) {
           r = e.cclegacy;
@@ -43850,7 +43896,7 @@ System.register(
                   .getDictionaryWithKeyStringPath(
                     "game.players.player-base.playerComponents.control.params"
                   );
-                g
+                (g
                   .getDictionary(u.x3497896058874826468x)
                   .setIntValue(u.x3696814884764040255x, s.FXPTFromFloat(0.3)),
                   g
@@ -43858,7 +43904,7 @@ System.register(
                     .setBoolValue(u.x4485293180732616428x, !1),
                   g
                     .getDictionary(u.x3497896058874826468x)
-                    .setBoolValue(u.x1661960056426722915x, !1);
+                    .setBoolValue(u.x1661960056426722915x, !1));
               }
               if (
                 (r.expandPlayerBaseControlDataToPlayers(m.getGameMgrData()),
@@ -43911,7 +43957,7 @@ System.register(
               }
               return m;
             }
-            t(r, e),
+            (t(r, e),
               (r.expandPlayerBaseControlDataToPlayers = function (e) {
                 for (
                   var t = e.getDictionaryWithKeyString("game"),
@@ -43935,7 +43981,7 @@ System.register(
                         .getDictionaryWithKeyStringPath("playerComponents")
                         .insertObjectValue(0, "control", 0, o));
                 }
-              });
+              }));
             var d = r.prototype;
             return (
               (d.getGame = function () {
@@ -43950,18 +43996,22 @@ System.register(
               (d.addMessageListenerToAllPlayers = function (e, t) {
                 for (var a = this.mGame.getNumPlayers(), r = 0; r < a; r++) {
                   var n = this.getPlayerAtIndex(r);
-                  n.addMessageListener(e),
-                    t && n.addMessageListenerToComponents(e);
+                  (n.addMessageListener(e),
+                    t && n.addMessageListenerToComponents(e));
                 }
               }),
               (d.getIsAudioMuted = function () {
                 return this.mAudioMgr.getIsMuted();
               }),
               (d.setIsAudioMuted = function (e) {
-                this.mAudioMgr.setIsMuted(e),
+                (this.mAudioMgr.setIsMuted(e),
                   e
                     ? this.dispatchMessage(r.x68069894833488355x, this, null)
-                    : this.dispatchMessage(r.x2564815724635142889x, this, null);
+                    : this.dispatchMessage(
+                        r.x2564815724635142889x,
+                        this,
+                        null
+                      ));
               }),
               (d.createGame = function (e) {
                 for (
@@ -43979,7 +44029,7 @@ System.register(
                       .getDictionaryAtIndex(i);
                   o.copy(s, !1);
                   var l = this.createPlayer(o, i, i, a);
-                  a.addPlayer(l), null !== o && (o.destroy(), (o = null));
+                  (a.addPlayer(l), null !== o && (o.destroy(), (o = null)));
                 }
                 return a;
               }),
@@ -44008,16 +44058,16 @@ System.register(
                 return i;
               }),
               (d.x4554517263080478179x = function () {
-                null !== this.mGame &&
+                (null !== this.mGame &&
                   (this.mGame.destroy(), (this.mGame = null)),
                   this.mGameView && this.mGameView.release(),
                   (this.mGameView = null),
                   null !== this.mAudioMgr &&
                     (this.mAudioMgr.destroy(), (this.mAudioMgr = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (d.x3362041634148961970x = function () {
-                null !== this.mGame &&
+                (null !== this.mGame &&
                   (this.mGame.destroy(), (this.mGame = null)),
                   (this.mGame = this.createGame(
                     this.getGameMgrData().getDictionaryWithKeyString("game")
@@ -44040,14 +44090,14 @@ System.register(
                       "gameAudio"
                     ),
                     this
-                  ));
+                  )));
               }),
               (d.x4071719445261864987x = function () {
                 return n.x2913260500556657359x;
               }),
               (d.x2602872912138282763x = function () {}),
               (d.x942398554085341662x = function () {
-                this.mGameView.setIsVisible(!0), this.mGame.startGame();
+                (this.mGameView.setIsVisible(!0), this.mGame.startGame());
               }),
               (d.x4555998805270646657x = function (e) {
                 return (
@@ -44149,7 +44199,7 @@ System.register(
                         );
                       break;
                     case 1047210200:
-                      this.getPlayerAtIndex(i)
+                      (this.getPlayerAtIndex(i)
                         .getControlComponent()
                         .getParams()
                         .setIntValue(
@@ -44158,7 +44208,7 @@ System.register(
                         ),
                         this.getPlayerAtIndex(i)
                           .getControlComponent()
-                          .remapInputs();
+                          .remapInputs());
                       break;
                     case 98607055:
                       this.getPlayerAtIndex(i)
@@ -44170,7 +44220,7 @@ System.register(
                       break;
                     case 474065836:
                       var c = a.getBoolValue(o.x2112738362433067795x);
-                      this.getPlayerAtIndex(i)
+                      (this.getPlayerAtIndex(i)
                         .getControlComponent()
                         .x4589939837334800415x()
                         .setEnableAutomaticInputTypeSwitching(c),
@@ -44178,7 +44228,7 @@ System.register(
                           this.getPlayerAtIndex(i)
                             .getControlComponent()
                             .x4589939837334800415x()
-                            .setActiveInputType(l.x1286691926007648149x);
+                            .setActiveInputType(l.x1286691926007648149x));
                       break;
                     case 1791712459:
                       for (r = 0; r < n; r++)
@@ -44195,9 +44245,9 @@ System.register(
                               .getController()
                               .getAIInputMgr(),
                             d = a.getIntValue(o.x2595783736010041797x);
-                          (y.mParameter_actionPreDelayMSEC_moveLR = d),
+                          ((y.mParameter_actionPreDelayMSEC_moveLR = d),
                             (y.mParameter_actionPreDelayMSEC_rotate = d),
-                            (y.mParameter_actionPreDelayMSEC_hardDrop = d);
+                            (y.mParameter_actionPreDelayMSEC_hardDrop = d));
                         }
                   }
                 }
@@ -44257,7 +44307,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.assertThisInitialized);
+          ((e = t.inheritsLoose), (i = t.assertThisInitialized));
         },
         function (t) {
           a = t.cclegacy;
@@ -44351,7 +44401,7 @@ System.register(
             var _ = a.prototype;
             return (
               (_.construct = function () {
-                this.createMinoSpriteFrames(
+                (this.createMinoSpriteFrames(
                   this.mParams.getDictionaryWithKeyStringPath(
                     "gameViewParams.minos"
                   )
@@ -44373,7 +44423,7 @@ System.register(
                   )),
                   (this.mPlayerViewsLayer2 = new s(
                     this.getAppSupportFactory()
-                  ));
+                  )));
                 var t = this.mParams.getDictionaryWithKeyStringPath(
                   "playerViews.playerView-base"
                 );
@@ -44390,7 +44440,7 @@ System.register(
                 );
                 for (var e = this.mGame.getNumPlayers(), i = 0; i < e; i++) {
                   var a = new r(!0);
-                  a.copy(
+                  (a.copy(
                     this.mParams
                       .getDictionaryWithKeyStringPath("playerViews.playerViews")
                       .getDictionaryAtIndex(i),
@@ -44405,9 +44455,9 @@ System.register(
                       this.mPlayerViewsLayer1,
                       this.mPlayerViewsLayer2
                     ),
-                    null !== a && (a.destroy(), (a = null));
+                    null !== a && (a.destroy(), (a = null)));
                 }
-                this.addChild(this.mPlayerViewsLayer1),
+                (this.addChild(this.mPlayerViewsLayer1),
                   this.addChild(this.mPlayerViewsLayer2),
                   this.mParams.getBoolValueWithKeyStringPath(
                     "gameViewParams.pauseButton.enabled"
@@ -44457,17 +44507,17 @@ System.register(
                       this.getNativeView(),
                       this.mDebugMessagesView.getNativeView()
                     ),
-                    this.mGameMgr.addMessageListenerToAllPlayers(this, !0));
+                    this.mGameMgr.addMessageListenerToAllPlayers(this, !0)));
               }),
               (_.createMinoSpriteFrames = function (t) {
-                null !== this.mMinoSpriteFrameSet &&
+                (null !== this.mMinoSpriteFrameSet &&
                   (this.mMinoSpriteFrameSet.destroy(),
                   (this.mMinoSpriteFrameSet = null)),
-                  (this.mMinoSpriteFrameSet = new B(c.x4242460520739316527x));
+                  (this.mMinoSpriteFrameSet = new B(c.x4242460520739316527x)));
                 var e = t.getBoolValueWithKeyStringPath(
                   "isVisualStickyEnabled"
                 );
-                this.addMinoBitmap(
+                (this.addMinoBitmap(
                   c.x4242460520739316527x,
                   t.getStringValueWithKeyStringPath(
                     "baseMinoTexture.resource_texture"
@@ -44586,7 +44636,7 @@ System.register(
                     n.x3652565359547047089x,
                     n.x2289840148415367749x
                   ),
-                  this.mMinoSpriteFrameSet.constructSpriteFrames();
+                  this.mMinoSpriteFrameSet.constructSpriteFrames());
               }),
               (_.addMinoBitmap = function (t, e, i) {
                 if ("" != e) {
@@ -44598,7 +44648,7 @@ System.register(
                         u = p.getFilePathAddition(e, r),
                         m = n.getStandardPieceTypeId(u),
                         g = 0 != m ? 3 : 8;
-                      (a = this.mGameMgr
+                      ((a = this.mGameMgr
                         .getAppSupportFactory()
                         .getResourceMgr()
                         .getNativeBitmap(o)),
@@ -44612,10 +44662,10 @@ System.register(
                           p.NativeBitmap_getHeight(a),
                           i,
                           g
-                        );
+                        ));
                     }
                   else
-                    (a = this.mGameMgr
+                    ((a = this.mGameMgr
                       .getAppSupportFactory()
                       .getResourceMgr()
                       .getNativeBitmap(e)),
@@ -44629,7 +44679,7 @@ System.register(
                         p.NativeBitmap_getHeight(a),
                         i,
                         3
-                      );
+                      ));
                 }
               }),
               (_.updateAudioButton = function () {
@@ -44639,24 +44689,24 @@ System.register(
               (_.toggleAudioButton = function () {
                 if (this.mAudioButton) {
                   var t = this.mGameMgr.getIsAudioMuted();
-                  this.mGameMgr.setIsAudioMuted(!t), this.updateAudioButton();
+                  (this.mGameMgr.setIsAudioMuted(!t), this.updateAudioButton());
                 }
               }),
               (_.addDebugMessage = function (t) {
                 if (this.mDebugMessagesView) {
                   var e = this.mDebugMessagesView.getText();
-                  e && "" != e && (e += "\n"),
+                  (e && "" != e && (e += "\n"),
                     (e += t),
                     (e = n.trimStringLines(
                       e,
                       this.mDebugMessagesViewMaxLines,
                       !0
                     )),
-                    this.mDebugMessagesView.setText(e);
+                    this.mDebugMessagesView.setText(e));
                 }
               }),
               (_.x4554517263080478179x = function () {
-                this.mGameMgr.removeMessageListener(this),
+                (this.mGameMgr.removeMessageListener(this),
                   null !== this.mParams &&
                     (this.mParams.destroy(), (this.mParams = null)),
                   null !== this.mMinoSpriteFrameSet &&
@@ -44669,7 +44719,7 @@ System.register(
                   null !== this.mDebugMessagesView &&
                     (this.mDebugMessagesView.destroy(),
                     (this.mDebugMessagesView = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (_.x1416011893951084930x = function (t, e, i) {
                 if (e == this.mPauseButton)
@@ -44682,19 +44732,19 @@ System.register(
                       switch (this.mGame.getCurrentState()) {
                         case o.x2652834353956943894x:
                         case o.x420418942975315438x:
-                          this.mPauseButton &&
+                          (this.mPauseButton &&
                             this.mPauseButton.setIsEnabled(!0),
                             this.mAudioButton &&
                               this.mAudioButton.setIsEnabled(!0),
-                            this.updateAudioButton();
+                            this.updateAudioButton());
                           break;
                         case o.x3995960343432768768x:
                         case o.x1155840784209584219x:
                         case o.x1278546682371783331x:
-                          this.mPauseButton &&
+                          (this.mPauseButton &&
                             this.mPauseButton.setIsEnabled(!1),
                             this.mAudioButton &&
-                              this.mAudioButton.setIsEnabled(!1);
+                              this.mAudioButton.setIsEnabled(!1));
                       }
                       break;
                     case u.x2918083615841265646x:
@@ -44824,9 +44874,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (i = e.createClass),
-            (a = e.assertThisInitialized);
+            (a = e.assertThisInitialized));
         },
         function (e) {
           r = e.cclegacy;
@@ -45100,7 +45150,7 @@ System.register(
             return (
               (R.construct = function (e, t) {
                 var i;
-                null !== this.mViewFactory &&
+                (null !== this.mViewFactory &&
                   (this.mViewFactory.destroy(), (this.mViewFactory = null)),
                   (this.mViewFactory = new N(
                     this.mGameMgr.getAppSupportFactory().getResourceMgr()
@@ -45139,7 +45189,7 @@ System.register(
                   this.setPosition(
                     this.mParams.getFloatValueWithKeyStringPath("originX"),
                     this.mParams.getFloatValueWithKeyStringPath("originY")
-                  );
+                  ));
                 var a = this.mParams.getBoolValueWithKeyStringPath(
                   "minos.minoPlayerActionItems.enabled"
                 );
@@ -45175,7 +45225,7 @@ System.register(
                       );
                     }
                 }
-                this.mParams.getBoolValueWithKeyStringPath(
+                (this.mParams.getBoolValueWithKeyStringPath(
                   "holdPiece.enabled"
                 ) &&
                   this.mParams.getBoolValueWithKeyStringPath(
@@ -45214,13 +45264,13 @@ System.register(
                     this.addChild(this.mPendingActionItemButton)),
                   (this.mPlayerView = A.NativeView_create()),
                   A.NativeView_setName(this.mPlayerView, "PlayerView"),
-                  A.NativeView_setPosition(this.mPlayerView, 0, 0);
+                  A.NativeView_setPosition(this.mPlayerView, 0, 0));
                 var u = new O(!1, null);
-                u.setNativeView(this.mPlayerView),
+                (u.setNativeView(this.mPlayerView),
                   this.addChild(u),
                   (this.mLayer2Container = new W(this.getAppSupportFactory())),
                   this.mLayer2Container && this.mLayer2Container.retain(),
-                  this.mLayer2Container.setPosition(this.getX(), this.getY());
+                  this.mLayer2Container.setPosition(this.getX(), this.getY()));
                 var w = this.mPlayer.isAIControlled()
                   ? this.mParams.getDictionaryWithKeyString(
                       "backgroundAIPlayer"
@@ -45272,7 +45322,7 @@ System.register(
                     "nextQueue.enabled"
                   ))
                 ) {
-                  (this.mNextQueueView = A.NativeView_create()),
+                  ((this.mNextQueueView = A.NativeView_create()),
                     A.NativeView_setName(this.mNextQueueView, "nextQueue"),
                     A.NativeView_addChild(
                       this.mPlayerView,
@@ -45286,7 +45336,7 @@ System.register(
                       this.mParams.getFloatValueWithKeyStringPath(
                         "nextQueue.firstPieceCenterY"
                       )
-                    );
+                    ));
                   var d = this.mMinoSpriteFrameSet.getMinoNativeSpriteFrame(
                       T.x3219299747897366687x,
                       l.x2289840148415367749x,
@@ -45303,9 +45353,9 @@ System.register(
                     );
                   for (i = 0; i < P; i++) {
                     var S = this.createPieceView(d, a, 4);
-                    A.NativeView_setName(S, "nextPiece"),
+                    (A.NativeView_setName(S, "nextPiece"),
                       A.NativeView_addChild(this.mNextQueueView, S),
-                      A.NativeView_setPosition(S, 0, i * M);
+                      A.NativeView_setPosition(S, 0, i * M));
                   }
                 }
                 this.mParams.getBoolValueWithKeyStringPath(
@@ -45360,12 +45410,12 @@ System.register(
                   this.mAvatarLevelView)
                 ) {
                   var k = v + 1;
-                  this.mAvatarLevelView.setNativeViewName("avatarLevel"),
+                  (this.mAvatarLevelView.setNativeViewName("avatarLevel"),
                     this.mAvatarLevelView.setText(
                       X.concatStrings("LEVEL ", l.stringFromInt(k, 1, !1))
-                    );
+                    ));
                 }
-                this.mParams.getBoolValueWithKeyStringPath(
+                (this.mParams.getBoolValueWithKeyStringPath(
                   "knockoutsMeter.enabled"
                 ) &&
                   ((this.mKnockoutsMeterView = this.createKnockoutsMeterView(
@@ -45535,10 +45585,10 @@ System.register(
                       this.mMatrixOverlayView
                     )),
                   e.addChild(this),
-                  t.addChild(this.mLayer2Container);
+                  t.addChild(this.mLayer2Container));
               }),
               (R.constructMatrixView = function () {
-                this.mMatrixContainerView &&
+                (this.mMatrixContainerView &&
                   (this.mMatrixBackgroundView &&
                     (A.NativeView_removeFromParent(
                       this.mMatrixBackgroundView.getNativeView()
@@ -45571,7 +45621,7 @@ System.register(
                   A.NativeView_addChild(
                     this.mPlayerView,
                     this.mMatrixContainerView
-                  );
+                  ));
                 var e = this.mPlayer.getMatrix();
                 this.mMatrixWidth = e.getWidth();
                 var t = this.mMinoSpriteFrameSet.getMinoNativeSpriteFrame(
@@ -45592,7 +45642,7 @@ System.register(
                   r =
                     e.getVisibleHeight() * this.mMatrixMinoSpacing -
                     this.mMatrixMinoGap;
-                (this.mMatrixLeftX = ~~A.getAnchoredPosition(
+                ((this.mMatrixLeftX = ~~A.getAnchoredPosition(
                   this.mParams.getFloatValueWithKeyStringPath(
                     "matrix.transform.x"
                   ),
@@ -45615,10 +45665,10 @@ System.register(
                   (this.mMatrixViewHalfWidth =
                     e.getWidth() * this.mMatrixMinoSpacing * 0.5),
                   (this.mMatrixViewHalfHeight =
-                    e.getVisibleHeight() * this.mMatrixMinoSpacing * 0.5);
+                    e.getVisibleHeight() * this.mMatrixMinoSpacing * 0.5));
                 var n = this.mMatrixLeftX + this.mMatrixViewHalfWidth,
                   o = this.mMatrixBottomY + this.mMatrixViewHalfHeight;
-                (this.mMatrixBackgroundView = this.createMatrixFrameView(
+                ((this.mMatrixBackgroundView = this.createMatrixFrameView(
                   this.mParams.getDictionaryWithKeyStringPath(
                     "matrix.background"
                   ),
@@ -45669,7 +45719,7 @@ System.register(
                     this.mMatrixVFXOverlayView,
                     n,
                     o - 1
-                  );
+                  ));
                 var s = A.NativeCropView_createInParent(
                   0,
                   0,
@@ -45685,7 +45735,7 @@ System.register(
                 var m = this.mParams.getBoolValueWithKeyStringPath(
                   "minos.minoPlayerActionItems.enabled"
                 );
-                (this.mMatrixMinosView = A.NativeView_create()),
+                ((this.mMatrixMinosView = A.NativeView_create()),
                   A.NativeView_setName(this.mMatrixMinosView, "MatrixMinos"),
                   A.NativeView_addChild(s, this.mMatrixMinosView),
                   (this.mMatrixUndergoundMinosView = A.NativeView_create()),
@@ -45693,7 +45743,7 @@ System.register(
                     this.mMatrixUndergoundMinosView,
                     "MatrixUndergoundMinos"
                   ),
-                  A.NativeView_addChild(s, this.mMatrixUndergoundMinosView);
+                  A.NativeView_addChild(s, this.mMatrixUndergoundMinosView));
                 for (
                   var h = e.getWidth(), g = e.getVisibleHeight() + 1, c = -1;
                   c < g;
@@ -45701,7 +45751,7 @@ System.register(
                 )
                   for (var V = 0; V < h; V++) {
                     var u = this.createMinoView(t, m);
-                    c >= 0
+                    (c >= 0
                       ? A.NativeView_addChild(this.mMatrixMinosView, u)
                       : A.NativeView_addChild(
                           this.mMatrixUndergoundMinosView,
@@ -45712,9 +45762,9 @@ System.register(
                         V * this.mMatrixMinoSpacing,
                         c * this.mMatrixMinoSpacing
                       ),
-                      A.NativeView_setIsVisible(u, !1);
+                      A.NativeView_setIsVisible(u, !1));
                   }
-                this.mGhostPieceView ||
+                (this.mGhostPieceView ||
                   ((this.mGhostPieceView = this.createPieceView(t, !1, 4)),
                   A.NativeView_setName(this.mGhostPieceView, "GhostPiece")),
                   A.NativeView_addChild(s, this.mGhostPieceView),
@@ -45746,7 +45796,7 @@ System.register(
                     -0.5,
                     0,
                     !1
-                  );
+                  ));
               }),
               (R.createMatrixFrameView = function (e, t, i) {
                 var a = this.mGameMgr
@@ -45762,7 +45812,7 @@ System.register(
                     s = 0;
                   if (a.isScale9()) {
                     var m = e.getFloatValueWithKeyStringPath("padding");
-                    (r = t + 2 * m),
+                    ((r = t + 2 * m),
                       (n = i + 2 * m),
                       (o =
                         this.mMatrixLeftX -
@@ -45771,9 +45821,9 @@ System.register(
                       (s =
                         this.mMatrixBottomY -
                         m +
-                        e.getFloatValueWithKeyStringPath("offsetY"));
+                        e.getFloatValueWithKeyStringPath("offsetY")));
                   } else
-                    (r = A.NativeSpriteFrame_getWidth(
+                    ((r = A.NativeSpriteFrame_getWidth(
                       a.getNativeSpriteFrame(0)
                     )),
                       (n = A.NativeSpriteFrame_getHeight(
@@ -45786,7 +45836,7 @@ System.register(
                       (s =
                         this.mMatrixBottomY -
                         ~~(0.5 * (n - i)) +
-                        e.getFloatValueWithKeyStringPath("offsetY"));
+                        e.getFloatValueWithKeyStringPath("offsetY")));
                   var h = new K(this.mGameMgr.getAppSupportFactory());
                   return (
                     h.setName("matrixBackground"),
@@ -45826,22 +45876,22 @@ System.register(
                         var V = null,
                           P = null;
                         if (h >= 0)
-                          (V = r.getMinoAt(c, h)),
+                          ((V = r.getMinoAt(c, h)),
                             (P = A.NativeView_getChildAtIndex(
                               this.mMatrixMinosView,
                               h * n + c
                             )),
-                            (m = 0);
+                            (m = 0));
                         else {
                           var M = -1 - h;
-                          (V = r.getExternalMinoBelow(c, M)),
+                          ((V = r.getExternalMinoBelow(c, M)),
                             (P = A.NativeView_getChildAtIndex(
                               this.mMatrixUndergoundMinosView,
                               M * n + c
                             )),
                             (m =
                               h * this.mMatrixMinoSpacing -
-                              this.mMatrixMinoGap);
+                              this.mMatrixMinoGap));
                         }
                         this.updateMinoView(
                           P,
@@ -45956,17 +46006,17 @@ System.register(
                         y < 10)
                       ) {
                         var p = 50 * (y + 1);
-                        (p = l.maxInt(p, 50)),
+                        ((p = l.maxInt(p, 50)),
                           this.mPlayer.getRemainingTimeMSEC() % (2 * p) > p
                             ? this.mRemainingTimeValueView.setAlpha(0.4)
-                            : this.mRemainingTimeValueView.setAlpha(1);
+                            : this.mRemainingTimeValueView.setAlpha(1));
                       } else this.mRemainingTimeValueView.setAlpha(1);
                     }
-                    this.updateKnockoutsViews(),
+                    (this.updateKnockoutsViews(),
                       this.updateAttacksViews(),
-                      this.updateTurnTimerView();
+                      this.updateTurnTimerView());
                 }
-                A.NativeView_setIsVisible(
+                (A.NativeView_setIsVisible(
                   this.mLivePieceView,
                   a && this.mPlayer.getLivePiece()
                 ),
@@ -45995,7 +46045,7 @@ System.register(
                   a
                     ? this.mViewMgr.processTime(e)
                     : this.mCountdownValueView &&
-                      this.mCountdownValueView.processTime(e);
+                      this.mCountdownValueView.processTime(e));
               }),
               (R.updateNextQueueView = function () {
                 if (this.mNextQueueView)
@@ -46039,9 +46089,9 @@ System.register(
                   t)
                 ) {
                   var a = this.createMinoPlayerActionItemView();
-                  A.NativeView_setIsVisible(a, !1),
+                  (A.NativeView_setIsVisible(a, !1),
                     A.NativeView_addChild(i, a),
-                    A.NativeView_setChildrenSortingDepth(i, -1, 0, 0, !1);
+                    A.NativeView_setChildrenSortingDepth(i, -1, 0, 0, !1));
                 }
                 return i;
               }),
@@ -46090,9 +46140,9 @@ System.register(
                       break;
                     case T.x3005065568320171868x:
                     case T.x3675652379247836726x:
-                      (V = 1),
+                      ((V = 1),
                         t.getRemainingKills() > 0 &&
-                          (u = T.x3866642761077093990x);
+                          (u = T.x3866642761077093990x));
                       break;
                     case T.x381892903742091280x:
                     case T.x3802146288195068304x:
@@ -46115,9 +46165,9 @@ System.register(
                               P = t.getX() * d;
                           }
                           var M = (t.getX() + 1) * d;
-                          (w = l.getLerpFactor(c, P, M)), (w = l.clamp01(w));
+                          ((w = l.getLerpFactor(c, P, M)), (w = l.clamp01(w)));
                       }
-                      (V =
+                      ((V =
                         this.mDyingMinoFadeToAlpha !=
                         this.mDyingMinoFadeFromAlpha
                           ? l.lerp(
@@ -46130,7 +46180,7 @@ System.register(
                           (u =
                             ~~(w * (2 * this.mDyingMinoNumBlinks + 0)) % 2 == 0
                               ? T.x3866642761077093990x
-                              : T.x3917898295966128265x);
+                              : T.x3917898295966128265x));
                       break;
                     default:
                       V = 1;
@@ -46145,10 +46195,10 @@ System.register(
                     !1
                   );
                   var S = l.FXPTToFloat(t.getObscurationFactor_FXPT());
-                  S > 0.001 && (V *= 1 - S), A.NativeSprite_setAlpha(e, V);
+                  (S > 0.001 && (V *= 1 - S), A.NativeSprite_setAlpha(e, V));
                   var v = l.FXPTToFloat(t.getVisualX_FXPT()) * i + m,
                     y = l.FXPTToFloat(t.getVisualY_FXPT()) * i + h;
-                  (v = ~~v), (y = ~~y);
+                  ((v = ~~v), (y = ~~y));
                   var p;
                   if (
                     ((p = 0.4),
@@ -46170,7 +46220,7 @@ System.register(
               }),
               (R.createMinoPlayerActionItemView = function () {
                 var e = A.NativeSprite_createWithSpriteFrame(null);
-                return A.NativeView_setName(e, "minoPlayerActionItem"), e;
+                return (A.NativeView_setName(e, "minoPlayerActionItem"), e);
               }),
               (R.updateMinoPlayerActionItemView = function (e, t) {
                 if (e) {
@@ -46202,12 +46252,12 @@ System.register(
                           0
                         ));
                     var s = o.getObjectValueAtIndex(n);
-                    A.NativeSprite_setSpriteFrame(
+                    (A.NativeSprite_setSpriteFrame(
                       e,
                       s.getNativeSpriteFrame(0),
                       !0
                     ),
-                      A.NativeView_setIsVisible(e, !0);
+                      A.NativeView_setIsVisible(e, !0));
                   } else A.NativeView_setIsVisible(e, !1);
                 }
               }),
@@ -46216,7 +46266,7 @@ System.register(
                   var n = this.createMinoView(e, t);
                   A.NativeView_addChild(a, n);
                 }
-                return A.NativeView_setIsVisible(a, !1), a;
+                return (A.NativeView_setIsVisible(a, !1), a);
               }),
               (R.updatePieceView = function (e, t, i, a, r, n) {
                 if (e)
@@ -46271,9 +46321,9 @@ System.register(
                   s++
                 ) {
                   var m = A.NativeSprite_createWithSpriteFrame(n);
-                  A.NativeView_setPosition(m, i, a + r * s),
+                  (A.NativeView_setPosition(m, i, a + r * s),
                     A.NativeView_addChild(t, m),
-                    A.NativeView_setIsVisible(m, !1);
+                    A.NativeView_setIsVisible(m, !1));
                 }
                 return t;
               }),
@@ -46330,8 +46380,8 @@ System.register(
                   m++
                 ) {
                   var l = A.NativeSprite_createWithSpriteFrame(o);
-                  A.NativeView_setPosition(l, a + n * m, r),
-                    A.NativeView_addChild(i, l);
+                  (A.NativeView_setPosition(l, a + n * m, r),
+                    A.NativeView_addChild(i, l));
                 }
                 return i;
               }),
@@ -46430,14 +46480,14 @@ System.register(
                         l.FXPTToFloat(e.getTimerAttackMeterFilled01_FXPT())
                       ),
                       r = t.getFloatValueWithKeyStringPath("height") * a;
-                    A.NativeSprite_setSize(this.mTurnTimerView, i, r),
+                    (A.NativeSprite_setSize(this.mTurnTimerView, i, r),
                       A.NativeSprite_setPositionWithAnchor(
                         this.mTurnTimerView,
                         t.getFloatValueWithKeyStringPath("x"),
                         t.getFloatValueWithKeyStringPath("y"),
                         t.getFloatValueWithKeyStringPath("anchorX"),
                         t.getFloatValueWithKeyStringPath("anchorY")
-                      );
+                      ));
                   }
                 }
               }),
@@ -46606,7 +46656,7 @@ System.register(
                                 );
                                 break;
                               default:
-                                A.NativeSprite_setSpriteFrame(
+                                (A.NativeSprite_setSpriteFrame(
                                   this.mMessage2View,
                                   null,
                                   !0
@@ -46614,7 +46664,7 @@ System.register(
                                   A.NativeView_setIsVisible(
                                     this.mMessage2View,
                                     !1
-                                  );
+                                  ));
                             }
                           break;
                         default:
@@ -46636,13 +46686,13 @@ System.register(
                         l.stringFromInt(e, 0, !1)
                       );
                     }
-                    this.mMessage1View && this.mMessage1View.setIsVisible(!1),
+                    (this.mMessage1View && this.mMessage1View.setIsVisible(!1),
                       this.mMessage2View &&
                         A.NativeView_setIsVisible(this.mMessage2View, !1),
-                      A.NativeView_setIsVisible(this.mLevelOverlayView, !1);
+                      A.NativeView_setIsVisible(this.mLevelOverlayView, !1));
                     break;
                   case g.x1133555388324591903x:
-                    this.mMessage1View &&
+                    (this.mMessage1View &&
                       (this.mMessage1View.setIsVisible(
                         this.mGame.getCurrentStateElapsedTimeMSEC() > 100
                       ),
@@ -46672,11 +46722,11 @@ System.register(
                                 0
                               ),
                               !0
-                            ));
+                            )));
                 }
               }),
               (R.x4554517263080478179x = function () {
-                this.mGameMgr.removeMessageListener(this),
+                (this.mGameMgr.removeMessageListener(this),
                   this.mGameMgr
                     .getValueChangedSource()
                     .removeMessageListener(this),
@@ -46698,7 +46748,7 @@ System.register(
                     (this.mViewMgr.destroy(), (this.mViewMgr = null)),
                   null !== this.mViewFactory &&
                     (this.mViewFactory.destroy(), (this.mViewFactory = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (R.x1611679531593761376x = function (e, t) {
                 var i =
@@ -46848,15 +46898,15 @@ System.register(
                           n.trySetIsEnabled(this.mHoldButton, !0);
                           break;
                         case g.x420418942975315438x:
-                          n.trySetIsEnabled(this.mHoldButton, !0),
+                          (n.trySetIsEnabled(this.mHoldButton, !0),
                             n.trySetIsEnabled(
                               this.mPendingActionItemButton,
                               !0
-                            );
+                            ));
                           break;
                         case g.x1155840784209584219x:
                         case g.x3995960343432768768x:
-                          A.NativeView_setIsVisible(this.mLivePieceView, !1),
+                          (A.NativeView_setIsVisible(this.mLivePieceView, !1),
                             A.NativeView_setIsVisible(this.mGhostPieceView, !1),
                             A.NativeView_setIsVisible(
                               this.mMatrixMinosView,
@@ -46885,27 +46935,27 @@ System.register(
                             n.trySetIsEnabled(
                               this.mPendingActionItemButton,
                               !1
-                            );
+                            ));
                       }
                   }
                 else if (t == this.mGameMgr.getValueChangedSource()) {
                   if (e == m.x1238503773355499868x)
                     switch (i.getIntValue(m.x1288875115834861331x)) {
                       case 876635715:
-                        (this.mEnableAnimations = i.getBoolValue(
+                        ((this.mEnableAnimations = i.getBoolValue(
                           m.x2112738362433067795x
                         )),
                           this.mParams
                             .getValueWithKeyStringPath("enableAnimations")
-                            .setValue(this.mEnableAnimations);
+                            .setValue(this.mEnableAnimations));
                         break;
                       case 1412464371:
-                        (this.mIsGhostPieceEnabled = i.getBoolValue(
+                        ((this.mIsGhostPieceEnabled = i.getBoolValue(
                           m.x2112738362433067795x
                         )),
                           this.mParams
                             .getValueWithKeyStringPath("ghostPiece.enabled")
-                            .setValue(this.mIsGhostPieceEnabled);
+                            .setValue(this.mIsGhostPieceEnabled));
                     }
                 } else if (t == this.mHoldButton)
                   e == D.x3536226468358825783x &&
@@ -46922,7 +46972,7 @@ System.register(
                     case _.x4103399954893473569x:
                       if (!this.mEnableAnimations) return;
                       if (!this.mViewMgr.hasPool(e)) return;
-                      (f = i.getObjectValue(_.x586365273363455497x)),
+                      ((f = i.getObjectValue(_.x586365273363455497x)),
                         (u = this.mViewMgr.getSpriteViewFromPool(e)),
                         (o =
                           f.getX() * this.mMatrixMinoSpacing -
@@ -46937,12 +46987,12 @@ System.register(
                         this.mViewMgr.activateAndManageView(
                           u,
                           this.mMatrixVFXOverlayView
-                        );
+                        ));
                       break;
                     case _.x3067863765076620603x:
                       if (!this.mEnableAnimations) return;
                       if (!this.mViewMgr.hasPool(e)) return;
-                      (f = i.getObjectValue(_.x3569718098733416826x)),
+                      ((f = i.getObjectValue(_.x3569718098733416826x)),
                         (u = this.mViewMgr.getSpriteViewFromPool(e)),
                         (o =
                           f.getX() * this.mMatrixMinoSpacing -
@@ -46956,7 +47006,7 @@ System.register(
                         this.mViewMgr.activateAndManageView(
                           u,
                           this.mMatrixVFXOverlayView
-                        );
+                        ));
                       break;
                     case c.x4101073343859799816x:
                       var W = this.mPlayer.getRemainingTimeSEC(),
@@ -47017,7 +47067,7 @@ System.register(
                       if (!this.mViewMgr.hasPool(e)) return;
                       var X = (H = this.mPlayer.getLivePiece()).getNumMinos();
                       for (a = 0; a < X; a++)
-                        (o =
+                        ((o =
                           (f = H.getMinoAtIndex(a)).getX() *
                             this.mMatrixMinoSpacing -
                           this.mMatrixViewHalfWidth +
@@ -47031,7 +47081,7 @@ System.register(
                             this.mMatrixVFXOverlayView,
                             o,
                             s
-                          );
+                          ));
                       break;
                     case c.x3102210370361959416x:
                       if (!this.mEnableAnimations) return;
@@ -47050,7 +47100,7 @@ System.register(
                               H.getColumnMinYInMatrix(a) *
                               this.mMatrixMinoSpacing,
                             j = E + H.getNumRows();
-                          (Q -= this.mMatrixViewHalfHeight),
+                          ((Q -= this.mMatrixViewHalfHeight),
                             (Q += 1),
                             (u =
                               this.mViewMgr.getSpriteViewFromPool(
@@ -47065,7 +47115,7 @@ System.register(
                             this.mViewMgr.activateAndManageView(
                               u,
                               this.mMatrixVFXUnderlayView
-                            );
+                            ));
                         }
                         if (G) {
                           var z =
@@ -47081,7 +47131,7 @@ System.register(
                                 Z = U + b,
                                 $ = z + q * this.mMatrixMinoSpacing + b,
                                 ee = 0.3 * this.mMatrixMinoSpacing;
-                              (Z += l.nextNativeRandomFloatInRange(
+                              ((Z += l.nextNativeRandomFloatInRange(
                                 -ee,
                                 ee,
                                 1e3
@@ -47091,47 +47141,47 @@ System.register(
                                   ee,
                                   1e3
                                 )),
-                                u.setPosition(Z, $);
+                                u.setPosition(Z, $));
                               var te = 10;
-                              (te += l.nextNativeRandomFloatInRange(
+                              ((te += l.nextNativeRandomFloatInRange(
                                 -5,
                                 5,
                                 1e3
                               )),
                                 (T.getChannel(B.x125836065096058474x).mValue =
-                                  te);
+                                  te));
                               var ie = J * u.getScaleX();
-                              (ie *= l.nextNativeRandomFloatInRange(
+                              ((ie *= l.nextNativeRandomFloatInRange(
                                 0.5,
                                 1.5,
                                 1e3
                               )),
-                                u.setScale(ie, ie);
+                                u.setScale(ie, ie));
                               var ae = 0;
-                              (ae += l.nextNativeRandomFloatInRange(
+                              ((ae += l.nextNativeRandomFloatInRange(
                                 -180,
                                 180,
                                 1e3
                               )),
-                                u.setRotation(ae);
+                                u.setRotation(ae));
                               var re = 0;
-                              (re += l.nextNativeRandomFloatInRange(
+                              ((re += l.nextNativeRandomFloatInRange(
                                 -270,
                                 270,
                                 1e3
                               )),
                                 (T.getChannel(B.x3077221974433166296x).mValue =
-                                  re);
+                                  re));
                               var ne = l.lerp(0.2, u.getAlpha(), J);
-                              (ne *= l.nextNativeRandomFloatInRange(
+                              ((ne *= l.nextNativeRandomFloatInRange(
                                 0.5,
                                 1.5,
                                 1e3
                               )),
                                 (ne = l.clamp01(ne)),
-                                u.setAlpha(ne);
+                                u.setAlpha(ne));
                               var oe = T.getInitialGlobalDurationScale();
-                              (oe *= l.nextNativeRandomFloatInRange(
+                              ((oe *= l.nextNativeRandomFloatInRange(
                                 0.7,
                                 1.3,
                                 1e3
@@ -47141,7 +47191,7 @@ System.register(
                                 this.mViewMgr.activateAndManageView(
                                   u,
                                   this.mMatrixVFXUnderlayView
-                                );
+                                ));
                             }
                           }
                         }
@@ -47184,7 +47234,7 @@ System.register(
                         ce = i.getIntValue(d.x2972859226766745747x),
                         Ve = i.getIntValue(d.x2325628615321090304x),
                         ue = i.getObjectValue(d.x1916368345860781598x);
-                      (o = 0), (s = 0);
+                      ((o = 0), (s = 0));
                       var we = 0,
                         de = 2 * this.mMatrixViewHalfHeight;
                       switch (
@@ -47235,7 +47285,7 @@ System.register(
                             ));
                           break;
                         case 4:
-                          (P = this.mViewMgr.getBitmapTextViewFromPool(
+                          ((P = this.mViewMgr.getBitmapTextViewFromPool(
                             r.x717040358409333668x
                           )) &&
                             (L.setString(
@@ -47259,7 +47309,7 @@ System.register(
                               this.mMatrixVFXOverlayView,
                               o,
                               s
-                            );
+                            ));
                       }
                       break;
                     case V.x2554084924706305153x:
@@ -47273,17 +47323,17 @@ System.register(
                             );
                       }
                       if (!this.mViewMgr.hasPool(e)) return;
-                      (o =
+                      ((o =
                         this.mPlayer.getLockedPieceCenterX() *
                           this.mMatrixMinoSpacing -
                         this.mMatrixViewHalfWidth),
                         (s =
                           this.mPlayer.getLockedPieceCenterY() *
                             this.mMatrixMinoSpacing -
-                          this.mMatrixViewHalfHeight);
+                          this.mMatrixViewHalfHeight));
                       var Pe = i.getIntValue(V.x2941240369277282248x);
                       for (a = 0; a < Pe; a++)
-                        (u =
+                        ((u =
                           this.mViewMgr.getSpriteViewFromPool(
                             e
                           )).setAnimatorsIndex(a),
@@ -47291,7 +47341,7 @@ System.register(
                           this.mViewMgr.activateAndManageView(
                             u,
                             this.mMatrixVFXOverlayView
-                          );
+                          ));
                       break;
                     case V.x4289962653175987446x:
                     case V.x2336462491123288011x:
@@ -47322,8 +47372,8 @@ System.register(
                                 this.mIncomingAttackMeterView,
                                 ye
                               );
-                              (o = A.NativeView_getX(pe)),
-                                (s = A.NativeView_getY(pe));
+                              ((o = A.NativeView_getX(pe)),
+                                (s = A.NativeView_getY(pe)));
                               this.mViewMgr.activateAndManageViewFromPoolWithPosition(
                                 r.x3523983999531734485x,
                                 this.mMatrixOverlayView,
@@ -47339,7 +47389,7 @@ System.register(
                       break;
                     case w.x4551411740422093853x:
                       if (!this.mEnableAnimations) return;
-                      this.mViewMgr.activateAndManageViewFromPool(
+                      (this.mViewMgr.activateAndManageViewFromPool(
                         r.x2214904038057909863x,
                         this.mMatrixVFXOverlayView
                       ),
@@ -47350,13 +47400,13 @@ System.register(
                         this.mLevelValueView &&
                           this.mLevelValueView.startAnimator(
                             r.x4072629218368890480x
-                          );
+                          ));
                       break;
                     case F.x1099975101726925644x:
                       if (!this.mEnableAnimations) return;
                       if (!this.mViewMgr.hasPool(r.x1914770034752889746x))
                         return;
-                      (o =
+                      ((o =
                         ((N = i.getObjectValue(
                           F.x398692978822117073x
                         )).getSpawnedMatrixX() +
@@ -47372,13 +47422,13 @@ System.register(
                           this.mMatrixVFXOverlayView,
                           o,
                           s
-                        );
+                        ));
                       break;
                     case F.x1385704444850139091x:
                       if (!this.mEnableAnimations) return;
                       if (!this.mViewMgr.hasPool(r.x3514322279167926859x))
                         return;
-                      (o =
+                      ((o =
                         ((N = i.getObjectValue(
                           F.x1587235144591162708x
                         )).getActivationMatrixX() +
@@ -47394,7 +47444,7 @@ System.register(
                           this.mMatrixVFXOverlayView,
                           o,
                           s
-                        );
+                        ));
                       break;
                     case F.x3913620046364842447x:
                       if (!this.mEnableAnimations) return;
@@ -47440,7 +47490,7 @@ System.register(
                       ) {
                         case M.x4227277348975193345x:
                           var ke = N;
-                          this.mViewMgr.activateAndManageViewFromPool(
+                          (this.mViewMgr.activateAndManageViewFromPool(
                             ke.isSpeedUp()
                               ? r.x4487021510237222236x
                               : r.x4417767217823787807x,
@@ -47451,20 +47501,20 @@ System.register(
                                 ? r.x3197408088510236988x
                                 : r.x3777214497604477282x,
                               this.mMatrixVFXOverlayView
-                            );
+                            ));
                           break;
                         case S.x3226013237957535909x:
-                          this.mViewMgr.activateAndManageViewFromPool(
+                          (this.mViewMgr.activateAndManageViewFromPool(
                             r.x1554632929723145270x,
                             this.mMatrixVFXOverlayView
                           ),
                             this.mViewMgr.activateAndManageViewFromPool(
                               r.x4450694301982509569x,
                               this.mMatrixVFXOverlayView
-                            );
+                            ));
                           break;
                         case v.x1363134635961359892x:
-                          this.mViewMgr.activateAndManageViewFromPool(
+                          (this.mViewMgr.activateAndManageViewFromPool(
                             r.x2988304533993649328x,
                             this.mMatrixVFXOverlayView
                           ),
@@ -47475,17 +47525,17 @@ System.register(
                             this.mViewMgr.activateAndManageViewFromPool(
                               r.x2558000967224615185x,
                               this.mMatrixVFXOverlayView
-                            );
+                            ));
                           break;
                         case y.x1491364737890076412x:
-                          this.mViewMgr.activateAndManageViewFromPool(
+                          (this.mViewMgr.activateAndManageViewFromPool(
                             r.x4042939419042540678x,
                             this.mMatrixVFXOverlayView
                           ),
                             this.mViewMgr.activateAndManageViewFromPool(
                               r.x367263122777553013x,
                               this.mMatrixVFXOverlayView
-                            );
+                            ));
                           break;
                         case p.x2471765126385319644x:
                           this.mViewMgr.activateAndManageViewFromPool(
@@ -47501,7 +47551,7 @@ System.register(
                           break;
                         case x.x4138763767871953620x:
                           var xe = N;
-                          this.mViewMgr.activateAndManageViewFromPool(
+                          (this.mViewMgr.activateAndManageViewFromPool(
                             xe.isToCenter()
                               ? r.x1359606223391140911x
                               : r.x2547734999819743705x,
@@ -47518,11 +47568,11 @@ System.register(
                                 ? r.x272898474481729693x
                                 : r.x2197393897463827864x,
                               this.mMatrixVFXOverlayView
-                            );
+                            ));
                           break;
                         case I.x2805156545843053716x:
                           var Ie = N;
-                          this.mViewMgr.activateAndManageViewFromPool(
+                          (this.mViewMgr.activateAndManageViewFromPool(
                             Ie.isToLeft()
                               ? r.x4593233101086504274x
                               : r.x316700752152053243x,
@@ -47533,7 +47583,7 @@ System.register(
                                 ? r.x3225409434484550571x
                                 : r.x483076328532097263x,
                               this.mMatrixVFXOverlayView
-                            );
+                            ));
                       }
                       break;
                     case c.x358215251400151046x:
@@ -47547,7 +47597,7 @@ System.register(
                       if (!this.mEnableAnimations) return;
                       if (!this.mViewMgr.hasPool(r.x3939233640409046099x))
                         return;
-                      (o =
+                      ((o =
                         ((f = i.getObjectValue(
                           k.x4568587167817110994x
                         )).getX() +
@@ -47561,25 +47611,25 @@ System.register(
                           this.mMatrixVFXOverlayView,
                           o,
                           s
-                        );
+                        ));
                       break;
                     case d.x3958554063405433123x:
                       if (!this.mEnableAnimations) return;
                       if (!this.mScoreMultiplierValueView) return;
-                      this.mScoreMultiplierValueView.startAnimator(e),
+                      (this.mScoreMultiplierValueView.startAnimator(e),
                         this.mViewMgr.autoActivateAndManageViewsFromPool(
                           r.x2613473745528823839x,
                           this.mMatrixVFXOverlayView
-                        );
+                        ));
                       break;
                     case d.x2254816129217544040x:
                       if (!this.mEnableAnimations) return;
                       if (!this.mScoreMultiplierValueView) return;
-                      this.mScoreMultiplierValueView.startAnimator(e),
+                      (this.mScoreMultiplierValueView.startAnimator(e),
                         this.mViewMgr.autoActivateAndManageViewsFromPool(
                           r.x800536696638234800x,
                           this.mMatrixVFXOverlayView
-                        );
+                        ));
                       break;
                     case c.x2750245097828587380x:
                       this.constructMatrixView();
@@ -47591,12 +47641,15 @@ System.register(
                             this.mLevelOverlaySpriteFrameResource.getNativeSpriteFrame(
                               _e
                             );
-                        A.NativeSprite_setSpriteFrame(
+                        (A.NativeSprite_setSpriteFrame(
                           this.mLevelOverlayView,
                           Te,
                           !0
                         ),
-                          A.NativeView_setIsVisible(this.mLevelOverlayView, Te);
+                          A.NativeView_setIsVisible(
+                            this.mLevelOverlayView,
+                            Te
+                          ));
                       }
                   }
               }),
@@ -47955,7 +48008,7 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose), (s = e.assertThisInitialized);
+          ((t = e.inheritsLoose), (s = e.assertThisInitialized));
         },
         function (e) {
           r = e.cclegacy;
@@ -48008,13 +48061,13 @@ System.register(
             return (
               (n.updateView = function () {
                 var e = this.mVSCPURecordsMgr.getCurrentLevelIndex();
-                e < 0 && (e = 0),
+                (e < 0 && (e = 0),
                   this.mLevelStepper.setMaxStepperValue(
                     this.mVSCPURecordsMgr.getMaxUnlockedLevelIndex() + 1
                   ),
-                  this.mLevelStepper.setStepperValue(e + 1);
+                  this.mLevelStepper.setStepperValue(e + 1));
                 var t = a.getStringBuilder();
-                t.setString(""),
+                (t.setString(""),
                   t.appendString("TOTAL WINS: "),
                   t.appendInt(
                     this.mVSCPURecordsMgr.getNumWinsForLevelIndex(e),
@@ -48036,24 +48089,24 @@ System.register(
                     !0
                   ),
                   this.getDescendantNamed("mainText").setText(t.getString()),
-                  this.updateSize();
+                  this.updateSize());
               }),
               (n.x878158922330897399x = function (t) {
-                this.mParams.copy(t, !0),
+                (this.mParams.copy(t, !0),
                   e.prototype.x878158922330897399x.call(this, t),
                   (this.mLevelStepper =
                     this.getDescendantNamed("LevelStepper")),
                   this.mLevelStepper.addMessageListener(this),
-                  this.updateView();
+                  this.updateView());
               }),
               (n.x4554517263080478179x = function () {
-                null !== this.mParams &&
+                (null !== this.mParams &&
                   (this.mParams.destroy(), (this.mParams = null)),
                   this.mVSCPURecordsMgr &&
                     (this.mVSCPURecordsMgr.removeMessageListener(this),
                     (this.mVSCPURecordsMgr = null)),
                   (this.mLevelStepper = null),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (n.x1416011893951084930x = function (e, t, s) {
                 switch (e) {
@@ -48103,9 +48156,9 @@ System.register(
     return {
       setters: [
         function (e) {
-          (t = e.inheritsLoose),
+          ((t = e.inheritsLoose),
             (n = e.createClass),
-            (a = e.assertThisInitialized);
+            (a = e.assertThisInitialized));
         },
         function (e) {
           r = e.cclegacy;
@@ -48172,7 +48225,7 @@ System.register(
             return (
               (s.resetData = function () {
                 if (this.mIsEnabled) {
-                  this.mDataDictionary.removeAllValues(),
+                  (this.mDataDictionary.removeAllValues(),
                     this.mDataDictionary.setIntValue(
                       r.x3822692561042226237x,
                       r.x2655982588689657486x
@@ -48181,7 +48234,10 @@ System.register(
                       r.x1657369746209390872x,
                       0
                     ),
-                    this.mDataDictionary.setIntValue(r.x647874521123145044x, 0);
+                    this.mDataDictionary.setIntValue(
+                      r.x647874521123145044x,
+                      0
+                    ));
                   var e = new l(!0);
                   this.mDataDictionary.setObjectValue(
                     r.x3866116144066766835x,
@@ -48189,11 +48245,11 @@ System.register(
                   );
                   for (var t = 0; t < this.mNumLevels; t++) {
                     var n = e.createDictionary(t + 1, "", 999999, !0);
-                    n.setIntValue(r.x2399798096375537935x, 0),
+                    (n.setIntValue(r.x2399798096375537935x, 0),
                       n.setIntValue(r.x812634813960405259x, 0),
                       n.setIntValue(r.x606683265708449589x, 0),
                       n.setIntValue(r.x1909498177945807777x, 0),
-                      n.setIntValue(r.x1838668786075377807x, 0);
+                      n.setIntValue(r.x1838668786075377807x, 0));
                   }
                   this.saveDataToPrefs();
                 }
@@ -48255,7 +48311,7 @@ System.register(
               (s.updateAIParamsForCurrentLevel = function () {
                 var e = this.getCurrentLevelIndex(),
                   t = this.getMaxPossibleLevelIndex() + 1;
-                this.x3492736744867887433x
+                (this.x3492736744867887433x
                   .x3235992609840102036x()
                   .setIntValueWithKeyStringPath(
                     "gameMgr.game.players.players.player2.params.avatarIndex",
@@ -48266,12 +48322,12 @@ System.register(
                     .setIntValueWithKeyStringPath(
                       "gameMgr.game.players.players.player2.playerComponents.control.params.AIInput.levels.startingLevelIndex",
                       e
-                    );
+                    ));
                 var n = t - e + 1,
                   a = Math.pow(1.25, n),
                   r = 50 * a,
                   s = 30 * a;
-                this.x3492736744867887433x
+                (this.x3492736744867887433x
                   .x3235992609840102036x()
                   .getDictionaryWithKeyStringPath(
                     "gameMgr.game.players.player-base.playerComponents.control.params.AIInput"
@@ -48288,7 +48344,7 @@ System.register(
                     .getDictionaryWithKeyStringPath(
                       "gameMgr.game.players.player-base.playerComponents.control.params.AIInput"
                     )
-                    .setIntValue(c.x3475772809341661392x, s);
+                    .setIntValue(c.x3475772809341661392x, s));
               }),
               (s.getSavedRecordsDataId = function () {
                 return this.x3492736744867887433x.getSavedDataId() + "-records";
@@ -48306,33 +48362,32 @@ System.register(
                     this.getSavedRecordsDataId(),
                     ""
                   );
-                  e &&
+                  (e &&
                     "" != e &&
                     this.mDataDictionary.parseJSONString(e, !1, !0),
                     this.mDataDictionary.hasValue(r.x1657369746209390872x) ||
-                      this.setCurrentLevelIndex(0);
+                      this.setCurrentLevelIndex(0));
                   for (
                     var t = this.mDataDictionary.getIntValueWithDefault(
                       r.x3822692561042226237x,
                       0
                     );
                     t < r.x2655982588689657486x;
-
                   )
-                    this.resetData(), (t = r.x2655982588689657486x);
-                  this.updateAIParamsForCurrentLevel(),
-                    this.dispatchMessage(r.x4557258843280919743x, this, null);
+                    (this.resetData(), (t = r.x2655982588689657486x));
+                  (this.updateAIParamsForCurrentLevel(),
+                    this.dispatchMessage(r.x4557258843280919743x, this, null));
                 }
               }),
               (s.saveDataToPrefs = function () {
                 if (this.mIsEnabled && this.didLoadData()) {
                   this.mDataDictionary.resetAllKeyStringsToKeyValue();
                   var e = this.mDataDictionary.toJSONString(null, !0, -1);
-                  this.x3492736744867887433x.setPrefsString(
+                  (this.x3492736744867887433x.setPrefsString(
                     this.getSavedRecordsDataId(),
                     e
                   ),
-                    this.x3492736744867887433x.savePrefs();
+                    this.x3492736744867887433x.savePrefs());
                 }
               }),
               (s.processGameResult = function (e, t) {
@@ -48348,7 +48403,7 @@ System.register(
                   switch (e.getGameEndCondition()) {
                     case u.x1012103965324045291x:
                       var l = this.getMaxUnlockedLevelIndex();
-                      a >= l
+                      (a >= l
                         ? ((l = i.minInt(a + 1, this.mNumLevels - 1)),
                           this.mDataDictionary.setIntValue(
                             r.x647874521123145044x,
@@ -48357,36 +48412,36 @@ System.register(
                           (this.mGameOverLevelResult = r.x3400817540768909542x))
                         : (this.mGameOverLevelResult = r.x1978946972267600904x),
                         (n = s.getIntValue(r.x2399798096375537935x)),
-                        s.setIntValue(r.x2399798096375537935x, n + 1);
+                        s.setIntValue(r.x2399798096375537935x, n + 1));
                       var c = this.getCurrentWinStreakForLevelIndex(a);
-                      c++,
+                      (c++,
                         s.setIntValue(r.x812634813960405259x, c),
                         c > this.getLongestWinStreakForLevelIndex(a) &&
-                          s.setIntValue(r.x606683265708449589x, c);
+                          s.setIntValue(r.x606683265708449589x, c));
                       break;
                     case u.x3503448468401232989x:
-                      (n = s.getIntValue(r.x1909498177945807777x)),
+                      ((n = s.getIntValue(r.x1909498177945807777x)),
                         s.setIntValue(r.x1909498177945807777x, n + 1),
                         s.setIntValue(r.x812634813960405259x, 0),
-                        (this.mGameOverLevelResult = r.x1978946972267600904x);
+                        (this.mGameOverLevelResult = r.x1978946972267600904x));
                       break;
                     case u.x1473068611652403351x:
-                      (n = s.getIntValue(r.x1838668786075377807x)),
+                      ((n = s.getIntValue(r.x1838668786075377807x)),
                         s.setIntValue(r.x1838668786075377807x, n + 1),
                         s.setIntValue(r.x812634813960405259x, 0),
-                        (this.mGameOverLevelResult = r.x1978946972267600904x);
+                        (this.mGameOverLevelResult = r.x1978946972267600904x));
                       break;
                     case o.x766778045210268997x:
                     default:
                       return void (this.mGameOverLevelResult =
                         r.x1978946972267600904x);
                   }
-                  this.saveDataToPrefs(),
-                    this.dispatchMessage(r.x4557258843280919743x, this, null);
+                  (this.saveDataToPrefs(),
+                    this.dispatchMessage(r.x4557258843280919743x, this, null));
                 }
               }),
               (s.x4554517263080478179x = function () {
-                this.x3492736744867887433x.removeMessageListener(this),
+                (this.x3492736744867887433x.removeMessageListener(this),
                   this.x3492736744867887433x
                     .getSceneMgr()
                     .removeMessageListener(this),
@@ -48396,13 +48451,13 @@ System.register(
                   null !== this.mDataDictionary &&
                     (this.mDataDictionary.destroy(),
                     (this.mDataDictionary = null)),
-                  e.prototype.x4554517263080478179x.call(this);
+                  e.prototype.x4554517263080478179x.call(this));
               }),
               (s.x1416011893951084930x = function (e, t, n) {
                 switch (e) {
                   case d.x1815863738674710524x:
-                    this.loadDataFromPrefs(),
-                      I.getInstance().addMessageListener(this);
+                    (this.loadDataFromPrefs(),
+                      I.getInstance().addMessageListener(this));
                     break;
                   case I.x115884585008795914x:
                     var a = I.getInstance().getGameMgr().getPlayerAtIndex(0),
@@ -48541,7 +48596,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           n = t.cclegacy;
@@ -48606,10 +48661,10 @@ System.register(
               }),
               (g.setContentImageSpriteFrame = function (t) {
                 var e = this.getContentView().getChildNamed("contentImage");
-                e && e.setSpriteFrame(t),
+                (e && e.setSpriteFrame(t),
                   (this.mOffContentImageSpriteFrame = t),
                   (this.mOnContentImageSpriteFrame = t),
-                  (this.mDisabledContentImageSpriteFrame = t);
+                  (this.mDisabledContentImageSpriteFrame = t));
               }),
               (g.updateFrame = function () {
                 if (
@@ -48762,12 +48817,12 @@ System.register(
                   t.setAlpha(this.getFrameView().getAlpha()));
               }),
               (g.handleButtonClicked = function () {
-                this.mDoAutoToggle && this.setIsOn(!this.getIsOn()),
+                (this.mDoAutoToggle && this.setIsOn(!this.getIsOn()),
                   this.dispatchMessage(n.x38350651109288880x, this, null),
-                  h.instance().handleUIEvent(h.x443373227403764762x);
+                  h.instance().handleUIEvent(h.x443373227403764762x));
               }),
               (g.x878158922330897399x = function (e) {
-                t.prototype.x878158922330897399x.call(this, e),
+                (t.prototype.x878158922330897399x.call(this, e),
                   this.setName("_BPSUIButton"),
                   e &&
                     (this.setName(e.getStringValue(a.stringToValueKey("name"))),
@@ -48779,15 +48834,15 @@ System.register(
                     )),
                     (this.mOnText = e.getStringValue(
                       a.stringToValueKey("onText")
-                    )));
+                    ))));
               }),
               (g.x4554517263080478179x = function () {
-                (this.mOffContentImageSpriteFrame = null),
+                ((this.mOffContentImageSpriteFrame = null),
                   (this.mOnContentImageSpriteFrame = null),
                   (this.mDisabledContentImageSpriteFrame = null),
                   null !== this.mStyle &&
                     (this.mStyle.destroy(), (this.mStyle = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (g.x4405716098383101727x = function (t) {
                 switch (
@@ -48802,9 +48857,9 @@ System.register(
                 }
               }),
               (g.x2040756673991381752x = function (t) {
-                this.updateFrame(),
+                (this.updateFrame(),
                   this.updateText(),
-                  this.updateContentImage();
+                  this.updateContentImage());
               }),
               (g.x1388244978840466663x = function (t) {
                 t
@@ -48867,12 +48922,12 @@ System.register(
                   default:
                     u.setCursorToNormal();
                 }
-                this.updateFrame(),
+                (this.updateFrame(),
                   this.updateText(),
                   this.updateContentImage(),
                   e == s.x756867992077214416x &&
                     this.getDidPointerDownStartInside() &&
-                    this.handleButtonClicked();
+                    this.handleButtonClicked());
               }),
               (g.x1370535960562353616x = function (t) {
                 switch (t) {
@@ -48889,12 +48944,12 @@ System.register(
                 }
               }),
               (g.x1024581039465332205x = function (t) {
-                this.mStyle.copy(t, !1),
+                (this.mStyle.copy(t, !1),
                   this.updateFrame(),
                   this.setTextTransform(
                     t.getDictionaryWithKeyStringPath("text.transform")
                   ),
-                  this.updateText();
+                  this.updateText());
                 var e = t.getDictionary(a.stringToValueKey("contentImage"));
                 if (e) {
                   var i = e.getDictionary(a.stringToValueKey("textures"));
@@ -48944,18 +48999,18 @@ System.register(
                       n)
                     ) {
                       var s = new l(this.getAppSupportFactory());
-                      s.retain(),
+                      (s.retain(),
                         s.setName("contentImage"),
                         s.setSpriteFrame(n),
                         s.setTransformWithParams(
                           e.getDictionary(a.stringToValueKey("transform"))
                         ),
                         this.getContentView().addChild(s),
-                        s.release();
+                        s.release());
                     }
                   }
                 }
-                this.updateContentImage(), this.verifyViews();
+                (this.updateContentImage(), this.verifyViews());
               }),
               (g.x703494853727949052x = function (t) {
                 this.addMessageListener(t);
@@ -49017,7 +49072,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (n = t.createClass);
+          ((e = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           i = t.cclegacy;
@@ -49078,10 +49133,10 @@ System.register(
                 n
               );
             }
-            e(i, t),
+            (e(i, t),
               (i.trySetIsEnabled = function (t, e) {
                 t && t.setIsEnabled(e);
-              });
+              }));
             var o = i.prototype;
             return (
               (o.isPointerControl = function () {
@@ -49113,11 +49168,11 @@ System.register(
                 return this.mIsInputFocus;
               }),
               (o.setIsInputFocus = function (t) {
-                this.isAcceptingInput() || (t = !1),
+                (this.isAcceptingInput() || (t = !1),
                   this.mIsInputFocus != t &&
                     ((this.mIsInputFocus = t),
                     this.x1388244978840466663x(t),
-                    this.verifyViews());
+                    this.verifyViews()));
               }),
               (o.getIsOn = function () {
                 return this.mIsOn;
@@ -49178,23 +49233,23 @@ System.register(
                   }
               }),
               (o.handleMouseControlOn = function (t, e, n) {
-                this.x1556102812186586603x(t, e, n),
+                (this.x1556102812186586603x(t, e, n),
                   t == s.x2673949290542613217x &&
-                    this.setPointerState(e, n, !0, !1);
+                    this.setPointerState(e, n, !0, !1));
               }),
               (o.handleMouseControlOff = function (t, e, n) {
-                this.x3079479952393075308x(t, e, n),
+                (this.x3079479952393075308x(t, e, n),
                   t == s.x2673949290542613217x &&
-                    this.setPointerState(e, n, !1, !1);
+                    this.setPointerState(e, n, !1, !1));
               }),
               (o.handleMouseControlValues = function (t, e, n) {
-                this.x1611679531593761376x(e, n),
-                  this.setPointerState(e, n, this.mIsPointerDown, !1);
+                (this.x1611679531593761376x(e, n),
+                  this.setPointerState(e, n, this.mIsPointerDown, !1));
               }),
               (o.handleMouseControlCancelled = function (t) {
-                this.x4095664851369906535x(t),
+                (this.x4095664851369906535x(t),
                   t == s.x2673949290542613217x &&
-                    this.setPointerState(-1e6, -1e6, !1, !0);
+                    this.setPointerState(-1e6, -1e6, !1, !0));
               }),
               (o.handleTouchControlOn = function (t, e, n) {
                 this.x3218800195498918766x(t, e, n);
@@ -49225,14 +49280,14 @@ System.register(
                   u || r)
                 ) {
                   var h = this.mPointerState;
-                  (this.mPointerState = s
+                  ((this.mPointerState = s
                     ? this.mIsPointerDown
                       ? i.x1714494862103245719x
                       : i.x756867992077214416x
                     : this.mIsPointerDown
                       ? i.x574128099345503710x
                       : i.x847402652182227253x),
-                    this.x3058185781271185268x(h, this.mPointerState);
+                    this.x3058185781271185268x(h, this.mPointerState));
                 }
                 n || (this.mDidPointerDownStartInside = !1);
               }),
@@ -49293,7 +49348,7 @@ System.register(
                   : this.mTextView && this.mTextView.setIsActive(!1);
               }),
               (o.setTextTransform = function (t) {
-                (this.mTextViewTransform = t), this.applyTextTransform();
+                ((this.mTextViewTransform = t), this.applyTextTransform());
               }),
               (o.getContentView = function () {
                 return this.mContentView;
@@ -49339,14 +49394,14 @@ System.register(
                     this.mInputFocusView.getParent() != this)
                 ) {
                   var t = this.getInternalChildrenContainer();
-                  t.removeAllChildren(!0),
+                  (t.removeAllChildren(!0),
                     this.mInputFocusView &&
                       this.mIsInputFocus &&
                       t.addChild(this.mInputFocusView),
                     t.addChild(this.mFrameView),
                     t.addChild(this.mTextView),
                     this.applyTextTransform(),
-                    t.addChild(this.mContentView);
+                    t.addChild(this.mContentView));
                 }
               }),
               (o.applyTextTransform = function () {
@@ -49375,11 +49430,11 @@ System.register(
               (o.x2409131847487258249x = function (t) {}),
               (o.x960872414063178617x = function (t) {}),
               (o.x878158922330897399x = function (e) {
-                t.prototype.x878158922330897399x.call(this, e),
-                  this.setName("_BPSUIControl");
+                (t.prototype.x878158922330897399x.call(this, e),
+                  this.setName("_BPSUIControl"));
               }),
               (o.x4554517263080478179x = function () {
-                this.mFrameView && this.mFrameView.release(),
+                (this.mFrameView && this.mFrameView.release(),
                   (this.mFrameView = null),
                   this.mTextView && this.mTextView.release(),
                   (this.mTextView = null),
@@ -49388,17 +49443,17 @@ System.register(
                   (this.mContentView = null),
                   this.mInputFocusView && this.mInputFocusView.release(),
                   (this.mInputFocusView = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (o.x4321423084006054643x = function (e, n) {
-                t.prototype.x4321423084006054643x.call(this, e, n),
+                (t.prototype.x4321423084006054643x.call(this, e, n),
                   this.mFrameView && this.mFrameView.setSize(e, n),
                   this.applyTextTransform(),
                   this.mInputFocusView &&
                     this.mInputFocusView.setSize(
                       e + this.mInputFocusViewWidthMod,
                       n + this.mInputFocusViewHeightMod
-                    );
+                    ));
               }),
               (o.x2196573191586747388x = function () {
                 return i.x3691934669375916216x;
@@ -49469,7 +49524,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (o = t.inheritsLoose), (e = t.createClass);
+          ((o = t.inheritsLoose), (e = t.createClass));
         },
         function (t) {
           n = t.cclegacy;
@@ -49500,7 +49555,7 @@ System.register(
           "x1806050797777526742x",
           void 0
         );
-        (t(
+        ((t(
           "x1806050797777526742x",
           (function (t) {
             function n(o, e) {
@@ -49521,7 +49576,7 @@ System.register(
                 i
               );
             }
-            o(n, t),
+            (o(n, t),
               (n.updatePointerControlState = function (t) {
                 n.sIsPointerActive
                   ? t.setPointerState(
@@ -49536,25 +49591,26 @@ System.register(
                 return n.sIsPointerActive;
               }),
               (n.setIsPointerActive = function (t) {
-                (n.sIsPointerActive = t), u.setCursorIsVisible(t);
-              });
+                ((n.sIsPointerActive = t), u.setCursorIsVisible(t));
+              }));
             var a = n.prototype;
             return (
               (a.manageControlsInView = function (t) {
-                this.clearManagedControls(), this._manageControlsInView(t, !0);
+                (this.clearManagedControls(),
+                  this._manageControlsInView(t, !0));
               }),
               (a.clearManagedControls = function () {
-                this.cancelAllInputActions(),
+                (this.cancelAllInputActions(),
                   this.resetInputFocusControl(),
                   this.mFocusableControls.removeAll(),
-                  this.mPointerControls.removeAll();
+                  this.mPointerControls.removeAll());
               }),
               (a.hasInputFocusControl = function () {
                 return this.mInputFocusControl;
               }),
               (a.resetInputFocusControl = function () {
-                this.setInputFocusControl(null),
-                  this.clearActivePointerControl();
+                (this.setInputFocusControl(null),
+                  this.clearActivePointerControl());
               }),
               (a.focusNextControl = function () {
                 var t = this.mFocusableControls.getNumObjects();
@@ -49572,9 +49628,9 @@ System.register(
                   o = c.loopClampedInt(o + 1, 0, t - 1);
                   var n = this.mFocusableControls.getAtIndex(o);
                   if (n.isAcceptingInput())
-                    return this.setInputFocusControl(n), !0;
+                    return (this.setInputFocusControl(n), !0);
                 }
-                return this.setInputFocusControl(null), !0;
+                return (this.setInputFocusControl(null), !0);
               }),
               (a.focusPreviousControl = function () {
                 var t = this.mFocusableControls.getNumObjects();
@@ -49592,12 +49648,12 @@ System.register(
                   o = c.loopClampedInt(o - 1, 0, t - 1);
                   var n = this.mFocusableControls.getAtIndex(o);
                   if (n.isAcceptingInput())
-                    return this.setInputFocusControl(n), !0;
+                    return (this.setInputFocusControl(n), !0);
                 }
-                return this.setInputFocusControl(null), !0;
+                return (this.setInputFocusControl(null), !0);
               }),
               (a.mapStandardDeviceInputs = function (t) {
-                t &&
+                (t &&
                   (this.mapStandardDeviceInputsForAction(n.x15126850313287522x),
                   this.mapStandardDeviceInputsForAction(
                     n.x2609235762093272857x
@@ -49613,12 +49669,12 @@ System.register(
                   ),
                   this.mapStandardDeviceInputsForAction(
                     n.x2659953793612233060x
-                  );
+                  ));
               }),
               (a.mapStandardDeviceInputsForAction = function (t) {
                 switch (t) {
                   case n.x15126850313287522x:
-                    this.mapDeviceControl(
+                    (this.mapDeviceControl(
                       i.x682033629567773910x,
                       i.x491955335216328943x,
                       t,
@@ -49635,10 +49691,10 @@ System.register(
                         i.x2089555954920102147x,
                         t,
                         !1
-                      );
+                      ));
                     break;
                   case n.x2609235762093272857x:
-                    this.mapDeviceControl(
+                    (this.mapDeviceControl(
                       i.x682033629567773910x,
                       i.x256426941763366119x,
                       t,
@@ -49649,10 +49705,10 @@ System.register(
                         i.x2508311608749439927x,
                         t,
                         !1
-                      );
+                      ));
                     break;
                   case n.x3177253938609497161x:
-                    this.mapDeviceControl(
+                    (this.mapDeviceControl(
                       i.x682033629567773910x,
                       i.x1783076717357723638x,
                       t,
@@ -49663,10 +49719,10 @@ System.register(
                         i.x3252553321098279446x,
                         t,
                         !1
-                      );
+                      ));
                     break;
                   case n.x4312629064802529455x:
-                    this.mapDeviceControl(
+                    (this.mapDeviceControl(
                       i.x682033629567773910x,
                       i.x1876212300124810670x,
                       t,
@@ -49677,10 +49733,10 @@ System.register(
                         i.x3449424756938429038x,
                         t,
                         !1
-                      );
+                      ));
                     break;
                   case n.x2683364378846173287x:
-                    this.mapDeviceControl(
+                    (this.mapDeviceControl(
                       i.x682033629567773910x,
                       i.x643856073086547856x,
                       t,
@@ -49703,10 +49759,10 @@ System.register(
                         i.x1225892205290690414x,
                         t,
                         !1
-                      );
+                      ));
                     break;
                   case n.x2659953793612233060x:
-                    this.mapDeviceControl(
+                    (this.mapDeviceControl(
                       i.x682033629567773910x,
                       i.x2691494905573128412x,
                       t,
@@ -49717,7 +49773,7 @@ System.register(
                         i.x2347856012129168976x,
                         t,
                         !1
-                      );
+                      ));
                 }
               }),
               (a._manageControlsInView = function (t, o) {
@@ -49759,9 +49815,9 @@ System.register(
                     this.mPointerControls.pushBack(t));
               }),
               (a.removePointerControl = function (t) {
-                this.mPointerControls.removeObject(t),
+                (this.mPointerControls.removeObject(t),
                   this.mActivePointerControl == t &&
-                    this.setActivePointerControl(null);
+                    this.setActivePointerControl(null));
               }),
               (a.clearActivePointerControl = function () {
                 for (
@@ -49803,7 +49859,7 @@ System.register(
                 }
               }),
               (a.invalidatePointerState = function () {
-                this.handleMouseDeviceControlValues(
+                (this.handleMouseDeviceControlValues(
                   i.x2673949290542613217x,
                   -1e6,
                   -1e6
@@ -49817,7 +49873,7 @@ System.register(
                     i.x80344093099857386x,
                     -1e6,
                     -1e6
-                  );
+                  ));
               }),
               (a.getPointerControlUnderPoint = function (t, o) {
                 for (
@@ -49860,7 +49916,7 @@ System.register(
                   i.setMouseButtonIsDown(n, !1);
                   var s = ~~o,
                     r = ~~e;
-                  (i.sMouseWorldX == s && i.sMouseWorldY == r) ||
+                  ((i.sMouseWorldX == s && i.sMouseWorldY == r) ||
                     this.handleMouseDeviceControlValues(t, s, r),
                     this.mActivePointerControl &&
                       (this.mActivePointerControl.handleDeviceControlOff(
@@ -49870,7 +49926,7 @@ System.register(
                         r
                       ),
                       i.isAnyMouseButtonDown() ||
-                        this.setActivePointerControl(null));
+                        this.setActivePointerControl(null)));
                 }
               }),
               (a.handleMouseDeviceControlValues = function (t, o, e) {
@@ -49910,10 +49966,10 @@ System.register(
               (a.handleMouseDeviceControlCancelled = function (t) {
                 var o = i.convertMouseControlIdToControlIndex(t);
                 if (i.isMouseButtonDown(o)) {
-                  i.setMouseButtonIsDown(o, !1),
+                  (i.setMouseButtonIsDown(o, !1),
                     this.invalidatePointerState(),
                     i.isAnyMouseButtonDown() ||
-                      this.setActivePointerControl(null);
+                      this.setActivePointerControl(null));
                   for (
                     var e = this.mPointerControls.getNumObjects() - 1;
                     e >= 0;
@@ -49930,7 +49986,7 @@ System.register(
               (a.handleTouchDeviceControlValues = function (t, o, e) {}),
               (a.handleTouchDeviceControlCancelled = function (t) {}),
               (a.x4554517263080478179x = function () {
-                null !== this.mPointerControls &&
+                (null !== this.mPointerControls &&
                   (this.mPointerControls.destroy(),
                   (this.mPointerControls = null)),
                   this.mActivePointerControl &&
@@ -49942,24 +49998,24 @@ System.register(
                     (this.mFocusableControls.destroy(),
                     (this.mFocusableControls = null)),
                   (this.mInputFocusControl = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (a.x816669026745062488x = function (t, o, e, n) {
                 switch (t) {
                   case i.x1940465767033033737x:
-                    this.tryResetInputFocusControlAndInputActions(),
-                      this.handleMouseDeviceControlOn(o, e, n);
+                    (this.tryResetInputFocusControlAndInputActions(),
+                      this.handleMouseDeviceControlOn(o, e, n));
                     break;
                   case i.x2533341618264436491x:
-                    this.tryResetInputFocusControlAndInputActions(),
-                      this.handleTouchDeviceControlOn(o, e, n);
+                    (this.tryResetInputFocusControlAndInputActions(),
+                      this.handleTouchDeviceControlOn(o, e, n));
                 }
               }),
               (a.x569226239454014209x = function (t, o, e, n) {
                 switch (t) {
                   case i.x1940465767033033737x:
-                    this.tryResetInputFocusControlAndInputActions(),
-                      this.handleMouseDeviceControlOff(o, e, n);
+                    (this.tryResetInputFocusControlAndInputActions(),
+                      this.handleMouseDeviceControlOff(o, e, n));
                     break;
                   case i.x2533341618264436491x:
                     this.handleTouchDeviceControlOff(o, e, n);
@@ -49968,8 +50024,8 @@ System.register(
               (a.x2764828651255114442x = function (t, o, e, n) {
                 switch (t) {
                   case i.x1940465767033033737x:
-                    this.tryResetInputFocusControlAndInputActions(),
-                      this.handleMouseDeviceControlValues(o, e, n);
+                    (this.tryResetInputFocusControlAndInputActions(),
+                      this.handleMouseDeviceControlValues(o, e, n));
                     break;
                   case i.x2533341618264436491x:
                     this.handleTouchDeviceControlValues(o, e, n);
@@ -49998,7 +50054,10 @@ System.register(
                       this.mInputFocusControl.isAcceptingInput() &&
                       this.mInputFocusControl.acceptsInputAction(t)
                     )
-                      return this.mInputFocusControl.handleInputActionOn(t), !0;
+                      return (
+                        this.mInputFocusControl.handleInputActionOn(t),
+                        !0
+                      );
                     switch (t) {
                       case n.x4312629064802529455x:
                         return this.focusNextControl();
@@ -50019,7 +50078,8 @@ System.register(
                       this.mInputFocusControl.acceptsInputAction(t)
                     )
                       return (
-                        this.mInputFocusControl.handleInputActionOff(t), !0
+                        this.mInputFocusControl.handleInputActionOff(t),
+                        !0
                       );
                 }
                 return !1;
@@ -50097,7 +50157,7 @@ System.register(
             );
           })(i)
         ).sIsPointerActive = !0),
-          n._RF.pop();
+          n._RF.pop());
       },
     };
   }
@@ -50119,7 +50179,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           n = t.cclegacy;
@@ -50170,13 +50230,13 @@ System.register(
                 this.mTitle != t && ((this.mTitle = t), this.setText(t));
               }),
               (s.createContentHierarchy = function (t) {
-                this.mPanelContentView.removeAllChildren(!0),
+                (this.mPanelContentView.removeAllChildren(!0),
                   this.getAppSupportFactory().createViewHierarchyInView(
                     t,
                     this.mPanelContentView
                   ),
                   this.setContentStyle(),
-                  this.updateSize();
+                  this.updateSize());
               }),
               (s.updateSize = function () {
                 var t = this.getFrameView();
@@ -50219,7 +50279,7 @@ System.register(
                   e)
                 ) {
                   var i = e.getDictionary(a.stringToValueKey("transform"));
-                  i
+                  (i
                     ? ((this.mAutoFrameWidth =
                         i.getFloatValue(a.stringToValueKey("width")) <= 0),
                       (this.mAutoFrameHeight =
@@ -50232,22 +50292,22 @@ System.register(
                     ),
                     this.createContentHierarchy(
                       e.getDictionary(a.stringToValueKey("content"))
-                    );
+                    ));
                 }
               }),
               (s.x4554517263080478179x = function () {
-                null !== this.mStyle &&
+                (null !== this.mStyle &&
                   (this.mStyle.destroy(), (this.mStyle = null)),
                   this.mPanelContentView && this.mPanelContentView.release(),
                   (this.mPanelContentView = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (s.x4321423084006054643x = function (e, i) {
                 t.prototype.x4321423084006054643x.call(this, e, i);
                 var n = this.getContentView();
-                n && n.setSize(e, i),
+                (n && n.setSize(e, i),
                   this.setTitleStyle(),
-                  this.setContentStyle();
+                  this.setContentStyle());
               }),
               (s.x1246695524197320415x = function () {
                 var t = this.getContentView();
@@ -50258,7 +50318,7 @@ System.register(
                 return t ? t.getHeight() : 0;
               }),
               (s.x1024581039465332205x = function (t) {
-                this.mStyle.copy(t, !1),
+                (this.mStyle.copy(t, !1),
                   t &&
                     (this.setFrameStyle(
                       t.getDictionaryWithKeyStringPath(
@@ -50266,7 +50326,7 @@ System.register(
                       )
                     ),
                     this.setTitleStyle(),
-                    this.setContentStyle());
+                    this.setContentStyle()));
               }),
               (s.x703494853727949052x = function (t) {
                 this.mPanelContentView.addControlListenerToHierarchy(t);
@@ -50322,9 +50382,9 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose),
+          ((e = t.inheritsLoose),
             (i = t.createClass),
-            (s = t.assertThisInitialized);
+            (s = t.assertThisInitialized));
         },
         function (t) {
           n = t.cclegacy;
@@ -50411,15 +50471,15 @@ System.register(
                 return this.mMinValue;
               }),
               (a.setMinStepperValue = function (t) {
-                (this.mMinValue = t),
-                  this.setStepperValueInternal(this.mValue, !1, !0);
+                ((this.mMinValue = t),
+                  this.setStepperValueInternal(this.mValue, !1, !0));
               }),
               (a.getMaxStepperValue = function () {
                 return this.mMaxValue;
               }),
               (a.setMaxStepperValue = function (t) {
-                (this.mMaxValue = t),
-                  this.setStepperValueInternal(this.mValue, !1, !0);
+                ((this.mMaxValue = t),
+                  this.setStepperValueInternal(this.mValue, !1, !0));
               }),
               (a.setStepperValueInternal = function (t, e, i) {
                 if (
@@ -50428,22 +50488,23 @@ System.register(
                     : h.clampInt(t, this.mMinValue, this.mMaxValue)),
                   i || this.mValue != t)
                 ) {
-                  (this.mValue = t),
+                  ((this.mValue = t),
                     this.mAllowWrapping ||
                       (this.mDecrementButton.setIsEnabled(
                         this.mValue > this.mMinValue
                       ),
                       this.mIncrementButton.setIsEnabled(
                         this.mValue < this.mMaxValue
-                      ));
+                      )));
                   var s,
                     n = this.mValue - this.mMinValue;
-                  this.mValue > this.mMinValue && (this.mValue, this.mMaxValue),
+                  (this.mValue > this.mMinValue &&
+                    (this.mValue, this.mMaxValue),
                     (this.mValue >= this.mMinValue &&
                       this.mValue < this.mMaxValue) ||
                       (this.mDisabledValueSpriteTextures &&
-                        this.mDisabledValueSpriteTextures.getNumValues());
-                  this.mValueLabels && "" != this.mValueLabels
+                        this.mDisabledValueSpriteTextures.getNumValues()));
+                  (this.mValueLabels && "" != this.mValueLabels
                     ? this.setText(
                         h.concatStrings(
                           this.mValuePrefix,
@@ -50495,14 +50556,14 @@ System.register(
                         this.getAppSupportFactory()
                           .getResourceMgr()
                           .getNativeSpriteFrameResource(s)
-                      ));
+                      )));
                   var a = this.mValueSprite
                       ? 0.8 * this.mValueSprite.getWidth()
                       : 0,
                     u = this.mValueSprite
                       ? 0.8 * this.mValueSprite.getHeight()
                       : 0;
-                  this.mPrevValueSprite &&
+                  (this.mPrevValueSprite &&
                     ((s =
                       this.mValue > this.mMinValue &&
                       this.mValue <= this.mMaxValue
@@ -50541,7 +50602,11 @@ System.register(
                       ),
                       this.mNextValueSprite.setSize(a, u)),
                     e &&
-                      this.dispatchMessage(r.x1238503773355499868x, this, null);
+                      this.dispatchMessage(
+                        r.x1238503773355499868x,
+                        this,
+                        null
+                      ));
                 }
               }),
               (a.x878158922330897399x = function (e) {
@@ -50550,7 +50615,7 @@ System.register(
                   this.setName("_BPSUIStepper"),
                   e)
                 ) {
-                  (this.mMinValue = e.getIntValue(
+                  ((this.mMinValue = e.getIntValue(
                     l.stringToValueKey("minValue")
                   )),
                     (this.mMaxValue = e.getIntValue(
@@ -50570,7 +50635,7 @@ System.register(
                     )),
                     (this.mValueSuffix = e.getStringValue(
                       l.stringToValueKey("valueSuffix")
-                    ));
+                    )));
                   var i = e.getDictionaryWithKeyStringPath("valueTextures");
                   this.mValueSpriteTextures = i
                     ? i.x2049916819781837214x()
@@ -50582,7 +50647,7 @@ System.register(
                     ? s.x2049916819781837214x()
                     : null;
                   var n = e.getDictionary(l.stringToValueKey("style"));
-                  this.setStyle(n),
+                  (this.setStyle(n),
                     this.mDecrementButton.setName("decrement"),
                     this.mDecrementButton.setButtonText(
                       e.getStringValueWithDefault(
@@ -50598,15 +50663,15 @@ System.register(
                         "+"
                       ),
                       ""
-                    );
+                    ));
                   var a = e.getIntValue(l.stringToValueKey("value"));
-                  (this.mValue = ~a),
+                  ((this.mValue = ~a),
                     this.setStepperValueInternal(a, !0, !1),
-                    this.updateLayout(!0);
+                    this.updateLayout(!0));
                 }
               }),
               (a.x4554517263080478179x = function () {
-                null !== this.mStyle &&
+                (null !== this.mStyle &&
                   (this.mStyle.destroy(), (this.mStyle = null)),
                   null !== this.mValueSpriteTextures &&
                     (this.mValueSpriteTextures.destroy(),
@@ -50614,7 +50679,7 @@ System.register(
                   null !== this.mDisabledValueSpriteTextures &&
                     (this.mDisabledValueSpriteTextures.destroy(),
                     (this.mDisabledValueSpriteTextures = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (a.x1388244978840466663x = function (t) {
                 t
@@ -50653,7 +50718,7 @@ System.register(
               }),
               (a.x1024581039465332205x = function (t) {
                 if ((this.mStyle.copy(t, !1), t)) {
-                  (this.mAutoSize = t.getBoolValueWithDefault(
+                  ((this.mAutoSize = t.getBoolValueWithDefault(
                     l.stringToValueKey("autoSize"),
                     !1
                   )),
@@ -50664,15 +50729,15 @@ System.register(
                       t.getDictionary(l.stringToValueKey("button:buttons"))
                     ),
                     (this.mButtonSpacing =
-                      t.getFloatValueWithKeyStringPath("buttons.spacing"));
+                      t.getFloatValueWithKeyStringPath("buttons.spacing")));
                   var e = t.getDictionaryWithKeyStringPath(
                     "valueText.font:font"
                   );
-                  e || (e = t.getDictionary(l.stringToValueKey("font:value"))),
+                  (e || (e = t.getDictionary(l.stringToValueKey("font:value"))),
                     this.setTextStyle(e),
                     this.setTextTransform(
                       t.getDictionaryWithKeyStringPath("valueText.transform")
-                    );
+                    ));
                   var i = t.getDictionaryWithKeyString("valueSprite");
                   i &&
                     i.getBoolValueWithKeyStringPath("enabled") &&
@@ -50681,7 +50746,7 @@ System.register(
                       this.mValueSprite.initWithParams(i),
                       this.getContentView().addChild(this.mValueSprite)));
                   var s = t.getDictionaryWithKeyString("prevValueText");
-                  s &&
+                  (s &&
                     s.getBoolValueWithKeyStringPath("enabled") &&
                     (this.mPrevValueTextView ||
                       ((this.mPrevValueTextView = new o(
@@ -50715,7 +50780,7 @@ System.register(
                         )),
                         this.mNextValueSprite.initWithParams(i),
                         this.getContentView().addChild(this.mNextValueSprite))),
-                    this.updateLayout(!0);
+                    this.updateLayout(!0));
                 }
               }),
               (a.x703494853727949052x = function (t) {
@@ -50808,7 +50873,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (n = t.createClass);
+          ((e = t.inheritsLoose), (n = t.createClass));
         },
         function (t) {
           i = t.cclegacy;
@@ -50862,7 +50927,7 @@ System.register(
                 return this.mInputText;
               }),
               (a.setInputText = function (t) {
-                (this.mInputText = t), this.updateActualDisplayText();
+                ((this.mInputText = t), this.updateActualDisplayText());
               }),
               (a.isInputTextTooShort = function () {
                 return this.mInputText.length < this.mMinTextLength;
@@ -50878,7 +50943,7 @@ System.register(
                 if (this.mIsSecure)
                   for (var e = this.mInputText.length; e-- > 0; ) t += "*";
                 else t = this.mInputText;
-                this.mIsInputCursorBlinkOn && (t += "|"), this.setText(t);
+                (this.mIsInputCursorBlinkOn && (t += "|"), this.setText(t));
                 var n =
                   this.getWidth() -
                   this.mStyle.getFloatValueWithKeyStringPath(
@@ -50915,7 +50980,7 @@ System.register(
                 }
               }),
               (a.x878158922330897399x = function (e) {
-                t.prototype.x878158922330897399x.call(this, e),
+                (t.prototype.x878158922330897399x.call(this, e),
                   this.setName("_BPSUITextInput"),
                   e &&
                     (this.setName(e.getStringValueWithKeyStringPath("name")),
@@ -50926,19 +50991,19 @@ System.register(
                     (this.mMaxTextLength = e.getIntValueWithDefault(
                       o.stringToValueKey("maxLength"),
                       o.x2221445971348164774x
-                    )));
+                    ))));
               }),
               (a.x4554517263080478179x = function () {
-                null !== this.mStyle &&
+                (null !== this.mStyle &&
                   (this.mStyle.destroy(), (this.mStyle = null)),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (a.x4405716098383101727x = function (t) {}),
               (a.x1388244978840466663x = function (t) {
-                (this.mInputCursorBlinkTimerMSEC =
+                ((this.mInputCursorBlinkTimerMSEC =
                   this.mInputCursorBlinkDelayMSEC),
                   (this.mIsInputCursorBlinkOn = t),
-                  this.updateActualDisplayText();
+                  this.updateActualDisplayText());
               }),
               (a.x3058185781271185268x = function (t, e) {
                 switch (e) {
@@ -50951,7 +51016,7 @@ System.register(
                 }
               }),
               (a.x1024581039465332205x = function (t) {
-                this.mStyle.copy(t, !1),
+                (this.mStyle.copy(t, !1),
                   t &&
                     (this.setFrameStyle(
                       t.getDictionaryWithKeyStringPath(
@@ -50964,13 +51029,13 @@ System.register(
                     this.setTextTransform(
                       t.getDictionaryWithKeyStringPath("text.transform")
                     ),
-                    this.setInputText(this.mInputText));
+                    this.setInputText(this.mInputText)));
               }),
               (a.x703494853727949052x = function (t) {
                 this.addMessageListener(t);
               }),
               (a.x3635646132507440586x = function (e) {
-                t.prototype.x3635646132507440586x.call(this, e),
+                (t.prototype.x3635646132507440586x.call(this, e),
                   this.getIsInputFocus() &&
                     ((this.mInputCursorBlinkTimerMSEC -= e),
                     this.mInputCursorBlinkTimerMSEC <= 0 &&
@@ -50978,7 +51043,7 @@ System.register(
                         !this.mIsInputCursorBlinkOn),
                       (this.mInputCursorBlinkTimerMSEC +=
                         this.mInputCursorBlinkDelayMSEC)),
-                    this.updateActualDisplayText());
+                    this.updateActualDisplayText()));
               }),
               (a.x2196573191586747388x = function () {
                 return i.x4046208714750411809x;
@@ -51057,38 +51122,38 @@ System.register(
                   ) {
                     case t.x4589447156764152792x:
                     case t.x1002504847930549950x:
-                      (t.sBuildInfoString += "-OSX-"),
+                      ((t.sBuildInfoString += "-OSX-"),
                         (t.sBuildInfoString += t.getIsBuildReleaseVersion()
                           ? "R"
-                          : "D");
+                          : "D"));
                       break;
                     case t.x970981532418750641x:
-                      (t.sBuildInfoString += "-iOS-"),
+                      ((t.sBuildInfoString += "-iOS-"),
                         (t.sBuildInfoString += t.getIsBuildReleaseVersion()
                           ? "R"
-                          : "D");
+                          : "D"));
                       break;
                     case t.x1918551093575321440x:
-                      (t.sBuildInfoString += "-tvOS-"),
+                      ((t.sBuildInfoString += "-tvOS-"),
                         (t.sBuildInfoString += t.getIsBuildReleaseVersion()
                           ? "R"
-                          : "D");
+                          : "D"));
                       break;
                     case t.x4156093551315017804x:
-                      (t.sBuildInfoString += "-"),
+                      ((t.sBuildInfoString += "-"),
                         (t.sBuildInfoString += "UD"),
                         (t.sBuildInfoString += "-"),
                         (t.sBuildInfoString += t.getIsBuildReleaseVersion()
                           ? "R"
-                          : "D");
+                          : "D"));
                       break;
                     case t.x2350340157034758196x:
-                      (t.sBuildInfoString += "-"),
+                      ((t.sBuildInfoString += "-"),
                         (t.sBuildInfoString += "UM"),
                         (t.sBuildInfoString += "-"),
                         (t.sBuildInfoString += t.getIsBuildReleaseVersion()
                           ? "R"
-                          : "D");
+                          : "D"));
                       break;
                     case t.x3753750011322042749x:
                     case t.x679694955742165569x:
@@ -51107,12 +51172,12 @@ System.register(
                           t.sBuildInfoString += "-H5M";
                       }
                   }
-                  (t.sApplicationOrigin = r.x1586548781083711048x(
+                  ((t.sApplicationOrigin = r.x1586548781083711048x(
                     t.sApplicationOrigin,
                     0
                   )),
                     (t.sTimeAtInitMSEC = t.getTimeSinceEpochMSEC()),
-                    (t.sDidStaticInit = !0);
+                    (t.sDidStaticInit = !0));
                 }
               }),
               (t.doStaticDestroy = function () {
@@ -51235,8 +51300,8 @@ System.register(
               }),
               (t.x2271666099427714792x = function (t, e) {
                 for (var n = t.length, r = 0; r < n; r++)
-                  if (null == t[r]) return (t[r] = e), r;
-                return t.push(e), n;
+                  if (null == t[r]) return ((t[r] = e), r);
+                return (t.push(e), n);
               }),
               (t.x3457296104425310895x = function (t, e) {
                 for (var n = t.length, r = 0; r < n; r++)
@@ -51392,14 +51457,14 @@ System.register(
             );
           })()
         );
-        (o.sDidStaticInit = !1),
+        ((o.sDidStaticInit = !1),
           (o.sPlatformId = 0),
           (o.sApplicationOrigin = "LJDQTDRLRHTLYHMF"),
           (o.sApplicationBaseOrigin = "SAFRFETMTIFMAJYF"),
           (o.sTimeAtInitMSEC = 0),
           (o.sBuildNumber = "0.01"),
           (o.sBuildInfoString = ""),
-          n._RF.pop();
+          n._RF.pop());
       },
     };
   }
@@ -51477,7 +51542,7 @@ System.register(
                 var r = h.NativeView_create();
                 n.setNativeView(r);
               }
-              return n.setName("x3049766068133489547x"), n;
+              return (n.setName("x3049766068133489547x"), n);
             }
             e(i, t);
             var n = i.prototype;
@@ -51500,7 +51565,7 @@ System.register(
                 var t = this.mAppSupportFactory;
                 if (!t)
                   for (var e = this.mParent; !t && e; )
-                    (t = e.getAppSupportFactory()), (e = e.getParent());
+                    ((t = e.getAppSupportFactory()), (e = e.getParent()));
                 return t;
               }),
               (n.getNativeView = function () {
@@ -51617,14 +51682,14 @@ System.register(
               }),
               (n.getWorldX = function () {
                 for (var t = this.mX, e = this.mParent; e; )
-                  (t += e.mX - e.mLocalRect.mWidth * (-0.5 + e.mAnchorX)),
-                    (e = e.mParent);
+                  ((t += e.mX - e.mLocalRect.mWidth * (-0.5 + e.mAnchorX)),
+                    (e = e.mParent));
                 return t;
               }),
               (n.getWorldY = function () {
                 for (var t = this.mY, e = this.mParent; e; )
-                  (t += e.mY - e.mLocalRect.mHeight * (-0.5 + e.mAnchorY)),
-                    (e = e.mParent);
+                  ((t += e.mY - e.mLocalRect.mHeight * (-0.5 + e.mAnchorY)),
+                    (e = e.mParent));
                 return t;
               }),
               (n.convertWorldXToLocal = function (t) {
@@ -51649,7 +51714,7 @@ System.register(
                     r.stringToValueKey("height"),
                     this.mLocalRect.mHeight
                   );
-                  i < 0 && (i = this.x1784546395055946310x()),
+                  (i < 0 && (i = this.x1784546395055946310x()),
                     this.setSize(e, i),
                     this.setAnchor(
                       t.getFloatValueWithDefault(
@@ -51660,7 +51725,7 @@ System.register(
                         r.stringToValueKey("anchorY"),
                         this.mAnchorY
                       )
-                    );
+                    ));
                   var n = t.getFloatValueWithDefault(
                       r.stringToValueKey("x"),
                       this.mX
@@ -51672,14 +51737,14 @@ System.register(
                   if (this.mParent) {
                     var s,
                       l = this.mParent.mLocalRect;
-                    (s = t.getFloatValueWithDefault(
+                    ((s = t.getFloatValueWithDefault(
                       r.stringToValueKey("parentBoundsAlignX"),
                       -1
                     )) >= 0 && (n += l.getLeft() + s * l.mWidth),
                       (s = t.getFloatValueWithDefault(
                         r.stringToValueKey("parentBoundsAlignY"),
                         -1
-                      )) >= 0 && (h += l.getBottom() + s * l.mHeight);
+                      )) >= 0 && (h += l.getBottom() + s * l.mHeight));
                   }
                   this.setPosition(n, h);
                 }
@@ -51743,7 +51808,7 @@ System.register(
               }),
               (n.getNumExternalChildren = function () {
                 var t = this.getNumChildren();
-                return this.mInternalChildrenContainer && t--, t;
+                return (this.mInternalChildrenContainer && t--, t);
               }),
               (n.getNumVisibleExternalChildren = function () {
                 if (!this.mChildren) return 0;
@@ -51793,9 +51858,9 @@ System.register(
                   t.setNativePosition());
               }),
               (n.addAsChildToNativeParent = function (t) {
-                h.NativeView_addChild(t, this.getNativeView()),
+                (h.NativeView_addChild(t, this.getNativeView()),
                   this.updateViewSize(),
-                  this.setNativePosition();
+                  this.setNativePosition());
               }),
               (n.removeChild = function (t) {
                 t &&
@@ -51821,19 +51886,19 @@ System.register(
                     i = this._getNumChildren(),
                     n = 0;
                   for (n = 0; n < i; n++)
-                    ((e = this._getChildAtIndex(n)).mParent = null),
-                      e.setNativePosition();
+                    (((e = this._getChildAtIndex(n)).mParent = null),
+                      e.setNativePosition());
                   for (
                     h.NativeView_removeAllChildren(this.mNativeView), n = 0;
                     n < i;
                     n++
                   )
                     (e = this._getChildAtIndex(n)).release();
-                  (this.mChildren.length = 0),
+                  ((this.mChildren.length = 0),
                     !t &&
                       this.mInternalChildrenContainer &&
                       this.addChild(this.mInternalChildrenContainer),
-                    this.x1867884065912011382x();
+                    this.x1867884065912011382x());
                 }
               }),
               (n.setChildrenAnchorX = function (t) {
@@ -51919,8 +51984,8 @@ System.register(
                 this.setHeight(this.getChildrenHeight() + 2 * t);
               }),
               (n.setSizeToChildrenBounds = function (t, e) {
-                this.setWidthToChildrenBounds(t),
-                  this.setHeightToChildrenBounds(e);
+                (this.setWidthToChildrenBounds(t),
+                  this.setHeightToChildrenBounds(e));
               }),
               (n.getChildrenWidth = function () {
                 if (
@@ -52155,7 +52220,7 @@ System.register(
               (n.x703494853727949052x = function (t) {}),
               (n.x3635646132507440586x = function (t) {}),
               (n.x4554517263080478179x = function () {
-                this.removeFromParent(),
+                (this.removeFromParent(),
                   this.removeAllChildren(!0),
                   null !== this.mChildren && (this.mChildren = null),
                   h.NativeView_destroy(this.mNativeView, !0),
@@ -52164,7 +52229,7 @@ System.register(
                     this.mInternalChildrenContainer.release(),
                   (this.mInternalChildrenContainer = null),
                   null !== this.mLocalRect && (this.mLocalRect = null),
-                  t.prototype.x4554517263080478179x.call(this);
+                  t.prototype.x4554517263080478179x.call(this));
               }),
               (n.x3359283749312540189x = function (t) {
                 h.NativeView_setName(this.getNativeView(), t);
@@ -52584,7 +52649,7 @@ System.register(
           "x293269753016612612x",
           (function () {
             function i(i, e, t, n) {
-              (this.mMatrixMinos = new Array()),
+              ((this.mMatrixMinos = new Array()),
                 (this.mMatrixMinosBitGrid = new Array()),
                 (this.mIsDestroyed = !1),
                 (this.mPieceData = i),
@@ -52592,22 +52657,21 @@ System.register(
                 (this.mMatrixHeight = t),
                 (this.mMatrixWidthLimit = e),
                 (this.mMatrixHeightLimit = t),
-                (this.mMatrixVisibleHeight = n);
+                (this.mMatrixVisibleHeight = n));
               var o = e * t;
               for (this.mMatrixMinos.length = 0; this.mMatrixMinos.length < o; )
                 this.mMatrixMinos.push(0);
-              (this.mMatrixMinosBitGridEmptyRow = 0),
+              ((this.mMatrixMinosBitGridEmptyRow = 0),
                 (this.mMatrixMinosBitGridFullRow =
-                  this.mMatrixMinosBitGridEmptyRow);
+                  this.mMatrixMinosBitGridEmptyRow));
               for (var s = 0; s < e; s++)
                 this.mMatrixMinosBitGridFullRow |= 1 << s;
               for (
                 this.mMatrixMinosBitGrid.length = 0;
                 this.mMatrixMinosBitGrid.length < t;
-
               )
                 this.mMatrixMinosBitGrid.push(this.mMatrixMinosBitGridEmptyRow);
-              (this.mMatrixHighestMinoY = -1),
+              ((this.mMatrixHighestMinoY = -1),
                 (this.mIsLivePieceActive = !1),
                 (this.mDidLivePieceLockDown = !1),
                 (this.mLivePieceTypeId = 0),
@@ -52620,7 +52684,7 @@ System.register(
                 (this.mLivePieceCurrentFacing = 0),
                 (this.mLivePieceCurrentTransformId = r.x3207601361922205214x),
                 (this.mAlternatePieceTypeId = 0),
-                (this.mCurrentControlAction = r.x89022653580057346x);
+                (this.mCurrentControlAction = r.x89022653580057346x));
             }
             var t = i.prototype;
             return (
@@ -52643,14 +52707,14 @@ System.register(
                 return this.mMatrixHeightLimit;
               }),
               (t.setMatrixLimits = function (i, e, t) {
-                (this.mMatrixWidthLimit = r.minInt(i, this.mMatrixWidth)),
+                ((this.mMatrixWidthLimit = r.minInt(i, this.mMatrixWidth)),
                   (this.mMatrixHeightLimit = r.minInt(e, this.mMatrixHeight)),
-                  (this.mMatrixVisibleHeight = e);
+                  (this.mMatrixVisibleHeight = e));
               }),
               (t.handleLivePieceDidActivate = function () {
-                (this.mIsLivePieceActive = !0),
+                ((this.mIsLivePieceActive = !0),
                   (this.mDidLivePieceLockDown = !1),
-                  this.setCurrentControlAction(r.x89022653580057346x);
+                  this.setCurrentControlAction(r.x89022653580057346x));
               }),
               (t.handleLivePieceWillLockDown = function () {
                 this.mDidLivePieceLockDown = !0;
@@ -52659,23 +52723,23 @@ System.register(
                 this.mIsLivePieceActive = !1;
               }),
               (t.resetStateWithLivePiece = function (i, e, t, r, n, o, s) {
-                this.clearMatrix(), this.setLivePiece(i, e, t, r, n, o, s);
+                (this.clearMatrix(), this.setLivePiece(i, e, t, r, n, o, s));
               }),
               (t.resetStateWithCurrentLivePiece = function () {
                 this.clearMatrix();
               }),
               (t.resetStateWithState = function (i) {
                 var e;
-                this.clearMatrix(),
+                (this.clearMatrix(),
                   (this.mMatrixWidthLimit = i.mMatrixWidth),
                   (this.mMatrixHeightLimit = i.mMatrixHeight),
-                  (this.mMatrixVisibleHeight = i.mMatrixVisibleHeight);
+                  (this.mMatrixVisibleHeight = i.mMatrixVisibleHeight));
                 var t = this.mMatrixMinos.length;
                 for (e = 0; e < t; e++)
                   this.mMatrixMinos[e] = i.mMatrixMinos[e];
                 for (t = this.mMatrixMinosBitGrid.length, e = 0; e < t; e++)
                   this.mMatrixMinosBitGrid[e] = i.mMatrixMinosBitGrid[e];
-                (this.mMatrixHighestMinoY = i.mMatrixHighestMinoY),
+                ((this.mMatrixHighestMinoY = i.mMatrixHighestMinoY),
                   (this.mLivePieceTypeId = i.mLivePieceTypeId),
                   (this.mLivePieceStartingX = i.mLivePieceStartingX),
                   (this.mLivePieceStartingY = i.mLivePieceStartingY),
@@ -52687,11 +52751,11 @@ System.register(
                   (this.mLivePieceCurrentFacing = i.mLivePieceCurrentFacing),
                   (this.mLivePieceCurrentTransformId =
                     i.mLivePieceCurrentTransformId),
-                  (this.mAlternatePieceTypeId = i.mAlternatePieceTypeId);
+                  (this.mAlternatePieceTypeId = i.mAlternatePieceTypeId));
               }),
               (t.setMino = function (e, t, n, o, s, a, c) {
                 var m = 0;
-                (m = r.setValueInPackedBits(
+                ((m = r.setValueInPackedBits(
                   1,
                   m,
                   i.x3219193565949520005x,
@@ -52729,14 +52793,14 @@ System.register(
                       m,
                       i.x822690849128499107x,
                       i.x4107689267508245839x
-                    ));
+                    )));
                 var h = r.computeGridIndex(t, n, this.mMatrixWidth);
-                (this.mMatrixMinos[h] = m),
+                ((this.mMatrixMinos[h] = m),
                   (this.mMatrixMinosBitGrid[n] =
                     this.mMatrixMinosBitGrid[n] | (1 << t)),
                   0 != e &&
                     n > this.mMatrixHighestMinoY &&
-                    (this.mMatrixHighestMinoY = n);
+                    (this.mMatrixHighestMinoY = n));
               }),
               (t.doesMinoExist = function (i, e) {
                 return (
@@ -52763,7 +52827,7 @@ System.register(
                 return this.mDidLivePieceLockDown;
               }),
               (t.setLivePiece = function (i, e, t, r, n, o, s) {
-                (this.mLivePieceTypeId = i),
+                ((this.mLivePieceTypeId = i),
                   (this.mLivePieceStartingX = e),
                   (this.mLivePieceStartingY = t),
                   (this.mLivePieceStartingFacing = r),
@@ -52773,7 +52837,7 @@ System.register(
                   (this.mLivePieceCurrentY = o),
                   (this.mLivePieceCurrentFacing = s),
                   (this.mLivePieceCurrentTransformId =
-                    this.mPieceData.computeTransformId(n, o, s));
+                    this.mPieceData.computeTransformId(n, o, s)));
               }),
               (t.getLivePieceTypeId = function () {
                 return this.mLivePieceTypeId;
@@ -52782,13 +52846,13 @@ System.register(
                 return this.mLivePieceStartingTransformId;
               }),
               (t.setLivePieceCurrentTransform = function (i) {
-                (this.mLivePieceCurrentX =
+                ((this.mLivePieceCurrentX =
                   this.mPieceData.computeXFromTransformId(i)),
                   (this.mLivePieceCurrentY =
                     this.mPieceData.computeYFromTransformId(i)),
                   (this.mLivePieceCurrentFacing =
                     r.computeFacingFromTransformId(i)),
-                  (this.mLivePieceCurrentTransformId = i);
+                  (this.mLivePieceCurrentTransformId = i));
               }),
               (t.getLivePieceCurrentX = function () {
                 return this.mLivePieceCurrentX;
@@ -52928,12 +52992,12 @@ System.register(
                       s = -1;
                     switch (e) {
                       case r.x4269709217547337333x:
-                        (o = r.x4576540208099613970x),
-                          (s = r.x4576540208099613970x);
+                        ((o = r.x4576540208099613970x),
+                          (s = r.x4576540208099613970x));
                         break;
                       case r.x2262668522643747539x:
-                        (o = r.x2273571102416299812x),
-                          (s = r.x2273571102416299812x);
+                        ((o = r.x2273571102416299812x),
+                          (s = r.x2273571102416299812x));
                         break;
                       case r.x3504016190911775519x:
                         s =
@@ -52988,30 +53052,32 @@ System.register(
                   a = -1;
                 switch (t) {
                   case r.x1615234984079442315x:
-                    (s = r.x2794316787333659988x),
-                      (a = r.x2794316787333659988x);
+                    ((s = r.x2794316787333659988x),
+                      (a = r.x2794316787333659988x));
                     break;
                   case r.x4074087241480613197x:
-                    (s = r.x697371746540837953x), (a = r.x697371746540837953x);
+                    ((s = r.x697371746540837953x),
+                      (a = r.x697371746540837953x));
                     break;
                   case r.x1095986832972896596x:
-                    (s = r.x3147376562436869325x),
-                      (a = r.x3147376562436869325x);
+                    ((s = r.x3147376562436869325x),
+                      (a = r.x3147376562436869325x));
                     break;
                   case r.x4269709217547337333x:
-                    (s = r.x4576540208099613970x),
-                      (a = r.x4576540208099613970x);
+                    ((s = r.x4576540208099613970x),
+                      (a = r.x4576540208099613970x));
                     break;
                   case r.x2262668522643747539x:
-                    (s = r.x2273571102416299812x),
-                      (a = r.x2273571102416299812x);
+                    ((s = r.x2273571102416299812x),
+                      (a = r.x2273571102416299812x));
                     break;
                   case r.x3504016190911775519x:
-                    (s = r.x4576540208099613970x), (a = r.x627443987509704663x);
+                    ((s = r.x4576540208099613970x),
+                      (a = r.x627443987509704663x));
                     break;
                   case r.x2316107317390528634x:
-                    (s = r.x2273571102416299812x),
-                      (a = r.x2144983519451468842x);
+                    ((s = r.x2273571102416299812x),
+                      (a = r.x2144983519451468842x));
                     break;
                   case r.x405091200526071386x:
                     return r.x1802400225218915175x;
@@ -53086,12 +53152,12 @@ System.register(
                           o
                         )))
                       )
-                        return t && (t.length = 0), r.x3207601361922205214x;
+                        return (t && (t.length = 0), r.x3207601361922205214x);
                   }
                   if (!(s = this.mPieceData.getPiece(this.mLivePieceTypeId, o)))
-                    return t && (t.length = 0), r.x3207601361922205214x;
+                    return (t && (t.length = 0), r.x3207601361922205214x);
                   if (this.doesPieceCollide(s))
-                    return t && (t.length = 0), r.x3207601361922205214x;
+                    return (t && (t.length = 0), r.x3207601361922205214x);
                   t && (t.push(n), t.push(o));
                 }
                 return o;
@@ -53145,8 +53211,8 @@ System.register(
                     case r.x1479676470136931432x:
                     case r.x3367678792663207882x:
                     case r.x2144983519451468842x:
-                      (n = r.getRotationPointForTransformAction(e)),
-                        5 == s ? 1 != n && (s = n) : (s = n);
+                      ((n = r.getRotationPointForTransformAction(e)),
+                        5 == s ? 1 != n && (s = n) : (s = n));
                       break;
                     default:
                       this.mPieceData.areTransformsEquivalent(
@@ -53163,10 +53229,10 @@ System.register(
                 var n,
                   o,
                   s = this.mPieceData.getPiece(this.mLivePieceTypeId, e);
-                s
+                (s
                   ? ((n = s.mMinMinoY), (o = s.mY))
                   : ((n = this.mMatrixHeight), (o = this.mMatrixHeight)),
-                  t < o && (o = t);
+                  t < o && (o = t));
                 for (var a = 0, c = ~~(i.length / 2), m = 0; m < c; m++)
                   if (i[2 * m] == r.x3147376562436869325x) {
                     var h = i[2 * m + 1];
@@ -53345,7 +53411,7 @@ System.register(
           void 0
         );
         i("x2693352015698120162x", function () {
-          (this.mX = 0), (this.mY = 0), (this.mStickyBits = 0);
+          ((this.mX = 0), (this.mY = 0), (this.mStickyBits = 0));
         });
         t._RF.pop();
       },
@@ -53382,7 +53448,7 @@ System.register(
           "x1056386209889065601x",
           (function () {
             function i(t, n, s, o, e, m) {
-              (this.mMinosXY = new Array(i.x1876593175221982954x)),
+              ((this.mMinosXY = new Array(i.x1876593175221982954x)),
                 (this.mMinosBitGrid = new Array(i.x1411195205218044422x)),
                 (this.mMinosStickyBits = new Array(i.x1876593175221982954x)),
                 (this.mPerTransformActionToTransformIds = new Array(
@@ -53401,7 +53467,7 @@ System.register(
                 (this.mMinMinoX = 1e6),
                 (this.mMaxMinoX = -1e6),
                 (this.mMinMinoY = 1e6),
-                (this.mMaxMinoY = -1e6);
+                (this.mMaxMinoY = -1e6));
               var a = 0;
               for (a = 0; a < i.x1876593175221982954x; a++)
                 this.mMinosXY[a] = 0;
@@ -53421,25 +53487,25 @@ System.register(
                     f = (M = t.getMino(a)).mStickyBits;
                   switch (m) {
                     case r.x64436144421298320x:
-                      (h = M.mX), (c = M.mY);
+                      ((h = M.mX), (c = M.mY));
                       break;
                     case r.x626607725566504209x:
-                      (h = M.mY),
+                      ((h = M.mY),
                         (c = -M.mX),
-                        (f = r.rotateDirections90(f, !0));
+                        (f = r.rotateDirections90(f, !0)));
                       break;
                     case r.x3587067629243247864x:
-                      (h = -M.mX),
+                      ((h = -M.mX),
                         (c = -M.mY),
                         (f = r.rotateDirections90(f, !0)),
-                        (f = r.rotateDirections90(f, !0));
+                        (f = r.rotateDirections90(f, !0)));
                       break;
                     case r.x2115122626560554544x:
-                      (h = -M.mY),
+                      ((h = -M.mY),
                         (c = M.mX),
                         (f = r.rotateDirections90(f, !0)),
                         (f = r.rotateDirections90(f, !0)),
-                        (f = r.rotateDirections90(f, !0));
+                        (f = r.rotateDirections90(f, !0)));
                   }
                   this.addMino(n + h, s + c, f);
                 }
@@ -53671,7 +53737,7 @@ System.register(
           "x3880656053082976015x",
           (function () {
             function i(i, e) {
-              (this.mPieceDefinitions = new Array()),
+              ((this.mPieceDefinitions = new Array()),
                 (this.mIsDestroyed = !1),
                 (this.mMatrixWidth = i),
                 (this.mMatrixHeight = e),
@@ -53683,9 +53749,9 @@ System.register(
                     0,
                     d.x2115122626560554544x
                   ) + 1),
-                (this.mCachedPieceDefinition = null);
+                (this.mCachedPieceDefinition = null));
             }
-            (i.canGetSharedStandardPieceData = function () {
+            ((i.canGetSharedStandardPieceData = function () {
               return i.sSharedStandardPieceDataState != i.x2561136401534397934x;
             }),
               (i.getSharedStandardPieceData = function (e, t, n) {
@@ -53720,7 +53786,7 @@ System.register(
                   (i.sSharedStandardPieceDataMatrixHeight = 0),
                   (i.sSharedStandardPieceDataStandardPieceDefinitionsType = 0),
                   (i.sSharedStandardPieceDataState = i.x190722617971896977x));
-              });
+              }));
             var t = i.prototype;
             return (
               (t.isDestroyed = function () {
@@ -53730,7 +53796,7 @@ System.register(
                 switch (e) {
                   case i.x3856330442678767376x:
                   case i.x2155309441089893766x:
-                    this.addPieceDefinition("I", d.x2289840148415367749x),
+                    (this.addPieceDefinition("I", d.x2289840148415367749x),
                       this.addPieceDefinitionMino(
                         d.x2289840148415367749x,
                         0,
@@ -54515,10 +54581,10 @@ System.register(
                           d.x1414089907851320470x,
                           0,
                           0
-                        ));
+                        )));
                     break;
                   case i.x2142333581631916704x:
-                    this.addPieceDefinition("I", d.x2289840148415367749x),
+                    (this.addPieceDefinition("I", d.x2289840148415367749x),
                       this.addPieceDefinitionMino(
                         d.x2289840148415367749x,
                         0,
@@ -54775,7 +54841,7 @@ System.register(
                         d.x2115519817747529413x,
                         0,
                         1
-                      );
+                      ));
                 }
               }),
               (t.addPieceDefinition = function (i, e) {
@@ -54881,8 +54947,8 @@ System.register(
                   t < e;
                   t++
                 )
-                  (i = this.mPieceDefinitions[t]).destroy(),
-                    null !== i && (i = null);
+                  ((i = this.mPieceDefinitions[t]).destroy(),
+                    null !== i && (i = null));
                 this.mPieceDefinitions.length = 0;
               }),
               (t.destroy = function () {
@@ -54978,7 +55044,7 @@ System.register(
           "x3391495095213827328x",
           (function () {
             function t(t, i, n, o) {
-              (this.mMinos = new Array()),
+              ((this.mMinos = new Array()),
                 (this.mRotationPointSets = new Array()),
                 (this.mPiecesByTransform = new Array()),
                 (this.mFirstValidPiecePerFacing = new Array()),
@@ -55004,7 +55070,7 @@ System.register(
                 (this.mRotationalSymmetryType = s.x359895248824810153x),
                 (this.mRotationalSymmetryXOffset = 0),
                 (this.mRotationalSymmetryYOffset = 0),
-                (this.mDidProcessAllTransforms = !1);
+                (this.mDidProcessAllTransforms = !1));
             }
             var i = t.prototype;
             return (
@@ -55019,14 +55085,14 @@ System.register(
               }),
               (i.addMino = function (t, i) {
                 var o = new n();
-                (o.mX = t),
+                ((o.mX = t),
                   (o.mY = i),
                   this.mMinos.push(o),
                   t < this.mMinMinoX && (this.mMinMinoX = t),
                   t > this.mMaxMinoX && (this.mMaxMinoX = t),
                   i < this.mMinMinoY && (this.mMinMinoY = i),
                   i > this.mMaxMinoY && (this.mMaxMinoY = i),
-                  this.recalculateStickyBits();
+                  this.recalculateStickyBits());
               }),
               (i.getNumMinos = function () {
                 return this.mMinos.length;
@@ -55036,8 +55102,8 @@ System.register(
               }),
               (i.addRotationPointSet = function (t, i, n, o, s, r, a, m) {
                 var c = new e();
-                c.setPoints(t, i, n, o, s, r, a, m),
-                  this.mRotationPointSets.push(c);
+                (c.setPoints(t, i, n, o, s, r, a, m),
+                  this.mRotationPointSets.push(c));
               }),
               (i.getNumRotationPointSets = function () {
                 return this.mRotationPointSets.length;
@@ -55055,9 +55121,9 @@ System.register(
                 return this.mRotationalSymmetryYOffset;
               }),
               (i.setRotationalSymmetry = function (t, i, n) {
-                (this.mRotationalSymmetryType = t),
+                ((this.mRotationalSymmetryType = t),
                   (this.mRotationalSymmetryXOffset = i),
-                  (this.mRotationalSymmetryYOffset = n);
+                  (this.mRotationalSymmetryYOffset = n));
               }),
               (i.doesFitInMatrix = function (t, i, n) {
                 var o = 0,
@@ -55066,28 +55132,28 @@ System.register(
                   a = 0;
                 switch (n) {
                   case s.x64436144421298320x:
-                    (o = t + this.mMinMinoX),
+                    ((o = t + this.mMinMinoX),
                       (e = t + this.mMaxMinoX),
                       (r = i + this.mMinMinoY),
-                      (a = i + this.mMaxMinoY);
+                      (a = i + this.mMaxMinoY));
                     break;
                   case s.x626607725566504209x:
-                    (o = t + this.mMinMinoY),
+                    ((o = t + this.mMinMinoY),
                       (e = t + this.mMaxMinoY),
                       (r = i + -this.mMaxMinoX),
-                      (a = i + -this.mMinMinoX);
+                      (a = i + -this.mMinMinoX));
                     break;
                   case s.x3587067629243247864x:
-                    (o = t + -this.mMaxMinoX),
+                    ((o = t + -this.mMaxMinoX),
                       (e = t + -this.mMinMinoX),
                       (r = i + -this.mMaxMinoY),
-                      (a = i + -this.mMinMinoY);
+                      (a = i + -this.mMinMinoY));
                     break;
                   case s.x2115122626560554544x:
-                    (o = t + -this.mMaxMinoY),
+                    ((o = t + -this.mMaxMinoY),
                       (e = t + -this.mMinMinoY),
                       (r = i + this.mMinMinoX),
-                      (a = i + this.mMaxMinoX);
+                      (a = i + this.mMaxMinoX));
                 }
                 return (
                   !(o < 0) &&
@@ -55101,7 +55167,6 @@ System.register(
                   for (
                     this.mPiecesByTransform.length = 0;
                     this.mPiecesByTransform.length < this.mMaxTransformId + 1;
-
                   )
                     this.mPiecesByTransform.push(null);
                   var t,
@@ -55135,16 +55200,16 @@ System.register(
                           ) {
                             switch (M) {
                               case s.x3170853395975835562x:
-                                (m = t), (c = i), (h = n);
+                                ((m = t), (c = i), (h = n));
                                 break;
                               case s.x2794316787333659988x:
-                                (m = t - 1), (c = i), (h = n);
+                                ((m = t - 1), (c = i), (h = n));
                                 break;
                               case s.x697371746540837953x:
-                                (m = t + 1), (c = i), (h = n);
+                                ((m = t + 1), (c = i), (h = n));
                                 break;
                               case s.x3147376562436869325x:
-                                (m = t), (c = i - 1), (h = n);
+                                ((m = t), (c = i - 1), (h = n));
                                 break;
                               case s.x4576540208099613970x:
                               case s.x554066811216525576x:
@@ -55153,7 +55218,7 @@ System.register(
                               case s.x627443987509704663x:
                                 if ((f = M - s.x4576540208099613970x) >= r)
                                   continue;
-                                (h = s.rotateFacing90(n, !0)),
+                                ((h = s.rotateFacing90(n, !0)),
                                   (m =
                                     t +
                                     this.getRotationPointSet(
@@ -55163,7 +55228,7 @@ System.register(
                                     i +
                                     this.getRotationPointSet(
                                       f
-                                    ).getYOffsetForRotation(n, h));
+                                    ).getYOffsetForRotation(n, h)));
                                 break;
                               case s.x2273571102416299812x:
                               case s.x2024310343062292865x:
@@ -55172,7 +55237,7 @@ System.register(
                               case s.x2144983519451468842x:
                                 if ((f = M - s.x2273571102416299812x) >= r)
                                   continue;
-                                (h = s.rotateFacing90(n, !1)),
+                                ((h = s.rotateFacing90(n, !1)),
                                   (m =
                                     t +
                                     this.getRotationPointSet(
@@ -55182,7 +55247,7 @@ System.register(
                                     i +
                                     this.getRotationPointSet(
                                       f
-                                    ).getYOffsetForRotation(n, h));
+                                    ).getYOffsetForRotation(n, h)));
                             }
                             if (this.doesFitInMatrix(m, c, h)) {
                               var y = this.computeTransformId(m, c, h);
@@ -55204,7 +55269,7 @@ System.register(
                               S = this.mRotationalSymmetryXOffset,
                               F = this.mRotationalSymmetryYOffset;
                             if (g == s.x2115519817747529413x)
-                              (d = s.rotateFacing90(d, !0)),
+                              ((d = s.rotateFacing90(d, !0)),
                                 (d = s.rotateFacing90(d, !0)),
                                 (T =
                                   t -
@@ -55225,10 +55290,10 @@ System.register(
                                 this.isCellInsideMatrix(T, l) &&
                                   ((P = this.computeTransformId(T, l, d)),
                                   this.getPieceForTransformId(P) &&
-                                    e.addEquivalentTransformId(P));
+                                    e.addEquivalentTransformId(P)));
                             else {
                               var _, I, R;
-                              (T =
+                              ((T =
                                 t +
                                 (u = s.getPointXForFacingRotation(
                                   S,
@@ -55244,9 +55309,9 @@ System.register(
                                     s.x64436144421298320x,
                                     n
                                   ))),
-                                (d = s.rotateFacing90(d, !0));
+                                (d = s.rotateFacing90(d, !0)));
                               for (var X = 0; X < 3; X++)
-                                this.isCellInsideMatrix(T, l) &&
+                                (this.isCellInsideMatrix(T, l) &&
                                   ((P = this.computeTransformId(T, l, d)),
                                   this.getPieceForTransformId(P) &&
                                     e.addEquivalentTransformId(P)),
@@ -55257,7 +55322,7 @@ System.register(
                                   (T += u =
                                     s.getPointXForFacingRotation(I, R, _, d)),
                                   (l += k =
-                                    s.getPointYForFacingRotation(I, R, _, d));
+                                    s.getPointYForFacingRotation(I, R, _, d)));
                             }
                           }
                         }
@@ -55265,7 +55330,6 @@ System.register(
                   for (
                     this.mFirstValidPiecePerFacing.length = 0;
                     this.mFirstValidPiecePerFacing.length < 4;
-
                   )
                     this.mFirstValidPiecePerFacing.push(null);
                   for (
@@ -55312,7 +55376,7 @@ System.register(
                 for (n = 0; n < o; n++) {
                   t = this.getMino(n);
                   for (var e = n + 1; e < o; e++)
-                    (i = this.getMino(e)).mX - t.mX == 0 &&
+                    ((i = this.getMino(e)).mX - t.mX == 0 &&
                       i.mY - t.mY == 1 &&
                       ((t.mStickyBits |= s.x1639040654764048037x),
                       (i.mStickyBits |= s.x3990669600500259413x)),
@@ -55343,7 +55407,7 @@ System.register(
                       i.mX - t.mX == -1 &&
                         i.mY - t.mY == 1 &&
                         ((t.mStickyBits |= s.x2879086112364631957x),
-                        (i.mStickyBits |= s.x4548198580679388900x));
+                        (i.mStickyBits |= s.x4548198580679388900x)));
                 }
                 for (n = 0; n < o; n++)
                   (t = this.getMino(n)).mStickyBits = s.validateStickyBits(
@@ -55423,14 +55487,14 @@ System.register(
             var e = t.prototype;
             return (
               (e.setPoints = function (t, e, i, s, n, r, o, c) {
-                (this.mNorthX = t),
+                ((this.mNorthX = t),
                   (this.mNorthY = e),
                   (this.mEastX = i),
                   (this.mEastY = s),
                   (this.mSouthX = n),
                   (this.mSouthY = r),
                   (this.mWestX = o),
-                  (this.mWestY = c);
+                  (this.mWestY = c));
               }),
               (e.getXOffsetForFacing = function (t) {
                 switch (t) {
@@ -55495,7 +55559,7 @@ System.register(
     return {
       setters: [
         function (r) {
-          (e = r.inheritsLoose), (t = r.createClass);
+          ((e = r.inheritsLoose), (t = r.createClass));
         },
         function (r) {
           a = r.cclegacy;
@@ -55522,7 +55586,7 @@ System.register(
           (function (r) {
             function a(e, t, a, i, o) {
               var s;
-              ((s = r.call(this, e, t, a, i) || this).mPerCellInfo =
+              (((s = r.call(this, e, t, a, i) || this).mPerCellInfo =
                 new Array()),
                 (s.mPerColumnInfo = new Array()),
                 (s.mPerTransformInfo = new Array()),
@@ -55540,21 +55604,19 @@ System.register(
                 (s.mScratchPerTransformActionStacks = new Array()),
                 (s.mScratchPath = new Array()),
                 (s.mTargetsRequireTouchDown = o),
-                (s.mMaxTargetFacing = 0);
+                (s.mMaxTargetFacing = 0));
               var m = s.mMatrixWidth * s.mMatrixHeight;
               for (s.mPerCellInfo.length = 0; s.mPerCellInfo.length < m; )
                 s.mPerCellInfo.push(0);
               for (
                 s.mPerColumnInfo.length = 0;
                 s.mPerColumnInfo.length < s.mMatrixWidth;
-
               )
                 s.mPerColumnInfo.push(0);
               var h = e.getMaxNumTransforms();
               for (
                 s.mPerTransformInfo.length = 0;
                 s.mPerTransformInfo.length < h;
-
               )
                 s.mPerTransformInfo.push(0);
               for (
@@ -55562,36 +55624,32 @@ System.register(
                   s.mDidSortReachableTransformsByEvaluationScore = !1,
                   s.mPerCellTargetTransforms.length = 0;
                 s.mPerCellTargetTransforms.length < m;
-
               )
                 s.mPerCellTargetTransforms.push(null);
               for (
                 s.mPerCellReachableTransformsByEvaluationScore.length = 0;
                 s.mPerCellReachableTransformsByEvaluationScore.length < m;
-
               )
                 s.mPerCellReachableTransformsByEvaluationScore.push(null);
               var c,
                 f = null;
               for (c = 0; c < m; c++)
-                (f = new Array()),
+                ((f = new Array()),
                   (s.mPerCellTargetTransforms[c] = f),
                   (f = new Array()),
-                  (s.mPerCellReachableTransformsByEvaluationScore[c] = f);
+                  (s.mPerCellReachableTransformsByEvaluationScore[c] = f));
               for (
                 s.mPerColumnReachableTransformsByEvaluationScore.length = 0;
                 s.mPerColumnReachableTransformsByEvaluationScore.length <
                 s.mMatrixWidth;
-
               )
                 s.mPerColumnReachableTransformsByEvaluationScore.push(null);
               for (c = 0; c < s.mMatrixWidth; c++)
-                (f = new Array()),
-                  (s.mPerColumnReachableTransformsByEvaluationScore[c] = f);
+                ((f = new Array()),
+                  (s.mPerColumnReachableTransformsByEvaluationScore[c] = f));
               for (
                 s.mPerTransformPaths.length = 0;
                 s.mPerTransformPaths.length < h;
-
               )
                 s.mPerTransformPaths.push(null);
               for (var l = 0; l < a; l++)
@@ -55609,7 +55667,6 @@ System.register(
               for (
                 s.mPerTransformEvaluationScore.length = 0;
                 s.mPerTransformEvaluationScore.length < h;
-
               )
                 s.mPerTransformEvaluationScore.push(0);
               for (
@@ -55617,27 +55674,23 @@ System.register(
                   s.mIsEvaluatorOwner = !1,
                   s.mScratchMatrixCellIndexStack.length = 0;
                 s.mScratchMatrixCellIndexStack.length < m;
-
               )
                 s.mScratchMatrixCellIndexStack.push(0);
               for (
                 s.mScratchMatrixCellIndexStackTop = -1,
                   s.mScratchTransformStack.length = 0;
                 s.mScratchTransformStack.length < h;
-
               )
                 s.mScratchTransformStack.push(0);
               for (
                 s.mScratchActionStack.length = 0;
                 s.mScratchActionStack.length < h;
-
               )
                 s.mScratchActionStack.push(0);
               for (
                 s.mScratchTransformStackTop = -1,
                   s.mScratchPerTransformActionStacks.length = 0;
                 s.mScratchPerTransformActionStacks.length < h;
-
               )
                 s.mScratchPerTransformActionStacks.push(null);
               for (c = 0; c < h; c++) {
@@ -55672,7 +55725,7 @@ System.register(
             var s = a.prototype;
             return (
               (s.copyParameters = function (r) {
-                (this.mParameter_evaluation_singleLineClear =
+                ((this.mParameter_evaluation_singleLineClear =
                   r.mParameter_evaluation_singleLineClear),
                   (this.mParameter_evaluation_doubleLineClear =
                     r.mParameter_evaluation_doubleLineClear),
@@ -55716,43 +55769,43 @@ System.register(
                     (this.mIsEvaluatorOwner && this.mEvaluator.destroy(),
                     (this.mEvaluator = null)),
                   (this.mEvaluator = r.mEvaluator),
-                  (this.mIsEvaluatorOwner = !1);
+                  (this.mIsEvaluatorOwner = !1));
               }),
               (s.setEvaluator = function (r, e) {
-                (this.mEvaluator = r), (this.mIsEvaluatorOwner = e);
+                ((this.mEvaluator = r), (this.mIsEvaluatorOwner = e));
               }),
               (s.startStateEvaluation = function (r) {
-                this.resetStateWithState(r),
+                (this.resetStateWithState(r),
                   (this.mMaxTargetFacing =
                     this.mPieceData.getMaxFacingForPieceTypeId(
                       this.mLivePieceTypeId
                     )),
                   (this.mTargetTransforms.length = 0),
-                  (this.mReachableTransforms.length = 0);
+                  (this.mReachableTransforms.length = 0));
                 var e = this.mMatrixWidth * this.mMatrixHeight,
                   t = 0;
                 for (t = 0; t < e; t++)
-                  (this.mPerCellInfo[t] = 0),
+                  ((this.mPerCellInfo[t] = 0),
                     (this.mPerCellTargetTransforms[t].length = 0),
                     (this.mPerCellReachableTransformsByEvaluationScore[
                       t
-                    ].length = 0);
+                    ].length = 0));
                 for (t = 0; t < this.mMatrixWidth; t++)
-                  (this.mPerColumnInfo[t] = 0),
+                  ((this.mPerColumnInfo[t] = 0),
                     (this.mPerColumnReachableTransformsByEvaluationScore[
                       t
-                    ].length = 0);
+                    ].length = 0));
                 for (
                   var i = this.mPieceData.getMaxNumTransforms(), o = 0;
                   o < i;
                   o++
                 )
-                  (this.mPerTransformInfo[o] = 0),
+                  ((this.mPerTransformInfo[o] = 0),
                     (this.mPerTransformEvaluationScore[o] =
                       a.x2647992043571622448x),
-                    (this.mPerTransformPaths[o].length = 0);
-                (this.mReachableTransformsAreClean = !0),
-                  (this.mDidSortReachableTransformsByEvaluationScore = !1);
+                    (this.mPerTransformPaths[o].length = 0));
+                ((this.mReachableTransformsAreClean = !0),
+                  (this.mDidSortReachableTransformsByEvaluationScore = !1));
               }),
               (s.processStateEvaluation = function () {
                 return this.processFindTargetTransforms();
@@ -55806,10 +55859,10 @@ System.register(
                     o < i;
                     o++
                   )
-                    (a = this.mTargetTransforms[o]),
-                      this.isTransformReachable(a);
+                    ((a = this.mTargetTransforms[o]),
+                      this.isTransformReachable(a));
                   var n = this.mReachableTransforms.length;
-                  n > 1 &&
+                  (n > 1 &&
                     this.sortTransformsByEvaluationScore(
                       this.mReachableTransforms,
                       0,
@@ -55817,7 +55870,7 @@ System.register(
                       -1,
                       -1
                     ),
-                    (this.mDidSortReachableTransformsByEvaluationScore = !0);
+                    (this.mDidSortReachableTransformsByEvaluationScore = !0));
                 }
                 return this.getIndexedTransformFromArray(
                   this.mReachableTransforms,
@@ -55921,9 +55974,9 @@ System.register(
                                 this.mMatrixWidth
                               ) - s,
                             I = n.computeFacingFromTransformId(T);
-                          I > o && (I -= 4),
+                          (I > o && (I -= 4),
                             (v = I - m),
-                            (P < 0 || (0 == P && v < 0)) && (P += h);
+                            (P < 0 || (0 == P && v < 0)) && (P += h));
                           var g = 4 * P + v;
                           g < f && ((f = g), (l = T));
                         }
@@ -55935,7 +55988,7 @@ System.register(
               (s.getBestActionsForTransform = function (r, e, t, i, o) {
                 var s = n.x1802400225218915175x;
                 if (((e.length = 0), r == n.x3207601361922205214x))
-                  return o && e.push(s), !1;
+                  return (o && e.push(s), !1);
                 var m = 0,
                   h = 0,
                   c = 0;
@@ -55950,9 +56003,9 @@ System.register(
                       0 ==
                       (this.mPerTransformInfo[r] & a.x494037771805154197x)
                     )
-                      return o && e.push(s), !1;
+                      return (o && e.push(s), !1);
                   } else if (!this.isTransformReachable(r))
-                    return o && e.push(s), !1;
+                    return (o && e.push(s), !1);
                   var f,
                     l,
                     u = this.mPerTransformPaths[r],
@@ -55979,7 +56032,7 @@ System.register(
                         if (!P) {
                           for (h = m + 1; h < T; h++) {
                             if ((v = u[2 * h + 1]) == l) {
-                              this.mScratchPath.push(f), (m = h), (P = !0);
+                              (this.mScratchPath.push(f), (m = h), (P = !0));
                               break;
                             }
                             if (h > m + 1) {
@@ -55987,20 +56040,20 @@ System.register(
                                 (d = this.getMoveAction(l, v)) !=
                                 n.x2319162133901195166x
                               ) {
-                                this.mScratchPath.push(f),
+                                (this.mScratchPath.push(f),
                                   this.mScratchPath.push(d),
                                   (m = h),
-                                  (P = !0);
+                                  (P = !0));
                                 break;
                               }
                               if (
                                 (d = this.getRotateAction(l, v)) !=
                                 n.x2319162133901195166x
                               ) {
-                                this.mScratchPath.push(f),
+                                (this.mScratchPath.push(f),
                                   this.mScratchPath.push(d),
                                   (m = h),
-                                  (P = !0);
+                                  (P = !0));
                                 break;
                               }
                             }
@@ -56010,22 +56063,22 @@ System.register(
                       }
                     else
                       for (m = 0; m < T; m++)
-                        (f = u[2 * m]),
+                        ((f = u[2 * m]),
                           (l = u[2 * m + 1]),
-                          this.mScratchPath.push(f);
+                          this.mScratchPath.push(f));
                     if (i) {
                       for (
                         ;
                         this.mScratchPath[this.mScratchPath.length - 1] ==
                         n.x3147376562436869325x;
-
                       )
                         this.mScratchPath.pop();
-                      (f = n.x1802400225218915175x), this.mScratchPath.push(f);
+                      ((f = n.x1802400225218915175x),
+                        this.mScratchPath.push(f));
                     }
                     for (c = this.mScratchPath.length, m = 0; m < c; m++)
-                      (f = this.mScratchPath[m]), e.push(f);
-                  } else for (m = 0; m < T; m++) (f = u[2 * m]), e.push(f);
+                      ((f = this.mScratchPath[m]), e.push(f));
+                  } else for (m = 0; m < T; m++) ((f = u[2 * m]), e.push(f));
                 }
                 return (
                   (c = e.length),
@@ -56105,7 +56158,7 @@ System.register(
                       i.hasEquivalenceForFacing(n.x64436144421298320x) &&
                         (o += this.mParameter_evaluation_NFacingVSEquivalent);
                   }
-                  (o +=
+                  ((o +=
                     i.mMaxMinoY *
                     this.mParameter_evaluation_maxMinoYMultiplier),
                     this.mEvaluator &&
@@ -56118,7 +56171,7 @@ System.register(
                       )),
                     (this.mPerTransformInfo[r] =
                       this.mPerTransformInfo[r] | a.x4315385626317116431x),
-                    (this.mPerTransformEvaluationScore[r] = o);
+                    (this.mPerTransformEvaluationScore[r] = o));
                 }
                 var u = 0;
                 return (
@@ -56160,17 +56213,17 @@ System.register(
                         o
                       ].length = 0));
                   for (n = this.mReachableTransforms.length, o = 0; o < n; o++)
-                    (i = this.mReachableTransforms[o]),
+                    ((i = this.mReachableTransforms[o]),
                       (this.mPerTransformInfo[i] =
                         this.mPerTransformInfo[i] &
                         ~(
                           a.x2136702689999850142x |
                           a.x2653519010161612563x |
                           a.x494037771805154197x
-                        ));
-                  (this.mReachableTransforms.length = 0),
+                        )));
+                  ((this.mReachableTransforms.length = 0),
                     (this.mReachableTransformsAreClean = !0),
-                    (this.mDidSortReachableTransformsByEvaluationScore = !1);
+                    (this.mDidSortReachableTransformsByEvaluationScore = !1));
                 }
               }),
               (s.startFindTargetTransforms = function () {}),
@@ -56190,7 +56243,6 @@ System.register(
                       ++this.mScratchMatrixCellIndexStackTop
                     ] = o;
                   this.mScratchMatrixCellIndexStackTop >= 0;
-
                 )
                   if (
                     ((o =
@@ -56201,7 +56253,7 @@ System.register(
                       this.mPerCellInfo[o] | a.x2367813955563209320x),
                     0 == this.mMatrixMinos[o])
                   ) {
-                    (r = n.computeXFromGridIndex(o, this.mMatrixWidth)),
+                    ((r = n.computeXFromGridIndex(o, this.mMatrixWidth)),
                       (e = n.computeYFromGridIndex(o, this.mMatrixWidth)) <
                         this.mMatrixHeight - 1 &&
                         ((i = n.computeGridIndex(r, e + 1, this.mMatrixWidth)),
@@ -56226,7 +56278,7 @@ System.register(
                         0 == (this.mPerCellInfo[i] & a.x2367813955563209320x) &&
                           (this.mScratchMatrixCellIndexStack[
                             ++this.mScratchMatrixCellIndexStackTop
-                          ] = i));
+                          ] = i)));
                     for (
                       var s = n.x64436144421298320x;
                       s <= n.x2115122626560554544x;
@@ -56244,10 +56296,10 @@ System.register(
                           (!this.mTargetsRequireTouchDown ||
                             this.doesTransformTouchBelow(r, e, s))
                         ) {
-                          (this.mPerTransformInfo[t] =
+                          ((this.mPerTransformInfo[t] =
                             this.mPerTransformInfo[t] |
                             a.x3338260973959036054x),
-                            this.mTargetTransforms.push(t);
+                            this.mTargetTransforms.push(t));
                           for (
                             var m = this.mPieceData.getPiece(
                                 this.mLivePieceTypeId,
@@ -56259,9 +56311,9 @@ System.register(
                             f < m.mNumMinos;
                             f++
                           ) {
-                            (h = m.mMinosXY[f]),
+                            ((h = m.mMinosXY[f]),
                               (this.mPerCellInfo[h] =
-                                this.mPerCellInfo[h] | a.x317552658323542561x);
+                                this.mPerCellInfo[h] | a.x317552658323542561x));
                             for (
                               var l = (c = this.mPerCellTargetTransforms[h])
                                   .length,
@@ -56304,12 +56356,12 @@ System.register(
                   h < m;
                   h++
                 )
-                  (o = s[h]),
+                  ((o = s[h]),
                     this.isTransformReachable(o) &&
                       !this.doesArrayContainEquivalentTransform(i, o) &&
                       (i.push(o),
                       (this.mPerCellInfo[t] =
-                        this.mPerCellInfo[t] | a.x3164249373201470877x));
+                        this.mPerCellInfo[t] | a.x3164249373201470877x)));
                 var c = i.length;
                 return (
                   c > 1 &&
@@ -56414,8 +56466,8 @@ System.register(
                     l = 0,
                     u = 0;
                   for (u = 0; u < c; u++)
-                    (f = r[u]),
-                      this.isTransformValidForCell(f, e, t, a, i) && l++;
+                    ((f = r[u]),
+                      this.isTransformValidForCell(f, e, t, a, i) && l++);
                   h = m ? n.clampInt(h, 0, l - 1) : n.loopInt(h, 0, l - 1);
                   var T = 0;
                   for (u = 0; u < c; u++)
@@ -56446,7 +56498,7 @@ System.register(
                     n < o;
                     n++
                   ) {
-                    (t = e[n]), (a = !1);
+                    ((t = e[n]), (a = !1));
                     for (var s = 0; s < i; s++)
                       if (r[s] == t) {
                         a = !0;
@@ -56526,7 +56578,7 @@ System.register(
                       ((d = this.getTransformForTransformAction(d, m)),
                       n.computeFacingFromTransformId(d) == T)
                     ) {
-                      (k = !0), (g = m), (_ = t + 1);
+                      ((k = !0), (g = m), (_ = t + 1));
                       break;
                     }
                 if (k)
@@ -56558,7 +56610,7 @@ System.register(
                           (I = this.getTransformActionSteps(v, P, m, I)) <= 0)
                         )
                           break;
-                        (F = m), (R = I);
+                        ((F = m), (R = I));
                       }
                       if (u < S) {
                         if (
@@ -56583,31 +56635,31 @@ System.register(
                           (I = this.getTransformActionSteps(v, P, m, I)) <= 0)
                         )
                           continue;
-                        (E = m), (b = I);
+                        ((E = m), (b = I));
                       }
-                      (o = !0),
+                      ((o = !0),
                         ((s = this.mPerTransformPaths[r]).length = 0),
                         (m = n.x3170853395975835562x),
                         s.push(m),
-                        s.push(this.mLivePieceStartingTransformId);
+                        s.push(this.mLivePieceStartingTransformId));
                       var D = this.mLivePieceStartingTransformId;
                       for (t = 0; t < _; t++)
-                        (D = this.getTransformForTransformAction(D, g)),
+                        ((D = this.getTransformForTransformAction(D, g)),
                           s.push(g),
-                          s.push(D);
+                          s.push(D));
                       for (t = 0; t < b; t++)
-                        (D = this.getTransformForTransformAction(D, E)),
+                        ((D = this.getTransformForTransformAction(D, E)),
                           s.push(E),
-                          s.push(D);
+                          s.push(D));
                       for (t = 0; t < y; t++)
-                        (m = n.x3147376562436869325x),
+                        ((m = n.x3147376562436869325x),
                           (D = this.getTransformForTransformAction(D, m)),
                           s.push(m),
-                          s.push(D);
+                          s.push(D));
                       for (t = 0; t < R; t++)
-                        (D = this.getTransformForTransformAction(D, F)),
+                        ((D = this.getTransformForTransformAction(D, F)),
                           s.push(F),
-                          s.push(D);
+                          s.push(D));
                       break;
                     }
                     if (o) break;
@@ -56636,7 +56688,6 @@ System.register(
                         W
                       );
                     this.mScratchTransformStackTop >= 0;
-
                   )
                     if (
                       ((i =
@@ -56654,11 +56705,11 @@ System.register(
                         t <= this.mScratchTransformStackTop;
                         t++
                       )
-                        s.push(this.mScratchActionStack[t]),
-                          s.push(this.mScratchTransformStack[t]);
+                        (s.push(this.mScratchActionStack[t]),
+                          s.push(this.mScratchTransformStack[t]));
                       this.mScratchTransformStackTop = -1;
                     } else
-                      (e = this.mPieceData.getPiece(this.mLivePieceTypeId, i)),
+                      ((e = this.mPieceData.getPiece(this.mLivePieceTypeId, i)),
                         (W =
                           this.mScratchPerTransformActionStacks[
                             this.mScratchTransformStackTop
@@ -56681,7 +56732,7 @@ System.register(
                                   this.mScratchTransformStackTop
                                 ]),
                               this.pushActionsForTarget(L, r, W)))
-                          : this.mScratchTransformStackTop--;
+                          : this.mScratchTransformStackTop--);
                 }
                 return (
                   o &&
@@ -56807,18 +56858,15 @@ System.register(
                       i
                     );
                   s <= m;
-
                 ) {
                   for (
                     ;
                     s <= m && this.getTransformEvaluationScore(r[s], a, i) > h;
-
                   )
                     s++;
                   for (
                     ;
                     m >= s && this.getTransformEvaluationScore(r[m], a, i) < h;
-
                   )
                     m--;
                   s <= m &&
@@ -56830,21 +56878,21 @@ System.register(
                     s++,
                     m--);
                 }
-                e < m && this.sortTransformsByEvaluationScore(r, e, m, a, i),
-                  s < t && this.sortTransformsByEvaluationScore(r, s, t, a, i);
+                (e < m && this.sortTransformsByEvaluationScore(r, e, m, a, i),
+                  s < t && this.sortTransformsByEvaluationScore(r, s, t, a, i));
               }),
               (s.getCompleteLinesForPiece = function (r) {
                 for (var e, t = 0, a = r.mMinMinoY; a <= r.mMaxMinoY; a++)
-                  (e = a - r.mY + o.x897654564122732137x),
+                  ((e = a - r.mY + o.x897654564122732137x),
                     (this.mMatrixMinosBitGrid[a] | r.mMinosBitGrid[e]) ==
-                      this.mMatrixMinosBitGridFullRow && t++;
+                      this.mMatrixMinosBitGridFullRow && t++);
                 return t;
               }),
               (s.getTouchingSurfacesForPiece = function (r, e, t) {
                 for (var a, i, o, n = 0, s = r.mNumMinos, m = 0; m < s; m++)
-                  (i = (a = r.mMinosXY[m]) % this.mMatrixWidth),
+                  ((i = (a = r.mMinosXY[m]) % this.mMatrixWidth),
                     (o = ~~(a / this.mMatrixWidth)),
-                    this.doesCellCollide(i + e, o + t) && n++;
+                    this.doesCellCollide(i + e, o + t) && n++);
                 return n;
               }),
               (s.getRowFitsForPiece = function (r) {
@@ -56874,9 +56922,9 @@ System.register(
                   s = 0,
                   m = r.mNumMinos;
                 for (e = 0; e < m; e++)
-                  (t = r.mMinosXY[e]),
+                  ((t = r.mMinosXY[e]),
                     (this.mMatrixMinos[t] =
-                      this.mMatrixMinos[t] | i.x3219193565949520005x);
+                      this.mMatrixMinos[t] | i.x3219193565949520005x));
                 var h = r.getNumColumns();
                 for (e = 0; e < h; e++) {
                   a = r.getColumnXInMatrix(e);
@@ -56899,9 +56947,9 @@ System.register(
                   }
                 }
                 for (e = 0; e < m; e++)
-                  (t = r.mMinosXY[e]),
+                  ((t = r.mMinosXY[e]),
                     (this.mMatrixMinos[t] =
-                      this.mMatrixMinos[t] & ~i.x3219193565949520005x);
+                      this.mMatrixMinos[t] & ~i.x3219193565949520005x));
                 return s;
               }),
               (s.getHolesForPiece = function (r, e) {
@@ -56914,9 +56962,9 @@ System.register(
                   h = 0,
                   c = r.mNumMinos;
                 for (t = 0; t < c; t++)
-                  (a = r.mMinosXY[t]),
+                  ((a = r.mMinosXY[t]),
                     (this.mMatrixMinos[a] =
-                      this.mMatrixMinos[a] | i.x3219193565949520005x);
+                      this.mMatrixMinos[a] | i.x3219193565949520005x));
                 var f = r.getNumColumns();
                 for (t = 0; t < f; t++) {
                   s = r.getColumnXInMatrix(t);
@@ -56941,9 +56989,9 @@ System.register(
                   }
                 }
                 for (t = 0; t < c; t++)
-                  (a = r.mMinosXY[t]),
+                  ((a = r.mMinosXY[t]),
                     (this.mMatrixMinos[a] =
-                      this.mMatrixMinos[a] & ~i.x3219193565949520005x);
+                      this.mMatrixMinos[a] & ~i.x3219193565949520005x));
                 return h;
               }),
               (s.getCoveredISlotDepthForPiece = function (r, e, t) {
@@ -56956,13 +57004,13 @@ System.register(
                   c = 0,
                   f = r.mNumMinos;
                 for (a = 0; a < f; a++)
-                  (s = r.mMinosXY[a]),
+                  ((s = r.mMinosXY[a]),
                     (this.mMatrixMinos[s] =
                       this.mMatrixMinos[s] | i.x3219193565949520005x),
                     (m = n.computeXFromGridIndex(s, this.mMatrixWidth)),
                     (h = n.computeYFromGridIndex(s, this.mMatrixWidth)),
                     (this.mMatrixMinosBitGrid[h] =
-                      this.mMatrixMinosBitGrid[h] | (1 << m));
+                      this.mMatrixMinosBitGrid[h] | (1 << m)));
                 var l = 0,
                   u = r.getNumColumns();
                 for (a = 0; a < u; a++) {
@@ -57002,13 +57050,13 @@ System.register(
                   }
                 }
                 for (a = 0; a < f; a++)
-                  (s = r.mMinosXY[a]),
+                  ((s = r.mMinosXY[a]),
                     (this.mMatrixMinos[s] =
                       this.mMatrixMinos[s] & ~i.x3219193565949520005x),
                     (m = n.computeXFromGridIndex(s, this.mMatrixWidth)),
                     (h = n.computeYFromGridIndex(s, this.mMatrixWidth)),
                     (this.mMatrixMinosBitGrid[h] =
-                      this.mMatrixMinosBitGrid[h] & ~(1 << m));
+                      this.mMatrixMinosBitGrid[h] & ~(1 << m)));
                 return c;
               }),
               (s.getMoveAction = function (r, e) {
@@ -57076,18 +57124,18 @@ System.register(
                   var e = this.mMatrixWidth * this.mMatrixHeight,
                     t = 0;
                   for (t = 0; t < e; t++)
-                    this.mPerCellTargetTransforms[t],
-                      this.mPerCellReachableTransformsByEvaluationScore[t];
+                    (this.mPerCellTargetTransforms[t],
+                      this.mPerCellReachableTransformsByEvaluationScore[t]);
                   for (t = 0; t < this.mMatrixWidth; t++)
                     this.mPerColumnReachableTransformsByEvaluationScore[t];
                   var a = this.mPieceData.getMaxNumTransforms();
                   for (t = 0; t < a; t++)
-                    this.mPerTransformPaths[t],
-                      this.mScratchPerTransformActionStacks[t];
-                  this.mEvaluator &&
+                    (this.mPerTransformPaths[t],
+                      this.mScratchPerTransformActionStacks[t]);
+                  (this.mEvaluator &&
                     (this.mIsEvaluatorOwner && this.mEvaluator.destroy(),
                     (this.mEvaluator = null)),
-                    r.prototype.destroy.call(this);
+                    r.prototype.destroy.call(this));
                 }
               }),
               t(a, null, [
@@ -57208,7 +57256,7 @@ System.register(
           "x2166954788509112124x",
           void 0
         );
-        (t(
+        ((t(
           "x2166954788509112124x",
           (function () {
             function t() {}
@@ -57333,10 +57381,10 @@ System.register(
                       case t.x3587067629243247864x:
                       case t.x2115122626560554544x:
                         for (var a; e != o; )
-                          (a = i),
+                          ((a = i),
                             (i = c),
                             (c = -a),
-                            (e = t.rotateFacing90(e, !0));
+                            (e = t.rotateFacing90(e, !0)));
                     }
                 }
                 return i;
@@ -57355,10 +57403,10 @@ System.register(
                       case t.x3587067629243247864x:
                       case t.x2115122626560554544x:
                         for (var a; e != o; )
-                          (a = i),
+                          ((a = i),
                             (i = c),
                             (c = -a),
-                            (e = t.rotateFacing90(e, !0));
+                            (e = t.rotateFacing90(e, !0)));
                     }
                 }
                 return c;
@@ -58120,7 +58168,7 @@ System.register(
             );
           })()
         ).sIsDebugModeOn = !1),
-          r._RF.pop();
+          r._RF.pop());
       },
     };
   }
@@ -58226,7 +58274,10 @@ System.register(
           (function (t) {
             function n(e, n, o, r, a) {
               var d;
-              return ((d = t.call(this, n, o, r, a) || this).mInterface = e), d;
+              return (
+                ((d = t.call(this, n, o, r, a) || this).mInterface = e),
+                d
+              );
             }
             e(n, t);
             var o = n.prototype;
@@ -58296,7 +58347,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -58402,17 +58453,17 @@ System.register(
                 );
               }),
               (n.startActions = function (t) {
-                (this.mNextActionStepIndex = 0),
+                ((this.mNextActionStepIndex = 0),
                   t &&
                     (this.mActionTimerMSEC =
                       this.getPreDelayMSECForNextAction()),
                   (this.mLivePiecePreviousTransform = this.getController()
                     ._getGameState()
-                    .getLivePieceCurrentTransform());
+                    .getLivePieceCurrentTransform()));
               }),
               (n.cancelActions = function () {
-                (this.mActionsToTarget.length = 0),
-                  (this.mNextActionStepIndex = -1);
+                ((this.mActionsToTarget.length = 0),
+                  (this.mNextActionStepIndex = -1));
               }),
               (n.recalculateActions = function () {
                 this.cancelActions();
@@ -58437,7 +58488,6 @@ System.register(
                   for (
                     this.mActionTimerMSEC -= t;
                     this.mActionTimerMSEC <= 0 && this.canProcessActions();
-
                   ) {
                     var e = this.getController()._getGameState();
                     e.getLivePieceCurrentTransform() !=
@@ -58445,7 +58495,7 @@ System.register(
                       this.recalculateActions();
                     var i = this.mActionsToTarget[this.mNextActionStepIndex],
                       r = a.getControlActionForTransformAction(i);
-                    this.mNextActionStepIndex++,
+                    (this.mNextActionStepIndex++,
                       r != a.x89022653580057346x &&
                         (this.getController()._performControlAction(
                           r,
@@ -58456,7 +58506,7 @@ System.register(
                           e.getLivePieceCurrentTransform()),
                         this.mLivePieceTotalActionSteps++,
                         (this.mActionTimerMSEC +=
-                          this.getPreDelayMSECForNextAction()));
+                          this.getPreDelayMSECForNextAction())));
                   }
               }),
               (n.getPreDelayMSECForNextAction = function () {
@@ -58505,7 +58555,7 @@ System.register(
                 if (t) {
                   if (!this.mGameState2) {
                     var e = this.getController()._getGameState();
-                    (this.mGameState2 = new o(
+                    ((this.mGameState2 = new o(
                       e.getPieceData(),
                       this.getMatrixWidth(),
                       this.getMatrixHeight(),
@@ -58517,9 +58567,9 @@ System.register(
                         this.getMatrixHeight(),
                         this.getMatrixVisibleHeight(),
                         !0
-                      ));
+                      )));
                   }
-                  this.mTargetFinder2.copyParameters(this.mTargetFinder1),
+                  (this.mTargetFinder2.copyParameters(this.mTargetFinder1),
                     (this.getController()._getModel().mIsFallControlEnabled =
                       this.mParameter_enablePieceFall),
                     (this.getController()._getModel().mIsLockTimerEnabled =
@@ -58531,11 +58581,12 @@ System.register(
                     ),
                     this.x408389181530229609x(),
                     this.x3800932239861521913x(),
-                    this.recalculateActions();
+                    this.recalculateActions());
                 } else
-                  (this.getController()._getModel().mIsFallControlEnabled = !0),
+                  ((this.getController()._getModel().mIsFallControlEnabled =
+                    !0),
                     (this.getController()._getModel().mIsLockTimerEnabled = !0),
-                    this.cancelActions();
+                    this.cancelActions());
               }),
               (n.x136486481447317131x = function (t) {
                 this.processActions(t);
@@ -58546,12 +58597,12 @@ System.register(
               (n.x1598962645344425120x = function (t) {}),
               (n.x408389181530229609x = function () {
                 if (this.isActive()) {
-                  (this.getController()._getModel().mIsFallControlEnabled =
+                  ((this.getController()._getModel().mIsFallControlEnabled =
                     this.mParameter_enablePieceFall),
                     (this.mLivePieceTotalActionSteps = 0),
                     (this.mLivePiecePreviousTransform =
                       a.x3207601361922205214x),
-                    this.cancelActions();
+                    this.cancelActions());
                   var t = this.getController()._getGameState();
                   if (
                     (this.mTargetFinder1.setMatrixLimits(
@@ -58564,7 +58615,7 @@ System.register(
                   ) {
                     this.mGameState2.resetStateWithState(t);
                     var e = t.getAlternatePieceTypeId();
-                    this.mGameState2.setLivePiece(
+                    (this.mGameState2.setLivePiece(
                       e,
                       t.getLivePieceCurrentX(),
                       t.getLivePieceCurrentY(),
@@ -58580,7 +58631,7 @@ System.register(
                       ),
                       this.mTargetFinder2.startStateEvaluation(
                         this.mGameState2
-                      );
+                      ));
                   }
                 }
               }),
@@ -58683,7 +58734,7 @@ System.register(
           "x2626932775759175361x",
           (function () {
             function t(t, e, n, r) {
-              (this.mInputMgrs = new Array()),
+              ((this.mInputMgrs = new Array()),
                 (this.mPieceData = r),
                 (this.mMatrixWidth = t),
                 (this.mMatrixHeight = e),
@@ -58717,7 +58768,7 @@ System.register(
                 (this.mIsControlActionEnabled_moveDown = !0),
                 (this.mIsControlActionEnabled_activateNextQueuedPendingAction =
                   !0),
-                (this.mIsDestroyed = !1);
+                (this.mIsDestroyed = !1));
             }
             var n = t.prototype;
             return (
@@ -58728,44 +58779,44 @@ System.register(
                 if (!this.isInputTypeEnabled(e))
                   switch (e) {
                     case t.x3409109038926087649x:
-                      (this.mAIInputMgr = new i(
+                      ((this.mAIInputMgr = new i(
                         this,
                         this.mPieceData,
                         this.mMatrixWidth,
                         this.mMatrixHeight,
                         this.mMatrixVisibleHeight
                       )),
-                        this.mInputMgrs.push(this.mAIInputMgr);
+                        this.mInputMgrs.push(this.mAIInputMgr));
                       break;
                     case t.x1286691926007648149x:
-                      (this.mDirectInputMgr = new s(
+                      ((this.mDirectInputMgr = new s(
                         this,
                         this.mPieceData,
                         this.mMatrixWidth,
                         this.mMatrixHeight,
                         this.mMatrixVisibleHeight
                       )),
-                        this.mInputMgrs.push(this.mDirectInputMgr);
+                        this.mInputMgrs.push(this.mDirectInputMgr));
                       break;
                     case t.x3521116714989925786x:
-                      (this.mSmartInputMgr = new u(
+                      ((this.mSmartInputMgr = new u(
                         this,
                         this.mPieceData,
                         this.mMatrixWidth,
                         this.mMatrixHeight,
                         this.mMatrixVisibleHeight
                       )),
-                        this.mInputMgrs.push(this.mSmartInputMgr);
+                        this.mInputMgrs.push(this.mSmartInputMgr));
                       break;
                     case t.x1719580821783995404x:
-                      (this.mGestureInputMgr = new a(
+                      ((this.mGestureInputMgr = new a(
                         this,
                         this.mPieceData,
                         this.mMatrixWidth,
                         this.mMatrixHeight,
                         this.mMatrixVisibleHeight
                       )),
-                        this.mInputMgrs.push(this.mGestureInputMgr);
+                        this.mInputMgrs.push(this.mGestureInputMgr));
                   }
               }),
               (n.disableInputType = function (e) {
@@ -58955,8 +59006,8 @@ System.register(
               }),
               (n.handleInputPositionChanged = function (t, e, n) {
                 if (!this.x3793548418663736365x()) return !1;
-                (t = this.transformInputIdForActiveInputMgr(t)),
-                  this.updateActiveInputMgr(t);
+                ((t = this.transformInputIdForActiveInputMgr(t)),
+                  this.updateActiveInputMgr(t));
                 var r = this.getInputMgrForInputId(t, !0);
                 if (r) {
                   var o = this._getGameState().getLivePieceCurrentTransform();
@@ -58969,8 +59020,8 @@ System.register(
               }),
               (n.handleInputIsOn = function (t, e, n) {
                 if (!this.x3793548418663736365x()) return !1;
-                (t = this.transformInputIdForActiveInputMgr(t)),
-                  this.updateActiveInputMgr(t);
+                ((t = this.transformInputIdForActiveInputMgr(t)),
+                  this.updateActiveInputMgr(t));
                 var r = this.getInputMgrForInputId(t, !0);
                 if (r) {
                   var o = this._getGameState().getLivePieceCurrentTransform();
@@ -58983,8 +59034,8 @@ System.register(
               }),
               (n.handleInputIsOnExclusive = function (t, e, n) {
                 if (!this.x3793548418663736365x()) return !1;
-                (t = this.transformInputIdForActiveInputMgr(t)),
-                  this.updateActiveInputMgr(t);
+                ((t = this.transformInputIdForActiveInputMgr(t)),
+                  this.updateActiveInputMgr(t));
                 var r = this.getInputMgrForInputId(t, !0);
                 if (r) {
                   var o = this._getGameState().getLivePieceCurrentTransform();
@@ -58997,8 +59048,8 @@ System.register(
               }),
               (n.handleInputIsOff = function (t, e, n) {
                 if (!this.x3793548418663736365x()) return !1;
-                (t = this.transformInputIdForActiveInputMgr(t)),
-                  this.updateActiveInputMgr(t);
+                ((t = this.transformInputIdForActiveInputMgr(t)),
+                  this.updateActiveInputMgr(t));
                 var r = this.getInputMgrForInputId(t, !0);
                 if (r) {
                   var o = this._getGameState().getLivePieceCurrentTransform();
@@ -59011,8 +59062,8 @@ System.register(
               }),
               (n.handleInputOnIsCancelled = function (t) {
                 if (this.x3793548418663736365x()) {
-                  (t = this.transformInputIdForActiveInputMgr(t)),
-                    this.updateActiveInputMgr(t);
+                  ((t = this.transformInputIdForActiveInputMgr(t)),
+                    this.updateActiveInputMgr(t));
                   var e = this.getInputMgrForInputId(t, !0);
                   e && e.handleInputOnIsCancelled(t);
                 }
@@ -59274,7 +59325,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (o = t.createClass);
+          ((e = t.inheritsLoose), (o = t.createClass));
         },
         function (t) {
           n = t.cclegacy;
@@ -59345,12 +59396,12 @@ System.register(
                       t.mInputId == n.x4468435101495117062x
                         ? a.x1615234984079442315x
                         : a.x4074087241480613197x;
-                    this.tryControlAction(e),
+                    (this.tryControlAction(e),
                       this.mEnableMoveLRAutoRepeat
                         ? ((this.mMoveLRAutoRepeatInputId = t.mInputId),
                           (this.mMoveLRAutoRepeatTimerMSEC =
                             this.mMoveLRAutoRepeatInitialDelayMSEC))
-                        : (t.mIsOn = !1);
+                        : (t.mIsOn = !1));
                 }
               }),
               (r.handleMoveLRInputIsOff = function (t) {
@@ -59422,7 +59473,7 @@ System.register(
                   );
                   var o = 0,
                     r = a.FXPTFloor(this.mSmoothedMoveTargetX_FXPT);
-                  (o =
+                  ((o =
                     (this.mSmoothedMoveTargetX_FXPT - e >= 0
                       ? this.mSmoothedMoveTargetX_FXPT - e
                       : -(this.mSmoothedMoveTargetX_FXPT - e)) <
@@ -59435,7 +59486,7 @@ System.register(
                           this.mMoveTargetXCellTrackingInset_FXPT)
                       ? this.mActualMoveTargetX_FXPT
                       : this.mSmoothedMoveTargetX_FXPT),
-                    (this.mActualMoveTargetX_FXPT = o);
+                    (this.mActualMoveTargetX_FXPT = o));
                   var u = a.FXPTToInt(this.mActualMoveTargetX_FXPT),
                     s = this.getController()
                       ._getGameState()
@@ -59483,11 +59534,10 @@ System.register(
                   for (
                     this.mMoveLRAutoRepeatTimerMSEC -= t;
                     this.mMoveLRAutoRepeatTimerMSEC <= 0;
-
                   )
-                    this.tryControlAction(e),
+                    (this.tryControlAction(e),
                       (this.mMoveLRAutoRepeatTimerMSEC +=
-                        this.mMoveLRAutoRepeatDelayMSEC);
+                        this.mMoveLRAutoRepeatDelayMSEC));
                 }
                 this.processMoveTargetX();
               }),
@@ -59522,8 +59572,8 @@ System.register(
                     );
                     break;
                   case n.x4302189354273432692x:
-                    (this.mSmoothedMoveTargetX_FXPT = t.mX_FXPT),
-                      (this.mActualMoveTargetX_FXPT = t.mX_FXPT);
+                    ((this.mSmoothedMoveTargetX_FXPT = t.mX_FXPT),
+                      (this.mActualMoveTargetX_FXPT = t.mX_FXPT));
                     break;
                   case n.x2953800475405994075x:
                     this.getController()._performControlAction(
@@ -59678,7 +59728,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (o = t.inheritsLoose), (e = t.createClass);
+          ((o = t.inheritsLoose), (e = t.createClass));
         },
         function (t) {
           i = t.cclegacy;
@@ -59758,7 +59808,7 @@ System.register(
             return (
               (n.resetPointerTracking = function (t) {
                 var o = this.getInput(i.x3491326275609458692x);
-                (o.mXAtOn_FXPT = o.mX_FXPT),
+                ((o.mXAtOn_FXPT = o.mX_FXPT),
                   (o.mYAtOn_FXPT = o.mY_FXPT),
                   (this.mPointerDragPrevX_FXPT = o.mX_FXPT),
                   (this.mPointerDragPrevY_FXPT = o.mY_FXPT),
@@ -59771,17 +59821,17 @@ System.register(
                   (this.mPointerSmoothedVelocityY_FXPT = 0),
                   this.mEnableMovePointer ||
                     (this.mCurrentMoveLRDragDistanceX_FXPT = 0),
-                  (this.mIsRotationTapValid = t);
+                  (this.mIsRotationTapValid = t));
               }),
               (n.resetMovePointerTracking = function () {
                 var t = this.mEnableMovePointer
                   ? this.getInput(i.x3889750471908691949x)
                   : this.getInput(i.x3491326275609458692x);
-                (t.mXAtOn_FXPT = t.mX_FXPT),
+                ((t.mXAtOn_FXPT = t.mX_FXPT),
                   (t.mYAtOn_FXPT = t.mY_FXPT),
                   (this.mMovePointerDragPrevX_FXPT = t.mX_FXPT),
                   (this.mMovePointerDragPrevY_FXPT = t.mY_FXPT),
-                  (this.mCurrentMoveLRDragDistanceX_FXPT = 0);
+                  (this.mCurrentMoveLRDragDistanceX_FXPT = 0));
               }),
               (n.updatePointerVelocities = function () {
                 var t = this.getController()._getTimeSEC_FXPT(),
@@ -59789,16 +59839,16 @@ System.register(
                 if (((this.mPrevVelocityProcessTimeSEC_FXPT = t), o > 0)) {
                   this.mAvailableVelocityProcessTimeSEC_FXPT += o;
                   var e = this.getInput(i.x3491326275609458692x);
-                  (this.mPointerFrameVelocityX_FXPT = s.FXPTDivide(
+                  ((this.mPointerFrameVelocityX_FXPT = s.FXPTDivide(
                     e.mX_FXPT - this.mPointerDragPrevX_FXPT,
                     o
                   )),
                     (this.mPointerFrameVelocityY_FXPT = s.FXPTDivide(
                       e.mY_FXPT - this.mPointerDragPrevY_FXPT,
                       o
-                    ));
+                    )));
                   for (; this.mAvailableVelocityProcessTimeSEC_FXPT > 10; )
-                    (this.mPointerSmoothedVelocityX_FXPT = s.FXPTSmooth(
+                    ((this.mPointerSmoothedVelocityX_FXPT = s.FXPTSmooth(
                       this.mPointerSmoothedVelocityX_FXPT,
                       this.mPointerFrameVelocityX_FXPT,
                       this.mVelocitySmoothingWeight_FXPT
@@ -59808,7 +59858,7 @@ System.register(
                         this.mPointerFrameVelocityY_FXPT,
                         this.mVelocitySmoothingWeight_FXPT
                       )),
-                      (this.mAvailableVelocityProcessTimeSEC_FXPT -= 10);
+                      (this.mAvailableVelocityProcessTimeSEC_FXPT -= 10));
                 }
               }),
               (n.updateMoveLeftRight = function (t) {
@@ -59825,7 +59875,7 @@ System.register(
                   ) {
                     var e = 0,
                       n = 0;
-                    this.mCurrentMoveLRDragDistanceX_FXPT > 0
+                    (this.mCurrentMoveLRDragDistanceX_FXPT > 0
                       ? ((e = s.x4074087241480613197x),
                         (n = -this.mMoveLRDragDistance_FXPT))
                       : ((e = s.x1615234984079442315x),
@@ -59846,7 +59896,7 @@ System.register(
                             null,
                             null
                           ),
-                      (this.mCurrentMoveLRDragDistanceX_FXPT += n);
+                      (this.mCurrentMoveLRDragDistanceX_FXPT += n));
                   }
                   if (
                     this.mEnableMoveLRAutoRepeat &&
@@ -59857,15 +59907,14 @@ System.register(
                     for (
                       this.mMoveLRAutoRepeatTimerMSEC -= t;
                       this.mMoveLRAutoRepeatTimerMSEC <= 0;
-
                     )
-                      this.getController()._performControlAction(
+                      (this.getController()._performControlAction(
                         this.mCurrentMoveLRAutoRepeatControlAction,
                         null,
                         null
                       ),
                         (this.mMoveLRAutoRepeatTimerMSEC +=
-                          this.mMoveLRAutoRepeatDelayMSEC);
+                          this.mMoveLRAutoRepeatDelayMSEC));
                 }
               }),
               (n.isVerticalDragValid = function (t, o, e, i, n) {
@@ -59930,7 +59979,7 @@ System.register(
                   );
               }),
               (n.x136486481447317131x = function (t) {
-                this.updatePointerVelocities(), this.updateMoveLeftRight(t);
+                (this.updatePointerVelocities(), this.updateMoveLeftRight(t));
               }),
               (n.x1345442448639536218x = function (t) {
                 switch (t.mInputId) {
@@ -59957,10 +60006,10 @@ System.register(
                             : -this.mPointerSmoothedVelocityY_FXPT))
                     ) {
                       var o = t.mX_FXPT - this.mPointerDragPrevX_FXPT;
-                      (this.mCurrentMoveLRDragDistanceX_FXPT += o),
-                        this.updateMoveLeftRight(0);
+                      ((this.mCurrentMoveLRDragDistanceX_FXPT += o),
+                        this.updateMoveLeftRight(0));
                     }
-                    this.mPointerSmoothedVelocityY_FXPT < 0
+                    (this.mPointerSmoothedVelocityY_FXPT < 0
                       ? !this.getController().isSoftDropOn() &&
                         this.isVerticalDragValid(
                           this.mPointerSmoothedVelocityX_FXPT,
@@ -59983,15 +60032,15 @@ System.register(
                         ((this.mCurrentMoveLRDragDistanceX_FXPT = 0),
                         this.stopSoftDrop()),
                       (this.mPointerDragPrevX_FXPT = t.mX_FXPT),
-                      (this.mPointerDragPrevY_FXPT = t.mY_FXPT);
+                      (this.mPointerDragPrevY_FXPT = t.mY_FXPT));
                     break;
                   case i.x3889750471908691949x:
                     if (!this.mEnableMovePointer) return;
                     o = t.mX_FXPT - this.mMovePointerDragPrevX_FXPT;
-                    (this.mCurrentMoveLRDragDistanceX_FXPT += o),
+                    ((this.mCurrentMoveLRDragDistanceX_FXPT += o),
                       this.updateMoveLeftRight(0),
                       (this.mMovePointerDragPrevX_FXPT = t.mX_FXPT),
-                      (this.mMovePointerDragPrevY_FXPT = t.mY_FXPT);
+                      (this.mMovePointerDragPrevY_FXPT = t.mY_FXPT));
                 }
               }),
               (n.x4489894866714784997x = function (t) {
@@ -60051,7 +60100,7 @@ System.register(
                       if (this.mIsRotationTapValid)
                         if (this.mEnableCCWRotation) {
                           var o = this.mMatrixCenterX_FXPT;
-                          this.mWasPrevRotationCCW ||
+                          (this.mWasPrevRotationCCW ||
                             (o -= r.x1911914722702121579x),
                             t.mX_FXPT >= o
                               ? (this.getController()._performControlAction(
@@ -60065,14 +60114,14 @@ System.register(
                                   null,
                                   null
                                 ),
-                                (this.mWasPrevRotationCCW = !0));
+                                (this.mWasPrevRotationCCW = !0)));
                         } else
-                          this.getController()._performControlAction(
+                          (this.getController()._performControlAction(
                             s.x3504016190911775519x,
                             null,
                             null
                           ),
-                            (this.mWasPrevRotationCCW = !1);
+                            (this.mWasPrevRotationCCW = !1));
                     } else
                       this.mPointerSmoothedVelocityY_FXPT > 0 &&
                       this.isVerticalDragValid(
@@ -60102,7 +60151,7 @@ System.register(
               (n.x1598962645344425120x = function (t) {
                 switch (t.mInputId) {
                   case i.x3491326275609458692x:
-                    this.stopSoftDrop(), (this.mIsRotationTapValid = !1);
+                    (this.stopSoftDrop(), (this.mIsRotationTapValid = !1));
                 }
               }),
               (n.x408389181530229609x = function () {}),
@@ -60110,13 +60159,14 @@ System.register(
                 return !0;
               }),
               (n.x2004736247973907791x = function () {
-                (this.mWasPrevRotationCCW = !1), this.checkSoftDrop();
+                ((this.mWasPrevRotationCCW = !1), this.checkSoftDrop());
               }),
               (n.x85778512855374561x = function () {
                 this.suspendSoftDrop();
               }),
               (n.x1839984050564264943x = function () {
-                this.resetPointerTracking(!1), this.resetMovePointerTracking();
+                (this.resetPointerTracking(!1),
+                  this.resetMovePointerTracking());
               }),
               e(i, null, [
                 {
@@ -60216,14 +60266,14 @@ System.register(
           void 0
         );
         t("x3520833821444359843x", function (t) {
-          (this.mInputId = t),
+          ((this.mInputId = t),
             (this.mIsEnabled = !0),
             (this.mIsOn = !1),
             (this.mElapsedTimeOnMSEC = 0),
             (this.mX_FXPT = 0),
             (this.mY_FXPT = 0),
             (this.mXAtOn_FXPT = 0),
-            (this.mYAtOn_FXPT = 0);
+            (this.mYAtOn_FXPT = 0));
         });
         n._RF.pop();
       },
@@ -60257,25 +60307,25 @@ System.register(
           "x2405526875745640007x",
           (function () {
             function t(n, i, r, s, u, a, o) {
-              (this.mInputs = new Array()),
+              ((this.mInputs = new Array()),
                 (this.mIsDestroyed = !1),
                 (this.mInputType = n),
-                (this.mNumInputs = i);
+                (this.mNumInputs = i));
               for (var I = 0; I < i; I++) {
                 var d = t.getInputId(n, I),
                   c = new e(d);
                 this.mInputs.push(c);
               }
-              (this.mController = r),
+              ((this.mController = r),
                 (this.mPieceData = s),
                 (this.mMatrixWidth = u),
                 (this.mMatrixHeight = a),
                 (this.mMatrixVisibleHeight = o),
                 (this.mIsActive = !1),
                 (this.mDidProcessEvaluationForNewLivePiece = !1),
-                (this.mNumPiecesDeactivated = 0);
+                (this.mNumPiecesDeactivated = 0));
             }
-            (t.getInputId = function (t, n) {
+            ((t.getInputId = function (t, n) {
               return (t << 8) | (n + 1);
             }),
               (t.getInputTypeFromInputId = function (t) {
@@ -60283,7 +60333,7 @@ System.register(
               }),
               (t.getInputIndexFromInputId = function (t) {
                 return (255 & t) - 1;
-              });
+              }));
             var n = t.prototype;
             return (
               (n.isDestroyed = function () {
@@ -60296,7 +60346,7 @@ System.register(
                 return this.mIsActive;
               }),
               (n.setIsActive = function (t) {
-                (this.mIsActive = t), this.x1173149575148432818x(t);
+                ((this.mIsActive = t), this.x1173149575148432818x(t));
               }),
               (n.processTime = function (t) {
                 for (var n = 0; n < this.mNumInputs; n++) {
@@ -60377,8 +60427,8 @@ System.register(
                 return !(!n || !n.mIsEnabled) && n.mIsOn;
               }),
               (n.startEvaluationForNewLivePiece = function () {
-                (this.mDidProcessEvaluationForNewLivePiece = !1),
-                  this.x408389181530229609x();
+                ((this.mDidProcessEvaluationForNewLivePiece = !1),
+                  this.x408389181530229609x());
               }),
               (n.processEvaluationForNewLivePiece = function () {
                 return (
@@ -60395,8 +60445,8 @@ System.register(
                 this.x85778512855374561x();
               }),
               (n.handleLivePieceDidDeactivate = function () {
-                this.mIsActive && this.mNumPiecesDeactivated++,
-                  this.x1839984050564264943x();
+                (this.mIsActive && this.mNumPiecesDeactivated++,
+                  this.x1839984050564264943x());
               }),
               (n.getNumPiecesDeactivated = function () {
                 return this.mNumPiecesDeactivated;
@@ -60498,7 +60548,7 @@ System.register(
           "x3744927694271487754x",
           (function () {
             function t(t, e, n, u) {
-              (this.mIsDestroyed = !1),
+              ((this.mIsDestroyed = !1),
                 u ||
                   (u = r.getSharedStandardPieceData(
                     t,
@@ -60507,9 +60557,9 @@ System.register(
                   )),
                 (this.mModel = new o(this, t, e, n, u)),
                 (this.mController = new i(this, t, e, n, u)),
-                this.mController.setModel(this.mModel);
+                this.mController.setModel(this.mModel));
             }
-            (t.getInputTypeForName = function (e) {
+            ((t.getInputTypeForName = function (e) {
               return "direct" == e
                 ? t.x1286691926007648149x
                 : "smart" == e
@@ -60560,7 +60610,7 @@ System.register(
                   default:
                     return "UNKNOWN";
                 }
-              });
+              }));
             var n = t.prototype;
             return (
               (n.isDestroyed = function () {
@@ -60806,7 +60856,7 @@ System.register(
                       e);
                 }),
               (n.processTime = function () {
-                this.mController.processTime(), this.mModel.processTime();
+                (this.mController.processTime(), this.mModel.processTime());
               }),
               (n.setMatrixLimits = function (t, e, n) {
                 this.mModel.setMatrixLimits(t, e, n);
@@ -60816,7 +60866,6 @@ System.register(
                   this.mModel.captureStateForNewLivePiece(t, e, n, r, i),
                     this.mController.startEvaluationForNewLivePiece();
                   !this.mController.processEvaluationForNewLivePiece();
-
                 );
               }),
               (n.updateEvaluationForCurrentLivePiece = function () {
@@ -60824,7 +60873,6 @@ System.register(
                   this.mModel.captureStateForCurrentLivePiece(),
                     this.mController.startEvaluationForNewLivePiece();
                   !this.mController.processEvaluationForNewLivePiece();
-
                 );
               }),
               (n.setCurrentStateMatrixMino = function (t, e, n) {
@@ -60867,12 +60915,12 @@ System.register(
                 return this.mModel.didPlayerActivelySelectTarget();
               }),
               (n.handleLivePieceDidActivate = function () {
-                this.mModel.handleLivePieceDidActivate(),
-                  this.mController.handleLivePieceDidActivate();
+                (this.mModel.handleLivePieceDidActivate(),
+                  this.mController.handleLivePieceDidActivate());
               }),
               (n.handleLivePieceDidDeactivate = function () {
-                this.mModel.handleLivePieceDidDeactivate(),
-                  this.mController.handleLivePieceDidDeactivate();
+                (this.mModel.handleLivePieceDidDeactivate(),
+                  this.mController.handleLivePieceDidDeactivate());
               }),
               (n.isGhostPieceValid = function () {
                 return this.mModel.isGhostPieceValid();
@@ -60893,7 +60941,7 @@ System.register(
                 return this.mModel.getHardDropStepsForPiece();
               }),
               (n.suspendActivity = function () {
-                this.cancelAllInputs(), this.mModel.suspendActivity();
+                (this.cancelAllInputs(), this.mModel.suspendActivity());
               }),
               (n.resumeActivity = function () {
                 this.mModel.resumeActivity();
@@ -61172,7 +61220,7 @@ System.register(
           "x4350720907951257050x",
           (function () {
             function e(t, i, n, a) {
-              (this.mActionTransformPathToTarget = new Array()),
+              ((this.mActionTransformPathToTarget = new Array()),
                 (this.mIsDestroyed = !1),
                 (this.mIsFallControlEnabled = !0),
                 (this.mFallTimerType = e.x3115826125819224178x),
@@ -61219,7 +61267,7 @@ System.register(
                 (this.mEndingRotationPointForPiece = 0),
                 (this.mTSpinTypeForPiece = r.x543886390795679903x),
                 (this.mSoftDropStepsForPiece = 0),
-                (this.mHardDropStepsForPiece = 0);
+                (this.mHardDropStepsForPiece = 0));
             }
             var i = e.prototype;
             return (
@@ -61234,7 +61282,7 @@ System.register(
                   var e = this.x1636114598957833158x();
                   if (this.mPrevProcessTimeMSEC >= 0) {
                     var t = e - this.mPrevProcessTimeMSEC;
-                    this.processLockTimer(t), this.processFallTimer(t);
+                    (this.processLockTimer(t), this.processFallTimer(t));
                   }
                   this.mPrevProcessTimeMSEC = e;
                 }
@@ -61243,23 +61291,23 @@ System.register(
                 this.mGameState.setMatrixLimits(e, t, i);
               }),
               (i.setMaxNormalFallSteps = function (e) {
-                (this.mMaxNormalFallSteps =
+                ((this.mMaxNormalFallSteps =
                   e >= 0 ? e : r.x2221445971348164774x),
                   (this.mRemainingNormalFallSteps = this.mMaxNormalFallSteps),
                   this.isFallControlEnabled() &&
                     !this.isFallTimerActive() &&
-                    this.startLivePieceFalling(!1);
+                    this.startLivePieceFalling(!1));
               }),
               (i.captureStateForNewLivePiece = function (e, t, i, o, r) {
-                this.mGameState.resetStateWithLivePiece(e, t, i, o, t, i, o),
+                (this.mGameState.resetStateWithLivePiece(e, t, i, o, t, i, o),
                   this.mGameState.setAlternatePieceTypeId(r),
                   this.x2314121437163482681x(),
-                  (this.mDidMatrixChangeSinceLastSetTransforms = !0);
+                  (this.mDidMatrixChangeSinceLastSetTransforms = !0));
               }),
               (i.captureStateForCurrentLivePiece = function () {
-                this.mGameState.resetStateWithCurrentLivePiece(),
+                (this.mGameState.resetStateWithCurrentLivePiece(),
                   this.x2314121437163482681x(),
-                  (this.mDidMatrixChangeSinceLastSetTransforms = !0);
+                  (this.mDidMatrixChangeSinceLastSetTransforms = !0));
               }),
               (i.setCurrentStateMatrixMino = function (e, t, i) {
                 this.mGameState.setMino(e, t, i, 2147483647, !1, !0, !0);
@@ -61268,7 +61316,7 @@ System.register(
                 return this.mGameState;
               }),
               (i.handleLivePieceDidActivate = function () {
-                (this.mIsLivePieceControllable = !0),
+                ((this.mIsLivePieceControllable = !0),
                   (this.mDidHandleLivePieceWillLockDown = !1),
                   (this.mFallTimerRemainingMSEC = -1),
                   (this.mRemainingNormalFallSteps = this.mMaxNormalFallSteps),
@@ -61295,7 +61343,7 @@ System.register(
                   this.mIsActive &&
                     (this.updateDirectModeGhostPiece(),
                     this.updateLowestRowReachedByLivePiece(),
-                    this.startLivePieceFalling(!0));
+                    this.startLivePieceFalling(!0)));
               }),
               (i.handleLivePieceDidFall = function () {
                 this.isLivePieceControllable() &&
@@ -61322,11 +61370,11 @@ System.register(
                   this._handleLivePieceWillLockDown());
               }),
               (i.handleLivePieceDidDeactivate = function () {
-                this.mStopSoftDropOnPieceDeactivation &&
+                (this.mStopSoftDropOnPieceDeactivation &&
                   (this.mIsSoftDropOn = !1),
                   this.cancelLockTimer(),
                   this.cancelFallTimer(),
-                  this.mGameState.handleLivePieceDidDeactivate();
+                  this.mGameState.handleLivePieceDidDeactivate());
               }),
               (i.performControlAction = function (t, i, o) {
                 var n = 0;
@@ -61459,17 +61507,17 @@ System.register(
                                         r.getControlActionInfoForTransformAction(
                                           m
                                         );
-                                    (s =
+                                    ((s =
                                       this.mGameState.getTransformForControlAction(
                                         n,
                                         r.x405091200526071386x
                                       )),
-                                      this.setTransforms(n, s, t, h);
+                                      this.setTransforms(n, s, t, h));
                                   } else this.x2775495662852228721x(t);
                                 } else this.x2775495662852228721x(t);
                                 break;
                               case r.x405091200526071386x:
-                                (s =
+                                ((s =
                                   this.mGameState.getTransformForControlAction(
                                     c,
                                     r.x405091200526071386x
@@ -61483,7 +61531,7 @@ System.register(
                                     r.x89022653580057346x,
                                     0
                                   ),
-                                  this.selectTarget(!0, !1, !0);
+                                  this.selectTarget(!0, !1, !0));
                                 break;
                               default:
                                 this.x2775495662852228721x(t);
@@ -61565,12 +61613,12 @@ System.register(
                         this.mActionTransformPathToTarget[
                           2 * this.mCurrentLivePiecePathStep + 1
                         ];
-                    this.setLivePieceTransform(
+                    (this.setLivePieceTransform(
                       i,
                       r.getControlActionForTransformAction(t),
                       r.getControlActionInfoForTransformAction(t)
                     ),
-                      this.mCurrentLivePiecePathStep++;
+                      this.mCurrentLivePiecePathStep++);
                   }
                   this.mCurrentLivePiecePathStep >= e &&
                     (this.lockLivePiece(),
@@ -61720,9 +61768,8 @@ System.register(
                     !a &&
                     (this.mRemainingNormalFallSteps > 0 ||
                       this.isSoftDropOnAndValid());
-
                   )
-                    (n = this.mPieceData.getPiece(
+                    ((n = this.mPieceData.getPiece(
                       this.mGameState.getLivePieceTypeId(),
                       n.mPerTransformActionToTransformIds[
                         r.x3147376562436869325x
@@ -61738,7 +61785,7 @@ System.register(
                       (this.mFallTimerRemainingMSEC += o),
                       this.mRemainingNormalFallSteps <
                         r.x2221445971348164774x &&
-                        this.mRemainingNormalFallSteps--;
+                        this.mRemainingNormalFallSteps--);
                   if (
                     (this.mRemainingNormalFallSteps <= 0 &&
                       !this.isSoftDropOnAndValid() &&
@@ -61902,8 +61949,8 @@ System.register(
                 if (t != r.x3207601361922205214x) {
                   var l = this.getCurrentLivePieceTransform();
                   if (l != t || this.mDidMatrixChangeSinceLastSetTransforms) {
-                    (this.mDidMatrixChangeSinceLastSetTransforms = !1),
-                      this.setLivePieceTransform(t, o, n);
+                    ((this.mDidMatrixChangeSinceLastSetTransforms = !1),
+                      this.setLivePieceTransform(t, o, n));
                     var m = this.getCurrentLivePieceTransform();
                     if (m != l) {
                       switch (
@@ -61939,10 +61986,10 @@ System.register(
                         this.mFallTimerType)
                       ) {
                         case e.x3115826125819224178x:
-                          (this.mIsLivePieceTouchingDown = !1),
+                          ((this.mIsLivePieceTouchingDown = !1),
                             this.startLivePieceFalling(
                               this.mResetLockTimerOnMoveOrRotate
-                            );
+                            ));
                       }
                     }
                   }
@@ -61951,10 +61998,10 @@ System.register(
               (i.selectTarget = function (e, t, i) {
                 if (this.isLivePieceControllable()) {
                   var o;
-                  (this.mIsLivePieceControllable = !1),
+                  ((this.mIsLivePieceControllable = !1),
                     (this.mCurrentLivePiecePathStep = -1),
                     (this.mDidPlayerActivelySelectTarget = e),
-                    this.x4250295653358228202x(!1);
+                    this.x4250295653358228202x(!1));
                   if (
                     ((o = this.isControlModeSmart()
                       ? r.x1319044707124760322x
@@ -61967,7 +62014,7 @@ System.register(
                           this.mActionTransformPathToTarget
                         );
                       var n = this.getCurrentLivePieceTransform();
-                      (this.mSoftDropStepsForPiece =
+                      ((this.mSoftDropStepsForPiece =
                         this.mGameState.getSoftDropStepsForPath(
                           this.mActionTransformPathToTarget,
                           n,
@@ -61977,7 +62024,7 @@ System.register(
                           this.mGameState.getHardDropStepsForPath(
                             this.mActionTransformPathToTarget,
                             n
-                          ));
+                          )));
                     }
                     t
                       ? ((this.mCurrentLivePiecePathStep = 0),
@@ -61993,25 +62040,24 @@ System.register(
                     for (
                       var a = this.getCurrentLivePiece();
                       a && !this.mGameState.doesPieceTouchBelow(a);
-
                     )
-                      (a = this.mPieceData.getPiece(
+                      ((a = this.mPieceData.getPiece(
                         this.mGameState.getLivePieceTypeId(),
                         a.mPerTransformActionToTransformIds[
                           r.x3147376562436869325x
                         ]
                       )),
-                        this.mHardDropStepsForPiece++;
-                    this.setLivePieceTransform(a.mTransformId, o, 0),
-                      i && this.lockLivePiece();
+                        this.mHardDropStepsForPiece++);
+                    (this.setLivePieceTransform(a.mTransformId, o, 0),
+                      i && this.lockLivePiece());
                   }
                 }
               }),
               (i.lockLivePiece = function () {
-                this._handleLivePieceWillLockDown(),
+                (this._handleLivePieceWillLockDown(),
                   this.cancelLockTimer(),
                   (this.mIsLivePieceControllable = !1),
-                  this.x1277001704686435863x();
+                  this.x1277001704686435863x());
               }),
               (i.updateDirectModeGhostPiece = function () {
                 this.mControlMode == e.x879299921803383121x &&
@@ -62102,7 +62148,7 @@ System.register(
     return {
       setters: [
         function (t) {
-          (e = t.inheritsLoose), (i = t.createClass);
+          ((e = t.inheritsLoose), (i = t.createClass));
         },
         function (t) {
           r = t.cclegacy;
@@ -62181,7 +62227,7 @@ System.register(
             var n = r.prototype;
             return (
               (n.x2621228372524118311x = function (t) {
-                (this.mRestrictReachableTransforms = t),
+                ((this.mRestrictReachableTransforms = t),
                   t &&
                     this.mTargetPathFinder == this.mTargetFinder &&
                     (this.mTargetPathFinder = new a(
@@ -62190,7 +62236,7 @@ System.register(
                       this.getMatrixHeight(),
                       this.getMatrixVisibleHeight(),
                       !0
-                    ));
+                    )));
               }),
               (n.getTargetTransform = function () {
                 return this.mIsTargetCellValid
@@ -62208,7 +62254,7 @@ System.register(
               }),
               (n.resetPointerPosition = function () {
                 var t = this.getInput(r.x3491326275609458692x);
-                (t.mX_FXPT =
+                ((t.mX_FXPT =
                   ~~((this.getMatrixWidth() - 1) / 2) *
                   o.x1467331656434831886x),
                   (t.mY_FXPT = -1),
@@ -62216,7 +62262,7 @@ System.register(
                   (this.mTargetCellY_FXPT = t.mY_FXPT),
                   (this.mIsTargetCellValid = !1),
                   (this.mSmoothedPointerInputX_FXPT = t.mX_FXPT),
-                  (this.mSmoothedPointerInputY_FXPT = t.mY_FXPT);
+                  (this.mSmoothedPointerInputY_FXPT = t.mY_FXPT));
               }),
               (n.updatePointerSmoothing = function () {
                 if (this.mPointerSmoothingWeight_FXPT > 0) {
@@ -62232,9 +62278,8 @@ System.register(
                       for (
                         ;
                         this.mAvailablePointerSmoothingProcessTimeSEC_FXPT > 10;
-
                       )
-                        (this.mSmoothedPointerInputX_FXPT = o.FXPTSmooth(
+                        ((this.mSmoothedPointerInputX_FXPT = o.FXPTSmooth(
                           this.mSmoothedPointerInputX_FXPT,
                           t.mX_FXPT,
                           this.mPointerSmoothingWeight_FXPT
@@ -62244,14 +62289,14 @@ System.register(
                             t.mY_FXPT,
                             this.mPointerSmoothingWeight_FXPT
                           )),
-                          (this.mAvailablePointerSmoothingProcessTimeSEC_FXPT -= 10);
+                          (this.mAvailablePointerSmoothingProcessTimeSEC_FXPT -= 10));
                       (this.mSmoothedPointerInputX_FXPT == t.mX_FXPT &&
                         this.mSmoothedPointerInputY_FXPT == t.mY_FXPT) ||
                         this.x1345442448639536218x(t);
                     }
                   } else
-                    (this.mSmoothedPointerInputX_FXPT = t.mX_FXPT),
-                      (this.mSmoothedPointerInputY_FXPT = t.mY_FXPT);
+                    ((this.mSmoothedPointerInputX_FXPT = t.mX_FXPT),
+                      (this.mSmoothedPointerInputY_FXPT = t.mY_FXPT));
                 }
               }),
               (n.updateLivePieceTransform = function () {
@@ -62288,7 +62333,7 @@ System.register(
                   ) {
                     var T = o.FXPTFloor(t),
                       m = o.FXPTFloor(e);
-                    (t - this.mTargetCellX_FXPT >= 0
+                    ((t - this.mTargetCellX_FXPT >= 0
                       ? t - this.mTargetCellX_FXPT
                       : -(t - this.mTargetCellX_FXPT)) <
                       s.x2590278165410999932x &&
@@ -62307,11 +62352,11 @@ System.register(
                             m +
                               s.x1911914722702121579x -
                               this.mCellTrackingInset_FXPT) &&
-                        (e = this.mTargetCellY_FXPT);
+                        (e = this.mTargetCellY_FXPT));
                   }
                   var h = ~~(this.mTargetCellX_FXPT / o.x1467331656434831886x),
                     l = ~~(this.mTargetCellY_FXPT / o.x1467331656434831886x);
-                  (this.mTargetCellX_FXPT = o.clampInt(
+                  ((this.mTargetCellX_FXPT = o.clampInt(
                     t,
                     0,
                     (this.getMatrixWidth() - 1) * o.x1467331656434831886x
@@ -62323,7 +62368,7 @@ System.register(
                         o.x1467331656434831886x
                     )),
                     this.mTargetCellY_FXPT < 0 &&
-                      (this.mTargetCellY_FXPT = -o.x3866479767085181449x);
+                      (this.mTargetCellY_FXPT = -o.x3866479767085181449x));
                   var g = this.mIsTargetCellValid;
                   if (
                     ((this.mIsTargetCellValid =
@@ -62368,8 +62413,8 @@ System.register(
                       ))
                   )
                     return;
-                  (this.mTargetCyclingReferenceTransform = u),
-                    this.setTargetTransform(u, i);
+                  ((this.mTargetCyclingReferenceTransform = u),
+                    this.setTargetTransform(u, i));
                 } else {
                   if (
                     ((this.mIsTargetCellValid = !1),
@@ -62430,10 +62475,9 @@ System.register(
                             m
                           )),
                           this.mTargetPathFinder.doesTransformCollide(n));
-
                         )
-                          h++, (n = o.x3207601361922205214x);
-                      n == o.x3207601361922205214x ||
+                          (h++, (n = o.x3207601361922205214x));
+                      (n == o.x3207601361922205214x ||
                         this.mLivePiecePathFinder.getBestActionsForTransform(
                           n,
                           this.mActionsToLivePiece,
@@ -62473,9 +62517,9 @@ System.register(
                           this.mActionsToLivePiece,
                           this.mActionsToTarget
                         ),
-                        this.updateLivePieceTransform();
+                        this.updateLivePieceTransform());
                     } else
-                      (this.mActionsToTarget.length = 0),
+                      ((this.mActionsToTarget.length = 0),
                         (r = o.x3405373682744326832x),
                         this.mActionsToTarget.push(r),
                         (n = this.getController()
@@ -62496,7 +62540,7 @@ System.register(
                           this.mActionsToLivePiece,
                           this.mActionsToTarget
                         ),
-                        this.updateLivePieceTransform();
+                        this.updateLivePieceTransform());
                 }
               }),
               (n.selectTarget = function () {
@@ -62563,19 +62607,19 @@ System.register(
                   ));
               }),
               (n.x136486481447317131x = function (t) {
-                this.updatePointerSmoothing(),
+                (this.updatePointerSmoothing(),
                   this.updateLivePieceTransform() &&
                     this.updateTargetCell(
                       this.mTargetCellX_FXPT,
                       this.mTargetCellY_FXPT,
                       !0,
                       !0
-                    );
+                    ));
               }),
               (n.x1345442448639536218x = function (t) {
                 switch (t.mInputId) {
                   case r.x3491326275609458692x:
-                    0 == this.mPointerSmoothingWeight_FXPT &&
+                    (0 == this.mPointerSmoothingWeight_FXPT &&
                       ((this.mSmoothedPointerInputX_FXPT = t.mX_FXPT),
                       (this.mSmoothedPointerInputY_FXPT = t.mY_FXPT)),
                       this.updateTargetCell(
@@ -62584,14 +62628,14 @@ System.register(
                         !1,
                         !1
                       ),
-                      (this.mResetPointerPositionAtNextPieceActivation = !1);
+                      (this.mResetPointerPositionAtNextPieceActivation = !1));
                 }
               }),
               (n.x4489894866714784997x = function (t) {
                 var e, i;
                 switch (t.mInputId) {
                   case r.x3491326275609458692x:
-                    (this.mPrevPointerSmoothingProcessTimeSEC_FXPT =
+                    ((this.mPrevPointerSmoothingProcessTimeSEC_FXPT =
                       this.getController()._getTimeSEC_FXPT()),
                       (this.mAvailablePointerSmoothingProcessTimeSEC_FXPT = 0),
                       (this.mSmoothedPointerInputX_FXPT = t.mX_FXPT),
@@ -62599,7 +62643,7 @@ System.register(
                       this.updateTargetCell(t.mX_FXPT, t.mY_FXPT, !0, !1),
                       this.isPointInsideMatrixBuffer(t.mX_FXPT, t.mY_FXPT) &&
                         this.mSelectTargetAtPointerInputOn &&
-                        this.selectTarget();
+                        this.selectTarget());
                     break;
                   case r.x1514756361189212771x:
                   case r.x3291629750796002137x:
@@ -62620,15 +62664,14 @@ System.register(
                             this.mTargetTransform,
                             i
                           );
-
                         )
-                          (this.mTargetCellX_FXPT -= o.x3866479767085181449x),
+                          ((this.mTargetCellX_FXPT -= o.x3866479767085181449x),
                             this.updateTargetCell(
                               this.mTargetCellX_FXPT,
                               this.mTargetCellY_FXPT,
                               !0,
                               !0
-                            );
+                            ));
                         break;
                       case r.x3291629750796002137x:
                         for (
@@ -62639,20 +62682,19 @@ System.register(
                             this.mTargetTransform,
                             i
                           );
-
                         )
-                          (this.mTargetCellX_FXPT += o.x3866479767085181449x),
+                          ((this.mTargetCellX_FXPT += o.x3866479767085181449x),
                             this.updateTargetCell(
                               this.mTargetCellX_FXPT,
                               this.mTargetCellY_FXPT,
                               !0,
                               !0
-                            );
+                            ));
                     }
-                    (t.mIsOn = !1),
+                    ((t.mIsOn = !1),
                       (t.mX_FXPT = this.mTargetCellX_FXPT),
                       (t.mY_FXPT = this.mTargetCellY_FXPT),
-                      (this.mResetPointerPositionAtNextPieceActivation = !0);
+                      (this.mResetPointerPositionAtNextPieceActivation = !0));
                     break;
                   case r.x2869042008912538455x:
                     this.cycleNextTarget();
@@ -62668,7 +62710,7 @@ System.register(
                     );
                     break;
                   case r.x4104777034753077296x:
-                    (this.mTargetFacing = o.rotateFacing90(
+                    ((this.mTargetFacing = o.rotateFacing90(
                       this.mTargetFacing,
                       !0
                     )),
@@ -62677,10 +62719,10 @@ System.register(
                         this.mTargetCellY_FXPT,
                         !0,
                         !0
-                      );
+                      ));
                     break;
                   case r.x1854729199650591028x:
-                    (this.mTargetFacing = o.rotateFacing90(
+                    ((this.mTargetFacing = o.rotateFacing90(
                       this.mTargetFacing,
                       !1
                     )),
@@ -62689,7 +62731,7 @@ System.register(
                         this.mTargetCellY_FXPT,
                         !0,
                         !0
-                      );
+                      ));
                     break;
                   case r.x2953800475405994075x:
                     this.getController()._performControlAction(
@@ -62702,7 +62744,7 @@ System.register(
               (n.x1001621976215821597x = function (t) {
                 switch (t.mInputId) {
                   case r.x3491326275609458692x:
-                    (this.mSmoothedPointerInputX_FXPT = t.mX_FXPT),
+                    ((this.mSmoothedPointerInputX_FXPT = t.mX_FXPT),
                       (this.mSmoothedPointerInputY_FXPT = t.mY_FXPT),
                       !this.isPointInsideMatrixBuffer(t.mX_FXPT, t.mY_FXPT) ||
                         this.mSelectTargetAtPointerInputOn ||
@@ -62710,13 +62752,13 @@ System.register(
                         this.selectTarget(),
                       this.mUpdateTargetWhilePointerInputIsOff ||
                         this.resetPointerPosition(),
-                      (this.mIgnoreNextSelectViaPointerOff = !1);
+                      (this.mIgnoreNextSelectViaPointerOff = !1));
                 }
               }),
               (n.x1598962645344425120x = function (t) {
                 switch (t.mInputId) {
                   case r.x3491326275609458692x:
-                    (this.mSmoothedPointerInputX_FXPT = t.mX_FXPT),
+                    ((this.mSmoothedPointerInputX_FXPT = t.mX_FXPT),
                       (this.mSmoothedPointerInputY_FXPT = t.mY_FXPT),
                       this.updateTargetCell(
                         this.mTargetCellX_FXPT,
@@ -62724,12 +62766,12 @@ System.register(
                         !0,
                         !1
                       ),
-                      (this.mIgnoreNextSelectViaPointerOff = !1);
+                      (this.mIgnoreNextSelectViaPointerOff = !1));
                 }
               }),
               (n.x408389181530229609x = function () {
                 var t = this.getController()._getGameState();
-                this.mTargetFinder.setMatrixLimits(
+                (this.mTargetFinder.setMatrixLimits(
                   t.getMatrixWidthLimit(),
                   t.getMatrixHeightLimit(),
                   this.getMatrixVisibleHeight()
@@ -62752,7 +62794,7 @@ System.register(
                     this.mTargetPathFinder != this.mTargetFinder &&
                     this.mTargetPathFinder.startStateEvaluation(t),
                   this.mLivePiecePathFinder &&
-                    this.mLivePiecePathFinder.startStateEvaluation(t);
+                    this.mLivePiecePathFinder.startStateEvaluation(t));
               }),
               (n.x3800932239861521913x = function () {
                 var t = !0;
@@ -62799,24 +62841,24 @@ System.register(
                   this.isLivePieceControllable())
                 ) {
                   var e = this.mIsTargetCellValid;
-                  this.updateTargetCell(
+                  (this.updateTargetCell(
                     this.mTargetCellX_FXPT,
                     this.mTargetCellY_FXPT,
                     this.mIsTargetCellValid,
                     !1
                   ),
-                    (this.mIsTargetCellValid = e);
+                    (this.mIsTargetCellValid = e));
                 }
               }),
               (n.x1839984050564264943x = function () {
                 this.mTargetFinder.handleLivePieceDidDeactivate();
                 var t = this.getInput(r.x3491326275609458692x);
-                (this.mIgnoreNextSelectViaPointerOff =
+                ((this.mIgnoreNextSelectViaPointerOff =
                   this.mPieceDeactivationByNonSelectCancelsPointerOn &&
                   t.mIsOn &&
                   !this.mDidSelectTarget &&
                   this.getController()._getGameState().didLivePieceLockDown()),
-                  (this.mDidSelectTarget = !1);
+                  (this.mDidSelectTarget = !1));
               }),
               i(r, null, [
                 {

@@ -13,7 +13,7 @@ function _randomInt2(r, n) {
 }
 
 function forceSignedInt32(r) {
-  return r > 2147483647 && (r = r - 2147483647 - 2147483648 - 1), ~~r;
+  return (r > 2147483647 && (r = r - 2147483647 - 2147483648 - 1), ~~r);
 }
 
 function randomInt2(n, e) {
@@ -92,11 +92,11 @@ function encode(n, e) {
   r += String.fromCharCode(numTo2Chars_CharCode1(t));
   r += String.fromCharCode(numTo2Chars_CharCode2(t));
   for (var c = 0; c < s; c++)
-    (i = randomInt2(t, c) % 420),
+    ((i = randomInt2(t, c) % 420),
       (a = n.charCodeAt(c)) > 255 && (a = 0),
       (u = a + i),
       (r += String.fromCharCode(numTo2Chars_CharCode1(u))),
-      (r += String.fromCharCode(numTo2Chars_CharCode2(u)));
+      (r += String.fromCharCode(numTo2Chars_CharCode2(u))));
   return r;
 }
 

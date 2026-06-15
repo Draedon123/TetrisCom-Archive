@@ -11,10 +11,10 @@ System.register([], function (_export, _context) {
               function i(e, i) {
                 for (var t = 0; t < i.length; t++) {
                   var r = i[t];
-                  (r.enumerable = r.enumerable || !1),
+                  ((r.enumerable = r.enumerable || !1),
                     (r.configurable = !0),
                     "value" in r && (r.writable = !0),
-                    Object.defineProperty(e, r.key, r);
+                    Object.defineProperty(e, r.key, r));
                 }
               }
               function t(i, r) {
@@ -23,20 +23,20 @@ System.register([], function (_export, _context) {
                   Object.setPrototypeOf
                     ? Object.setPrototypeOf.bind()
                     : function (e, i) {
-                        return (e.__proto__ = i), e;
+                        return ((e.__proto__ = i), e);
                       }
                 ))(i, r);
               }
               e({
                 applyDecoratedDescriptor: function (e, i, t, r, n) {
                   var o = {};
-                  Object.keys(r).forEach(function (e) {
+                  (Object.keys(r).forEach(function (e) {
                     o[e] = r[e];
                   }),
                     (o.enumerable = !!o.enumerable),
                     (o.configurable = !!o.configurable),
-                    ("value" in o || o.initializer) && (o.writable = !0);
-                  (o = t
+                    ("value" in o || o.initializer) && (o.writable = !0));
+                  ((o = t
                     .slice()
                     .reverse()
                     .reduce(function (t, r) {
@@ -47,7 +47,7 @@ System.register([], function (_export, _context) {
                       ((o.value = o.initializer
                         ? o.initializer.call(n)
                         : void 0),
-                      (o.initializer = void 0));
+                      (o.initializer = void 0)));
                   void 0 === o.initializer &&
                     (Object.defineProperty(e, i, o), (o = null));
                   return o;
@@ -63,13 +63,14 @@ System.register([], function (_export, _context) {
                   t && i(e.prototype, t);
                   r && i(e, r);
                   return (
-                    Object.defineProperty(e, "prototype", { writable: !1 }), e
+                    Object.defineProperty(e, "prototype", { writable: !1 }),
+                    e
                   );
                 },
                 inheritsLoose: function (e, i) {
-                  (e.prototype = Object.create(i.prototype)),
+                  ((e.prototype = Object.create(i.prototype)),
                     (e.prototype.constructor = e),
-                    t(e, i);
+                    t(e, i));
                 },
                 initializerDefineProperty: function (e, i, t, r) {
                   if (!t) return;

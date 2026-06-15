@@ -70,5 +70,5 @@ new GameRow(
   "Tetris E60 Mino",
   undefined,
   isMobile,
-  false
+  true
 ).mount(document.body);

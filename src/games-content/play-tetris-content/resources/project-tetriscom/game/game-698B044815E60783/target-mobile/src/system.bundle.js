@@ -156,7 +156,10 @@
                   }
                 : void 0
             );
-            return (i.e = u.execute || function () {}), [r[0], u.setters || []];
+            return (
+              (i.e = u.execute || function () {}),
+              [r[0], u.setters || []]
+            );
           },
           function (e) {
             throw ((i.e = null), (i.er = e), e);
@@ -169,7 +172,7 @@
             return Promise.resolve(t.resolve(r, n)).then(function (e) {
               var r = b(t, e, n);
               return Promise.resolve(r.I).then(function () {
-                return o && (r.i.push(o), (!r.h && r.I) || o(r.n)), r;
+                return (o && (r.i.push(o), (!r.h && r.I) || o(r.n)), r);
               });
             });
           })
@@ -214,7 +217,7 @@
           })
       );
   }
-  (w.import = function (e, t) {
+  ((w.import = function (e, t) {
     var n = this;
     return Promise.resolve(n.prepareImport())
       .then(function () {
@@ -250,8 +253,8 @@
     }),
     (w.getRegister = function () {
       var e = S;
-      return (S = void 0), e;
-    });
+      return ((S = void 0), e);
+    }));
   var O = Object.freeze(Object.create(null)),
     x =
       Promise.prototype.finally ||
@@ -306,7 +309,7 @@
               throw ((t.er = e), e);
             }
           ));
-        (t.C = t.n), (t.L = t.I = void 0);
+        ((t.C = t.n), (t.L = t.I = void 0));
       } catch (e) {
         throw ((t.er = e), e);
       }
@@ -333,7 +336,7 @@
           ).catch(function (e) {
             if (e.message.indexOf("https://git.io/JvFET#3") > -1) {
               var t = document.createEvent("Event");
-              t.initEvent("error", !1, !1), n.dispatchEvent(t);
+              (t.initEvent("error", !1, !1), n.dispatchEvent(t));
             }
             return Promise.reject(e);
           });
@@ -383,35 +386,35 @@
   }
   if (
     ((w.prepareImport = function (e) {
-      return (L || e) && (I(), (L = !1)), M;
+      return ((L || e) && (I(), (L = !1)), M);
     }),
     i && (I(), window.addEventListener("DOMContentLoaded", I)),
     i)
   ) {
     window.addEventListener("error", function (e) {
-      (A = e.filename), (T = e.error);
+      ((A = e.filename), (T = e.error));
     });
     var W = location.origin;
   }
   w.createScript = function (e) {
     var t = document.createElement("script");
-    (t.async = !0), e.indexOf(W + "/") && (t.crossOrigin = "anonymous");
+    ((t.async = !0), e.indexOf(W + "/") && (t.crossOrigin = "anonymous"));
     var n = C.integrity[e];
-    return n && (t.integrity = n), (t.src = e), t;
+    return (n && (t.integrity = n), (t.src = e), t);
   };
   var A,
     T,
     J = {},
     _ = w.register;
-  (w.register = function (e, t) {
+  ((w.register = function (e, t) {
     if (i && "loading" === document.readyState && "string" != typeof e) {
       var n = document.querySelectorAll("script[src]"),
         r = n[n.length - 1];
       if (r) {
-        r.src, (P = e);
+        (r.src, (P = e));
         var o = this;
         R = setTimeout(function () {
-          (J[r.src] = [e, t]), o.import(r.src);
+          ((J[r.src] = [e, t]), o.import(r.src));
         });
       }
     } else P = void 0;
@@ -419,30 +422,30 @@
   }),
     (w.instantiate = function (t, n) {
       var r = J[t];
-      if (r) return delete J[t], r;
+      if (r) return (delete J[t], r);
       var i = this;
       return new Promise(function (r, o) {
         var s = w.createScript(t);
-        s.addEventListener("error", function () {
+        (s.addEventListener("error", function () {
           o(Error(e(3, [t, n].join(", "))));
         }),
           s.addEventListener("load", function () {
             if ((document.head.removeChild(s), A === t)) o(T);
             else {
               var e = i.getRegister();
-              e && e[0] === P && clearTimeout(R), r(e);
+              (e && e[0] === P && clearTimeout(R), r(e));
             }
           }),
-          document.head.appendChild(s);
+          document.head.appendChild(s));
       });
     }),
     (w.shouldFetch = function () {
       return !1;
     }),
-    "undefined" != typeof fetch && (w.fetch = fetch);
+    "undefined" != typeof fetch && (w.fetch = fetch));
   var N = w.instantiate,
     F = /^(text|application)\/(x-)?javascript(;|$)/;
-  (w.instantiate = function (t, n) {
+  ((w.instantiate = function (t, n) {
     var r = this;
     return this.shouldFetch(t)
       ? this.fetch(t, {
@@ -470,9 +473,9 @@
           throw Error(e(8, [t, n].join(", ")));
         })(n, r)
       );
-    });
+    }));
   var $ = w.instantiate;
-  (w.instantiate = function (e, t) {
+  ((w.instantiate = function (e, t) {
     var n = C.depcache[e];
     if (n) for (var r = 0; r < n.length; r++) b(this, this.resolve(n[r], e), e);
     return $.call(this, e, t);
@@ -482,7 +485,7 @@
       (w.instantiate = function (e) {
         var t = this;
         return Promise.resolve().then(function () {
-          return importScripts(e), t.getRegister();
+          return (importScripts(e), t.getRegister());
         });
       }),
     (function (e) {
@@ -518,7 +521,7 @@
             for (var c in e)
               if (!a(c)) {
                 if ((0 === u && c !== t) || (1 === u && c !== n)) return c;
-                o ? ((r = c), (s = (i && s) || c)) : (o = c === r), u++;
+                (o ? ((r = c), (s = (i && s) || c)) : (o = c === r), u++);
               }
             return s;
           })(this.firstGlobalProp);
@@ -533,11 +536,11 @@
           function (e) {
             return {
               execute: function () {
-                e(o),
+                (e(o),
                   e({
                     default: o,
                     __useDefault: !0,
-                  });
+                  }));
               },
             };
           },
@@ -603,9 +606,9 @@
                     ? WebAssembly.compileStreaming(n)
                     : n.arrayBuffer().then(WebAssembly.compile)
                   ).then(function (n) {
-                    e.System.wasmModules ||
+                    (e.System.wasmModules ||
                       (e.System.wasmModules = Object.create(null)),
-                      (e.System.wasmModules[t] = n);
+                      (e.System.wasmModules[t] = n));
                     var r = [],
                       i = [];
                     return (
@@ -636,9 +639,9 @@
                 : n;
         });
       };
-    })("undefined" != typeof self ? self : global);
+    })("undefined" != typeof self ? self : global));
   var k = "undefined" != typeof Symbol && Symbol.toStringTag;
-  (w.get = function (e) {
+  ((w.get = function (e) {
     var t = this[g][e];
     if (t && null === t.e && !t.E) return t.er ? null : t.n;
   }),
@@ -693,15 +696,15 @@
         function () {
           var n = t[e];
           if (!n || !r || null !== n.e || n.E) return !1;
-          r.forEach(function (e) {
-            n.i.push(e), e(n.n);
+          (r.forEach(function (e) {
+            (n.i.push(e), e(n.n));
           }),
-            (r = null);
+            (r = null));
         }
       );
-    });
+    }));
   var B = "undefined" != typeof Symbol && Symbol.iterator;
-  (w.entries = function () {
+  ((w.entries = function () {
     var e,
       t,
       n = this,
@@ -730,12 +733,12 @@
         r = t.constructor.prototype,
         i = t.constructor,
         o = function () {
-          i.call(this), s(this);
+          (i.call(this), s(this));
         };
       function s(e) {
         e.registerRegistry = Object.create(null);
       }
-      (o.prototype = r), (t.constructor = o);
+      ((o.prototype = r), (t.constructor = o));
       var u = r.register;
       r.register = function (e, t, r) {
         if ("string" != typeof e) return u.apply(this, arguments);
@@ -768,7 +771,7 @@
       r.getRegister = function () {
         var e = f.call(this),
           t = n || e;
-        return (n = null), t;
+        return ((n = null), t);
       };
-    })("undefined" != typeof self ? self : global);
+    })("undefined" != typeof self ? self : global));
 })();
