@@ -17,6 +17,9 @@ const mindBenderScores = parseSaveString(
 const nbloxScores = parseSaveString(
   localStorage.getItem(SCORE_KEYS["NBLOX"]) ?? ""
 );
+const e60Scores = parseSaveString(
+  localStorage.getItem(SCORE_KEYS[isMobile ? "E60_MOBILE" : "E60"]) ?? ""
+);
 
 new GameRow(
   "Main Game",
@@ -68,7 +71,7 @@ new GameRow(
   "/E60",
   "/games-content/e60/resources/project-tetriscom-e60/game/game-C3592CBD4B5BDD84/Tetrion-resources/project-Movie/project-E60/art/minos/size-24/mino-E60-v3-normal-~size-24~.png",
   "Tetris E60 Mino",
-  undefined,
+  Math.max(...e60Scores),
   isMobile,
   true
 ).mount(document.body);
