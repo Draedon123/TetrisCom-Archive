@@ -883,10 +883,37 @@
                     )
                   ) {
                     const parsed = JSON.parse(decode(this.responseText));
+
                     parsed.gameMgr.game.players[
                       "player-base"
                     ].playerComponents.control.params.gestureInput.enabled =
                       true;
+                    parsed.gameMgr.game.players[
+                      "player-base"
+                    ].playerComponents.control.params.gestureInput[
+                      "minHoldDragDistanceYFXPT@i"
+                    ] = 999999999;
+                    parsed.application["windowWidth@i"] = 428;
+                    parsed.application["windowHeight@i"] = 640;
+                    parsed.application.savedDataId = "E60-mobile";
+                    parsed.application.launchFullScreen = false;
+                    parsed.application.highScoreMgr.enabled = true;
+                    parsed.gameMgr.gameView.gameViewParams.pauseButton.enabled = true;
+                    parsed.gameMgr.gameView.gameViewParams.pauseButton.transform[
+                      "x@f"
+                    ] = 160;
+                    // parsed.gameMgr.gameView.playerViews[
+                    //   "playerView-base"
+                    // ].background.resource_texture = "";
+                    parsed.gameMgr.gameView.playerViews[
+                      "playerView-base"
+                    ].background.transform["height@f"] = 640;
+                    parsed.application.scenes.loading.viewHierarchy.views[
+                      "_BPSScale9Sprite:backgroundImage"
+                    ].transform["width@f"] = 428;
+                    parsed.application.scenes.loading.viewHierarchy.views[
+                      "_BPSScale9Sprite:backgroundImage"
+                    ].transform["height@f"] = 640;
 
                     const customData = encode(JSON.stringify(parsed), -1);
 
