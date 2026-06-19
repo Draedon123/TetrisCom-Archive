@@ -1,39 +1,38 @@
 <!doctype html>
-<!-- saved from url=(0032)http://tetris.cc/play-tetrisgems -->
+<!-- saved from url=(0028)http://tetris.cc/play-tetris -->
 <html lang="en">
   <head>
-    <script>
-      alert("I know this is broken, no need to let me know");
-    </script>
+    <script type="module" defer src="./custom.js"></script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1"
     />
-    <title>Play Tetris Gems | Free Online Game | Tetris</title>
-    <link rel="canonical" href="https://tetris.com/play-tetrisgems" />
+    <title>Tetris</title>
+    <link rel="canonical" href="https://tetris.com/play-tetris" />
 
     <meta
       name="description"
-      content="Play Tetris Gems for free. Browser-based online Tetris game. No download required."
+      content="Play Tetris for free. Browser-based online Tetris game. No download required."
     />
     <meta
       property="og:description"
-      content="Play Tetris Gems for free. Browser-based online Tetris game. No download required."
+      content="Play Tetris for free. Browser-based online Tetris game. No download required."
     />
     <meta
       itemprop="description"
-      content="Play Tetris Gems for free. Browser-based online Tetris game. No download required."
+      content="Play Tetris for free. Browser-based online Tetris game. No download required."
     />
     <meta
       name="twitter:description"
-      content="Play Tetris Gems for free. Browser-based online Tetris game. No download required."
+      content="Play Tetris for free. Browser-based online Tetris game. No download required."
     />
 
-    <meta property="og:title" content="Play Tetris Gems | Free Online Game" />
-    <meta name="twitter:title" content="Play Tetris Gems | Free Online Game" />
-    <meta itemprop="name" content="Play Tetris Gems | Free Online Game" />
+    <meta property="og:title" content="Play Tetris | Free Online Game" />
+    <meta name="twitter:title" content="Play Tetris | Free Online Game" />
+    <meta itemprop="name" content="Play Tetris | Free Online Game" />
 
     <meta property="og:image" content="/brand/project-logo.png" />
     <meta itemprop="image" content="/brand/project-logo.png" />
@@ -47,7 +46,7 @@
 
     <meta name="ROBOTS" content="INDEX, FOLLOW" />
 
-    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/src/style.css" />
 
     <script>
       var STATIC_URL = "https:\/\/tetris.com\/assets\/";
@@ -128,6 +127,7 @@
       content="/images/favicon/ms-icon-144x144.png"
     />
     <meta name="theme-color" content="#ffffff" />
+
     <style>
       object {
         outline: none;
@@ -166,6 +166,7 @@
         flex-direction: row;
         flex-grow: 0;
         justify-content: center;
+        align-items: center;
         padding-left: 5px;
         padding-right: 5px;
       }
@@ -176,8 +177,8 @@
         align-items: center;
       }
 
-      /* .verticalAxContainer-L { justify-content: flex-end; } */
-      /* .verticalAxContainer-R { justify-content: flex-start; } */
+      /* .GJIQSRSLKRJGJSMQGILEBIVOJTPIHG { justify-content: flex-end; } */
+      /* .AGIOSPIKKPJEZQMOGGPSBGLNJRFHNE { justify-content: flex-start; } */
 
       #gameArea {
         display: flex;
@@ -207,7 +208,7 @@
         align-items: center;
         width: 800px;
         height: 600px;
-        background-image: url("/games-content/play-tetris-content-gems/resources/project-tetriscom-Gems/images/main-background.jpg?cbid=6270285634416A0E");
+        background-image: url("/games-content/play-tetris-content/resources/project-tetriscom/images/main-background.jpg?cbid=16B75C94793C8720");
         background-repeat: no-repeat;
         background-color: #ffffff;
       }
@@ -327,8 +328,29 @@
         font-size: 11px;
         text-align: left;
       }
+
       .notifications {
         display: none;
+      }
+
+      #fs-sticky-footer {
+        z-index: 2000001001 !important;
+      }
+      #ccc {
+        z-index: 2147483647 !important;
+      }
+      #ccc-close {
+        display: none !important;
+      }
+      #ccc-recommended-settings {
+        background-color: green !important;
+      }
+      #ccc-dismiss-button {
+        margin: auto !important;
+      }
+      #ccc-button-holder {
+        display: flex;
+        justify-content: center;
       }
     </style>
 
@@ -344,34 +366,133 @@
         width: 1180px;
       }
     </style>
-    <style>
-      .gemImage {
-        width: 35px;
-        height: 35px;
-      }
-      .gemTable_td {
-        width: 45px;
-        vertical-align: middle;
-      }
-    </style>
 
     <script type="text/javascript">
+      if ("" == "1") {
+        rootWindow.location.replace("");
+      }
+
+      var t = 1746188364;
+
+      var pageStartTimeMSEC = Date.now();
+
+      var isDesktop = "1" == "1";
+      var isMobile = "" == "1";
+      var isGameEnabled = "1" == "1";
+
+      var countryISOCode = "AU";
+
+      var rootWindow = window;
+      while (rootWindow.parent && rootWindow.parent != rootWindow) {
+        rootWindow = rootWindow.parent;
+      }
+      var viewportWidth = rootWindow.innerWidth;
+      var viewportHeight = rootWindow.innerHeight;
+
+      //	if ( isMobile )
+      //	{
+      //window.onresize = function() {
+      //	viewportWidth = rootWindow.innerWidth;
+      //	viewportHeight = rootWindow.innerHeight;
+      //	var gameIFrame = document.getElementById( "gameIFrame" );
+      //	if ( gameIFrame )
+      //	{
+      //		gameIFrame.style.width = viewportWidth + "px";
+      //		gameIFrame.style.height = viewportHeight + "px"
+      //	}
+      //}
+      //}
+
+      //----------------------------------------------------------------
+
+      function getPageElapsedTimeMSEC() {
+        return Date.now() - pageStartTimeMSEC;
+      }
+
       function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
         return "0";
       }
       function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT() {
-        return "0";
+        return "8";
       }
+
+      function JJJPISFLCSXEVQUPQHDUSHDOTSRK(id, url, width, height) {
+        return (
+          "<iframe id='" +
+          id +
+          "' src='" +
+          url +
+          "' style='position:relative; width:" +
+          width +
+          "; height:" +
+          height +
+          "; left:0px; top:0px; margin:0px; padding:0px; border:none; outline:none; -moz-outline-style:none;'></iframe>"
+        );
+      }
+
+      function executeScriptElements(containerElement) {
+        const scriptElements = containerElement.querySelectorAll("script");
+        Array.from(scriptElements).forEach((scriptElement) => {
+          const clonedElement = document.createElement("script");
+          Array.from(scriptElement.attributes).forEach((attribute) => {
+            clonedElement.setAttribute(attribute.name, attribute.value);
+          });
+          clonedElement.text = scriptElement.text;
+          scriptElement.parentNode.replaceChild(clonedElement, scriptElement);
+        });
+      }
+
+      var interactiveIntervalId = setInterval(function () {
+        if (
+          document.readyState === "complete" ||
+          document.readyState === "interactive"
+        ) {
+          clearInterval(interactiveIntervalId);
+
+          setTimeout(function () {
+            if (isGameEnabled) {
+              var frameWidth;
+              var frameHeight;
+              var frameSource =
+                "/games-content/play-tetris-content/resources/project-tetriscom/game/game-698B044815E60783/target-desktop/game.html?cbidg=698B044815E60783";
+
+              if (isDesktop) {
+                var enableScaling = "" == "1";
+                if (enableScaling) {
+                  frameWidth = "100%";
+                  frameHeight = "100%";
+                } else {
+                  frameWidth = "800px";
+                  frameHeight = "600px";
+                }
+              } else {
+                frameWidth = "100%";
+                frameHeight = "100%";
+                //frameWidth = viewportWidth + "px";
+                //frameHeight = viewportHeight + "px";
+              }
+              var gameDivContainer =
+                document.getElementById("gameDivContainer");
+              gameDivContainer.innerHTML = JJJPISFLCSXEVQUPQHDUSHDOTSRK(
+                "gameIFrame",
+                frameSource,
+                frameWidth,
+                frameHeight
+              );
+            }
+          }, 100);
+        }
+      }, 100);
     </script>
   </head>
   <body class="tmpl-light side-menu">
-    <div class="adUnit" id="adUnit-444048821"></div>
+    <div class="adUnit" id="adUnit-681569123"></div>
     <div class="page">
       <div class="menu-hider cover"></div>
       <div class="notifications">
         <div class="notification">
           <a
-            href="https://tetris.com/play-tetris/?utm_source=flyout_button&utm_medium=web_button&utm_campaign=playNow_btm_flyout&utm_content=button_play_now_flyout"
+            href="https://tetris.com/play-tetris/?utm_source=flyout_button&amp;utm_medium=web_button&amp;utm_campaign=playNow_btm_flyout&amp;utm_content=button_play_now_flyout"
           >
             <h1>Play Tetris</h1>
             <p>Play Now, For Free!</p>
@@ -423,7 +544,7 @@
                   <ul class="active clear-fix">
                     <li>
                       <a
-                        href="http://tetris.cc/play-tetris/?utm_source=top_nav_link&utm_medium=webnav&utm_campaign=playNow_btm_tst&utm_content=text_play_now"
+                        href="http://tetris.cc/play-tetris/?utm_source=top_nav_link&amp;utm_medium=webnav&amp;utm_campaign=playNow_btm_tst&amp;utm_content=text_play_now"
                         >Play Now</a
                       >
                     </li>
@@ -455,7 +576,7 @@
 
       <div class="rowT1-header">
         <div
-          class="horizontalAxContainer"
+          class="GHKMIOYIUCXHXTASWEFRREJQTE"
           style="
             display: flex;
             flex-direction: column;
@@ -468,9 +589,7 @@
             background-color: #fafafa;
           "
         >
-          <a
-            href="http://gametech.co.jp/collaborate/tetris/index.html"
-            target="_blank"
+          <a href="https://pinfinityar.com/collections/tetris" target="_blank"
             ><img
               style="
                 display: flex;
@@ -481,14 +600,14 @@
                 border-radius: 0px;
                 border-color: #cccccc;
               "
-              src="/src/GameTech_Mini_H_JP.jpg"
+              src="/src/Pinfinity_AR-Pins1_H.jpg"
           /></a>
         </div>
       </div>
 
       <div class="rowT2">
         <div
-          class="verticalAxContainer-L"
+          class="GJIQSRSLKRJGJSMQGILEBIVOJTPIHG"
           style="
             display: flex;
             flex-direction: row;
@@ -502,7 +621,7 @@
             justify-content: flex-end;
           "
         >
-          <a href="https://displate.com/licensed/tetris-tm" target="_blank"
+          <a href="https://hyperfly.com/pages/hyperfly-tetris" target="_blank"
             ><img
               style="
                 display: flex;
@@ -513,33 +632,17 @@
                 border-radius: 0px;
                 border-color: #cccccc;
               "
-              src="/src/Displate-v-02.jpg"
+              src="/src/Hyperfly-V-230801-01.jpg"
           /></a>
         </div>
 
         <div id="gameArea">
-          <div id="gameDivContainer" style="display: flex">
-            <iframe
-              id="gameIFrame"
-              src="/games-content/play-tetris-content-gems/resources/project-tetriscom-Gems/game/game-9AA07370835DF94B/target-desktop/game.html?p=d&cbidg=9AA07370835DF94B"
-              style="
-                position: relative;
-                width: 800px;
-                height: 600px;
-                left: 0px;
-                top: 0px;
-                margin: 0px;
-                padding: 0px;
-                border: none;
-                outline: none;
-                -moz-outline-style: none;
-              "
-            ></iframe>
-          </div>
+          <div id="gameDivContainer" style="display: flex"></div>
           <div id="gameAxDivContainer" style="display: none"></div>
         </div>
+
         <div
-          class="verticalAxContainer-R"
+          class="AGIOSPIKKPJEZQMOGGPSBGLNJRFHNE"
           style="
             display: flex;
             flex-direction: row;
@@ -553,7 +656,7 @@
             justify-content: flex-start;
           "
         >
-          <a href="https://pinfinityar.com/collections/tetris" target="_blank"
+          <a href="https://tetris.com/play-tetrisgems" target="_blank"
             ><img
               style="
                 display: flex;
@@ -564,7 +667,7 @@
                 border-radius: 0px;
                 border-color: #cccccc;
               "
-              src="/src/Pinfinity_AR-Pins1_V.jpg"
+              src="/src/Tetris-GEMS-3.png"
           /></a>
         </div>
       </div>
@@ -579,137 +682,70 @@
             margin: 0px;
           "
         >
-          <p class="sectionTitle">
-            <b>ABOUT TETRIS</b><span class="sectionTitle_reg">®</span
-            ><b> GEMS</b>
+          <p class="sectionTitle tmpl-el">
+            <b>ABOUT TETRIS</b><span class="sectionTitle_reg">®</span>
           </p>
           <p class="sectionBody">
-            Tetris<span class="sectionBody_reg">®</span> Gems is an all-new
-            Tetris game variant designed to both challenge and entertain puzzle
-            fans. Whether you’re new to Tetris or a seasoned expert, Tetris Gems
-            rewards players for clearing lines and uncovering Gems. An added
-            element of luck helps level the playing field, making Tetris Gems
-            the perfect puzzler for all Tetris fans. This page is the official
-            destination for free online single-player Tetris Gems. Click PLAY to
-            start playing now!
+            Tetris<span class="sectionBody_reg">®</span> is the addictive puzzle
+            game that started it all, embracing our universal desire to create
+            order out of chaos. The Tetris game was created by Alexey Pajitnov
+            in 1984—the product of Alexey’s computer programming experience and
+            his love of puzzles. In the decades to follow, Tetris became one of
+            the most successful and recognizable video games, appearing on
+            nearly every gaming platform available. This page is the official
+            destination for free online single-player Tetris. Click PLAY to
+            start playing one of the world’s most popular puzzle games now!
           </p>
           <p class="sectionTitle"><b>OBJECTIVE</b></p>
           <p class="sectionBody">
-            The goal of Tetris Gems is to score as many points as possible by
-            creating horizontal lines of Blocks. The player must rotate, move,
+            The goal of Tetris is to score as many points as possible by
+            clearing horizontal lines of Blocks. The player must rotate, move,
             and drop the falling Tetriminos inside the Matrix (playing field).
-            Cascade Line Clears are triggered with the lines created by the
-            player.<br /><br />Dig Gems with the Cascades that will increase the
-            game time and points.
+            Lines are cleared when they are filled with Blocks and have no empty
+            spaces.<br /><br />As lines are cleared, the level increases and
+            Tetriminos fall faster, making the game progressively more
+            challenging. If the Blocks land above the top of the playing field,
+            the game is over.
           </p>
-          <p class="sectionTitle"><b>CONTROL OPTIONS & SCORES</b></p>
+          <p class="sectionTitle"><b>CONTROL OPTIONS &amp; SCORES</b></p>
           <img
             id="controlsAndScoringImage"
-            src="/src/Tetris-Gems-2.png"
-            alt="Control options & scores"
+            src="/src/controls_and_scoring.png"
+            alt="Control options &amp; scores"
           />
           <p class="sectionTitle"><b>GENERAL GAMEPLAY INFO</b></p>
           <p class="sectionBody">
-            <b>GOAL</b> - Put your organizational skills and endurance to the
-            test by creating lines that trigger Cascades and Avalanche Line
-            Clears, collect Gems that reward you with extra time and score
-            multipliers.
+            <b>GOAL</b> – Put your organizational skills and endurance to the
+            test by clearing as many lines as possible.
           </p>
           <p class="sectionBody">
-            <b>TIME</b> - The game starts with a 1:00 countdown timer that will
-            end the game when it’s out of time. You can regain time from Gems
-            that reward extra time however the timer will not exceed 1:00.
+            <b>CLEAR LINES</b> – Maneuver the falling Tetriminos to fit them
+            together within the Matrix. To clear a line, fill every square
+            within a single row.
           </p>
           <p class="sectionBody">
-            <b>CASCADE LINE CLEAR</b> - Maneuver the falling Tetrimino to fit
-            them together within the Matrix to create a line and trigger a
-            Cascade Line Clear, fill every square within a single row.
+            <b>SCORE POINTS</b> – Earn points by clearing lines. Clear multiple
+            lines at once to increase your scoring opportunities.
           </p>
           <p class="sectionBody">
-            <b>SCORE POINTS</b> - Earn points by creating lines and triggering
-            Cascades. Create multiple lines at once to increase your scoring
-            opportunities.
-          </p>
-          <p class="sectionBody">
-            <b>TETRIS</b><span class="sectionTitle_trade">™</span
-            ><b> LINE CLEAR</b> - Completely filling four rows of horizontal
-            lines at one time with an I-Tetrimino results in a Tetris<span
-              class="sectionTitle_trade"
-              >™</span
-            >
-            Line Clear. This important move will reveal both red and green Gems,
-            adding valuable time to the countdown clock and generating a
-            powerful shockwave which results in an impressive Avalanche of
-            falling Blocks.
-          </p>
-          <p class="sectionBody">
-            <b>GEMS</b> - Gems will appear from the bottom as you trigger
-            Cascade Line Clears, or when you set up a Tetris Line Clear. The
-            Gems have different colors with their own rewards.
-          </p>
-          <table class="sectionBody" style="table-layout: fixed">
-            <tbody>
-              <tr>
-                <td class="gemTable_td">
-                  <img class="gemImage" src="/src/gem-red.png" alt="Red Gem" />
-                </td>
-                <td valign="middle">
-                  RED gem appears from the bottom or when a Tetris, 4 lines
-                  created with an I-Tetrimino, and adds +5 seconds to game time.
-                </td>
-              </tr>
-              <tr>
-                <td class="gemTable_td">
-                  <img
-                    class="gemImage"
-                    src="/src/gem-orange.png"
-                    alt="Orange Gem"
-                  />
-                </td>
-                <td valign="middle">
-                  ORANGE gem appears in the bottom blocks at every tenth row and
-                  adds +1 to the score Multiplier.
-                </td>
-              </tr>
-              <tr>
-                <td class="gemTable_td">
-                  <img
-                    class="gemImage"
-                    src="/src/gem-green.png"
-                    alt="Green Gem"
-                  />
-                </td>
-                <td valign="middle">
-                  GREEN gem appears with a Tetris, 4 lines created with an
-                  I-Tetrimino, and triggers a Shockwave at the end of a Cascade
-                  Line Clear.
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="sectionBody">
-            <b>GHOST PIECE</b> - Use the Ghost Piece to determine the best fit
+            <b>GHOST PIECE</b> – Use the Ghost Piece to determine the best fit
             for the falling Tetrimino. This helpful guide appears directly below
             the falling Tetrimino and displays possible placements.
           </p>
           <p class="sectionBody">
-            <b>NEXT QUEUE</b> - Preview the upcoming Tetrimino in the Next Queue
+            <b>NEXT QUEUE</b> – Preview the upcoming Tetrimino in the Next Queue
             to plan ahead and increase your scoring opportunities.
           </p>
           <p class="sectionBody">
-            <b>HOLD QUEUE</b> - Store a falling Tetrimino in the Hold Queue for
+            <b>HOLD QUEUE</b> – Store a falling Tetrimino in the Hold Queue for
             later use.
           </p>
           <p class="sectionBody">
-            <b>GAME OVER</b> - The game ends when the time runs out. If the time
-            runs out during a Cascade, the game will continue until the end of
-            the Cascades. Time gained during this period can revive the game. As
-            a last result, the remaining Blocks placed by the player will break
-            apart and trigger a last Cascade action.
+            <b>GAME OVER</b> – Stack the Tetriminos too high and the game is
+            over!
           </p>
         </div>
       </div>
-
       <div class="ad wide"></div>
 
       <footer class="">
@@ -727,7 +763,7 @@
                   src="/src/Tetris_Logo_Color_R-v2.png"
                 />
                 <p>
-                  Tetris ® & © 1985~2025 Tetris Holding.<br />
+                  Tetris ® &amp; © 1985~2025 Tetris Holding.<br />
                   Tetris logos, Tetris theme song and Tetriminos are trademarks
                   of Tetris Holding.<br />
                   The Tetris trade dress is owned by Tetris Holding. Licensed to
@@ -790,5 +826,76 @@
       </footer>
     </div>
     <div id="WBFOPSQKVDEKKG" style="display: none"></div>
+
+    <template id="cheatMenu">
+      <div
+        id="cheatMenuContainer"
+        style="
+          width: 800px;
+          height: 600px;
+          position: absolute;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          top: 0;
+          z-index: 999;
+        "
+      >
+        <div
+          style="
+            width: 600px;
+            height: 450px;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+          "
+        >
+          <h1 id="cheatMenuTitle" style="text-align: center"></h1>
+          <div id="cheats">
+            <label for="seedInput">
+              Seed: <input type="number" name="seedInput" id="seedInput" />
+            </label>
+
+            <br />
+            <br />
+
+            <div
+              id="buttons"
+              style="display: flex; justify-content: center; gap: 1ch"
+            >
+              <button id="closeButton">Close Menu</button>
+              <button id="applyButton">Apply Settings</button>
+            </div>
+
+            <p id="appliedSettingsText" style="text-align: center">
+              Applied settings!
+            </p>
+
+            <br />
+            <br />
+          </div>
+
+          <div
+            style="display: flex; align-items: center; flex-direction: column"
+          >
+            <button id="toggleCheatsButton"></button>
+
+            <p id="disclaimer" style="text-align: center">
+              <small>This will reload the page</small>
+              <br />
+              <small>
+                Disclaimer: Having cheats enabled (even if they aren't used)
+                will add an asterisk to the New High Score screen and
+                leaderboard to indicate that cheats were enabled. Disabling
+                cheats will remove the asterisks. There is a separate scoreboard
+                for cheated and non-cheated runs (enable/disable cheats to
+                switch between them)
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
   </body>
 </html>

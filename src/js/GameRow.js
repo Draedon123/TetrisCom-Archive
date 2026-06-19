@@ -60,7 +60,7 @@ class GameRow extends UIComponent {
     this.icon.id = "";
 
     if (isMobile && hasMobileLink) {
-      this.container.href += "Mobile";
+      this.container.href += "/Mobile";
     }
   }
 }
