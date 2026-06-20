@@ -757,92 +757,52 @@
 
     <script type="module">
       import { encode, decode } from "/js/encodeDecode.js";
+      import { overrideXhr } from "../js/overrideXhr.js";
 
-      (() => {
-        let handler = setInterval(() => {
-          try {
-            const iframe = document.querySelector("#gameIFrame");
+      const dataFileName = encode("project-E60.json", -1);
+      overrideXhr(
+        (url) => url.includes("/" + dataFileName + ".txt"),
+        (fileContents) => {
+          const parsed = JSON.parse(decode(fileContents));
 
-            const OriginalXMLHttpRequest = iframe.contentWindow.XMLHttpRequest;
-            iframe.contentWindow.XMLHttpRequest = function () {
-              const xhr = new OriginalXMLHttpRequest();
-              const originalOpen = xhr.open;
+          parsed.gameMgr.game.players[
+            "player-base"
+          ].playerComponents.control.params.gestureInput.enabled = true;
+          parsed.gameMgr.game.players[
+            "player-base"
+          ].playerComponents.control.params.gestureInput[
+            "minHoldDragDistanceYFXPT@i"
+          ] = 999999999;
+          // parsed.application["windowWidth@i"] = 428;
+          // parsed.application["windowHeight@i"] = 640;
+          parsed.application.savedDataId = "E60-mobile";
+          parsed.application.launchFullScreen = false;
+          parsed.gameMgr.gameView.gameViewParams.pauseButton.enabled = true;
+          parsed.gameMgr.gameView.gameViewParams.pauseButton.transform["x@f"] =
+            160;
 
-              xhr.open = function (method, url) {
-                this._url = url;
-                return originalOpen.apply(this, arguments);
-              };
+          parsed.application.highScoreMgr.enabled = true;
+          parsed.application.highScoreMgr.numEntries = 1;
+          parsed.application.highScoreMgr["defaultHighScoreMax@i"] = 0;
+          parsed.application.scenes.newHighScore.enabled = false;
+          // parsed.gameMgr.gameView.playerViews[
+          //   "playerView-base"
+          // ].background.resource_texture = "";
+          // parsed.gameMgr.gameView.playerViews[
+          //   "playerView-base"
+          // ].background.transform["height@f"] = 640;
+          // parsed.application.scenes.loading.viewHierarchy.views[
+          //   "_BPSScale9Sprite:backgroundImage"
+          // ].transform["width@f"] = 428;
+          // parsed.application.scenes.loading.viewHierarchy.views[
+          //   "_BPSScale9Sprite:backgroundImage"
+          // ].transform["height@f"] = 640;
 
-              const originalSend = xhr.send;
-              xhr.send = function () {
-                const originalOnReadyStateChange = this.onreadystatechange;
+          const customData = encode(JSON.stringify(parsed), -1);
 
-                this.onreadystatechange = function () {
-                  if (
-                    this.readyState === 4 &&
-                    /.*CBSOVSRFNRFFERSPWEXMJQAMZPEKKGHUFL\.txt.*/.test(
-                      this._url
-                    )
-                  ) {
-                    const parsed = JSON.parse(decode(this.responseText));
-
-                    parsed.gameMgr.game.players[
-                      "player-base"
-                    ].playerComponents.control.params.gestureInput.enabled =
-                      true;
-                    parsed.gameMgr.game.players[
-                      "player-base"
-                    ].playerComponents.control.params.gestureInput[
-                      "minHoldDragDistanceYFXPT@i"
-                    ] = 999999999;
-                    // parsed.application["windowWidth@i"] = 428;
-                    // parsed.application["windowHeight@i"] = 640;
-                    parsed.application.savedDataId = "E60-mobile";
-                    parsed.application.launchFullScreen = false;
-                    parsed.gameMgr.gameView.gameViewParams.pauseButton.enabled = true;
-                    parsed.gameMgr.gameView.gameViewParams.pauseButton.transform[
-                      "x@f"
-                    ] = 160;
-
-                    parsed.application.highScoreMgr.enabled = true;
-                    parsed.application.highScoreMgr.numEntries = 1;
-                    parsed.application.highScoreMgr["defaultHighScoreMax@i"] =
-                      0;
-                    parsed.application.scenes.newHighScore.enabled = false;
-                    // parsed.gameMgr.gameView.playerViews[
-                    //   "playerView-base"
-                    // ].background.resource_texture = "";
-                    // parsed.gameMgr.gameView.playerViews[
-                    //   "playerView-base"
-                    // ].background.transform["height@f"] = 640;
-                    // parsed.application.scenes.loading.viewHierarchy.views[
-                    //   "_BPSScale9Sprite:backgroundImage"
-                    // ].transform["width@f"] = 428;
-                    // parsed.application.scenes.loading.viewHierarchy.views[
-                    //   "_BPSScale9Sprite:backgroundImage"
-                    // ].transform["height@f"] = 640;
-
-                    const customData = encode(JSON.stringify(parsed), -1);
-
-                    Object.defineProperty(this, "responseText", {
-                      writable: true,
-                      value: customData,
-                    });
-                  }
-
-                  if (originalOnReadyStateChange) {
-                    originalOnReadyStateChange.apply(this, arguments);
-                  }
-                };
-                return originalSend.apply(this, arguments);
-              };
-              return xhr;
-            };
-
-            clearInterval(handler);
-          } catch (e) {}
-        }, 1);
-      })();
+          return customData;
+        }
+      );
     </script>
   </body>
 </html>

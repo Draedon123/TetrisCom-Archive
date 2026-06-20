@@ -1,12 +1,12 @@
-import { UIComponent } from "/js/UIComponent.js";
-import { encode } from "/js/encodeDecode.js";
+import { UIComponent } from "../js/UIComponent.js";
+import { encode } from "../js/encodeDecode.js";
 
 class CheatMenu extends UIComponent {
   /**
    * @param { HTMLIFrameElement } iframe
    */
 
-  constructor(iframe, settings, settingsKey) {
+  constructor(iframe, settings, settingsKey, isMobile) {
     super("cheatMenu");
 
     this.settingsKey = settingsKey;
@@ -31,6 +31,11 @@ class CheatMenu extends UIComponent {
       this.toggleCheatsButton.textContent = "Enable Cheats";
       this.title.textContent = "Cheat Menu (Disabled)";
       this.cheats.style.display = "none";
+    }
+
+    if (isMobile) {
+      this.container.style.width = "100%";
+      this.container.style.height = "100%";
     }
 
     // this writes to localStorage and is used to determine whether or not
