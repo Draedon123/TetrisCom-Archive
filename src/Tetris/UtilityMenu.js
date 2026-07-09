@@ -21,29 +21,25 @@ class UtilityMenu extends UIComponent {
 
   /** @readonly @type { Settings } */
   settings;
-  /** @readonly @type { string } */
+  /** @private @readonly @type { string } */
   settingsKey;
-  /** @readonly @type { HTMLElement } */
+  /** @private @readonly @type { HTMLElement } */
   container;
-  /** @readonly @type { HTMLInputElement } */
+  /** @private @readonly @type { HTMLInputElement } */
   keybindInput;
-  /** @readonly @type { HTMLInputElement } */
+  /** @private @readonly @type { HTMLInputElement } */
   restartKeybindInput;
-  /** @readonly @type { HTMLInputElement } */
+  /** @private @readonly @type { HTMLInputElement } */
   seedInput;
-  /** @readonly @type { HTMLButtonElement } */
-  applyButton;
-  /** @readonly @type { HTMLButtonElement } */
+  /** @private @readonly @type { HTMLButtonElement } */
   closeButton;
-  /** @readonly @type { HTMLElement } */
-  appliedSettingsText;
-  /** @readonly @type { HTMLButtonElement } */
+  /** @private @readonly @type { HTMLButtonElement } */
   toggleCheatsButton;
-  /** @readonly @type { HTMLElement } */
+  /** @private @readonly @type { HTMLElement } */
   title;
-  /** @readonly @type { HTMLIFrameElement } */
+  /** @private @readonly @type { HTMLIFrameElement } */
   iframe;
-  /** @readonly @type { typeof IS_CHEATING } */
+  /** @private @readonly @type { typeof IS_CHEATING } */
   enabledUtilities;
   /** @type { boolean } */
   isOpen;
@@ -77,13 +73,9 @@ class UtilityMenu extends UIComponent {
     this.seedInput = /** @type { HTMLInputElement } */ (
       this.getElementById("seedInput")
     );
-    this.applyButton = /** @type { HTMLButtonElement } */ (
-      this.getElementById("applyButton")
-    );
     this.closeButton = /** @type { HTMLButtonElement } */ (
       this.getElementById("closeButton")
     );
-    this.appliedSettingsText = this.getElementById("appliedSettingsText");
     this.toggleCheatsButton = /** @type { HTMLButtonElement } */ (
       this.getElementById("toggleCheatsButton")
     );
@@ -138,7 +130,6 @@ class UtilityMenu extends UIComponent {
 
     // @ts-expect-error
     this.iframe.contentWindow.Math.random = () => this.seed;
-    this.hideAppliedSettingsText();
 
     this.toggleCheatsButton.addEventListener("click", () => {
       this.settings.cheatsEnabled = !this.settings.cheatsEnabled;
@@ -150,18 +141,9 @@ class UtilityMenu extends UIComponent {
       this.close();
     });
 
+    this.initialiseSeedInput();
     this.initialiseToggleMenuKeybindInput();
     this.initialiseRestartKeybind();
-
-    this.seedInput.addEventListener("change", () => {
-      this.hideAppliedSettingsText();
-    });
-
-    this.applyButton.addEventListener("click", () => {
-      this.applySettings();
-
-      this.showAppliedSettingsText();
-    });
 
     this.close();
 
@@ -194,15 +176,27 @@ class UtilityMenu extends UIComponent {
   }
 
   open() {
+    const iframeDocument = /** @type { Document } */ (
+      this.iframe.contentDocument
+    );
+    if (iframeDocument.activeElement === this.keybindInput) {
+      return;
+    }
+
     this.isOpen = true;
     this.container.style.display = "flex";
   }
 
   close() {
+    const iframeDocument = /** @type { Document } */ (
+      this.iframe.contentDocument
+    );
+    if (iframeDocument.activeElement === this.keybindInput) {
+      return;
+    }
+
     this.isOpen = false;
     this.container.style.display = "none";
-
-    this.hideAppliedSettingsText();
 
     const canvas = /** @type { HTMLCanvasElement } */ (
       // @ts-expect-error
@@ -225,20 +219,6 @@ class UtilityMenu extends UIComponent {
   /**
    * @private
    */
-  hideAppliedSettingsText() {
-    this.appliedSettingsText.style.display = "none";
-  }
-
-  /**
-   * @private
-   */
-  showAppliedSettingsText() {
-    this.appliedSettingsText.style.display = "";
-  }
-
-  /**
-   * @private
-   */
   saveSettings() {
     localStorage.setItem(
       this.settingsKey,
@@ -246,25 +226,17 @@ class UtilityMenu extends UIComponent {
     );
   }
 
-  /**
-   * @private
-   */
-  applySettings() {
-    this.applySeedSettings();
-  }
+  initialiseSeedInput() {
+    this.seedInput.addEventListener("change", () => {
+      if (!this.enabledUtilities.seed) {
+        return;
+      }
 
-  /**
-   * @private
-   */
-  applySeedSettings() {
-    if (!this.enabledUtilities.seed) {
-      return;
-    }
+      const seedInputValue = this.seedInput.value;
+      const seed = seedInputValue === "" ? null : parseFloat(seedInputValue);
 
-    const seedInputValue = this.seedInput.value;
-    const seed = seedInputValue === "" ? null : parseFloat(seedInputValue);
-
-    this.seed = seed;
+      this.seed = seed;
+    });
   }
 
   /**
@@ -283,12 +255,6 @@ class UtilityMenu extends UIComponent {
         .replace("Digit", "");
 
       this.saveSettings();
-
-      // hack to prevent the menu from closing when a new keybind is entered
-      this.settings.toggleKeybind = "";
-      setTimeout(() => {
-        this.settings.toggleKeybind = event.code;
-      }, 0);
     });
   }
 

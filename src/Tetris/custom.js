@@ -111,7 +111,7 @@ function initialiseUtilityMenu(iframe, utilitySettings, utilitySettingsKey) {
    * @param { KeyboardEvent } event
    */
   function eventListener(event) {
-    if (event.code === utilitySettings.toggleKeybind) {
+    if (event.code === utilityMenu.settings.toggleKeybind) {
       utilityMenu.toggle();
     }
   }
