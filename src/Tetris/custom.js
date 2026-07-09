@@ -1,4 +1,6 @@
-import { CheatMenu } from "./CheatMenu.js";
+// @ts-check
+
+import { UtilityMenu } from "./UtilityMenu.js";
 import { encode, decode } from "../js/encodeDecode.js";
 import { overrideXhr } from "../js/overrideXhr.js";
 import { isMobileOrTablet } from "../js/isMobile.js";
@@ -13,30 +15,36 @@ overrideXhr(
         ".txt"
     ),
   (fileContents) => {
-    const iframe = document.querySelector("#gameIFrame");
+    const iframe = /** @type { HTMLIFrameElement } */ (
+      document.querySelector("#gameIFrame")
+    );
     const data = JSON.parse(decode(fileContents));
 
     data.application.savedDataId += "-custom";
 
-    const cheatSettingsKey = encode(data.application.savedDataId + "-settings");
-    const savedCheatSettings = localStorage.getItem(cheatSettingsKey);
-    const cheatSettings = JSON.parse(
-      decode(savedCheatSettings ?? encode('{"enabled": true}', -1))
+    const utilitySettingsKey = encode(
+      data.application.savedDataId + "-settings",
+      -1
+    );
+    const savedUtilitySettings = localStorage.getItem(utilitySettingsKey);
+    /** @type { import("./UtilityMenu.js").Settings } */
+    const utilitySettings = JSON.parse(
+      decode(savedUtilitySettings ?? encode('{"cheatsEnabled": true}', -1))
     );
 
-    if (savedCheatSettings === null) {
+    if (savedUtilitySettings === null) {
       if (isMobile) {
         alert(
-          "Click the 'Open Cheats' button in the bottom right to open the cheat menu!"
+          "Click the 'Open Utilities' button in the bottom right to open the utilities menu!"
         );
       } else {
         alert(
-          "Click the backslash button '\\' on your keyboard to open the cheat menu!"
+          "Click the backslash button '\\' on your keyboard to open the utilities menu!"
         );
       }
     }
 
-    data.application.savedDataId += cheatSettings.enabled
+    data.application.savedDataId += utilitySettings.cheatsEnabled
       ? "-cheated"
       : "-legit";
 
@@ -55,7 +63,7 @@ overrideXhr(
       }
     }
 
-    if (cheatSettings.enabled) {
+    if (utilitySettings.cheatsEnabled) {
       data.application.appSupportFactory.objects.highScoresView.params.content[
         "_BPSBitmapTextView:highScoresLabel"
       ].text = "HIGH SCORES*";
@@ -66,38 +74,54 @@ overrideXhr(
       window.parent.document.body.style.backgroundColor = "#feffff";
     }
 
-    const cheatMenu = new CheatMenu(
-      iframe,
-      cheatSettings,
-      cheatSettingsKey,
-      isMobile
-    );
-    const toggleKey = "Backslash";
-
-    function eventListener(event) {
-      if (event.code === toggleKey) {
-        cheatMenu.toggle();
-      }
-    }
-
-    if (isMobile) {
-      const openCheatMenuButton = document.getElementById(
-        "openCheatMenuButton"
-      );
-
-      openCheatMenuButton.addEventListener("click", () => {
-        cheatMenu.open();
-      });
-    } else {
-      document.addEventListener("keydown", eventListener);
-
-      iframe.contentDocument
-        .getElementById("GameCanvas")
-        .addEventListener("keydown", eventListener);
-
-      iframe.contentDocument.body.addEventListener("keydown", eventListener);
-    }
+    UtilityMenu.appendTemplate().then(() => {
+      initialiseUtilityMenu(iframe, utilitySettings, utilitySettingsKey);
+    });
 
     return encode(JSON.stringify(data), -1);
   }
 );
+
+/**
+ * @param { HTMLIFrameElement } iframe
+ * @param { import("./UtilityMenu.js").Settings } utilitySettings
+ * @param { string } utilitySettingsKey
+ */
+function initialiseUtilityMenu(iframe, utilitySettings, utilitySettingsKey) {
+  const utilityMenu = new UtilityMenu(
+    iframe,
+    utilitySettings,
+    utilitySettingsKey,
+    isMobile
+  );
+  const toggleKey = "Backslash";
+
+  /**
+   * @param { KeyboardEvent } event
+   */
+  function eventListener(event) {
+    if (event.code === toggleKey) {
+      utilityMenu.toggle();
+    }
+  }
+
+  if (isMobile) {
+    const openUtilityMenuButton = /** @type { HTMLButtonElement } */ (
+      document.getElementById("openUtilityMenuButton")
+    );
+
+    openUtilityMenuButton.addEventListener("click", () => {
+      utilityMenu.open();
+    });
+  } else {
+    const iframeDocument = /** @type { Document } */ (iframe.contentDocument);
+
+    const gameCanvas = /** @type { HTMLCanvasElement } */ (
+      iframeDocument.getElementById("GameCanvas")
+    );
+
+    document.addEventListener("keydown", eventListener);
+    gameCanvas.addEventListener("keydown", eventListener);
+    iframeDocument.body.addEventListener("keydown", eventListener);
+  }
+}

@@ -1,9 +1,15 @@
+/**
+ * @param { (url: string) => boolean } fileCheck
+ * @param { (data: string) => string } patch
+ */
 function overrideXhr(fileCheck, patch) {
   let handler = setInterval(() => {
     try {
-      const iframe = document.querySelector("#gameIFrame");
+      const iframe = /** @type { HTMLIFrameElement } */ (
+        document.querySelector("#gameIFrame")
+      );
 
-      const OriginalXMLHttpRequest = iframe.contentWindow.XMLHttpRequest;
+      const OriginalXMLHttpRequest = iframe.contentWindow?.XMLHttpRequest;
       iframe.contentWindow.XMLHttpRequest = function () {
         const xhr = new OriginalXMLHttpRequest();
         const originalOpen = xhr.open;
