@@ -91,11 +91,19 @@ overrideXhr(
  * @param { string } utilitySettingsKey
  */
 function initialiseUtilityMenu(iframe, utilitySettings, utilitySettingsKey) {
+  const useTTWCPreset = location.hash.slice(1) === "ttwc";
+
   const utilityMenu = new UtilityMenu(
     iframe,
     utilitySettings,
     utilitySettingsKey,
-    isMobile
+    isMobile,
+    useTTWCPreset
+      ? {
+          seed: true,
+          toggleableCheats: false,
+        }
+      : undefined
   );
 
   /**

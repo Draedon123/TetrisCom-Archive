@@ -62,21 +62,26 @@
 
       <div style="display: flex; align-items: center; flex-direction: column">
         <button id="closeButton">Close Menu</button>
-        <br />
-        <br />
-        <button id="toggleCheatsButton"></button>
-
-        <p id="disclaimer" style="text-align: center">
-          <small>Toggling cheats will reload the page</small>
+        <div
+          id="toggleCheats"
+          style="display: flex; align-items: center; flex-direction: column"
+        >
           <br />
-          <small>
-            Disclaimer: Having cheats enabled (even if they aren't used) will
-            add an asterisk to the New High Score screen and leaderboard to
-            indicate that cheats were enabled. Disabling cheats will remove the
-            asterisks. There is a separate scoreboard for cheated and
-            non-cheated runs (enable/disable cheats to switch between them)
-          </small>
-        </p>
+          <br />
+          <button id="toggleCheatsButton"></button>
+
+          <p id="disclaimer" style="text-align: center">
+            <small>Toggling cheats will reload the page</small>
+            <br />
+            <small>
+              Disclaimer: Having cheats enabled (even if they aren't used) will
+              add an asterisk to the New High Score screen and leaderboard to
+              indicate that cheats were enabled. Disabling cheats will remove
+              the asterisks. There is a separate scoreboard for cheated and
+              non-cheated runs (enable/disable cheats to switch between them)
+            </small>
+          </p>
+        </div>
       </div>
     </div>
   </div>

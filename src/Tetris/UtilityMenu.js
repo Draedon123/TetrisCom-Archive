@@ -46,9 +46,10 @@ class UtilityMenu extends UIComponent {
    * @param { Settings } settings
    * @param { string } settingsKey
    * @param { boolean } isMobile
+   * @param { Partial<typeof IS_CHEATING & { toggleableCheats: boolean }> } overrides
    */
 
-  constructor(iframe, settings, settingsKey, isMobile) {
+  constructor(iframe, settings, settingsKey, isMobile, overrides = {}) {
     super("utilityMenu");
 
     this.settings = settings;
@@ -77,8 +78,8 @@ class UtilityMenu extends UIComponent {
     this._seed = null;
 
     this.enabledUtilities = {
-      seed: this.settings.cheatsEnabled,
-      keybind: !isMobile,
+      seed: overrides.seed ?? this.settings.cheatsEnabled,
+      keybind: overrides.keybind ?? !isMobile,
     };
 
     for (const [utility, enabled] of Object.entries(this.enabledUtilities)) {
@@ -91,6 +92,14 @@ class UtilityMenu extends UIComponent {
       );
 
       utilityContainer.style.display = "none";
+    }
+
+    if (!(overrides.toggleableCheats ?? true)) {
+      const cheatToggleContainer = /** @type { HTMLElement } */ (
+        this.getElementById("toggleCheats")
+      );
+
+      cheatToggleContainer.style.display = "none";
     }
 
     if (this.settings.cheatsEnabled) {
