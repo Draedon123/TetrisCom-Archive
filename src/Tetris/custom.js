@@ -29,7 +29,10 @@ overrideXhr(
     const savedUtilitySettings = localStorage.getItem(utilitySettingsKey);
     /** @type { import("./UtilityMenu.js").Settings } */
     const utilitySettings = JSON.parse(
-      decode(savedUtilitySettings ?? encode('{"cheatsEnabled": true}', -1))
+      decode(
+        savedUtilitySettings ??
+          encode('{ "cheatsEnabled": true, "toggleKeybind": "Backslash" }', -1)
+      )
     );
 
     if (savedUtilitySettings === null) {
@@ -94,13 +97,12 @@ function initialiseUtilityMenu(iframe, utilitySettings, utilitySettingsKey) {
     utilitySettingsKey,
     isMobile
   );
-  const toggleKey = "Backslash";
 
   /**
    * @param { KeyboardEvent } event
    */
   function eventListener(event) {
-    if (event.code === toggleKey) {
+    if (event.code === utilitySettings.toggleKeybind) {
       utilityMenu.toggle();
     }
   }

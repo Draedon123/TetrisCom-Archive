@@ -3,10 +3,11 @@
 import { UIComponent } from "../js/UIComponent.js";
 import { encode } from "../js/encodeDecode.js";
 
-/** @typedef { { cheatsEnabled: boolean } } Settings */
+/** @typedef { { cheatsEnabled: boolean, toggleKeybind: string } } Settings */
 
 const IS_CHEATING = {
   seed: true,
+  keybind: false,
 };
 
 class UtilityMenu extends UIComponent {
@@ -16,6 +17,8 @@ class UtilityMenu extends UIComponent {
   settingsKey;
   /** @readonly @type { HTMLElement } */
   container;
+  /** @readonly @type { HTMLInputElement } */
+  keybindInput;
   /** @readonly @type { HTMLInputElement } */
   seedInput;
   /** @readonly @type { HTMLButtonElement } */
@@ -30,6 +33,8 @@ class UtilityMenu extends UIComponent {
   title;
   /** @readonly @type { HTMLIFrameElement } */
   iframe;
+  /** @readonly @type { typeof IS_CHEATING } */
+  enabledUtilities;
   /** @type { boolean } */
   isOpen;
 
@@ -49,6 +54,9 @@ class UtilityMenu extends UIComponent {
     this.settings = settings;
     this.settingsKey = settingsKey;
     this.container = this.getElementById("utilityMenuContainer");
+    this.keybindInput = /** @type { HTMLInputElement } */ (
+      this.getElementById("keybindInput")
+    );
     this.seedInput = /** @type { HTMLInputElement } */ (
       this.getElementById("seedInput")
     );
@@ -68,22 +76,29 @@ class UtilityMenu extends UIComponent {
     this.isOpen = false;
     this._seed = null;
 
+    this.enabledUtilities = {
+      seed: this.settings.cheatsEnabled,
+      keybind: !isMobile,
+    };
+
+    for (const [utility, enabled] of Object.entries(this.enabledUtilities)) {
+      if (enabled) {
+        continue;
+      }
+
+      const utilityContainer = /** @type { HTMLElement } */ (
+        this.getElementById(utility)
+      );
+
+      utilityContainer.style.display = "none";
+    }
+
     if (this.settings.cheatsEnabled) {
       this.toggleCheatsButton.textContent = "Disable Cheats";
       this.title.textContent = "Cheat Menu (Enabled)";
     } else {
       this.toggleCheatsButton.textContent = "Enable Cheats";
       this.title.textContent = "Cheat Menu (Disabled)";
-
-      for (const [id, isCheating] of Object.entries(IS_CHEATING)) {
-        if (isCheating) {
-          const cheatContainer = /** @type { HTMLElement } */ (
-            this.getElementById(id)
-          );
-
-          cheatContainer.style.display = "none";
-        }
-      }
     }
 
     if (isMobile) {
@@ -105,25 +120,42 @@ class UtilityMenu extends UIComponent {
       window.location.pathname = window.location.pathname;
     });
 
-    this.seedInput.addEventListener("change", () => {
-      this.hideAppliedSettingsText();
-    });
-
     this.closeButton.addEventListener("click", () => {
       this.close();
     });
 
+    this.keybindInput.value = this.settings.toggleKeybind
+      .replace("Key", "")
+      .replace("Digit", "");
+    this.keybindInput.addEventListener("keydown", (event) => {
+      event.preventDefault();
+
+      this.settings.toggleKeybind = event.code;
+      this.keybindInput.value = event.code
+        .replace("Key", "")
+        .replace("Digit", "");
+
+      this.saveSettings();
+
+      // hack to prevent the menu from closing when a new keybind is entered
+      this.settings.toggleKeybind = "";
+      setTimeout(() => {
+        this.settings.toggleKeybind = event.code;
+      }, 0);
+    });
+
+    this.seedInput.addEventListener("change", () => {
+      this.hideAppliedSettingsText();
+    });
+
     this.applyButton.addEventListener("click", () => {
-      const seedInputValue = this.seedInput.value;
-      const seed = seedInputValue === "" ? null : parseFloat(seedInputValue);
-      this.seed = seed;
+      this.applySeedSettings();
 
       this.showAppliedSettingsText();
     });
 
-    this.container.addEventListener("click", () => console.log);
-
     this.close();
+
     const mountTarget = /** @type { HTMLElement } */ (
       // @ts-expect-error
       iframe.contentDocument.body
@@ -194,6 +226,21 @@ class UtilityMenu extends UIComponent {
       this.settingsKey,
       encode(JSON.stringify(this.settings), -1)
     );
+  }
+
+  applySettings() {
+    this.applySeedSettings();
+  }
+
+  applySeedSettings() {
+    if (!this.enabledUtilities.seed) {
+      return;
+    }
+
+    const seedInputValue = this.seedInput.value;
+    const seed = seedInputValue === "" ? null : parseFloat(seedInputValue);
+
+    this.seed = seed;
   }
 }
 
