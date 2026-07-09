@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "format": "prettier . -w",
-    "prebuild": "npm run format",
-    "build": "node scripts/build.cjs",
-    "deploy": "git subtree push --prefix build origin gh-pages"
+    "build": "node scripts/build.cjs"
   },
   "devDependencies": {
     "html-minifier-terser": "^7.2.0",
