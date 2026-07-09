@@ -3,14 +3,22 @@
 import { UIComponent } from "../js/UIComponent.js";
 import { encode } from "../js/encodeDecode.js";
 
-/** @typedef { { cheatsEnabled: boolean, toggleKeybind: string } } Settings */
+/** @typedef { { cheatsEnabled: boolean, toggleKeybind: string, restartKeybind: string } } Settings */
 
 const IS_CHEATING = {
   seed: true,
   keybind: false,
+  restartKeybind: false,
 };
 
 class UtilityMenu extends UIComponent {
+  /** @readonly @type { Settings } */
+  static DEFAULT_SETTINGS = {
+    cheatsEnabled: true,
+    toggleKeybind: "Backslash",
+    restartKeybind: "KeyR",
+  };
+
   /** @readonly @type { Settings } */
   settings;
   /** @readonly @type { string } */
@@ -19,6 +27,8 @@ class UtilityMenu extends UIComponent {
   container;
   /** @readonly @type { HTMLInputElement } */
   keybindInput;
+  /** @readonly @type { HTMLInputElement } */
+  restartKeybindInput;
   /** @readonly @type { HTMLInputElement } */
   seedInput;
   /** @readonly @type { HTMLButtonElement } */
@@ -43,7 +53,7 @@ class UtilityMenu extends UIComponent {
 
   /**
    * @param { HTMLIFrameElement } iframe
-   * @param { Settings } settings
+   * @param { Partial<Settings> } settings
    * @param { string } settingsKey
    * @param { boolean } isMobile
    * @param { Partial<typeof IS_CHEATING & { toggleableCheats: boolean }> } overrides
@@ -52,11 +62,17 @@ class UtilityMenu extends UIComponent {
   constructor(iframe, settings, settingsKey, isMobile, overrides = {}) {
     super("utilityMenu");
 
-    this.settings = settings;
+    this.settings = Object.assign(
+      structuredClone(UtilityMenu.DEFAULT_SETTINGS),
+      settings
+    );
     this.settingsKey = settingsKey;
     this.container = this.getElementById("utilityMenuContainer");
     this.keybindInput = /** @type { HTMLInputElement } */ (
       this.getElementById("keybindInput")
+    );
+    this.restartKeybindInput = /** @type { HTMLInputElement } */ (
+      this.getElementById("restartKeybindInput")
     );
     this.seedInput = /** @type { HTMLInputElement } */ (
       this.getElementById("seedInput")
@@ -80,6 +96,7 @@ class UtilityMenu extends UIComponent {
     this.enabledUtilities = {
       seed: overrides.seed ?? this.settings.cheatsEnabled,
       keybind: overrides.keybind ?? !isMobile,
+      restartKeybind: overrides.restartKeybind ?? true,
     };
 
     for (const [utility, enabled] of Object.entries(this.enabledUtilities)) {
@@ -133,32 +150,15 @@ class UtilityMenu extends UIComponent {
       this.close();
     });
 
-    this.keybindInput.value = this.settings.toggleKeybind
-      .replace("Key", "")
-      .replace("Digit", "");
-    this.keybindInput.addEventListener("keydown", (event) => {
-      event.preventDefault();
-
-      this.settings.toggleKeybind = event.code;
-      this.keybindInput.value = event.code
-        .replace("Key", "")
-        .replace("Digit", "");
-
-      this.saveSettings();
-
-      // hack to prevent the menu from closing when a new keybind is entered
-      this.settings.toggleKeybind = "";
-      setTimeout(() => {
-        this.settings.toggleKeybind = event.code;
-      }, 0);
-    });
+    this.initialiseToggleMenuKeybindInput();
+    this.initialiseRestartKeybind();
 
     this.seedInput.addEventListener("change", () => {
       this.hideAppliedSettingsText();
     });
 
     this.applyButton.addEventListener("click", () => {
-      this.applySeedSettings();
+      this.applySettings();
 
       this.showAppliedSettingsText();
     });
@@ -222,14 +222,23 @@ class UtilityMenu extends UIComponent {
     this._seed = seed;
   }
 
+  /**
+   * @private
+   */
   hideAppliedSettingsText() {
     this.appliedSettingsText.style.display = "none";
   }
 
+  /**
+   * @private
+   */
   showAppliedSettingsText() {
     this.appliedSettingsText.style.display = "";
   }
 
+  /**
+   * @private
+   */
   saveSettings() {
     localStorage.setItem(
       this.settingsKey,
@@ -237,10 +246,16 @@ class UtilityMenu extends UIComponent {
     );
   }
 
+  /**
+   * @private
+   */
   applySettings() {
     this.applySeedSettings();
   }
 
+  /**
+   * @private
+   */
   applySeedSettings() {
     if (!this.enabledUtilities.seed) {
       return;
@@ -250,6 +265,69 @@ class UtilityMenu extends UIComponent {
     const seed = seedInputValue === "" ? null : parseFloat(seedInputValue);
 
     this.seed = seed;
+  }
+
+  /**
+   * @private
+   */
+  initialiseToggleMenuKeybindInput() {
+    this.keybindInput.value = this.settings.toggleKeybind
+      .replace("Key", "")
+      .replace("Digit", "");
+    this.keybindInput.addEventListener("keydown", (event) => {
+      event.preventDefault();
+
+      this.settings.toggleKeybind = event.code;
+      this.keybindInput.value = event.code
+        .replace("Key", "")
+        .replace("Digit", "");
+
+      this.saveSettings();
+
+      // hack to prevent the menu from closing when a new keybind is entered
+      this.settings.toggleKeybind = "";
+      setTimeout(() => {
+        this.settings.toggleKeybind = event.code;
+      }, 0);
+    });
+  }
+
+  /**
+   * @private
+   */
+  initialiseRestartKeybind() {
+    this.restartKeybindInput.value = this.settings.restartKeybind
+      .replace("Key", "")
+      .replace("Digit", "");
+    this.restartKeybindInput.addEventListener("keydown", (event) => {
+      event.preventDefault();
+
+      this.settings.restartKeybind = event.code;
+      this.restartKeybindInput.value = event.code
+        .replace("Key", "")
+        .replace("Digit", "");
+
+      this.saveSettings();
+    });
+
+    /**
+     * @param { KeyboardEvent} event
+     */
+    const eventListener = (event) => {
+      if (event.code === this.settings.restartKeybind) {
+        // @ts-expect-error
+        const mBPSApp = this.iframe.contentWindow.mBPSApp;
+        mBPSApp.mSceneMgr.getManagedScene("mainMenu").performPlay();
+      }
+    };
+
+    const gameCanvas = /** @type { HTMLCanvasElement } */ (
+      // @ts-expect-error
+      this.iframe.contentWindow.document.getElementById("GameCanvas")
+    );
+
+    document.addEventListener("keydown", eventListener);
+    gameCanvas.addEventListener("keydown", eventListener);
   }
 }
 

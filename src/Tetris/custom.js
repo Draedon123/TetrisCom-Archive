@@ -31,7 +31,7 @@ overrideXhr(
     const utilitySettings = JSON.parse(
       decode(
         savedUtilitySettings ??
-          encode('{ "cheatsEnabled": true, "toggleKeybind": "Backslash" }', -1)
+          encode(JSON.stringify(UtilityMenu.DEFAULT_SETTINGS), -1)
       )
     );
 
@@ -102,6 +102,7 @@ function initialiseUtilityMenu(iframe, utilitySettings, utilitySettingsKey) {
       ? {
           seed: true,
           toggleableCheats: false,
+          restartKeybind: false,
         }
       : undefined
   );
