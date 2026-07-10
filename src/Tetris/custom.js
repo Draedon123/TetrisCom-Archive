@@ -103,9 +103,12 @@ function initialiseUtilityMenu(iframe, utilitySettings, utilitySettingsKey) {
           seed: true,
           toggleableCheats: false,
           restartKeybind: false,
+          lockDelay: false,
         }
       : undefined
   );
+
+  UtilityMenu.populateDefaultLockDelays();
 
   /**
    * @param { KeyboardEvent } event

@@ -3,12 +3,13 @@
 import { UIComponent } from "../js/UIComponent.js";
 import { encode } from "../js/encodeDecode.js";
 
-/** @typedef { { cheatsEnabled: boolean, toggleKeybind: string, restartKeybind: string } } Settings */
+/** @typedef { { cheatsEnabled: boolean, toggleKeybind: string, restartKeybind: string, lockDelay: boolean } } Settings */
 
 const IS_CHEATING = {
   seed: true,
   keybind: false,
   restartKeybind: false,
+  lockDelay: true,
 };
 
 class UtilityMenu extends UIComponent {
@@ -17,7 +18,11 @@ class UtilityMenu extends UIComponent {
     cheatsEnabled: true,
     toggleKeybind: "Backslash",
     restartKeybind: "KeyR",
+    lockDelay: true,
   };
+
+  /** @readonly @type { number[] } */
+  static DEFAULT_LOCK_DELAYS_MS = [];
 
   /** @readonly @type { Settings } */
   settings;
@@ -31,6 +36,8 @@ class UtilityMenu extends UIComponent {
   restartKeybindInput;
   /** @private @readonly @type { HTMLInputElement } */
   seedInput;
+  /** @private @readonly @type { HTMLInputElement } */
+  lockDelayInput;
   /** @private @readonly @type { HTMLButtonElement } */
   closeButton;
   /** @private @readonly @type { HTMLButtonElement } */
@@ -73,6 +80,9 @@ class UtilityMenu extends UIComponent {
     this.seedInput = /** @type { HTMLInputElement } */ (
       this.getElementById("seedInput")
     );
+    this.lockDelayInput = /** @type { HTMLInputElement } */ (
+      this.getElementById("lockDelayInput")
+    );
     this.closeButton = /** @type { HTMLButtonElement } */ (
       this.getElementById("closeButton")
     );
@@ -89,6 +99,7 @@ class UtilityMenu extends UIComponent {
       seed: overrides.seed ?? this.settings.cheatsEnabled,
       keybind: overrides.keybind ?? !isMobile,
       restartKeybind: overrides.restartKeybind ?? true,
+      lockDelay: overrides.lockDelay ?? true,
     };
 
     for (const [utility, enabled] of Object.entries(this.enabledUtilities)) {
@@ -142,6 +153,7 @@ class UtilityMenu extends UIComponent {
     });
 
     this.initialiseSeedInput();
+    this.initialiseLockDelayInput();
     this.initialiseToggleMenuKeybindInput();
     this.initialiseRestartKeybind();
 
@@ -165,6 +177,31 @@ class UtilityMenu extends UIComponent {
     );
 
     document.body.appendChild(template);
+  }
+
+  static populateDefaultLockDelays() {
+    // just in case mBPSApp isn't initialised yet
+    let loop = setInterval(() => {
+      try {
+        const mBPSApp =
+          // @ts-expect-error
+          document.getElementById("gameIFrame").contentWindow.mBPSApp;
+        const levels =
+          mBPSApp.x142576548220838677x.getDictionaryWithKeyStringPath(
+            "gameMgr.game.players.player-base.playerComponents.levels.params.levels"
+          ).mValues.mObjects;
+        for (let i = 0; i < 30; i++) {
+          const level = levels[i].mValue;
+
+          UtilityMenu.DEFAULT_LOCK_DELAYS_MS[i] =
+            level.getIntValueWithKeyStringPath("lockTimeMSEC");
+        }
+
+        clearInterval(loop);
+      } catch (error) {
+        console.warn(error);
+      }
+    }, 100);
   }
 
   toggle() {
@@ -224,6 +261,32 @@ class UtilityMenu extends UIComponent {
       this.settingsKey,
       encode(JSON.stringify(this.settings), -1)
     );
+  }
+
+  initialiseLockDelayInput() {
+    this.lockDelayInput.addEventListener("change", () => {
+      if (!this.enabledUtilities.lockDelay) {
+        return;
+      }
+
+      const lockDelayInputValue = parseFloat(this.lockDelayInput.value);
+
+      const mBPSApp =
+        // @ts-expect-error
+        document.getElementById("gameIFrame").contentWindow.mBPSApp;
+      const levels =
+        mBPSApp.x142576548220838677x.getDictionaryWithKeyStringPath(
+          "gameMgr.game.players.player-base.playerComponents.levels.params.levels"
+        ).mValues.mObjects;
+      for (let i = 0; i < 30; i++) {
+        const level = levels[i].mValue;
+        const lockDelayMs = isNaN(lockDelayInputValue)
+          ? UtilityMenu.DEFAULT_LOCK_DELAYS_MS[i]
+          : lockDelayInputValue;
+
+        level.setIntValueWithKeyStringPath("lockTimeMSEC", lockDelayMs);
+      }
+    });
   }
 
   initialiseSeedInput() {
