@@ -99,7 +99,7 @@ class UtilityMenu extends UIComponent {
       seed: overrides.seed ?? this.settings.cheatsEnabled,
       keybind: overrides.keybind ?? !isMobile,
       restartKeybind: overrides.restartKeybind ?? !isMobile,
-      lockDelay: overrides.lockDelay ?? true,
+      lockDelay: overrides.lockDelay ?? this.settings.cheatsEnabled,
     };
 
     for (const [utility, enabled] of Object.entries(this.enabledUtilities)) {
