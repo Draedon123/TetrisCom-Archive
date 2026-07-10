@@ -98,7 +98,7 @@ class UtilityMenu extends UIComponent {
     this.enabledUtilities = {
       seed: overrides.seed ?? this.settings.cheatsEnabled,
       keybind: overrides.keybind ?? !isMobile,
-      restartKeybind: overrides.restartKeybind ?? true,
+      restartKeybind: overrides.restartKeybind ?? !isMobile,
       lockDelay: overrides.lockDelay ?? true,
     };
 
