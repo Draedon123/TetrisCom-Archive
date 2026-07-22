@@ -7,6 +7,9 @@ settings:
 importers:
   .:
     devDependencies:
+      "@types/node":
+        specifier: ^26.1.1
+        version: 26.1.1
       html-minifier-terser:
         specifier: ^7.2.0
         version: 7.2.0
@@ -47,6 +50,12 @@ packages:
     resolution:
       {
         integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==,
+      }
+
+  "@types/node@26.1.1":
+    resolution:
+      {
+        integrity: sha512-nxAkRSVkN1Y0JC1W8ky/fTfkGsMmcrRsbx+3XoZE+rMOX71kLYTV7fLXpqud1GpbpP5TuffXFqfX7fH2GgZREw==,
       }
 
   acorn@8.15.0:
@@ -176,6 +185,12 @@ packages:
         integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==,
       }
 
+  undici-types@8.3.0:
+    resolution:
+      {
+        integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==,
+      }
+
 snapshots:
   "@jridgewell/gen-mapping@0.3.13":
     dependencies:
@@ -195,6 +210,10 @@ snapshots:
     dependencies:
       "@jridgewell/resolve-uri": 3.1.2
       "@jridgewell/sourcemap-codec": 1.5.5
+
+  "@types/node@26.1.1":
+    dependencies:
+      undici-types: 8.3.0
 
   acorn@8.15.0: {}
 
@@ -268,3 +287,5 @@ snapshots:
       source-map-support: 0.5.21
 
   tslib@2.8.1: {}
+
+  undici-types@8.3.0: {}
