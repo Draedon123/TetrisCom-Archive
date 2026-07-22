@@ -120,6 +120,28 @@ class ServerConnection {
 
     players[0].setIsReadyToStartGame();
     players[1].setIsReadyToStartGame();
+
+    this.patchPlayers();
+  }
+
+  /**
+   * @private
+   */
+  patchPlayers() {
+    const otherPlayer =
+      this.mBPSApp.mSceneMgr.getManagedScene("game").mGameMgr.mGame.mPlayers
+        .mObjects[1];
+    const originalProcessTime = otherPlayer.processTime.bind(otherPlayer);
+    // effectively pause gravity for other players
+    /**
+     * @param { number } t
+     */
+    otherPlayer.processTime = (t) => {
+      otherPlayer.mComponents.mObjects[0].x3058980791795481325x.mModel.mFallTimerRemainingMSEC =
+        Infinity;
+
+      originalProcessTime(t);
+    };
   }
 
   /**
@@ -207,6 +229,7 @@ class ServerConnection {
    */
   executeMove(inputId, type, playerIndex) {
     // mBPSApp.mSceneMgr.getManagedScene("game").mGameMgr.mGame.mPlayers.mObjects[0].mControlComponent.mInputMgr.mDelegate.x3058980791795481325x.mController._performControlAction
+    // mBPSApp.mSceneMgr.getManagedScene("game").mGameMgr.mGame.mPlayers.mObjects[0].mComponents.mObjects[0].x3058980791795481325x.mModel
     const playerController =
       getMGameMgr().mGame.mPlayers.mObjects[playerIndex].mControlComponent
         .mInputMgr.mDelegate.x3058980791795481325x.mController;
