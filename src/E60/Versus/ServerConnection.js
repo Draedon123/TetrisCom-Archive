@@ -1,6 +1,7 @@
 // @ts-check
 
 import { getMGameMgr, getIFrame, getMBPSApp } from "./getElements.js";
+import { CONTROLS } from "./keyCodeMap.js";
 
 class ServerConnection {
   /** @private @readonly @type { string } */
@@ -14,6 +15,10 @@ class ServerConnection {
   iframe;
   /** @private @readonly @type { any } */
   mBPSApp;
+  /** @private @type { boolean } */
+  ready;
+  /** @private @type { string[] } */
+  queuedMessages;
 
   constructor() {
     const { PROTOCOL, HOST: IP } = ServerConnection;
@@ -21,6 +26,8 @@ class ServerConnection {
     this.websocket = new WebSocket(`${PROTOCOL}://${IP}`);
     this.iframe = getIFrame();
     this.mBPSApp = getMBPSApp();
+    this.ready = false;
+    this.queuedMessages = [];
 
     const mSceneMgr = this.mBPSApp.mSceneMgr;
     const mainMenu = mSceneMgr.getManagedScene("mainMenu");
@@ -60,6 +67,11 @@ class ServerConnection {
 
     this.websocket.addEventListener("open", () => {
       console.log("Websocket connected");
+      this.ready = true;
+
+      for (const message of this.queuedMessages) {
+        this.sendMessage(message);
+      }
 
       // if hash is empty, a random room id will be auto assigned
       const room = location.hash.slice(1);
@@ -70,7 +82,7 @@ class ServerConnection {
         room,
       };
 
-      this.websocket.send(JSON.stringify(message));
+      this.sendMessage(JSON.stringify(message));
     });
   }
 
@@ -93,6 +105,12 @@ class ServerConnection {
       case "movePiece": {
         const transform = message.transform;
         this.transformLivePiece(1, transform);
+
+        break;
+      }
+
+      case "lockPiece": {
+        this.lockLivePiece(1);
 
         break;
       }
@@ -137,6 +155,7 @@ class ServerConnection {
       players[0].mComponents.mObjects[0].x3058980791795481325x.mModel;
     const originalSetLivePieceTransform =
       playerModel.setLivePieceTransform.bind(playerModel);
+    const originalLockLivePiece = playerModel.lockLivePiece.bind(playerModel);
 
     // effectively pause gravity for other players
     /**
@@ -145,6 +164,9 @@ class ServerConnection {
     players[1].processTime = (t) => {
       players[1].mComponents.mObjects[0].x3058980791795481325x.mModel.mFallTimerRemainingMSEC =
         Infinity;
+
+      // idk why i have to set this more than once...
+      players[1].mParams.setIntValueWithKeyStringPath("generationTimeMSEC", 0);
 
       originalProcessTime(t);
     };
@@ -167,6 +189,14 @@ class ServerConnection {
       this.sendMessage(JSON.stringify(message));
 
       originalSetLivePieceTransform(transform, transformType, isRotation);
+    };
+
+    playerModel.lockLivePiece = () => {
+      /** @type { import("./server/messageTypedefs.cjs").LockPieceMessage } */
+      const message = { type: "lockPiece" };
+      this.sendMessage(JSON.stringify(message));
+
+      originalLockLivePiece();
     };
   }
 
@@ -200,13 +230,23 @@ class ServerConnection {
    * @param { [number, number, number] } transform
    */
   transformLivePiece(playerIndex, transform) {
-    getMGameMgr().mGame.mPlayers.mObjects[
-      playerIndex
-    ].mComponents.mObjects[0].x3058980791795481325x.mModel.setLivePieceTransform(
-      transform[0],
-      transform[1],
-      transform[2]
-    );
+    const model =
+      getMGameMgr().mGame.mPlayers.mObjects[playerIndex].mComponents.mObjects[0]
+        .x3058980791795481325x.mModel;
+
+    model.setLivePieceTransform(transform[0], transform[1], transform[2]);
+  }
+
+  /**
+   * @private
+   * @param { number } playerIndex
+   */
+  lockLivePiece(playerIndex) {
+    const model =
+      getMGameMgr().mGame.mPlayers.mObjects[playerIndex].mComponents.mObjects[0]
+        .x3058980791795481325x.mModel;
+
+    model.lockLivePiece();
   }
 
   /**
@@ -220,7 +260,13 @@ class ServerConnection {
    * @param { string } message
    */
   sendMessage(message) {
-    this.websocket.send(message);
+    if (this.ready) {
+      console.log("Sending message:\n", message);
+      this.websocket.send(message);
+    } else {
+      console.log("Queueing message:\n", message);
+      this.queuedMessages.push(message);
+    }
   }
 }
 

@@ -91,6 +91,23 @@ class Player extends EventEmitter {
         break;
       }
 
+      case "lockPiece": {
+        if (this.room === null) {
+          log(`Player ${this.id} has no assigned room`);
+          break;
+        }
+
+        for (const player of this.room.players) {
+          if (player === this) {
+            continue;
+          }
+
+          player.sendLockPiece();
+        }
+
+        break;
+      }
+
       default: {
         log(
           // @ts-expect-error ideally this branch is never reached
@@ -126,6 +143,16 @@ class Player extends EventEmitter {
   sendLivePieceTransform(transform) {
     /** @type { import("./messageTypedefs.cjs").TransformLivePieceMessage} */
     const message = { type: "movePiece", transform };
+
+    this.client.sendText(JSON.stringify(message));
+  }
+
+  /**
+   * @private
+   */
+  sendLockPiece() {
+    /** @type { import("./messageTypedefs.cjs").LockPieceMessage } */
+    const message = { type: "lockPiece" };
 
     this.client.sendText(JSON.stringify(message));
   }

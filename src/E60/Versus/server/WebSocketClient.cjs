@@ -1,7 +1,7 @@
 // @ts-check
 
 /** @typedef { string | ArrayBuffer | ArrayBufferView<ArrayBufferLike> } WebsocketTransferable */
-/** @typedef { { data: WebsocketTransferable, finished: boolean, opCode: number, mask?: Buffer } } FrameData */
+/** @typedef { { data: WebsocketTransferable, finished: boolean, opCode: number, mask?: Buffer, bytesRead: number } } FrameData */
 
 const { EventEmitter } = require("events");
 const { log } = require("./log.cjs");
@@ -57,36 +57,38 @@ class WebSocketClient extends EventEmitter {
     });
 
     this.socket.on("data", (data) => {
-      const decodedData = this.readFrame(data);
+      const decodedData = this.readFrames(data);
 
-      switch (decodedData.opCode) {
-        case WebSocketClient.OP_CODES.PING: {
-          const returnData = this.writeFrame(
-            decodedData.data,
-            WebSocketClient.OP_CODES.PONG,
-            decodedData.mask,
-            true
-          );
+      for (const data of decodedData) {
+        switch (data.opCode) {
+          case WebSocketClient.OP_CODES.PING: {
+            const returnData = this.writeFrame(
+              data.data,
+              WebSocketClient.OP_CODES.PONG,
+              data.mask,
+              true
+            );
 
-          this.socket.write(returnData);
+            this.socket.write(returnData);
 
-          break;
-        }
-        case WebSocketClient.OP_CODES.PONG: {
-          this.unansweredPing = false;
-
-          break;
-        }
-        case WebSocketClient.OP_CODES.CLOSE: {
-          this.destroy();
-          break;
-        }
-        default: {
-          if (decodedData.finished) {
-            this.emit("data", decodedData.data);
+            break;
           }
+          case WebSocketClient.OP_CODES.PONG: {
+            this.unansweredPing = false;
 
-          break;
+            break;
+          }
+          case WebSocketClient.OP_CODES.CLOSE: {
+            this.destroy();
+            break;
+          }
+          default: {
+            if (data.finished) {
+              this.emit("data", data.data);
+            }
+
+            break;
+          }
         }
       }
     });
@@ -132,11 +134,35 @@ class WebSocketClient extends EventEmitter {
   /**
    * @private
    * @param { Buffer } frame
+   * @returns { FrameData[] }
+   */
+  readFrames(frame) {
+    /** @type { FrameData[] } */
+    let data = [];
+    let bytesRead = 0;
+
+    while (bytesRead < frame.byteLength) {
+      const decodedData = this.readSingleFrame(frame, bytesRead);
+      bytesRead += decodedData.bytesRead;
+
+      data.push(decodedData);
+    }
+
+    if (data.length > 1) {
+      console.log("##### " + data.length + " #####");
+    }
+
+    return data;
+  }
+
+  /**
+   * @private
+   * @param { Buffer } frame
+   * @param { number } offset
    * @returns { FrameData }
    */
-  readFrame(frame) {
-    let offset = 0;
-
+  readSingleFrame(frame, offset = 0) {
+    const startingOffset = offset;
     const firstByte = frame.readUint8(offset++);
     const finished = firstByte >>> 7 === 1;
     const opCode = firstByte & 0b01111111;
@@ -163,12 +189,21 @@ class WebSocketClient extends EventEmitter {
     }
 
     const encodedData = frame.subarray(offset, offset + Number(payloadLength));
+
     const decodedData = masked
       ? encodedData.map((byte, i) => byte ^ mask[i % 4])
       : new Uint8Array(encodedData);
 
+    const bytesRead = offset + Number(payloadLength) - startingOffset;
+
     /** @type { FrameData } */
-    let frameData = { data: new Uint8Array(), finished, opCode, mask };
+    let frameData = {
+      data: new Uint8Array(),
+      finished,
+      opCode,
+      mask,
+      bytesRead,
+    };
 
     switch (opCode) {
       case WebSocketClient.OP_CODES.TEXT: {
@@ -177,13 +212,14 @@ class WebSocketClient extends EventEmitter {
           finished,
           opCode,
           mask,
+          bytesRead,
         };
 
         break;
       }
 
       case WebSocketClient.OP_CODES.BINARY: {
-        frameData = { data: decodedData, finished, opCode, mask };
+        frameData = { data: decodedData, finished, opCode, mask, bytesRead };
 
         break;
       }
@@ -208,6 +244,7 @@ class WebSocketClient extends EventEmitter {
           finished,
           opCode,
           mask,
+          bytesRead,
         };
 
         break;
@@ -218,7 +255,7 @@ class WebSocketClient extends EventEmitter {
       }
 
       case WebSocketClient.OP_CODES.PING: {
-        frameData = { data: decodedData, finished, opCode, mask };
+        frameData = { data: decodedData, finished, opCode, mask, bytesRead };
 
         break;
       }
