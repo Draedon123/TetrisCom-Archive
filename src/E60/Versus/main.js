@@ -39,7 +39,6 @@ function main() {
             return;
           }
 
-          connection.setupInputCapturingForPlayer(0);
           updateControls();
         },
         configurable: true,

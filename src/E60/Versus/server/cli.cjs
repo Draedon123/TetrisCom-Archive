@@ -20,8 +20,10 @@ class ServerCLI {
   /**
    * @param { string } serverIp
    * @param { number } serverPort
+   * @param { string } serverCert
+   * @param { string } serverKey
    */
-  constructor(serverIp, serverPort) {
+  constructor(serverIp, serverPort, serverCert, serverKey) {
     this.rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
@@ -31,6 +33,8 @@ class ServerCLI {
     this.sockets = new Map();
     this.host = serverIp;
     this.port = serverPort;
+    this.cert = serverCert;
+    this.key = serverKey;
   }
 
   /**
@@ -173,13 +177,13 @@ class ServerCLI {
   }
 
   /**
-   * @param { string } host
+   * @param { string } ip
    * @param { number } port
    * @returns { Promise<import("https").Server> }
    */
-  openServer(host, port) {
+  openServer(ip, port) {
     if (this.server === null) {
-      const server = createServer();
+      const server = createServer(this.cert, this.key);
 
       this.bindServer(server);
     }
@@ -188,7 +192,7 @@ class ServerCLI {
 
     return new Promise((resolve) => {
       server.listen(port, () => {
-        log(`Server started on https://${host}:${port}`);
+        log(`Server started on https://${ip}:${port}`);
         resolve(server);
       });
     });
@@ -254,3 +258,4 @@ class ServerCLI {
 }
 
 module.exports = { ServerCLI };
+
