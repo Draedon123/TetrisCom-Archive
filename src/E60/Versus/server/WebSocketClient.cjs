@@ -148,10 +148,10 @@ class WebSocketClient extends EventEmitter {
     let payloadLength = BigInt(tentativePayloadLength);
 
     if (tentativePayloadLength === 126) {
-      payloadLength = BigInt(frame.readUint16BE(2));
+      payloadLength = BigInt(frame.readUint16BE(offset));
       offset += 2;
     } else if (tentativePayloadLength === 127) {
-      payloadLength = frame.readBigUint64BE(2);
+      payloadLength = frame.readBigUint64BE(offset);
       offset += 8;
     }
 
@@ -162,7 +162,7 @@ class WebSocketClient extends EventEmitter {
       offset += 4;
     }
 
-    const encodedData = frame.subarray(offset);
+    const encodedData = frame.subarray(offset, offset + Number(payloadLength));
     const decodedData = masked
       ? encodedData.map((byte, i) => byte ^ mask[i % 4])
       : new Uint8Array(encodedData);
@@ -181,6 +181,7 @@ class WebSocketClient extends EventEmitter {
 
         break;
       }
+
       case WebSocketClient.OP_CODES.BINARY: {
         frameData = { data: decodedData, finished, opCode, mask };
 
@@ -211,9 +212,11 @@ class WebSocketClient extends EventEmitter {
 
         break;
       }
+
       case WebSocketClient.OP_CODES.CLOSE: {
         break;
       }
+
       case WebSocketClient.OP_CODES.PING: {
         frameData = { data: decodedData, finished, opCode, mask };
 
