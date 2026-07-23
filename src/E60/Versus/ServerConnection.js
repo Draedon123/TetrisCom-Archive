@@ -90,8 +90,10 @@ class ServerConnection {
         break;
       }
 
-      case "input": {
-        this.executeMove(message.inputId, message.inputType, 1);
+      case "movePiece": {
+        const transform = message.transform;
+        this.transformLivePiece(1, transform);
+
         break;
       }
 
@@ -128,19 +130,43 @@ class ServerConnection {
    * @private
    */
   patchPlayers() {
-    const otherPlayer =
-      this.mBPSApp.mSceneMgr.getManagedScene("game").mGameMgr.mGame.mPlayers
-        .mObjects[1];
-    const originalProcessTime = otherPlayer.processTime.bind(otherPlayer);
+    const gameManager = getMGameMgr();
+    const players = gameManager.mGame.mPlayers.mObjects;
+    const originalProcessTime = players[1].processTime.bind(players[1]);
+    const playerModel =
+      players[0].mComponents.mObjects[0].x3058980791795481325x.mModel;
+    const originalSetLivePieceTransform =
+      playerModel.setLivePieceTransform.bind(playerModel);
+
     // effectively pause gravity for other players
     /**
      * @param { number } t
      */
-    otherPlayer.processTime = (t) => {
-      otherPlayer.mComponents.mObjects[0].x3058980791795481325x.mModel.mFallTimerRemainingMSEC =
+    players[1].processTime = (t) => {
+      players[1].mComponents.mObjects[0].x3058980791795481325x.mModel.mFallTimerRemainingMSEC =
         Infinity;
 
       originalProcessTime(t);
+    };
+
+    /**
+     * @param { number } transform
+     * @param { number } transformType
+     * @param { number } isRotation as a boolean
+     */
+    playerModel.setLivePieceTransform = (
+      transform,
+      transformType,
+      isRotation
+    ) => {
+      /** @type { import("./server/messageTypedefs.cjs").TransformLivePieceMessage } */
+      const message = {
+        type: "movePiece",
+        transform: [transform, transformType, isRotation],
+      };
+      this.sendMessage(JSON.stringify(message));
+
+      originalSetLivePieceTransform(transform, transformType, isRotation);
     };
   }
 
@@ -169,76 +195,18 @@ class ServerConnection {
   }
 
   /**
-   * @param { number } playerIndex
-   */
-  setupInputCapturingForPlayer(playerIndex) {
-    const playerController =
-      getMGameMgr().mGame.mPlayers.mObjects[playerIndex].mControlComponent
-        .mInputMgr.mDelegate.x3058980791795481325x.mController;
-
-    const originalHandleInputIsOn =
-      playerController.handleInputIsOn.bind(playerController);
-    const originalHandleInputIsOff =
-      playerController.handleInputIsOff.bind(playerController);
-
-    /**
-     * @param { number } inputId
-     * @param { boolean } a
-     * @param { boolean } b
-     * @param { boolean } [sendToServer = true]
-     * @returns
-     */
-    playerController.handleInputIsOn = (inputId, a, b, sendToServer = true) => {
-      if (sendToServer) {
-        /** @type { import("./server/messageTypedefs.cjs").InputMessage } */
-        const message = { type: "input", inputId, inputType: "on" };
-        this.sendMessage(JSON.stringify(message));
-      }
-
-      return originalHandleInputIsOn(inputId, a, b);
-    };
-
-    /**
-     * @param { number } inputId
-     * @param { boolean } a
-     * @param { boolean } b
-     * @param { boolean } [sendToServer = true]
-     * @returns
-     */
-    playerController.handleInputIsOff = (
-      inputId,
-      a,
-      b,
-      sendToServer = true
-    ) => {
-      if (sendToServer) {
-        /** @type { import("./server/messageTypedefs.cjs").InputMessage } */
-        const message = { type: "input", inputId, inputType: "off" };
-        this.sendMessage(JSON.stringify(message));
-      }
-
-      return originalHandleInputIsOff(inputId, a, b);
-    };
-  }
-
-  /**
    * @private
-   *  @param { number } inputId
-   * @param { "on" | "off" } type
    * @param { number } playerIndex
+   * @param { [number, number, number] } transform
    */
-  executeMove(inputId, type, playerIndex) {
-    // mBPSApp.mSceneMgr.getManagedScene("game").mGameMgr.mGame.mPlayers.mObjects[0].mControlComponent.mInputMgr.mDelegate.x3058980791795481325x.mController._performControlAction
-    // mBPSApp.mSceneMgr.getManagedScene("game").mGameMgr.mGame.mPlayers.mObjects[0].mComponents.mObjects[0].x3058980791795481325x.mModel
-    const playerController =
-      getMGameMgr().mGame.mPlayers.mObjects[playerIndex].mControlComponent
-        .mInputMgr.mDelegate.x3058980791795481325x.mController;
-
-    if (type === "on") {
-      playerController.handleInputIsOn(inputId, 0, 0, false);
-    } else {
-      playerController.handleInputIsOff(inputId, 0, 0, false);
-    }
+  transformLivePiece(playerIndex, transform) {
+    getMGameMgr().mGame.mPlayers.mObjects[
+      playerIndex
+    ].mComponents.mObjects[0].x3058980791795481325x.mModel.setLivePieceTransform(
+      transform[0],
+      transform[1],
+      transform[2]
+    );
   }
 
   /**

@@ -74,7 +74,7 @@ class Player extends EventEmitter {
         break;
       }
 
-      case "input": {
+      case "movePiece": {
         if (this.room === null) {
           log(`Player ${this.id} has no assigned room`);
           break;
@@ -85,8 +85,9 @@ class Player extends EventEmitter {
             continue;
           }
 
-          player.sendInput(message.inputId, message.inputType);
+          player.sendLivePieceTransform(message.transform);
         }
+
         break;
       }
 
@@ -95,6 +96,7 @@ class Player extends EventEmitter {
           // @ts-expect-error ideally this branch is never reached
           `Received unknown message type "${message.type}" from client ${this.id}`
         );
+
         break;
       }
     }
@@ -119,12 +121,11 @@ class Player extends EventEmitter {
 
   /**
    * @private
-   * @param { number } inputId
-   * @param { "on" | "off" } inputType
+   * @param { [number, number, number] } transform
    */
-  sendInput(inputId, inputType) {
-    /** @type { import("./messageTypedefs.cjs").InputMessage } */
-    const message = { type: "input", inputId, inputType };
+  sendLivePieceTransform(transform) {
+    /** @type { import("./messageTypedefs.cjs").TransformLivePieceMessage} */
+    const message = { type: "movePiece", transform };
 
     this.client.sendText(JSON.stringify(message));
   }
