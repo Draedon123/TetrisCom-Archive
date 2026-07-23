@@ -6,8 +6,8 @@ const { initialiseWebsockets } = require("./websocket.cjs");
 const { Room } = require("./Room.cjs");
 
 /**
- * @param { string } cert
- * @param { string } key
+ * @param { string | null } cert
+ * @param { string | null } key
  * @returns { import("https").Server }
  */
 function createServer(cert, key) {
@@ -16,7 +16,10 @@ function createServer(cert, key) {
   const allowedOrigin =
     mode === "dev" ? "https://localhost:5500" : "https://tetriscom.sixwi.de";
 
-  const server = https.createServer({ cert, key });
+  const server = https.createServer({
+    cert: cert ?? undefined,
+    key: key ?? undefined,
+  });
 
   initialiseWebsockets(server, allowedOrigin);
 

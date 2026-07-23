@@ -20,8 +20,8 @@ class ServerCLI {
   /**
    * @param { string } serverIp
    * @param { number } serverPort
-   * @param { string } serverCert
-   * @param { string } serverKey
+   * @param { string | null } serverCert
+   * @param { string | null } serverKey
    */
   constructor(serverIp, serverPort, serverCert, serverKey) {
     this.rl = readline.createInterface({
