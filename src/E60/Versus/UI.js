@@ -22,12 +22,10 @@ class UI {
     );
 
     this.usernameInput.addEventListener("change", () => {
-      this.usernameInputError.style.display = "none";
-
       const username = this.usernameInput.value;
 
-      serverConnection.username = username;
       this.usernameInput.disabled = true;
+      serverConnection.username = username;
     });
   }
 
@@ -38,14 +36,16 @@ class UI {
     this.usernameInput.disabled = false;
 
     if (response.ok) {
+      this.usernameInputError.style.display = "none";
+      this.usernameInputError.textContent = "";
       return;
     }
 
     this.usernameInputError.textContent = /** @type { string } */ (
       response.error
     );
-    this.usernameInput.style.display = "unset";
 
+    this.usernameInputError.style.display = "";
     this.usernameInput.value = this.serverConnection.username;
   }
 }
