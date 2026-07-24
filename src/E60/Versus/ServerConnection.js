@@ -44,6 +44,10 @@ class ServerConnection {
      * function is safer, probably
      */
     mainMenu.performPlay = (e) => {
+      if (this.username === "") {
+        return;
+      }
+
       this.setIsReady(true);
       return originalPerformPlay(e);
     };
