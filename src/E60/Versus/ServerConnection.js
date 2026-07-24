@@ -82,6 +82,10 @@ class ServerConnection {
         this.sendMessage(message);
       }
     });
+
+    this.websocket.addEventListener("error", () => {
+      alert("Failed to connect to server. Maybe the server isn't running?");
+    });
   }
 
   /**

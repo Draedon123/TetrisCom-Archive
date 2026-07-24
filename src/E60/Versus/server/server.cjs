@@ -23,9 +23,16 @@ function createServer(cert, key) {
 
   initialiseWebsockets(server, allowedOrigin);
 
-  server.on("request", (req, res) => {
-    res.writeHead(200);
-    res.end("test");
+  server.on("request", (request, response) => {
+    if (request.url === "/ping") {
+      response.writeHead(200);
+      response.end("pong");
+
+      return;
+    }
+
+    response.writeHead(404);
+    response.end();
   });
 
   server.on("close", () => {
