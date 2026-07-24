@@ -38,19 +38,19 @@ class Room {
    */
   addPlayer(player) {
     if (this.players.includes(player)) {
-      log(`Player ${player.id} aleady in room ${this.id}`);
+      log(`Player ${player.username} aleady in room ${this.id}`);
       return false;
     }
 
     if (this.players.length >= this.maxPlayers) {
       log(
-        `Room ${this.id} has no more room for player ${player.id} (max player count is ${this.maxPlayers})`
+        `Room ${this.id} has no more room for player ${player.username} (max player count is ${this.maxPlayers})`
       );
       return false;
     }
 
     this.players.push(player);
-    log(`Added player ${player.id} to room ${this.id}`);
+    log(`Added player ${player.username} to room ${this.id}`);
 
     player.sendSeed(this.seed);
     player.addListener("ready", this.onPlayerReady);
@@ -83,14 +83,14 @@ class Room {
   removePlayer(player) {
     if (!this.players.includes(player)) {
       log(
-        `Could not find player ${player.id} to remove them from room ${this.id}`
+        `Could not find player ${player.username} to remove them from room ${this.id}`
       );
       return;
     }
 
     this.players.splice(this.players.indexOf(player), 1);
     player.removeListener("ready", this.onPlayerReady);
-    log(`Removed player ${player.id} from room ${this.id}`);
+    log(`Removed player ${player.username} from room ${this.id}`);
 
     if (this.players.length === 0) {
       this.destroy();

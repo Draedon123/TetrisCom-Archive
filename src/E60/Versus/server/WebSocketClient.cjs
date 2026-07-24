@@ -126,8 +126,6 @@ class WebSocketClient extends EventEmitter {
    * @param { string } text
    */
   sendText(text) {
-    log(`Sending text "${text}" to client ${this.key}`);
-
     this.socket.write(this.writeFrame(text, WebSocketClient.OP_CODES.TEXT));
   }
 
@@ -146,10 +144,6 @@ class WebSocketClient extends EventEmitter {
       bytesRead += decodedData.bytesRead;
 
       data.push(decodedData);
-    }
-
-    if (data.length > 1) {
-      console.log("##### " + data.length + " #####");
     }
 
     return data;
