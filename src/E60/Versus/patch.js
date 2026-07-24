@@ -16,21 +16,48 @@ function patch() {
         parsed.gameMgr.game.players["player-base"].playerComponents;
       const battle = player.battle;
 
-      const overlap = 140;
-
       parsed.application.savedDataId = "E60-versus";
-      playerViews.playerViews.player1["originX@f"] = -400 + overlap;
-      playerViews.playerViews.player2["originX@f"] = 400 - overlap;
-      // parsed.gameMgr.game.players.players.player2.playerComponents.control =
-      //   structuredClone(player.control);
-      // parsed.gameMgr.game.players.players.player2.playerComponents.control.params.AIInput.enabled = true;
+      playerViews.playerViews.player1["originX@f"] = -300;
+      playerViews.playerViews.player2["originX@f"] = 300;
+
+      parsed.gameMgr.gameView.playerViews.playerViews.player1.background =
+        structuredClone(
+          parsed.gameMgr.gameView.playerViews["playerView-base"].background
+        );
+      parsed.gameMgr.gameView.playerViews.playerViews.player2.background =
+        structuredClone(
+          parsed.gameMgr.gameView.playerViews["playerView-base"].background
+        );
+
+      const assetsPath = "versus";
+
+      parsed.gameMgr.gameView.playerViews.playerViews.player1.background.resource_texture = `${assetsPath}/main-background-game-v3-left.png`;
+      parsed.gameMgr.gameView.playerViews.playerViews.player2.background.resource_texture = `${assetsPath}/main-background-game-v3-right.png`;
+
+      // image resized from 800x600 to 600x600, shifting the centre of the image
+      // 100px to the left. hence, we need to shift it 100px to the right again
+      parsed.gameMgr.gameView.playerViews["playerView-base"].matrix.transform[
+        "x@f"
+      ] += 100;
+      parsed.gameMgr.gameView.playerViews["playerView-base"].nextQueue[
+        "firstPieceCenterX@f"
+      ] += 100;
+      parsed.gameMgr.gameView.playerViews["playerView-base"].scoreValue[
+        "positionX@f"
+      ] += 100;
+      parsed.gameMgr.gameView.playerViews["playerView-base"].levelValue[
+        "positionX@f"
+      ] += 100;
+      parsed.gameMgr.gameView.playerViews["playerView-base"].linesValue[
+        "positionX@f"
+      ] += 100;
 
       parsed.gameMgr.game.params["numPlayers@i"] = 2;
       parsed.gameMgr.game.params.waitForReadyPlayersToStartGame = true;
-      parsed.application["windowWidth@i"] = 1600 - 2 * overlap;
+      parsed.application["windowWidth@i"] = 1200;
       parsed.application.scenes.loading.viewHierarchy.views[
         "_BPSScale9Sprite:backgroundImage"
-      ].transform["width@f"] = 1600 - 2 * overlap;
+      ].transform["width@f"] = 1200;
 
       battle.enabled = true;
       battle.params.enableLineAttacks = false;
@@ -39,11 +66,7 @@ function patch() {
 
       let handler = setInterval(() => {
         try {
-          getGameCanvas().style.setProperty(
-            "width",
-            `${1600 - 2 * overlap}px`,
-            "important"
-          );
+          getGameCanvas().style.setProperty("width", "1200px", "important");
 
           clearInterval(handler);
         } catch (error) {}
