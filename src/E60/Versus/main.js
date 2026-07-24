@@ -1,6 +1,7 @@
 // @ts-check
 
 import { ServerConnection } from "./ServerConnection.js";
+import { UI } from "./UI.js";
 import { getMBPSApp } from "./getElements.js";
 import { patch } from "./patch.js";
 import { updateControls } from "./updateControls.js";
@@ -9,6 +10,9 @@ patch();
 
 function main() {
   const connection = new ServerConnection();
+  const ui = new UI(connection);
+
+  connection.ui = ui;
 
   const mBPSApp = getMBPSApp();
   const gameScene = mBPSApp.mSceneMgr.getManagedScene("game");

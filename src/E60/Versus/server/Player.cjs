@@ -6,16 +6,20 @@ const { Room } = require("./Room.cjs");
 const { log } = require("./log.cjs");
 
 class Player extends EventEmitter {
+  /** @readonly @type { Map<string, Player> } */
+  static players = new Map();
   /** @private @readonly @type { import("./WebSocketClient.cjs").WebSocketClient } */
   client;
   /** @readonly @type { string } */
   id;
-  /** @private @type { Room | null } */
+  /** @type { Room | null } */
   room;
   /** @private @type { boolean } */
   destroyed;
   /** @type { boolean } */
   ready;
+  /** @type { string} */
+  username;
 
   /**
    * @param { import("./WebSocketClient.cjs").WebSocketClient } client
@@ -28,6 +32,7 @@ class Player extends EventEmitter {
     this.room = null;
     this.destroyed = false;
     this.ready = false;
+    this.username = "";
 
     this.client.on("data", (_data) => {
       /** @type { import("./WebSocketClient.cjs").WebsocketTransferable } */
@@ -67,7 +72,7 @@ class Player extends EventEmitter {
 
       case "ready": {
         this.ready = message.ready;
-        log(`Player ${this.id} is ${this.ready ? "" : "not "}ready`);
+        log(`Player ${this.username} is ${this.ready ? "" : "not "}ready`);
 
         this.emit("ready");
 
@@ -76,7 +81,7 @@ class Player extends EventEmitter {
 
       case "movePiece": {
         if (this.room === null) {
-          log(`Player ${this.id} has no assigned room`);
+          log(`Player ${this.username} has no assigned room`);
           break;
         }
 
@@ -93,7 +98,7 @@ class Player extends EventEmitter {
 
       case "lockPiece": {
         if (this.room === null) {
-          log(`Player ${this.id} has no assigned room`);
+          log(`Player ${this.username} has no assigned room`);
           break;
         }
 
@@ -104,6 +109,41 @@ class Player extends EventEmitter {
 
           player.sendLockPiece();
         }
+
+        break;
+      }
+
+      case "updateUsername": {
+        const username = message.username;
+
+        if (this.username === username) {
+          this.sendSetUsernameResponse(null, username);
+          break;
+        }
+
+        if (Player.players.has(username)) {
+          this.sendSetUsernameResponse("Username already in use", username);
+          break;
+        }
+
+        if (this.username === "") {
+          this.username = username;
+          Player.players.set(username, this);
+          this.sendSetUsernameResponse(null, username);
+
+          log(`Set username of ${this.id} to ${username}`);
+
+          break;
+        }
+
+        log(
+          `Changed username of ${this.id} from ${this.username} to ${username}`
+        );
+
+        Player.players.delete(this.username);
+        this.username = username;
+        Player.players.set(this.username, this);
+        this.sendSetUsernameResponse(null, username);
 
         break;
       }
@@ -157,6 +197,23 @@ class Player extends EventEmitter {
     this.client.sendText(JSON.stringify(message));
   }
 
+  /**
+   * @private
+   * @param { string | null } error
+   * @param { string } username
+   */
+  sendSetUsernameResponse(error, username) {
+    /** @type { import("./messageTypedefs.cjs").SetUsernameResponseMessage } */
+    const message = {
+      type: "setUsernameResponse",
+      ok: error === null,
+      error: error ?? undefined,
+      username,
+    };
+
+    this.client.sendText(JSON.stringify(message));
+  }
+
   destroy() {
     if (this.destroyed) {
       return;
@@ -165,6 +222,8 @@ class Player extends EventEmitter {
     if (this.room?.players.includes(this)) {
       this.room.removePlayer(this);
     }
+
+    Player.players.delete(this.username);
 
     this.client.destroy();
     this.destroyed = true;

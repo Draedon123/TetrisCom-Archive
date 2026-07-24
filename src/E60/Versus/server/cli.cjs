@@ -4,6 +4,8 @@ const readline = require("readline/promises");
 const { Room } = require("./Room.cjs");
 const { log } = require("./log.cjs");
 const { createServer } = require("./server.cjs");
+const { Player } = require("./Player.cjs");
+const { WebSocketClient } = require("./WebSocketClient.cjs");
 
 class ServerCLI {
   /** @private @readonly @type { readline.Interface } */
@@ -118,6 +120,34 @@ class ServerCLI {
     }
   }
 
+  dumpPlayers() {
+    if (this.server === null) {
+      log("No server active");
+      return;
+    }
+
+    log(`${Player.players.size} named players connected`);
+
+    for (const [username, player] of Player.players.entries()) {
+      log(
+        `\t${username} (${player.id})${player.room !== null ? ` in room ${player.room.id}` : ""}`
+      );
+    }
+  }
+
+  dumpClients() {
+    if (this.server === null) {
+      log("No server active");
+      return;
+    }
+
+    log(`${WebSocketClient.clients.size} clients connected`);
+
+    for (const id of WebSocketClient.clients.keys()) {
+      log(`\t${id}`);
+    }
+  }
+
   closeServer() {
     if (this.server === null) {
       log("No server active");
@@ -132,6 +162,10 @@ class ServerCLI {
 
     this.sockets.clear();
     this.server = null;
+  }
+
+  clear() {
+    console.clear();
   }
 
   /**
@@ -241,6 +275,24 @@ class ServerCLI {
           const secondaryCommand = args[0];
 
           this.handleRoomsCommand(secondaryCommand, args.slice(1));
+          break;
+        }
+
+        case "clear": {
+          this.clear();
+
+          break;
+        }
+
+        case "players": {
+          this.dumpPlayers();
+
+          break;
+        }
+
+        case "clients": {
+          this.dumpClients();
+
           break;
         }
 

@@ -1,7 +1,6 @@
 // @ts-check
 
 import { getMGameMgr, getIFrame, getMBPSApp } from "./getElements.js";
-import { CONTROLS } from "./keyCodeMap.js";
 
 class ServerConnection {
   /** @private @readonly @type { string } */
@@ -16,9 +15,13 @@ class ServerConnection {
   /** @private @readonly @type { any } */
   mBPSApp;
   /** @private @type { boolean } */
-  ready;
+  connected;
   /** @private @type { string[] } */
   queuedMessages;
+  /** @type { import("./UI.js").UI | null } */
+  ui;
+  /** @private @type { string } */
+  _username;
 
   constructor() {
     const { PROTOCOL, HOST: IP } = ServerConnection;
@@ -26,8 +29,10 @@ class ServerConnection {
     this.websocket = new WebSocket(`${PROTOCOL}://${IP}`);
     this.iframe = getIFrame();
     this.mBPSApp = getMBPSApp();
-    this.ready = false;
+    this.connected = false;
     this.queuedMessages = [];
+    this._username = "";
+    this.ui = null;
 
     const mSceneMgr = this.mBPSApp.mSceneMgr;
     const mainMenu = mSceneMgr.getManagedScene("mainMenu");
@@ -50,7 +55,7 @@ class ServerConnection {
      * @returns { any }
      */
     mSceneMgr.setScene = (scene) => {
-      if (scene === "mainMenu") {
+      if (scene === "mainMenu" && this._username !== "") {
         this.setIsReady(false);
       }
 
@@ -66,24 +71,33 @@ class ServerConnection {
     });
 
     this.websocket.addEventListener("open", () => {
-      console.log("Websocket connected");
-      this.ready = true;
+      console.debug("Websocket connected");
+      this.connected = true;
 
       for (const message of this.queuedMessages) {
         this.sendMessage(message);
       }
-
-      // if hash is empty, a random room id will be auto assigned
-      const room = location.hash.slice(1);
-
-      /** @type { import("./server/messageTypedefs.cjs").RoomConnectClientMessage } */
-      const message = {
-        type: "roomConnect",
-        room,
-      };
-
-      this.sendMessage(JSON.stringify(message));
     });
+  }
+
+  /**
+   * @returns { string }
+   */
+  get username() {
+    return this._username;
+  }
+
+  /**
+   * @param { string } username
+   */
+  set username(username) {
+    if (this.username === username) {
+      return;
+    }
+
+    /** @type { import("./server/messageTypedefs.cjs").UpdateUsernameMessage } */
+    const message = { type: "updateUsername", username };
+    this.sendMessage(JSON.stringify(message));
   }
 
   /**
@@ -111,6 +125,16 @@ class ServerConnection {
 
       case "lockPiece": {
         this.lockLivePiece(1);
+
+        break;
+      }
+
+      case "setUsernameResponse": {
+        if (message.ok) {
+          this._username = message.username;
+        }
+
+        this.ui?.handleSetUsernameResponse(message);
 
         break;
       }
@@ -260,11 +284,11 @@ class ServerConnection {
    * @param { string } message
    */
   sendMessage(message) {
-    if (this.ready) {
-      console.log("Sending message:\n", message);
+    if (this.connected) {
+      console.debug("Sending message:\n", message);
       this.websocket.send(message);
     } else {
-      console.log("Queueing message:\n", message);
+      console.debug("Queueing message:\n", message);
       this.queuedMessages.push(message);
     }
   }
