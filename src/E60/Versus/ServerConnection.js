@@ -36,7 +36,9 @@ class ServerConnection {
 
     const mSceneMgr = this.mBPSApp.mSceneMgr;
     const mainMenu = mSceneMgr.getManagedScene("mainMenu");
+    const gameScene = mSceneMgr.getManagedScene("game");
     const originalPerformPlay = mainMenu.performPlay.bind(mainMenu);
+    const originalSetScene = mSceneMgr.setScene.bind(mSceneMgr);
 
     /**
      * @param { boolean } e
@@ -52,8 +54,6 @@ class ServerConnection {
       return originalPerformPlay(e);
     };
 
-    const originalSetScene = mSceneMgr.setScene.bind(mSceneMgr);
-
     /**
      * @param { string } scene
      * @returns { any }
@@ -65,6 +65,8 @@ class ServerConnection {
 
       return originalSetScene(scene);
     };
+
+    gameScene.pauseGame = () => {};
 
     this.websocket.addEventListener("message", (event) => {
       console.debug("Received message: ", event.data);
