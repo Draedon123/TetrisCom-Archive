@@ -75,10 +75,6 @@ class Room {
     }
 
     Room.rooms.delete(this.id);
-
-    for (const player of this.players) {
-      player.destroy();
-    }
   }
 
   /**

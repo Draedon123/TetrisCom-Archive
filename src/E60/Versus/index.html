@@ -271,6 +271,10 @@
         color: white;
       }
 
+      #room-listings {
+        text-align: start;
+      }
+
       .error {
         color: red;
       }
@@ -285,6 +289,18 @@
         </label>
         <br />
         <span class="error" id="username-input-error"></span>
+
+        <br />
+        <button id="room-search">Search for rooms</button>
+        <ul id="room-listings"></ul>
+
+        <label for="join-room">
+          Join or create room
+          <input type="text" name="join-room" id="join-room" />
+          <button id="join-room-button">Join/Create Room</button>
+          <br />
+          <span id="room-join-message"></span>
+        </label>
       </div>
     </div>
 

@@ -95,7 +95,7 @@ class ServerConnection {
       return;
     }
 
-    /** @type { import("./server/messageTypedefs.cjs").UpdateUsernameMessage } */
+    /** @type { import("./server/messageTypedefs.cjs").UpdateUsernameClientMessage } */
     const message = { type: "updateUsername", username };
     this.sendMessage(JSON.stringify(message));
   }
@@ -135,6 +135,18 @@ class ServerConnection {
         }
 
         this.ui?.handleSetUsernameResponse(message);
+
+        break;
+      }
+
+      case "roomList": {
+        this.ui?.setRoomList(message.rooms);
+
+        break;
+      }
+
+      case "roomConnectResponse": {
+        this.ui?.handleRoomConnectResponse(message);
 
         break;
       }

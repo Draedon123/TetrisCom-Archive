@@ -87,12 +87,11 @@ class ServerCLI {
 
       if (room.players.length === 0) {
         linesToPrint.push("[Empty room]");
-        continue;
-      }
-
-      for (let i = 0; i < room.players.length; i++) {
-        const player = room.players[i];
-        linesToPrint.push(`${i + 1}: ${player.id}`);
+      } else {
+        for (let i = 0; i < room.players.length; i++) {
+          const player = room.players[i];
+          linesToPrint.push(`${i + 1}: ${player.id}`);
+        }
       }
 
       const title = id;
@@ -199,6 +198,33 @@ class ServerCLI {
         }
 
         room.seed = isNaN(seed) ? room.getRandomSeed() : seed;
+
+        break;
+      }
+
+      case "create": {
+        const roomId = args[0];
+
+        if (Room.rooms.has(roomId)) {
+          log(`Room ${roomId} already exists`);
+          break;
+        }
+
+        new Room(roomId);
+
+        break;
+      }
+
+      case "close": {
+        const roomId = args[0];
+        const room = Room.rooms.get(roomId);
+
+        if (room === undefined) {
+          log(`Room ${roomId} does not exist`);
+          break;
+        }
+
+        room.destroy();
 
         break;
       }

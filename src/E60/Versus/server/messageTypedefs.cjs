@@ -1,14 +1,17 @@
 // @ts-check
 
-/** @typedef { RoomConnectClientMessage | ReadyClientMessage | TransformLivePieceMessage | LockPieceMessage | UpdateUsernameMessage } ClientMessage */
+/** @typedef { RoomConnectClientMessage | ReadyClientMessage | TransformLivePieceMessage | LockPieceMessage | UpdateUsernameClientMessage | GetRoomsClientMessage } ClientMessage */
 /** @typedef { { type: "roomConnect", room: string } } RoomConnectClientMessage */
-/** @typedef { { type: "updateUsername", username: string } } UpdateUsernameMessage */
+/** @typedef { { type: "updateUsername", username: string } } UpdateUsernameClientMessage */
 /** @typedef { { type: "ready", ready: boolean } } ReadyClientMessage */
+/** @typedef { { type: "getRooms" } } GetRoomsClientMessage */
 
-/** @typedef { StartGameServerMessage | SetSeedServerMessage | TransformLivePieceMessage | LockPieceMessage | SetUsernameResponseMessage } ServerMessage */
+/** @typedef { StartGameServerMessage | SetSeedServerMessage | TransformLivePieceMessage | LockPieceMessage | SetUsernameResponseServerMessage | RoomListServerMessage | RoomConnectResponseServerMessage } ServerMessage */
 /** @typedef { { type: "startGame" } } StartGameServerMessage */
 /** @typedef { { type: "setSeed", seed: number } } SetSeedServerMessage */
-/** @typedef { { type: "setUsernameResponse", ok: boolean, error?: string, username: string } } SetUsernameResponseMessage */
+/** @typedef { { type: "setUsernameResponse", ok: boolean, error?: string, username: string } } SetUsernameResponseServerMessage */
+/** @typedef { { type: "roomList", rooms: { id: string, players: string[] }[] } } RoomListServerMessage */
+/** @typedef { { type: "roomConnectResponse", ok: boolean, error?: string, room: string } } RoomConnectResponseServerMessage */
 
 /** @typedef { { type: "movePiece", transform: [number, number, number] } } TransformLivePieceMessage */
 /** @typedef { { type: "lockPiece" } } LockPieceMessage */

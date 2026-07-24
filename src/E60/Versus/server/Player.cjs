@@ -61,10 +61,17 @@ class Player extends EventEmitter {
           message.room = crypto.randomUUID();
         }
 
+        if (this.room !== null) {
+          this.room.removePlayer(this);
+        }
+
         const room = Room.addPlayerToRoom(this, message.room);
 
-        if (room !== null) {
+        if (room.players.includes(this)) {
           this.room = room;
+          this.sendRoomConnectResponse(null, message.room);
+        } else {
+          this.sendRoomConnectResponse("Room full", message.room);
         }
 
         break;
@@ -148,6 +155,22 @@ class Player extends EventEmitter {
         break;
       }
 
+      case "getRooms": {
+        /** @type { import("./messageTypedefs.cjs").RoomListServerMessage } */
+        const message = { type: "roomList", rooms: [] };
+
+        for (const [id, room] of Room.rooms.entries()) {
+          message.rooms.push({
+            id,
+            players: room.players.map((player) => player.username),
+          });
+        }
+
+        this.client.sendText(JSON.stringify(message));
+
+        break;
+      }
+
       default: {
         log(
           // @ts-expect-error ideally this branch is never reached
@@ -203,12 +226,29 @@ class Player extends EventEmitter {
    * @param { string } username
    */
   sendSetUsernameResponse(error, username) {
-    /** @type { import("./messageTypedefs.cjs").SetUsernameResponseMessage } */
+    /** @type { import("./messageTypedefs.cjs").SetUsernameResponseServerMessage } */
     const message = {
       type: "setUsernameResponse",
       ok: error === null,
       error: error ?? undefined,
       username,
+    };
+
+    this.client.sendText(JSON.stringify(message));
+  }
+
+  /**
+   * @private
+   * @param { string | null } error
+   * @param { string } room
+   */
+  sendRoomConnectResponse(error, room) {
+    /** @type { import("./messageTypedefs.cjs").RoomConnectResponseServerMessage } */
+    const message = {
+      type: "roomConnectResponse",
+      ok: error === null,
+      error: error ?? undefined,
+      room,
     };
 
     this.client.sendText(JSON.stringify(message));
