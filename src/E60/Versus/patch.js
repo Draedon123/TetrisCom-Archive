@@ -58,6 +58,12 @@ function patch() {
       parsed.application.scenes.loading.viewHierarchy.views[
         "_BPSScale9Sprite:backgroundImage"
       ].transform["width@f"] = 1200;
+      parsed.application.scenes.loading.viewHierarchy.views[
+        "_BPSScale9Sprite:backgroundImage"
+      ].style.resource_texture = `${assetsPath}/loading.png`;
+      parsed.application.scenes.game["_BPSView:loadingView"].children[
+        "_BPSSprite:loadingImage"
+      ].resource_texture = `${assetsPath}/loading.png`;
 
       battle.enabled = true;
       battle.params.enableLineAttacks = false;
