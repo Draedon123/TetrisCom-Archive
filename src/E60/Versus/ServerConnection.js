@@ -22,6 +22,8 @@ class ServerConnection {
   ui;
   /** @private @type { string } */
   _username;
+  /** @private @type { string | null} */
+  room;
 
   constructor() {
     const { PROTOCOL, HOST: IP } = ServerConnection;
@@ -33,6 +35,7 @@ class ServerConnection {
     this.queuedMessages = [];
     this._username = "";
     this.ui = null;
+    this.room = null;
 
     const mSceneMgr = this.mBPSApp.mSceneMgr;
     const mainMenu = mSceneMgr.getManagedScene("mainMenu");
@@ -59,7 +62,7 @@ class ServerConnection {
      * @returns { any }
      */
     mSceneMgr.setScene = (scene) => {
-      if (scene === "mainMenu" && this._username !== "") {
+      if (scene === "mainMenu" && this.room !== null) {
         this.setIsReady(false);
       }
 
@@ -156,6 +159,10 @@ class ServerConnection {
       }
 
       case "roomConnectResponse": {
+        if (message.ok) {
+          this.room = message.room;
+        }
+
         this.ui?.handleRoomConnectResponse(message);
 
         break;
