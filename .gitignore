@@ -1,3 +1,5 @@
 node_modules
 .vscode
 todo.md
+/server_logs
+private

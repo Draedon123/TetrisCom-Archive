@@ -1,0 +1,391 @@
+<!doctype html>
+<!-- saved from url=(0028)http://tetris.cc/play-tetris -->
+<html lang="en">
+  <head>
+    <script type="module" src="./main.js"></script>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>Tetris</title>
+    <link rel="canonical" href="https://tetris.com/play-tetris" />
+
+    <meta
+      name="description"
+      content="Play Tetris for free. Browser-based online Tetris game. No download required."
+    />
+    <meta
+      property="og:description"
+      content="Play Tetris for free. Browser-based online Tetris game. No download required."
+    />
+    <meta
+      itemprop="description"
+      content="Play Tetris for free. Browser-based online Tetris game. No download required."
+    />
+    <meta
+      name="twitter:description"
+      content="Play Tetris for free. Browser-based online Tetris game. No download required."
+    />
+
+    <meta property="og:title" content="Play Tetris | Free Online Game" />
+    <meta name="twitter:title" content="Play Tetris | Free Online Game" />
+    <meta itemprop="name" content="Play Tetris | Free Online Game" />
+
+    <meta property="og:image" content="/brand/project-logo.png" />
+    <meta itemprop="image" content="/brand/project-logo.png" />
+    <meta itemprop="twitter:image" content="/brand/project-logo.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:site" content="@Tetris_Official" />
+
+    <meta property="og:site_name" content="Tetris" />
+
+    <meta name="ROBOTS" content="INDEX, FOLLOW" />
+
+    <link rel="stylesheet" type="text/css" href="/src/style.css" />
+
+    <script>
+      var STATIC_URL = "https:\/\/tetris.com\/assets\/";
+    </script>
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="/images/favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="/images/favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="/images/favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="/images/favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/images/favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/images/favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/images/favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/images/favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/images/favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/images/favicon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="/images/favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/images/favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="/images/favicon/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <style>
+      .rowT2 {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 0;
+        justify-content: center;
+        align-items: center;
+        padding-left: 5px;
+        padding-right: 5px;
+      }
+
+      #gameArea {
+        display: flex;
+        flex-grow: 0;
+        flex-shrink: 0;
+        justify-content: center;
+        align-items: center;
+        width: 800px;
+        height: 600px;
+        min-width: 660px;
+        min-height: 500px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        margin-left: 30px;
+        margin-right: 30px;
+      }
+      #gameDivContainer {
+        display: none;
+        width: 100%;
+        height: 100%;
+        border-style: none;
+      }
+      #gameAxDivContainer {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 800px;
+        height: 600px;
+        background-image: url("/games-content/play-tetris-content/resources/project-tetriscom/images/main-background.jpg?cbid=16B75C94793C8720");
+        background-repeat: no-repeat;
+        background-color: #ffffff;
+      }
+    </style>
+
+    <script type="text/javascript">
+      if ("" == "1") {
+        rootWindow.location.replace("");
+      }
+
+      var t = 1746188364;
+
+      var pageStartTimeMSEC = Date.now();
+
+      var isDesktop = "1" == "1";
+      var isMobile = "" == "1";
+      var isGameEnabled = "1" == "1";
+
+      var countryISOCode = "AU";
+
+      var rootWindow = window;
+      while (rootWindow.parent && rootWindow.parent != rootWindow) {
+        rootWindow = rootWindow.parent;
+      }
+      var viewportWidth = rootWindow.innerWidth;
+      var viewportHeight = rootWindow.innerHeight;
+
+      //	if ( isMobile )
+      //	{
+      //window.onresize = function() {
+      //	viewportWidth = rootWindow.innerWidth;
+      //	viewportHeight = rootWindow.innerHeight;
+      //	var gameIFrame = document.getElementById( "gameIFrame" );
+      //	if ( gameIFrame )
+      //	{
+      //		gameIFrame.style.width = viewportWidth + "px";
+      //		gameIFrame.style.height = viewportHeight + "px"
+      //	}
+      //}
+      //}
+
+      //----------------------------------------------------------------
+
+      function getPageElapsedTimeMSEC() {
+        return Date.now() - pageStartTimeMSEC;
+      }
+
+      function TGREAIGRIMZPFHREXNXJUMGJNGRPCNDK() {
+        return "0";
+      }
+      function PCDFCJSRUMBRFNRKJOJKWNSJNMNFONFLPFTKYSBKDT() {
+        return "8";
+      }
+
+      function JJJPISFLCSXEVQUPQHDUSHDOTSRK(id, url, width, height) {
+        return (
+          "<iframe id='" +
+          id +
+          "' src='" +
+          url +
+          "' style='position:relative; width:" +
+          width +
+          "; height:" +
+          height +
+          "; left:0px; top:0px; margin:0px; padding:0px; border:none; outline:none; -moz-outline-style:none;'></iframe>"
+        );
+      }
+
+      function executeScriptElements(containerElement) {
+        const scriptElements = containerElement.querySelectorAll("script");
+        Array.from(scriptElements).forEach((scriptElement) => {
+          const clonedElement = document.createElement("script");
+          Array.from(scriptElement.attributes).forEach((attribute) => {
+            clonedElement.setAttribute(attribute.name, attribute.value);
+          });
+          clonedElement.text = scriptElement.text;
+          scriptElement.parentNode.replaceChild(clonedElement, scriptElement);
+        });
+      }
+
+      var interactiveIntervalId = setInterval(function () {
+        if (
+          document.readyState === "complete" ||
+          document.readyState === "interactive"
+        ) {
+          clearInterval(interactiveIntervalId);
+
+          setTimeout(function () {
+            if (isGameEnabled) {
+              var frameWidth;
+              var frameHeight;
+              var frameSource =
+                "/games-content/play-tetris-content/resources/project-tetriscom/game/game-698B044815E60783/target-desktop/game.html?cbidg=698B044815E60783";
+
+              if (isDesktop) {
+                var enableScaling = "" == "1";
+                if (enableScaling) {
+                  frameWidth = "100%";
+                  frameHeight = "100%";
+                } else {
+                  frameWidth = "800px";
+                  frameHeight = "600px";
+                }
+              } else {
+                frameWidth = "100%";
+                frameHeight = "100%";
+                //frameWidth = viewportWidth + "px";
+                //frameHeight = viewportHeight + "px";
+              }
+              var gameDivContainer =
+                document.getElementById("gameDivContainer");
+              gameDivContainer.innerHTML = JJJPISFLCSXEVQUPQHDUSHDOTSRK(
+                "gameIFrame",
+                frameSource,
+                frameWidth,
+                frameHeight
+              );
+            }
+          }, 100);
+        }
+      }, 100);
+    </script>
+
+    <style>
+      #settings-container {
+        width: 100vw;
+        margin-top: 2em;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #settings {
+        padding: 2em;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      #room-listings {
+        text-align: start;
+      }
+
+      .error {
+        color: red;
+      }
+    </style>
+  </head>
+  <div id="settings-container">
+    <div id="settings">
+      <label for="username">
+        Username:
+        <input type="text" name="username" id="username" />
+      </label>
+      <br />
+      <span class="error" id="username-input-error"></span>
+
+      <br />
+      <button id="room-search">Search for rooms</button>
+      <ul id="room-listings"></ul>
+
+      <label for="join-room">
+        Join or create room
+        <input type="text" name="join-room" id="join-room" />
+        <button id="join-room-button">Join/Create Room</button>
+        <br />
+        <span id="room-join-message"></span>
+      </label>
+
+      <br />
+
+      MindMeld Controls:
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <label for="movement"> Movement: </label>
+            </td>
+            <td>
+              <input type="checkbox" name="movement" id="movement" />
+            </td>
+          </tr>
+          <tr>
+            <td><label for="rotation"> Rotation: </label></td>
+            <td><input type="checkbox" name="rotation" id="rotation" /></td>
+          </tr>
+          <tr>
+            <td><label for="hold"> Hold: </label></td>
+            <td><input type="checkbox" name="hold" id="hold" /></td>
+          </tr>
+          <tr>
+            <td><label for="hard-drop"> Hard Drop: </label></td>
+            <td><input type="checkbox" name="hard-drop" id="hard-drop" /></td>
+          </tr>
+          <tr>
+            <td><label for="soft-drop"> Soft Drop: </label></td>
+            <td>
+              <input type="checkbox" name="soft-drop" id="soft-drop" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <body class="tmpl-light side-menu">
+    <div class="page">
+      <div class="rowT2">
+        <div id="gameArea">
+          <div id="gameDivContainer" style="display: flex"></div>
+          <div id="gameAxDivContainer" style="display: none"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
