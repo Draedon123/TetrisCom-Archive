@@ -120,6 +120,23 @@ class Player extends EventEmitter {
         break;
       }
 
+      case "score": {
+        if (this.room === null) {
+          log(`Player ${this.username} has no assigned room`);
+          break;
+        }
+
+        for (const player of this.room.players) {
+          if (player === this) {
+            continue;
+          }
+
+          player.sendScore(message.score);
+        }
+
+        break;
+      }
+
       case "updateUsername": {
         const username = message.username;
 
@@ -216,6 +233,17 @@ class Player extends EventEmitter {
   sendLockPiece() {
     /** @type { import("./messageTypedefs.cjs").LockPieceMessage } */
     const message = { type: "lockPiece" };
+
+    this.client.sendText(JSON.stringify(message));
+  }
+
+  /**
+   * @private
+   * @param { number } score
+   */
+  sendScore(score) {
+    /** @type { import("./messageTypedefs.cjs").ScoreMessage} */
+    const message = { type: "score", score };
 
     this.client.sendText(JSON.stringify(message));
   }

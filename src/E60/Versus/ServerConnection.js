@@ -168,6 +168,13 @@ class ServerConnection {
         break;
       }
 
+      case "score": {
+        getMGameMgr().mGame.mPlayers.mObjects[1].mComponents.mObjects[1].mScore =
+          message.score;
+
+        break;
+      }
+
       default: {
         console.error(
           // @ts-expect-error
@@ -209,6 +216,20 @@ class ServerConnection {
     const originalSetLivePieceTransform =
       playerModel.setLivePieceTransform.bind(playerModel);
     const originalLockLivePiece = playerModel.lockLivePiece.bind(playerModel);
+    const scoreComponent = players[0].mComponents.mObjects[1];
+
+    let score = 0;
+    const sendScore = this.sendScoreToServer.bind(this);
+    Object.defineProperty(scoreComponent, "mScore", {
+      get() {
+        return score;
+      },
+      set(newScore) {
+        score = newScore;
+        sendScore(score);
+      },
+      configurable: true,
+    });
 
     // effectively pause gravity for other players
     /**
@@ -300,6 +321,17 @@ class ServerConnection {
         .x3058980791795481325x.mModel;
 
     model.lockLivePiece();
+  }
+
+  /**
+   * @private
+   * @param { number } score
+   */
+  sendScoreToServer(score) {
+    /** @type { import("./server/messageTypedefs.cjs").ScoreMessage} */
+    const message = { type: "score", score };
+
+    this.sendMessage(JSON.stringify(message));
   }
 
   /**
