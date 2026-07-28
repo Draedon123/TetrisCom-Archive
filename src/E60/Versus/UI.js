@@ -46,6 +46,11 @@ class UI {
       document.getElementById("room-join-message")
     );
 
+    this.usernameInput.disabled = false;
+    this.searchRoomsButton.disabled = false;
+    this.joinRoomInput.disabled = false;
+    this.joinRoomButton.disabled = false;
+
     this.usernameInput.addEventListener("change", () => {
       const username = this.usernameInput.value;
 
