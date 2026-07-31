@@ -64,7 +64,11 @@ class Room {
       0
     );
 
-    if (numReadyPlayers === this.players.length) {
+    if (
+      numReadyPlayers === this.players.length &&
+      numReadyPlayers &&
+      this.players.length >= 2
+    ) {
       setTimeout(() => this.startGame(), 2000);
     }
   }
