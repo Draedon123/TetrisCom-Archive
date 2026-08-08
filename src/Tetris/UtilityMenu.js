@@ -3,13 +3,14 @@
 import { UIComponent } from "../js/UIComponent.js";
 import { encode } from "../js/encodeDecode.js";
 
-/** @typedef { { cheatsEnabled: boolean, toggleKeybind: string, restartKeybind: string, lockDelay: boolean } } Settings */
+/** @typedef { { cheatsEnabled: boolean, toggleKeybind: string, restartKeybind: string, lockDelay: boolean, queueLength: number } } Settings */
 
 const IS_CHEATING = {
   seed: true,
   keybind: false,
   restartKeybind: false,
   lockDelay: true,
+  queueLength: true,
 };
 
 class UtilityMenu extends UIComponent {
@@ -19,6 +20,7 @@ class UtilityMenu extends UIComponent {
     toggleKeybind: "Backslash",
     restartKeybind: "KeyR",
     lockDelay: true,
+    queueLength: 3,
   };
 
   /** @readonly @type { number[] } */
@@ -38,6 +40,8 @@ class UtilityMenu extends UIComponent {
   seedInput;
   /** @private @readonly @type { HTMLInputElement } */
   lockDelayInput;
+  /** @private @readonly @type { HTMLInputElement } */
+  queueLengthInput;
   /** @private @readonly @type { HTMLButtonElement } */
   closeButton;
   /** @private @readonly @type { HTMLButtonElement } */
@@ -83,6 +87,9 @@ class UtilityMenu extends UIComponent {
     this.lockDelayInput = /** @type { HTMLInputElement } */ (
       this.getElementById("lockDelayInput")
     );
+    this.queueLengthInput = /** @type { HTMLInputElement } */ (
+      this.getElementById("queueLengthInput")
+    );
     this.closeButton = /** @type { HTMLButtonElement } */ (
       this.getElementById("closeButton")
     );
@@ -100,6 +107,7 @@ class UtilityMenu extends UIComponent {
       keybind: overrides.keybind ?? !isMobile,
       restartKeybind: overrides.restartKeybind ?? !isMobile,
       lockDelay: overrides.lockDelay ?? this.settings.cheatsEnabled,
+      queueLength: overrides.queueLength ?? this.settings.cheatsEnabled,
     };
 
     for (const [utility, enabled] of Object.entries(this.enabledUtilities)) {
@@ -156,6 +164,7 @@ class UtilityMenu extends UIComponent {
     this.initialiseLockDelayInput();
     this.initialiseToggleMenuKeybindInput();
     this.initialiseRestartKeybind();
+    this.initialiseQueueLengthInput();
 
     this.close();
 
@@ -357,6 +366,33 @@ class UtilityMenu extends UIComponent {
 
     document.addEventListener("keydown", eventListener);
     gameCanvas.addEventListener("keydown", eventListener);
+  }
+
+  /** @private */
+  initialiseQueueLengthInput() {
+    this.queueLengthInput.value = this.settings.queueLength.toString();
+
+    // @ts-expect-error
+    const mBPSApp = this.iframe.contentWindow.mBPSApp;
+
+    this.queueLengthInput.addEventListener("change", () => {
+      const value = parseInt(this.queueLengthInput.value);
+      const queueLength = isNaN(value)
+        ? UtilityMenu.DEFAULT_SETTINGS.queueLength
+        : Math.max(value, 0);
+
+      this.queueLengthInput.value = queueLength.toString();
+
+      mBPSApp.x142576548220838677x.setIntValueWithKeyStringPath(
+        "gameMgr.game.players.player-base.params.pieceQueueCapacity",
+        Math.max(queueLength, 1)
+      );
+
+      mBPSApp.x142576548220838677x.setIntValueWithKeyStringPath(
+        "gameMgr.gameView.playerViews.playerView-base.nextQueue.maxNumVisiblePieces",
+        queueLength
+      );
+    });
   }
 }
 
