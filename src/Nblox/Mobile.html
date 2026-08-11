@@ -280,7 +280,7 @@
               min-height: 90px;
               max-height: 90px;
             "
-            src="./src/APMEX_1_H.jpeg"
+            src="../src/APMEX_1_H.jpeg"
         /></a>
       </div>
     </div>
@@ -305,7 +305,7 @@
           target="_blank"
           ><img
             style="display: flex; min-width: 300px; min-height: 600px"
-            src="./src/movie-1-v.png"
+            src="../src/movie-1-v.png"
         /></a>
       </div>
 
@@ -313,7 +313,7 @@
         <div id="gameDivContainer" style="display: flex">
           <iframe
             id="gameIFrame"
-            src="./games-content/nblox/resources/project-nbloxcom/game/game-2061DB924E2F0AC2/target-desktop/game.html"
+            src="../games-content/nblox/resources/project-nbloxcom/game/game-2061DB924E2F0AC2/target-desktop/game.html"
             style="
               position: relative;
               width: 728px;
@@ -350,7 +350,7 @@
           target="_blank"
           ><img
             style="display: flex; min-width: 300px; min-height: 600px"
-            src="./src/IG_follow-us_V.jpg"
+            src="../src/IG_follow-us_V.jpg"
         /></a>
       </div>
     </div>
@@ -377,7 +377,7 @@
               min-height: 90px;
               max-height: 90px;
             "
-            src="./src/Hyperfly-H-230801-01.jpg"
+            src="../src/Hyperfly-H-230801-01.jpg"
         /></a>
       </div>
     </div>
@@ -387,20 +387,20 @@
         class="moreGamesButton"
         href="https://tetris.com/play-tetris"
         target="_blank"
-        ><img src="./src/game--play-tetris--normal.png" alt="Play Tetris"
+        ><img src="../src/game--play-tetris--normal.png" alt="Play Tetris"
       /></a>
       <a
         class="moreGamesButton"
         href="https://tetris.com/play-tetrisgems"
         target="_blank"
-        ><img src="./src/game--gems--normal.png" alt="Play Tetris Gems"
+        ><img src="../src/game--gems--normal.png" alt="Play Tetris Gems"
       /></a>
       <a
         class="moreGamesButton"
         href="https://tetris.com/play-tetrismindbender"
         target="_blank"
         ><img
-          src="./src/game--play-tetrismindbender--normal.png"
+          src="../src/game--play-tetrismindbender--normal.png"
           alt="Play Tetris Mind Bender"
       /></a>
     </div>
@@ -440,7 +440,7 @@
         <p class="sectionTitle"><b>CONTROL OPTIONS & SCORES</b></p>
         <img
           id="controlsAndScoringImage"
-          src="./src/controls_and_scoring.png"
+          src="../src/controls_and_scoring.png"
           alt="Control options & scores"
         />
         <p class="sectionTitle"><b>GENERAL GAMEPLAY INFO</b></p>
@@ -469,7 +469,7 @@
     <div class="rowT1-footer">
       <div id="footerDivLeftDiv">
         <a href="https://tetris.com/"
-          ><img src="./src/Authentic-2019a.png" alt="tetris.com"
+          ><img src="../src/Authentic-2019a.png" alt="tetris.com"
         /></a>
       </div>
       <div id="footerDivRightDiv">
@@ -478,19 +478,19 @@
             class="socialLink"
             href="https://www.facebook.com/Tetris"
             target="_blank"
-            ><img src="./src/icon_facebook.png" alt="Facebook"
+            ><img src="../src/icon_facebook.png" alt="Facebook"
           /></a>
           <a
             class="socialLink"
             href="https://twitter.com/tetris_official"
             target="_blank"
-            ><img src="./src/icon_twitter.png" alt="Twitter"
+            ><img src="../src/icon_twitter.png" alt="Twitter"
           /></a>
           <a
             class="socialLink"
             href="https://www.instagram.com/tetris_official"
             target="_blank"
-            ><img src="./src/icon_instagram.png" alt="Instagram"
+            ><img src="../src/icon_instagram.png" alt="Instagram"
           /></a>
         </div>
         <div id="footerLegalDiv">
@@ -558,5 +558,46 @@
     </div>
 
     <div id="WBFOPSQKVDEKKG" style="display: none"></div>
+
+    <script type="module">
+      import { encode, decode } from "/js/encodeDecode.js";
+      import { overrideXhr } from "../js/overrideXhr.js";
+
+      const dataFileName = encode("BPSTetrisGame-FTO.json", -1);
+      overrideXhr(
+        (url) => url.includes("/" + dataFileName + ".txt"),
+        (fileContents) => {
+          const parsed = JSON.parse(decode(fileContents));
+
+          parsed.application.scenes.options.viewHierarchy.views[
+            "_BPSUIPanel:menu"
+          ].content[
+            "_BPSUIPanel:item__pointerInputType~platforms-osx,ios,unitymobile,html5mobile"
+          ].enabled = true;
+          parsed.application.scenes.options.viewHierarchy.views[
+            "_BPSUIPanel:menu"
+          ].content[
+            "_BPSUIPanel:item__enableSwipeCCWRotation~platforms-osx,ios,unitymobile,html5mobile"
+          ].enabled = true;
+          parsed.gameMgr.game.players[
+            "player-base"
+          ].playerComponents.control.params.gestureInput.enabled = true;
+          parsed.gameMgr.game.players[
+            "player-base"
+          ].playerComponents.control.params.gestureInput[
+            "minHoldDragDistanceYFXPT@i"
+          ] = 999999999;
+          parsed.application.savedDataId += "-mobile";
+          // parsed.application.launchFullScreen = false;
+          // parsed.gameMgr.gameView.gameViewParams.pauseButton.enabled = true;
+          // parsed.gameMgr.gameView.gameViewParams.pauseButton.transform["x@f"] =
+          //   160;
+
+          const customData = encode(JSON.stringify(parsed), -1);
+
+          return customData;
+        }
+      );
+    </script>
   </body>
 </html>

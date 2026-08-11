@@ -10,6 +10,7 @@ const SCORE_KEYS = {
   E60: "E60",
   E60_MOBILE: "E60-mobile",
   NBLOX: "BPSTetrisGame-FTO-v1",
+  NBLOX_MOBILE: "BPSTetrisGame-FTO-v1-mobile",
 };
 
 for (const [game, name] of Object.entries(SCORE_KEYS)) {

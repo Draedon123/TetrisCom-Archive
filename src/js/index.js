@@ -15,7 +15,7 @@ const mindBenderScores = parseSaveString(
   ) ?? ""
 );
 const nbloxScores = parseSaveString(
-  localStorage.getItem(SCORE_KEYS["NBLOX"]) ?? ""
+  localStorage.getItem(SCORE_KEYS[isMobile ? "NBLOX_MOBILE" : "NBLOX"]) ?? ""
 );
 const e60Scores = parseSaveString(
   localStorage.getItem(SCORE_KEYS[isMobile ? "E60_MOBILE" : "E60"]) ?? ""
@@ -51,7 +51,7 @@ new GameRow(
   "N-Blox Logo",
   Math.max(...nbloxScores),
   isMobile,
-  false
+  true
 ).mount(document.body);
 
 new GameRow(
