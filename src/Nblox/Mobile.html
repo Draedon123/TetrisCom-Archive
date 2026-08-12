@@ -334,7 +334,10 @@
 
         parsed.application.scenes.gameOver.viewHierarchy.views[
           "_BPSUIPanel:menu"
-        ].transform["x@f"] += 115;
+        ].transform["x@f"] += xOffset;
+        parsed.application.scenes.gameOver.viewHierarchy.views[
+          "_BPSUIPanel:menu"
+        ].style.content.style["horizontalPadding@f"] = 9.5;
 
         parsed.application.scenes.help.viewHierarchy.views[
           "_BPSUIPanel:menu"
