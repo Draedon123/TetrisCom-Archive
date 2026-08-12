@@ -299,6 +299,19 @@
         parsed.application.appSupportFactory.styles.backgroundDimmingView.resource_texture =
           "project-Movie/project-E60/art/blank-background-mobile.png";
 
+        parsed.application.scenes.gameOver.viewHierarchy.views[
+          "_BPSUIPanel:menu"
+        ].content["_BPSView:space-1"].transform["height@f"] /= 2;
+        parsed.application.scenes.gameOver.viewHierarchy.views[
+          "_BPSUIPanel:menu"
+        ].transform["width@f"] = 300;
+        parsed.application.scenes.gameOver.viewHierarchy.views[
+          "_BPSUIPanel:menu"
+        ].style.content.style["verticalPadding@f"] /= 2;
+        parsed.application.scenes.gameOver.viewHierarchy.views[
+          "_BPSUIPanel:menu"
+        ].transform["y@f"] -= 20;
+
         parsed.application.scenes.mainMenu.viewHierarchy.views[
           "_BPSUIPanel:menu"
         ].transform["y@f"] = 18;
