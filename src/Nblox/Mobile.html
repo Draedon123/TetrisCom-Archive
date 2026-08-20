@@ -284,8 +284,8 @@
         parsed.application["windowWidth@i"] = 428;
         parsed.application["windowHeight@i"] = 640;
 
-        const xOffset = 55;
-        const yOffset = 35;
+        const xOffset = 53;
+        const yOffset = -22;
 
         parsed.application.backgroundImage.style.resource_texture =
           "project-FTO/art/main-background-mobile.png";
@@ -367,38 +367,40 @@
 
         const pauseButtonTransform =
           parsed.gameMgr.gameView.gameViewParams.pauseButton.transform;
-        pauseButtonTransform["x@f"] -= 195;
-        pauseButtonTransform["y@f"] -= 200;
+        pauseButtonTransform["x@f"] = 150;
+        pauseButtonTransform["y@f"] = 265;
 
         const audioButtonTransform =
           parsed.gameMgr.gameView.gameViewParams.audioButton.transform;
-        audioButtonTransform["x@f"] = pauseButtonTransform["x@f"] - 150;
-        audioButtonTransform["y@f"] = pauseButtonTransform["y@f"];
+        audioButtonTransform["x@f"] = 150;
+        audioButtonTransform["y@f"] = -260;
 
         parsed.gameMgr.gameView.playerViews["playerView-base"].nextQueue[
           "firstPieceCenterX@f"
-        ] -= 2.5;
+        ] -= 3.5;
         parsed.gameMgr.gameView.playerViews["playerView-base"].nextQueue[
           "firstPieceCenterY@f"
-        ] += 39;
-
-        const linesValue =
-          parsed.gameMgr.gameView.playerViews["playerView-base"].linesValue;
-        linesValue["positionX@f"] = 113;
-        linesValue["positionY@f"] = -197;
-        linesValue.BPSTetBitmapTextView.horizontalAlignment = "left";
+        ] -= 22;
 
         const scoreValue =
           parsed.gameMgr.gameView.playerViews["playerView-base"].scoreValue;
-        scoreValue["positionX@f"] = linesValue["positionX@f"];
-        scoreValue["positionY@f"] = linesValue["positionY@f"] + 134;
-        scoreValue.BPSTetBitmapTextView.horizontalAlignment = "left";
+        scoreValue["positionX@f"] = 60;
+        scoreValue["positionY@f"] = 258.5;
+        scoreValue.BPSTetBitmapTextView.horizontalAlignment = "right";
+        scoreValue.BPSTetBitmapTextView.resource_font =
+          "project-FTO/art/fonts/font-FTO-22";
+
+        const linesValue =
+          parsed.gameMgr.gameView.playerViews["playerView-base"].linesValue;
+        linesValue["positionX@f"] = 201;
+        linesValue["positionY@f"] = -123;
+        linesValue.BPSTetBitmapTextView.horizontalAlignment = "right";
 
         const levelValue =
           parsed.gameMgr.gameView.playerViews["playerView-base"].levelValue;
-        levelValue["positionX@f"] = scoreValue["positionX@f"];
-        levelValue["positionY@f"] = scoreValue["positionY@f"] + 134;
-        levelValue.BPSTetBitmapTextView.horizontalAlignment = "left";
+        levelValue["positionX@f"] = linesValue["positionX@f"];
+        levelValue["positionY@f"] = linesValue["positionY@f"] + 136;
+        levelValue.BPSTetBitmapTextView.horizontalAlignment = "right";
 
         const customData = encode(JSON.stringify(parsed), -1);
 
